@@ -42,8 +42,8 @@ function prefixPublicAssetUrls() {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: repositoryBase,
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : repositoryBase,
 
   plugins: [react(), prefixPublicAssetUrls()],
 
@@ -95,4 +95,4 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['three']
   }
-});
+}));
