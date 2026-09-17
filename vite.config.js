@@ -1,9 +1,51 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { readdirSync } from 'node:fs';
+import { join, relative } from 'node:path';
+
+const repositoryBase = '/-Dr.-Harshil-Shah-Orthopaedic-Care-Website/';
+
+function getPublicAssetPaths(directory, root = directory) {
+  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const filePath = join(directory, entry.name);
+
+    if (entry.isDirectory()) {
+      return getPublicAssetPaths(filePath, root);
+    }
+
+    return [`/${relative(root, filePath).replaceAll('\\', '/')}`];
+  });
+}
+
+function prefixPublicAssetUrls() {
+  const publicAssetPaths = getPublicAssetPaths(join(process.cwd(), 'public'));
+
+  return {
+    name: 'prefix-public-asset-urls',
+    generateBundle(_options, bundle) {
+      for (const output of Object.values(bundle)) {
+        if (output.type !== 'asset' && output.type !== 'chunk') continue;
+
+        let source = typeof output.source === 'string' ? output.source : output.code;
+
+        for (const assetPath of publicAssetPaths) {
+          const escapedPath = assetPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          source = source.replace(new RegExp(`(["'])${escapedPath}`, 'g'), `$1${repositoryBase.slice(0, -1)}${assetPath}`);
+          source = source.replace(new RegExp(`url\\(${escapedPath}`, 'g'), `url(${repositoryBase.slice(0, -1)}${assetPath}`);
+        }
+
+        if (output.type === 'asset') output.source = source;
+        else output.code = source;
+      }
+    }
+  };
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  base: repositoryBase,
+
+  plugins: [react(), prefixPublicAssetUrls()],
 
   server: {
     port: 3000,
