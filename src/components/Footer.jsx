@@ -3,10 +3,25 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    try {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+      document.documentElement.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+      document.body.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    } catch {
+      window.scrollTo(0, 0);
+    }
   };
 
   return (
@@ -64,17 +79,7 @@ export default function Footer() {
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="2.5" />
               </svg>
             </a>
-            <a
-              href="https://www.facebook.com/Knee.Hip.and.Shoulder.Surgeon/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              style={{ color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: '#1877f2' }}
-            >
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
-            </a>
+
             <a
               href="https://www.linkedin.com/in/harshil-shah-45b730321/"
               target="_blank"
@@ -152,7 +157,7 @@ export default function Footer() {
           </a>
           <a
             className="footer-contact-email"
-            href="mailto:Harshilshah199706@gmail.com"
+            href="mailto:harshilshah199706@gmail.com"
           >
             <span className="footer-contact-icon">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -161,7 +166,7 @@ export default function Footer() {
               </svg>
             </span>
             <span className="footer-contact-text">
-              Harshilshah199706@gmail.com
+              harshilshah199706@gmail.com
             </span>
           </a>
           <span className="footer-hours-text">Mon – Sat: 9:00 AM – 7:00 PM</span>

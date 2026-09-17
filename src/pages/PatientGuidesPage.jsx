@@ -109,7 +109,7 @@ const PATIENT_BROCHURES = [
     badge: 'Knee Arthroplasty',
     description: 'Detailed insights on knee arthritis grading, robotic-assisted surgical precision, prehab routines, implant longevity, and safe recovery.',
     topics: ['Robotic Knee Replacement', 'Pre-Op Fasting & Prehab', 'Same-Day Walking (ERAS)', 'Home Recovery Protocol'],
-    accent: '#0284c7',
+    accent: '#146c72',
     icon: (
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -152,7 +152,7 @@ const PATIENT_BROCHURES = [
     badge: 'Sports Medicine',
     description: 'Athletic recovery protocol covering keyhole ligament reconstruction (ACL/PCL/MCL), meniscal repair, cartilage restoration, and return to sports.',
     topics: ['Keyhole Arthroscopic Repair', 'ACL & Meniscus Treatment', 'Sports Rehabilitation Phases', 'Safe Return to Athletics'],
-    accent: '#2563eb',
+    accent: '#1e7e85',
     icon: (
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 12h-4l-3 9L9 3l-3 9H2" />

@@ -1137,7 +1137,7 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
             minHeight: '380px',
             padding: '24px',
             textAlign: 'center',
-            background: 'radial-gradient(circle at center, rgba(14, 116, 144, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%)',
+            background: 'radial-gradient(circle at center, rgba(20, 108, 114, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%)',
             borderRadius: '16px'
           }}>
             <img
@@ -1145,7 +1145,7 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
               alt={`${selectedJoint} Anatomy`}
               style={{ maxHeight: '240px', objectFit: 'contain', marginBottom: '16px', filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.3))' }}
             />
-            <p style={{ color: '#38bdf8', fontWeight: 600, fontSize: '0.95rem', marginBottom: '4px' }}>
+            <p style={{ color: '#3bb3bc', fontWeight: 600, fontSize: '0.95rem', marginBottom: '4px' }}>
               {selectedJoint.toUpperCase()} Anatomy Overview
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.85rem', maxWidth: '380px' }}>

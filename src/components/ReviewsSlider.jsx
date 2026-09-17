@@ -151,7 +151,7 @@ export default function ReviewsSlider() {
               What our patients <span>say about us</span>
             </h2>
             <p className="reviews-main-desc">
-              Real Google reviews from patients and families treated by Dr. Harshil Shah in Ahmedabad.
+              Verified Google reviews from patients and families treated by Dr. Harshil Shah in Ahmedabad.
             </p>
           </div>
 

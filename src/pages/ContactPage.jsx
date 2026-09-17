@@ -59,7 +59,7 @@ export default function ContactPage() {
 
             <div className="contact-emergency-card">
               <div className="contact-emergency-icon-wrap">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0284c7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M6 18h12" />
                   <path d="M6 14h12" />
                   <path d="M12 2v2" />
@@ -120,11 +120,11 @@ export default function ContactPage() {
               </div>
             </a>
 
-            <a href="mailto:Harshilshah199706@gmail.com" className="contact-feature-card">
+            <a href="mailto:harshilshah199706@gmail.com" className="contact-feature-card">
               <span className="contact-num-badge">04</span>
               <div className="contact-card-body">
                 <span className="contact-card-kicker">EMAIL</span>
-                <strong className="contact-card-main">Harshilshah199706@gmail.com</strong>
+                <strong className="contact-card-main">harshilshah199706@gmail.com</strong>
                 <p className="contact-card-sub">Share medical queries or scan reports</p>
               </div>
               <div className="contact-arrow-circle">
@@ -170,7 +170,7 @@ export default function ContactPage() {
               <div className="visit-step-top">
                 <span className="visit-step-num">STEP 01</span>
                 <div className="visit-step-icon-badge">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0284c7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                     <polyline points="14 2 14 8 20 8" />
                     <line x1="16" y1="13" x2="8" y2="13" />
@@ -192,7 +192,7 @@ export default function ContactPage() {
               <div className="visit-step-top">
                 <span className="visit-step-num">STEP 02</span>
                 <div className="visit-step-icon-badge">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0284c7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
                     <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
                   </svg>
@@ -212,7 +212,7 @@ export default function ContactPage() {
               <div className="visit-step-top">
                 <span className="visit-step-num">STEP 03</span>
                 <div className="visit-step-icon-badge">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0284c7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                     <path d="M12 7v4" />
                     <path d="M12 15h.01" />
@@ -232,7 +232,7 @@ export default function ContactPage() {
           {/* Bottom Tip Bar */}
           <div className="visit-tip-bar">
             <div className="visit-tip-icon">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0284c7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 <polyline points="9 12 11 14 15 10" />
               </svg>

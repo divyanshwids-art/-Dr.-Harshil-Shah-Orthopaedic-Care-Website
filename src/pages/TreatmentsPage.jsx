@@ -127,7 +127,7 @@ export default function TreatmentsPage() {
                   alt="Joint Anatomy"
                   style={{ maxHeight: '220px', objectFit: 'contain', margin: '0 auto 16px' }}
                 />
-                <h4 style={{ color: '#38bdf8', marginBottom: '8px' }}>Specialist Orthopaedic Anatomy</h4>
+                <h4 style={{ color: '#3bb3bc', marginBottom: '8px' }}>Specialist Orthopaedic Anatomy</h4>
                 <p style={{ color: '#94a3b8', fontSize: '0.9rem', maxWidth: '400px', margin: '0 auto 16px' }}>
                   Explore specific knee, hip, and shoulder conditions and surgical treatments in the sections below.
                 </p>

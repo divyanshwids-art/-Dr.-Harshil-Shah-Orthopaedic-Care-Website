@@ -3,7 +3,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [brochureDropdownOpen, setBrochureDropdownOpen] = useState(false);
   const [galleryDropdownOpen, setGalleryDropdownOpen] = useState(false);
   const [mobileGalleryOpen, setMobileGalleryOpen] = useState(false);
@@ -31,18 +31,8 @@ export default function Header() {
     let rafId = null;
 
     const updateHeader = () => {
-      if (window.innerWidth > 1024) {
-        const scrollY = window.scrollY;
-        if (scrollY > 30) {
-          setIsHeaderHidden(true);
-          setBrochureDropdownOpen(false);
-          setGalleryDropdownOpen(false);
-        } else {
-          setIsHeaderHidden(false);
-        }
-      } else {
-        setIsHeaderHidden(false);
-      }
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
     };
 
     const handleScrollOrResize = () => {
@@ -70,7 +60,6 @@ export default function Header() {
     setGalleryDropdownOpen(false);
     setMobileGalleryOpen(false);
     setMobileBrochureOpen(false);
-    setIsHeaderHidden(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -87,7 +76,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`site-header ${isHeaderHidden ? 'is-header-hidden' : ''}`}
+        className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}
         id="site-header"
       >
         <div className="shell nav-wrap">
@@ -148,20 +137,20 @@ export default function Header() {
                 </div>
                 <Link to="/operation-theatre" className="nav-dropdown-link" onClick={() => setGalleryDropdownOpen(false)}>
                   <div className="dropdown-link-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="4" width="20" height="16" rx="3" />
-                      <polygon points="10 8 16 12 10 16 10 8" fill="#0284c7" />
+                      <polygon points="10 8 16 12 10 16 10 8" fill="#146c72" />
                     </svg>
                   </div>
                   <div>
                     <strong>Surgical &amp; OT Videos</strong>
                     <small>Live surgery recordings &amp; robotic procedures</small>
                   </div>
-                  <span className="dropdown-dl-tag" style={{ background: '#0284c7', color: '#ffffff', fontWeight: 800 }}>VIDEOS</span>
+                  <span className="dropdown-dl-tag" style={{ background: '#146c72', color: '#ffffff', fontWeight: 800 }}>VIDEOS</span>
                 </Link>
                 <Link to="/gallery" className="nav-dropdown-link" onClick={() => setGalleryDropdownOpen(false)}>
                   <div className="dropdown-link-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
                       <circle cx="12" cy="13" r="4" />
                     </svg>
@@ -173,7 +162,7 @@ export default function Header() {
                 </Link>
                 <Link to="/gallery" className="nav-dropdown-link" onClick={() => setGalleryDropdownOpen(false)}>
                   <div className="dropdown-link-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" />
                       <path d="M9 9h6M12 6v6" />
                       <path d="M10 16h4" />
@@ -218,7 +207,7 @@ export default function Header() {
                   className="nav-dropdown-link"
                 >
                   <div className="dropdown-link-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                       <polyline points="14 2 14 8 20 8" />
                       <line x1="16" y1="13" x2="8" y2="13" />
@@ -240,7 +229,7 @@ export default function Header() {
                   className="nav-dropdown-link"
                 >
                   <div className="dropdown-link-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                       <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                     </svg>
@@ -259,7 +248,7 @@ export default function Header() {
                   className="nav-dropdown-link"
                 >
                   <div className="dropdown-link-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                     </svg>
                   </div>
@@ -274,7 +263,7 @@ export default function Header() {
                   className="nav-dropdown-link"
                 >
                   <div className="dropdown-link-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
                     </svg>
                   </div>
@@ -303,16 +292,7 @@ export default function Header() {
           {/* FAR RIGHT: Book Appointment Button */}
           <Link className="button button-small nav-cta" to="/appointment">
             <span className="nav-cta-full">Book appointment</span>
-            <span className="nav-cta-short">Book</span>{' '}
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="icon">
-              <path
-                d="M5 12h14M14 7l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <span className="nav-cta-short">Book</span>
           </Link>
 
           {/* Mobile Hamburger Toggle */}
@@ -399,21 +379,21 @@ export default function Header() {
             {mobileGalleryOpen && (
               <div className="mobile-nav-sublinks">
                 <Link to="/operation-theatre" onClick={() => setMobileMenuOpen(false)}>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
                     <rect x="2" y="4" width="20" height="16" rx="3" />
-                    <polygon points="10 8 16 12 10 16 10 8" fill="#0284c7" />
+                    <polygon points="10 8 16 12 10 16 10 8" fill="#146c72" />
                   </svg>
-                  Surgical &amp; OT Videos <span className="mobile-pdf-pill" style={{ background: '#0284c7', color: '#fff' }}>VIDEOS</span>
+                  Surgical &amp; OT Videos <span className="mobile-pdf-pill" style={{ background: '#146c72', color: '#fff' }}>VIDEOS</span>
                 </Link>
                 <Link to="/gallery" onClick={() => setMobileMenuOpen(false)}>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
                     <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
                     <circle cx="12" cy="13" r="4" />
                   </svg>
                   All Moments
                 </Link>
                 <Link to="/gallery" onClick={() => setMobileMenuOpen(false)}>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
                     <path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" />
                     <path d="M9 9h6M12 6v6" />
                   </svg>
@@ -442,7 +422,7 @@ export default function Header() {
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                     <polyline points="14 2 14 8 20 8" />
                   </svg>
@@ -454,7 +434,7 @@ export default function Header() {
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                   </svg>
@@ -466,13 +446,13 @@ export default function Header() {
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
                     <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                   </svg>
                   Knee Sports Injury Guide <span className="mobile-pdf-pill">PDF</span>
                 </a>
                 <div aria-disabled="true">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
                     <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
                   </svg>
                   Shoulder Arthroscopy Guide <span className="mobile-pdf-pill">PDF</span>

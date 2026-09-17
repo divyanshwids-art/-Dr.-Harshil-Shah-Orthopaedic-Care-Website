@@ -48,13 +48,13 @@ function PageShell() {
       flexDirection: 'column',
       gap: '16px',
       padding: '40px 20px',
-      color: '#0284c7'
+      color: '#146c72'
     }}>
       <div style={{
         width: '40px',
         height: '40px',
-        border: '3px solid rgba(2, 132, 199, 0.15)',
-        borderTopColor: '#0284c7',
+        border: '3px solid rgba(20, 108, 114, 0.15)',
+        borderTopColor: '#146c72',
         borderRadius: '50%',
         animation: 'spin 0.8s linear infinite'
       }} />

@@ -286,7 +286,7 @@ export default function GalleryPage() {
               <Link
                 to="/operation-theatre"
                 className="gallery-filter-pill"
-                style={{ background: 'linear-gradient(135deg, #0284c7, #0369a1)', color: '#ffffff', borderColor: '#38bdf8', fontWeight: 800 }}
+                style={{ background: 'linear-gradient(135deg, #146c72, #0e555a)', color: '#ffffff', borderColor: '#3bb3bc', fontWeight: 800 }}
               >
                 🎬 Surgical &amp; OT Videos (19) →
               </Link>
