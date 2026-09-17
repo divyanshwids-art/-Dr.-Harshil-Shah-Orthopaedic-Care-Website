@@ -31559,3 +31559,372 @@ html body * {
     padding-bottom: 36px !important;
   }
 }
+
+/* ============================================================
+   Hero Highlights Box Section (replaces old slideshow)
+   ============================================================ */
+.hero-highlights-box-section {
+  background: linear-gradient(135deg, #f0f6ff 0%, #ffffff 60%, #eef4fe 100%);
+  border-bottom: 1px solid #dce8f9;
+  padding: 36px 0 32px;
+}
+
+.hero-highlights-box-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- Buttons Row --- */
+.hero-highlights-btns {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-hl-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1e4fa0;
+  color: #fff;
+  font-size: 0.93rem;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.22s, transform 0.18s, box-shadow 0.22s;
+  box-shadow: 0 3px 12px rgba(30, 79, 160, 0.22);
+  letter-spacing: 0.01em;
+}
+
+.hero-hl-btn-primary:hover {
+  background: #163c82;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(30, 79, 160, 0.3);
+}
+
+.hero-hl-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #1e4fa0;
+  font-size: 0.93rem;
+  font-weight: 600;
+  padding: 11px 22px;
+  border-radius: 8px;
+  border: 2px solid #1e4fa0;
+  text-decoration: none;
+  transition: background 0.22s, color 0.22s, transform 0.18s;
+}
+
+.hero-hl-btn-secondary:hover {
+  background: #1e4fa0;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* --- Divider --- */
+.hero-hl-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c5d9f5, transparent);
+}
+
+/* --- Highlights Items Row --- */
+.hero-highlights-items {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #dce8f9;
+  box-shadow: 0 4px 24px rgba(45, 103, 168, 0.08);
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero-hl-item {
+  flex: 1 1 180px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 20px 24px;
+  transition: background 0.2s;
+}
+
+.hero-hl-item:hover {
+  background: #f4f9ff;
+}
+
+.hero-hl-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: #eff5ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d6e6fb;
+}
+
+.hero-hl-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-hl-line1 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a2d4f;
+  line-height: 1.3;
+}
+
+.hero-hl-line2 {
+  font-size: 0.82rem;
+  color: #5a7aab;
+  font-weight: 500;
+}
+
+/* Separator between highlight items */
+.hero-hl-sep {
+  width: 1px;
+  height: 52px;
+  background: #dce8f9;
+  flex-shrink: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero-highlights-box-section {
+    padding: 24px 0 20px;
+  }
+
+  .hero-highlights-items {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .hero-hl-item {
+    width: 100%;
+    padding: 16px 20px;
+  }
+
+  .hero-hl-sep {
+    width: 100%;
+    height: 1px;
+  }
+
+  .hero-highlights-btns {
+    gap: 10px;
+  }
+
+  .hero-hl-btn-primary,
+  .hero-hl-btn-secondary {
+    font-size: 0.87rem;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-highlights-btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-hl-btn-primary,
+  .hero-hl-btn-secondary {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ============================================================
+   Dr. Harshil Shah Top Banner
+   ============================================================ */
+.dr-banner-top {
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.dr-banner-top-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ============================================================
+   Hero One-Line Bar (single row: buttons + 4 highlights)
+   ============================================================ */
+.hero-oneline-section {
+  background: #ffffff;
+  border-bottom: 1.5px solid #dce8f9;
+  box-shadow: 0 2px 12px rgba(45, 103, 168, 0.07);
+}
+
+.hero-oneline-bar {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 64px;
+  overflow: hidden;
+}
+
+/* --- Buttons --- */
+.hero-ol-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #1e4fa0;
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 7px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(30, 79, 160, 0.2);
+  letter-spacing: 0.01em;
+  margin-right: 10px;
+}
+
+.hero-ol-btn-primary:hover {
+  background: #163c82;
+  box-shadow: 0 4px 14px rgba(30, 79, 160, 0.3);
+}
+
+.hero-ol-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  color: #1e4fa0;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 7px;
+  border: 1.5px solid #1e4fa0;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero-ol-btn-secondary:hover {
+  background: #1e4fa0;
+  color: #fff;
+}
+
+/* --- Separator Line --- */
+.hero-ol-sep {
+  width: 1px;
+  height: 36px;
+  background: #d4e4f7;
+  flex-shrink: 0;
+  margin: 0 18px;
+}
+
+/* --- Highlight Items --- */
+.hero-ol-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.hero-ol-icon {
+  width: 36px;
+  height: 36px;
+  background: #eff5ff;
+  border-radius: 8px;
+  border: 1px solid #d0e3f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-ol-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.hero-ol-t1 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1a2d4f;
+  line-height: 1.2;
+}
+
+.hero-ol-t2 {
+  font-size: 0.72rem;
+  color: #5a7aab;
+  font-weight: 500;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .hero-oneline-bar {
+    height: auto;
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hero-ol-sep {
+    display: none;
+  }
+
+  .hero-ol-btn-primary {
+    margin-right: 0;
+  }
+
+  .hero-ol-btns-right {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-oneline-bar {
+    padding: 12px 16px;
+  }
+
+  .hero-ol-btn-primary,
+  .hero-ol-btn-secondary {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+}
+
+/* --- Buttons Right Group (pushes to far right) --- */
+.hero-ol-btns-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Remove margin-right when inside btns-right group */
+.hero-ol-btns-right .hero-ol-btn-primary {
+  margin-right: 0;
+}
