@@ -817,7 +817,7 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
           if (ty !== null && ty !== undefined) {
             jointGroupRef.current.rotation.y += (ty - jointGroupRef.current.rotation.y) * 0.16;
           } else if (autoRotate && !isDraggingRef.current) {
-            jointGroupRef.current.rotation.y += 0.014;
+            jointGroupRef.current.rotation.y += 0.0035;
           }
 
           if (tx !== null && tx !== undefined) {
@@ -837,7 +837,7 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
             targetRotationRef.current.animating = false;
           }
         } else if (autoRotate && !isDraggingRef.current && !activeHotspot) {
-          jointGroupRef.current.rotation.y += 0.014; // Fast, smooth 360 auto-rotation
+          jointGroupRef.current.rotation.y += 0.0035; // Gentle, elegant 360 auto-rotation
         }
 
         if (isDraggingRef.current) {
@@ -1062,7 +1062,6 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
             onClick={() => { setSelectedJoint('knee'); handleDeselectHotspot(); }}
             title="Knee Anatomy 3D Model"
           >
-            <span className="joint-pill-icon">🦿</span>
             <span className="joint-pill-title">Knee</span>
             <span className="joint-pill-sub">Anatomy (3D)</span>
           </button>
@@ -1072,7 +1071,6 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
             onClick={() => { setSelectedJoint('shoulder'); handleDeselectHotspot(); }}
             title="Shoulder Joint 3D Model"
           >
-            <span className="joint-pill-icon">🦾</span>
             <span className="joint-pill-title">Shoulder</span>
             <span className="joint-pill-sub">Joint (3D)</span>
           </button>
@@ -1082,7 +1080,6 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
             onClick={() => { setSelectedJoint('hip'); handleDeselectHotspot(); }}
             title="Hip Joint 3D Model"
           >
-            <span className="joint-pill-icon">🦴</span>
             <span className="joint-pill-title">Hip</span>
             <span className="joint-pill-sub">Joint (3D)</span>
           </button>
@@ -1306,7 +1303,7 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Discuss with Dr. Harshil →
+                Discuss with Dr. Harshil
               </a>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { faqData, FAQ_CATEGORIES, featuredFaqIds } from '../data/faqData';
+import { faqData, FAQ_CATEGORIES } from '../data/faqData';
 
 // ─── CATEGORIES (excluding "All Questions") ───────────────────────────────────
 const TOPIC_CATEGORIES = FAQ_CATEGORIES.filter((c) => c !== 'All Questions');
@@ -40,14 +40,6 @@ function FaqItem({ item, searchQuery }) {
         <ul className="faq-answer-points">
           {answerPoints.map((point, index) => <li key={index}>{point}</li>)}
         </ul>
-        {(item.category === 'Appointments' || item.id === 'general-contact') && (
-          <div className="faq-item-cta-row">
-            <Link to="/appointment" className="faq-item-cta-link">
-              Book Appointment
-              <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
-            </Link>
-          </div>
-        )}
       </div>
     </article>
   );
@@ -83,27 +75,6 @@ const FaqGroup = React.forwardRef(function FaqGroup(
     </section>
   );
 });
-
-// ─── FEATURED CARD ────────────────────────────────────────────────────────────
-function FeaturedCard({ item, index, onActivate }) {
-  return (
-    <button
-      type="button"
-      className="faq-featured-card"
-      onClick={() => onActivate(item.id)}
-      aria-label={`View answer: ${item.question}`}
-    >
-      <span className="faq-featured-num">0{index + 1}</span>
-      <span className="faq-featured-cat">{item.category}</span>
-      <span className="faq-featured-q">{item.question}</span>
-      <span className="faq-featured-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M5 12h14M14 7l5 5-5 5" />
-        </svg>
-      </span>
-    </button>
-  );
-}
 
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 export default function FaqPage() {
@@ -162,62 +133,6 @@ export default function FaqPage() {
       items: map[cat],
     }));
   }, [filteredFaqs]);
-
-  // ── Featured items ───────────────────────────────────────────────────────
-  const featuredItems = useMemo(
-    () =>
-      featuredFaqIds
-        .map((id) => faqData.find((f) => f.id === id))
-        .filter(Boolean)
-        .slice(0, 6),
-    []
-  );
-
-  // ── Activate featured FAQ ─────────────────────────────────────────────────
-  const handleFeaturedActivate = useCallback((id) => {
-    const item = faqData.find((f) => f.id === id);
-    if (!item) return;
-    setSelectedCategory('All Questions');
-    setSearchQuery('');
-    setActiveSection(item.category);
-
-    setTimeout(() => {
-      const isDesktop = window.matchMedia('(min-width: 961px)').matches;
-      const explorerSection = document.querySelector('.faq-explorer');
-      const container = scrollContainerRef.current;
-      const targetFaq = document.getElementById(`faq-${id}`);
-
-      // Scroll the main browser window down so the FAQ explorer section is visible
-      if (explorerSection) {
-        const explorerRect = explorerSection.getBoundingClientRect();
-        const windowScrollTop = window.pageYOffset + explorerRect.top - 80;
-        window.scrollTo({ top: Math.max(0, windowScrollTop), behavior: 'smooth' });
-      }
-
-      // On desktop, also scroll the inner scrollable container directly to this question
-      if (isDesktop && container && targetFaq) {
-        const containerRect = container.getBoundingClientRect();
-        const targetRect = targetFaq.getBoundingClientRect();
-        const scrollTop = container.scrollTop + (targetRect.top - containerRect.top) - 16;
-        container.scrollTo({ top: Math.max(0, scrollTop), behavior: 'smooth' });
-      } else if (targetFaq) {
-        // On mobile or when no inner container, scroll directly to target question
-        const y = targetFaq.getBoundingClientRect().top + window.pageYOffset - 120;
-        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-      }
-
-      // Highlight the targeted FAQ item briefly
-      if (targetFaq) {
-        targetFaq.classList.remove('faq-item--highlighted');
-        // Trigger reflow to restart animation
-        void targetFaq.offsetWidth;
-        targetFaq.classList.add('faq-item--highlighted');
-        setTimeout(() => {
-          targetFaq.classList.remove('faq-item--highlighted');
-        }, 2200);
-      }
-    }, 60);
-  }, []);
 
   // ── IntersectionObserver — scoped to right scroll container on desktop ────
   useEffect(() => {
@@ -311,8 +226,8 @@ export default function FaqPage() {
                 surgery, recovery, second opinions and follow-up care.
               </p>
               <p className="faq-hero-subdesc">
-                For advice specific to your condition, our clinic team can help you
-                arrange a consultation with Dr.&nbsp;Harshil Shah.
+                For advice specific to your condition, my clinic team can help you
+                arrange a consultation with me.
               </p>
               <ul className="faq-hero-highlights" aria-label="FAQ topics">
                 <li>Appointments and consultation preparation</li>
@@ -339,45 +254,6 @@ export default function FaqPage() {
             </div>
           </div>
         </section>
-
-        {/* ── CATEGORY PILLS ─────────────────────────────────────────────── */}
-        <nav className="faq-cat-nav" aria-label="FAQ categories">
-          <div className="faq-cat-scroll shell">
-            {FAQ_CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                className={`faq-cat-pill ${selectedCategory === cat ? 'faq-cat-pill--active' : ''}`}
-                onClick={() => setSelectedCategory(cat)}
-                aria-pressed={selectedCategory === cat}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </nav>
-
-        {/* ── FEATURED QUESTIONS ──────────────────────────────────────────── */}
-        {!isSearching && !isFiltered && (
-          <section className="faq-featured-section" aria-labelledby="faq-featured-heading">
-            <div className="shell">
-              <header className="faq-section-header faq-section-header--left">
-                <h2 id="faq-featured-heading" className="faq-section-title">Questions patients often ask</h2>
-                <p className="faq-section-sub">Start here — the topics most people want to understand before meeting the doctor.</p>
-              </header>
-              <div className="faq-featured-grid">
-                {featuredItems.map((item, idx) => (
-                  <FeaturedCard
-                    key={item.id}
-                    item={item}
-                    index={idx}
-                    onActivate={handleFeaturedActivate}
-                  />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
 
         {/* ── SEARCH EMPTY STATE ───────────────────────────────────────────── */}
         {isSearching && filteredFaqs.length === 0 && (
@@ -429,10 +305,6 @@ export default function FaqPage() {
                       );
                     })}
                   </nav>
-                  <div className="faq-sidebar-cta">
-                    <p>Need personal guidance?</p>
-                    <Link to="/appointment" className="button button-small">Book Appointment</Link>
-                  </div>
                 </aside>
               )}
 
@@ -457,7 +329,7 @@ export default function FaqPage() {
                           className="faq-reset-btn"
                           onClick={() => { setSearchQuery(''); setSelectedCategory('All Questions'); }}
                         >
-                          ← Back to all questions
+                          Back to all questions
                         </button>
                       </header>
                       <div className="faq-group-list">
@@ -583,7 +455,6 @@ export default function FaqPage() {
               </p>
               <Link to="/contact" className="faq-support-link">
                 Ask the clinic what to bring
-                <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
               </Link>
             </div>
 
@@ -605,7 +476,6 @@ export default function FaqPage() {
               </p>
               <Link to="/appointment" className="faq-support-link">
                 Request a consultation
-                <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
               </Link>
             </div>
           </div>
@@ -613,39 +483,42 @@ export default function FaqPage() {
 
         {/* ── STILL NEED HELP CTA ───────────────────────────────────────────── */}
         <section className="faq-cta-section" aria-labelledby="faq-cta-heading">
-          <div className="shell faq-cta-grid">
-            <div className="faq-cta-left">
-              <h2 id="faq-cta-heading" className="faq-cta-heading">
-                Still need a clearer answer?
-              </h2>
-              <p className="faq-cta-desc">
-                Some questions are best discussed personally. Our clinic team can help you
-                arrange an orthopaedic consultation with Dr.&nbsp;Harshil Shah.
-              </p>
-              <p className="faq-cta-sub">
-                <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" /></svg>
-                Monday – Saturday &nbsp;|&nbsp; By Appointment
-              </p>
-            </div>
-            <div className="faq-cta-right">
-              <Link to="/appointment" className="faq-cta-primary">
-                Book an Appointment
-                <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
-              </Link>
-              <Link to="/contact" className="faq-cta-secondary">
-                Contact the Clinic
-              </Link>
-              <a
-                href="https://wa.me/919316753985?text=Hello%2C%20I%20would%20like%20help%20regarding%20an%20orthopaedic%20consultation."
-                target="_blank"
-                rel="noreferrer"
-                className="faq-cta-whatsapp"
-              >
-                <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-                WhatsApp the Clinic
-              </a>
+          <div className="shell">
+            <div className="faq-cta-card">
+              <div className="faq-cta-grid">
+                <div className="faq-cta-left">
+                  <h2 id="faq-cta-heading" className="faq-cta-heading">
+                    Still need a clearer answer?
+                  </h2>
+                  <p className="faq-cta-desc">
+                    Some questions are best discussed personally. My clinic team can help you
+                    arrange an orthopaedic consultation with me.
+                  </p>
+                  <p className="faq-cta-sub">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" /></svg>
+                    Monday – Saturday &nbsp;|&nbsp; By Appointment
+                  </p>
+                </div>
+                <div className="faq-cta-right">
+                  <Link to="/appointment" className="faq-cta-primary">
+                    Book an Appointment
+                  </Link>
+                  <Link to="/contact" className="faq-cta-secondary">
+                    Contact the Clinic
+                  </Link>
+                  <a
+                    href="https://wa.me/919316753985?text=Hello%2C%20I%20would%20like%20help%20regarding%20an%20orthopaedic%20consultation."
+                    target="_blank"
+                    rel="noreferrer"
+                    className="faq-cta-whatsapp"
+                  >
+                    <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    WhatsApp the Clinic
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>

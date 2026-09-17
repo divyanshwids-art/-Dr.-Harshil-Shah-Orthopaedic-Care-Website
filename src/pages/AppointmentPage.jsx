@@ -388,7 +388,7 @@ export default function AppointmentPage() {
             </h1>
 
             <p className="appt-hero-lead">
-              Book a comprehensive clinical consultation with <strong>Dr. Harshil Shah</strong>. Our medical desk coordinates slot confirmation directly with you within 2 hours.
+              Book a comprehensive clinical consultation with me. My medical desk coordinates slot confirmation directly with you within 2 hours.
             </p>
 
             {/* Doctor Credentials Card */}
@@ -428,7 +428,7 @@ export default function AppointmentPage() {
                   <div className="appt-timeline-marker">3</div>
                   <div className="appt-timeline-content">
                     <strong>In-Depth Consultation</strong>
-                    <p>Doctor evaluates your condition, previous X-rays/MRI, and guides next steps.</p>
+                    <p>I evaluate your condition, review your X-rays/MRI, and guide you on the next steps.</p>
                   </div>
                 </li>
               </ol>
@@ -486,7 +486,7 @@ export default function AppointmentPage() {
                   <div className="appt-receipt-headline">
                     <h3>Appointment Request Received</h3>
                     <p>
-                      Thank you, <strong>{submittedData.patient_name}</strong>. Your consultation details have been sent to Dr. Harshil Shah’s desk.
+                      Thank you, <strong>{submittedData.patient_name}</strong>. Your consultation details have been sent to my clinical desk.
                     </p>
                   </div>
 
@@ -534,7 +534,7 @@ export default function AppointmentPage() {
                       <line x1="12" y1="8" x2="12.01" y2="8" />
                     </svg>
                     <p>
-                      A confirmation email has been dispatched. Our team will contact you on <strong>{submittedData.patient_phone}</strong> to confirm your final consultation schedule.
+                      A confirmation email has been dispatched. My team will contact you on <strong>{submittedData.patient_phone}</strong> to confirm your final consultation schedule.
                     </p>
                   </div>
 
@@ -850,9 +850,9 @@ export default function AppointmentPage() {
                         return (
                           <div key={period} className="appt-slots-group">
                             <div className="appt-slots-group-label">
-                              {period === 'Morning' && '🌅 Morning (10:30 AM – 12:30 PM)'}
-                              {period === 'Afternoon' && '☀️ Afternoon (01:00 PM – 04:30 PM)'}
-                              {period === 'Evening' && '🌙 Evening (05:00 PM – 07:00 PM)'}
+                              {period === 'Morning' && 'Morning (10:30 AM – 12:30 PM)'}
+                              {period === 'Afternoon' && 'Afternoon (01:00 PM – 04:30 PM)'}
+                              {period === 'Evening' && 'Evening (05:00 PM – 07:00 PM)'}
                             </div>
                             <div className="appt-slots-grid">
                               {periodSlots.map((slot, index) => {
@@ -917,7 +917,7 @@ export default function AppointmentPage() {
                         className="appt-custom-check"
                       />
                       <span className="appt-consent-text">
-                        I consent to Dr. Harshil Shah’s clinical desk contacting me via Phone / WhatsApp to verify and confirm my consultation slot.
+                        I consent to my clinical desk contacting me via Phone / WhatsApp to verify and coordinate my consultation appointment.
                       </span>
                     </label>
                     {fieldErrors.consent && <span className="appt-error-hint">{fieldErrors.consent}</span>}
@@ -935,12 +935,7 @@ export default function AppointmentPage() {
                         <span>Sending Request to Clinic...</span>
                       </>
                     ) : (
-                      <>
-                        <span>Submit Appointment Request</span>
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" className="appt-btn-icon">
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </>
+                      <span>Submit Appointment Request</span>
                     )}
                   </button>
 

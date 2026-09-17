@@ -9,8 +9,8 @@ const timelineData = [
     title: 'Medical Education & Orthopaedic Residency',
     institution: 'Smt. NHL Municipal Medical College • V.S. Hospital • L.G. Hospital',
     paragraphs: [
-      'He completed his MBBS from Smt. NHL Municipal Medical College, Ahmedabad, followed by his clinical internship at V.S. Hospital, Ahmedabad.',
-      'With a growing interest in bone and joint care, he went on to pursue his M.S. in Orthopaedics at L.G. Hospital, Ahmedabad, where he gained extensive experience in trauma, fracture care and a wide range of orthopaedic conditions.'
+      'I completed my MBBS at Smt. NHL Municipal Medical College, followed by my clinical internship at V.S. Hospital in Ahmedabad.',
+      'Driven by a strong dedication to joint reconstruction and patient mobility, I completed my M.S. in Orthopaedics at L.G. Hospital, Ahmedabad, gaining extensive hands-on experience in complex trauma and reconstructive bone surgery.'
     ],
     side: 'left'
   },
@@ -21,8 +21,8 @@ const timelineData = [
     title: 'Joint Replacement Training',
     institution: 'P. D. Hinduja Hospital • Dr. Sanjay Agarwala',
     paragraphs: [
-      'To further develop his skills in joint reconstruction, Dr. Shah completed a Fellowship in Joint Replacement Surgery at P. D. Hinduja Hospital, Mumbai, under the guidance of Dr. Sanjay Agarwala.',
-      'This training gave him focused exposure to hip and knee replacement surgery and helped build a strong foundation in modern joint replacement techniques.'
+      'To build focused expertise in joint reconstruction, I completed a specialized Fellowship in Joint Replacement Surgery at P. D. Hinduja Hospital, Mumbai, under Dr. Sanjay Agarwala.',
+      'This fellowship provided deep clinical immersion in primary and complex hip and knee replacement techniques and long-term joint rehabilitation.'
     ],
     side: 'right'
   },
@@ -33,7 +33,7 @@ const timelineData = [
     title: 'Sports Injury & Arthroscopy',
     institution: 'Dr. Abhay Narvekar',
     paragraphs: [
-      'He later trained under Dr. Abhay Narvekar in Sports Injury and Arthroscopy, gaining experience in the diagnosis and minimally invasive treatment of sports-related and ligament injuries.'
+      'I completed dedicated training in Sports Injury and Keyhole Arthroscopy under Dr. Abhay Narvekar in Mumbai, gaining advanced experience in ligament reconstruction and joint preservation.'
     ],
     side: 'left'
   },
@@ -44,8 +44,8 @@ const timelineData = [
     title: 'Shoulder Surgery & Sports Injuries',
     institution: 'DMH Hospital, Pune • Dr. Ashish Babulkar',
     paragraphs: [
-      'Dr. Shah continued his specialist training in Pune under Dr. Ashish Babulkar at DMH Hospital, with a focus on shoulder replacement, shoulder disorders and sports injuries.',
-      'This experience further developed his interest in treating complex shoulder problems and restoring function in active patients.'
+      'I continued advanced shoulder surgery training under Dr. Ashish Babulkar at DMH Hospital in Pune, with a dedicated focus on shoulder replacement, rotator cuff restoration, and sports trauma.',
+      'This experience strengthened my approach to restoring pain-free movement in active patients and athletes.'
     ],
     side: 'right'
   },
@@ -56,8 +56,8 @@ const timelineData = [
     title: 'Robotic & Revision Joint Replacement — USA',
     institution: 'Hospital for Special Surgery (HSS), New York • Dr. Peter Sculco',
     paragraphs: [
-      'As part of his advanced international training, Dr. Shah completed a fellowship in Robotic Joint Replacement and Revision Joint Replacement at Hospital for Special Surgery (HSS), New York, a Cornell-affiliated medical centre, under Dr. Peter Sculco.',
-      'During this period, he gained exposure to modern robotic-assisted joint replacement techniques as well as the management of complex primary and revision hip and knee replacements.'
+      'As part of my advanced international training, I completed a fellowship in Robotic Joint Replacement and Revision Joint Surgery at the Hospital for Special Surgery (HSS) in New York under Dr. Peter Sculco.',
+      'During this fellowship, I trained in robotic-assisted joint replacement protocols and the management of complex primary and revision hip and knee surgeries.'
     ],
     side: 'left'
   },
@@ -68,8 +68,8 @@ const timelineData = [
     title: 'Advanced Shoulder Training — Harvard-Affiliated MGH',
     institution: 'Massachusetts General Hospital (MGH), Boston • Dr. Bassem Elhassan',
     paragraphs: [
-      'He further trained in the Shoulder Service at Massachusetts General Hospital (MGH), a Harvard-affiliated teaching hospital, under Dr. Bassem Elhassan.',
-      'This fellowship provided advanced experience in shoulder surgery, reconstruction and the management of complex shoulder conditions.'
+      'I further trained with the Shoulder Service at Massachusetts General Hospital (MGH) in Boston—a Harvard Medical School teaching hospital—under Dr. Bassem Elhassan.',
+      'This training provided specialized experience in complex shoulder reconstructions, tendon transfers, and advanced joint restoration.'
     ],
     side: 'right'
   }
@@ -80,8 +80,8 @@ const expertiseList = [
   'Robotic Joint Replacement',
   'Revision Hip & Knee Replacement',
   'Sports Injury Management',
-  'Arthroscopy',
-  'Shoulder Surgery',
+  'Arthroscopy & Keyhole Surgery',
+  'Shoulder Surgery & Repair',
   'Shoulder Replacement',
   'Complex Joint Reconstruction'
 ];
@@ -112,36 +112,28 @@ const jointsData = [
 
 const aboutFaqs = [
   {
-    question: "What are Dr. Harshil Shah’s qualifications and areas of expertise?",
-    answer: "Dr. Harshil Shah is a Consultant Orthopaedic Surgeon holding MBBS, M.S. (Orthopaedics), FIJR (Fellowship in Joint Replacement), and FIAS (Fellowship in Arthroscopy & Sports Surgery). His core areas of expertise include robotic joint replacement, partial and total knee replacement, total hip arthroplasty, keyhole arthroscopic ligament reconstruction (ACL/PCL/meniscus), rotator cuff repair, and complex revision surgeries."
+    question: "What is your primary surgical and clinical focus?",
+    answer: "My practice is dedicated to conditions of the knee, hip, and shoulder. This includes robotic joint replacement, revision joint surgery, keyhole arthroscopy for sports injuries (such as ACL and meniscus tears), rotator cuff repairs, and complex shoulder reconstruction."
   },
   {
-    question: "What specialised training has Dr. Harshil Shah completed in India and abroad?",
-    answer: "Dr. Shah completed his orthopaedic residency in Ahmedabad (L.G. Hospital / V.S. Hospital), followed by prestigious fellowships in Mumbai (Joint Replacement at P.D. Hinduja Hospital under Dr. Sanjay Agarwala, and Arthroscopy under Dr. Abhay Narvekar) and Pune (Shoulder Surgery at DMH under Dr. Ashish Babulkar). He further undertook advanced international fellowships in the United States in Robotic & Revision Joint Replacement at Hospital for Special Surgery (HSS), New York (under Dr. Peter Sculco) and Shoulder Surgery at Massachusetts General Hospital (MGH), Harvard Medical School affiliate, Boston (under Dr. Bassem Elhassan)."
+    question: "How does your international fellowship training benefit patients?",
+    answer: "My fellowships at the Hospital for Special Surgery (HSS) in New York and Massachusetts General Hospital (MGH, Harvard Medical School affiliate) in Boston provided hands-on expertise in robotic alignment and advanced muscle-preserving techniques. For my patients, this ensures modern, evidence-based care with greater surgical precision and structured recovery pathways."
   },
   {
-    question: "Which orthopaedic conditions does Dr. Harshil Shah primarily treat?",
-    answer: "Dr. Shah specializes in disorders of the knee, hip, and shoulder. This includes osteoarthritis, meniscus tears, cruciate ligament injuries (ACL/PCL), cartilage degeneration, avascular necrosis (AVN) of the hip, hip arthritis, rotator cuff tears, shoulder dislocations and instability, frozen shoulder, subacromial impingement, sports injuries, and complex orthopaedic trauma."
+    question: "Do you always recommend surgery, or are non-surgical treatments preferred?",
+    answer: "I strongly believe in conservative care first. Many joint conditions improve significantly with guided physiotherapy, lifestyle adjustments, and targeted medications. I recommend surgery only when non-surgical options have been exhausted or when structural joint damage requires intervention to protect long-term mobility."
   },
   {
-    question: "What is Dr. Harshil Shah’s approach to patient care and treatment planning?",
-    answer: "Dr. Shah follows a patient-centric, evidence-based philosophy: 'Care begins with a good conversation.' Rather than relying solely on scan reports or age, every treatment plan is tailored to the individual’s daily routine, pain severity, functional demands, and personal recovery goals. Recommendations are explained in simple, transparent terms so patients and their families feel confident and supported."
+    question: "What can I expect during my first consultation with you?",
+    answer: "During your consultation, we start with a clear conversation about your symptoms, daily activities, and recovery goals. I perform a focused clinical examination, explain your scan images in simple terms, and walk you through every sensible treatment option so you can decide on your care with complete confidence."
   },
   {
-    question: "Does Dr. Harshil Shah consider non-surgical treatment before recommending surgery?",
-    answer: "Yes, absolutely. Dr. Shah strongly advocates a conservative-first approach. Non-surgical measures—including targeted physiotherapy, muscle strengthening, joint preservation therapies, lifestyle modifications, and medication—are always prioritised whenever clinically appropriate. Surgery is discussed only when non-operative care no longer provides adequate relief or when structural restoration is necessary."
+    question: "Can I schedule a consultation for an independent second opinion?",
+    answer: "Yes, absolutely. Seeking a second opinion is a wise and common step before making decisions about joint surgery. You are welcome to bring all your existing X-rays, MRI scans, and medical reports for an honest, objective evaluation of your condition."
   },
   {
-    question: "What types of joint replacement and arthroscopic procedures does Dr. Harshil Shah perform?",
-    answer: "Dr. Shah performs modern primary, partial, and robotic-assisted total knee replacements; muscle-sparing total hip replacements; and complex revision hip/knee surgeries. In arthroscopy, he performs keyhole ACL/PCL reconstructions, multi-ligament repairs, meniscal preservation, shoulder rotator cuff repairs, Bankart labral stabilizations, and anatomic/reverse total shoulder replacements."
-  },
-  {
-    question: "Can patients consult Dr. Harshil Shah for a second opinion before orthopaedic surgery?",
-    answer: "Yes. Dr. Shah regularly provides objective second opinions for patients evaluating whether surgery is truly necessary or if alternative non-surgical or joint-preserving options exist. Patients are encouraged to bring all previous X-rays, MRI scans, and medical records for a comprehensive and unbiased clinical assessment."
-  },
-  {
-    question: "Why should patients choose Dr. Harshil Shah for knee, hip or shoulder care?",
-    answer: "Patients benefit from a rare combination of world-class international fellowship training (HSS New York and Harvard-affiliated MGH Boston), advanced surgical precision, and a warm, patient-first ethos. Dr. Shah prioritises tissue preservation, rapid recovery protocols (ERAS), and honest guidance, ensuring every patient receives personalised, high-standard orthopaedic care."
+    question: "What minimally invasive and tissue-preserving methods do you use?",
+    answer: "When surgery is needed, I employ robotic-assisted knee replacement, muscle-sparing hip reconstruction, and keyhole arthroscopic techniques. These modern approaches are designed to minimize trauma to surrounding muscles, reduce post-operative pain, and support an earlier, confident return to daily activities."
   }
 ];
 
@@ -198,8 +190,14 @@ export default function AboutPage() {
             </h1>
 
             <p className="about-hero-desc">
-              Consultant Orthopaedic Surgeon specializing in arthroscopy, joint reconstruction, and sports injury recovery in Ahmedabad.
+              I am a Consultant Orthopaedic Surgeon specializing in knee, hip, and shoulder joint care, arthroscopy, and sports injury recovery in Ahmedabad.
             </p>
+
+            <ul className="about-hero-highlights" aria-label="Clinical focus and expertise">
+              <li><strong>Areas of expertise:</strong> Arthroscopy, sports injuries and joint reconstruction</li>
+              <li><strong>Patient-focused care:</strong> Personalised plans supporting recovery and mobility</li>
+              <li><strong>Clinical approach:</strong> Evidence-based treatment with clear guidance</li>
+            </ul>
 
             <div className="about-hero-ctas">
               <a
@@ -211,17 +209,8 @@ export default function AboutPage() {
                 }}
               >
                 Read More
-                <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 5v14M19 12l-7 7-7-7" />
-                </svg>
               </a>
             </div>
-
-            <ul className="about-hero-highlights" aria-label="Dr. Harshil Shah's care focus">
-              <li><strong>Areas of expertise:</strong> Arthroscopy, sports injuries and joint reconstruction</li>
-              <li><strong>Patient-focused care:</strong> Personalised plans supporting recovery and mobility</li>
-              <li><strong>Clinical approach:</strong> Evidence-based treatment with clear guidance</li>
-            </ul>
           </div>
 
           <div className="about-hero-visual-col">
@@ -240,12 +229,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Story / Approach Section */}
       <section id="approach" className="section story-section">
         <div className="shell story-grid">
           <div className="story-lead">
             <div className="eyebrow">
-              <span></span> The approach
+              <span></span> My Approach
             </div>
             <h2>
               Care begins with a
@@ -253,38 +242,34 @@ export default function AboutPage() {
               <em>good conversation.</em>
             </h2>
             <p className="story-lead-sub">
-              Understanding your symptoms, lifestyle, and goals before deciding on any treatment.
+              I take time to understand your symptoms, daily routine, and personal recovery goals before recommending any treatment.
             </p>
           </div>
           <div className="story-copy">
             <p className="story-quote">
-              “My role is to help you understand what is happening, explain every sensible option and choose a treatment that fits your health and your life.”
+              “My role is to help you understand what is happening, explain every sensible option in plain language, and choose a treatment plan that fits your life.”
             </p>
             <p>
-              Dr. Harshil Shah is an orthopaedic surgeon focused on knee, hip and shoulder care. His work covers joint reconstruction, arthroscopy, sports injuries and complex trauma, with a strong emphasis on preserving tissue and supporting early mobility where appropriate.
+              In my clinical practice, I center every decision on tissue protection, muscle preservation, and restoring natural, comfortable mobility. Whether you are managing an acute sports injury or gradual joint wear, I believe patients achieve the best outcomes when they feel heard and understand every step of their treatment.
             </p>
             <p>
-              Every recommendation starts with an accurate diagnosis. Non-surgical treatment is considered first when it can help; surgery is discussed only when the expected benefit makes it the right next step.
+              Every recommendation begins with an accurate diagnosis. Non-surgical options such as targeted physiotherapy, lifestyle adjustments, and medication are always prioritized first. Surgery is only considered when it provides the safest, most dependable path to long-term relief and active living.
             </p>
           </div>
         </div>
 
-        <div className="shell about-profile-snapshot" aria-label="Dr. Harshil Shah profile summary">
+        <div className="shell about-profile-snapshot" aria-label="Professional summary">
           <article>
             <span>Qualifications</span>
             <strong>MBBS · M.S. (Orthopaedics) · FIJR · FIAS</strong>
           </article>
           <article>
-            <span>Areas of expertise</span>
-            <strong>Knee, hip and shoulder reconstruction</strong>
+            <span>Specialization</span>
+            <strong>Knee, Hip &amp; Shoulder Reconstruction</strong>
           </article>
           <article>
-            <span>Advanced training</span>
-            <strong>India, HSS New York and MGH Boston</strong>
-          </article>
-          <article>
-            <span>Care approach</span>
-            <strong>Clear advice, tissue preservation and early mobility</strong>
+            <span>Advanced Training</span>
+            <strong>India · HSS New York · MGH Boston</strong>
           </article>
         </div>
       </section>
@@ -357,9 +342,24 @@ export default function AboutPage() {
               <em>One tailored approach.</em>
             </h2>
             <p>
-              From sports injuries in younger patients to joint-preserving and replacement care later in life, each plan starts with the person—not a standard package.
+              Whether treating a sports injury in an active individual or managing joint wear later in life, I design every treatment plan around you—your daily routine, pain level, and mobility goals.
             </p>
-            <Link className="text-link" to="/treatments">
+            <div className="about-focus-care-points" aria-label="Joint care approach">
+              <article className="about-focus-care-point">
+                <span className="about-focus-care-label">Knee</span>
+                <p>Sports injuries, keyhole arthroscopy, and joint replacement tailored to your active goals.</p>
+              </article>
+              <article className="about-focus-care-point">
+                <span className="about-focus-care-label">Hip</span>
+                <p>Joint-preserving techniques and replacement care for pain relief and confident walking.</p>
+              </article>
+              <article className="about-focus-care-point">
+                <span className="about-focus-care-label">Shoulder</span>
+                <p>Focused care to restore strength, stability, and comfortable overhead movement.</p>
+              </article>
+            </div>
+
+            <Link className="text-link about-focus-link" to="/treatments">
               Explore specialist treatments{' '}
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="icon">
                 <path
@@ -371,21 +371,6 @@ export default function AboutPage() {
                 />
               </svg>
             </Link>
-
-            <div className="about-focus-care-points" aria-label="Joint care approach">
-              <article className="about-focus-care-point">
-                <span className="about-focus-care-label">Knee</span>
-                <p>Sports injuries, arthroscopy and joint replacement based on mobility goals.</p>
-              </article>
-              <article className="about-focus-care-point">
-                <span className="about-focus-care-label">Hip</span>
-                <p>Joint-preserving and replacement care for pain relief and confident movement.</p>
-              </article>
-              <article className="about-focus-care-point">
-                <span className="about-focus-care-label">Shoulder</span>
-                <p>Focused treatment to restore strength, stability and everyday function.</p>
-              </article>
-            </div>
           </div>
         </div>
       </section>
@@ -396,22 +381,22 @@ export default function AboutPage() {
           <article>
             <span>01</span>
             <h3>Patient-first decisions</h3>
-            <p>Surgery only when truly needed, with medical therapy considered first where possible.</p>
+            <p>I recommend surgery only when truly needed, prioritizing non-surgical care whenever possible.</p>
           </article>
           <article>
             <span>02</span>
-            <h3>Clear, calm guidance</h3>
-            <p>Simple explanations, enough time for questions and support through each stage.</p>
+            <h3>Clear, honest guidance</h3>
+            <p>I take time to explain your scans in simple terms, answer every question, and guide you calmly.</p>
           </article>
           <article>
             <span>03</span>
             <h3>Thoughtful recovery</h3>
-            <p>Muscle-preserving techniques and focused rehabilitation based on the individual.</p>
+            <p>I focus on muscle-preserving techniques and structured rehabilitation to help you rebuild natural strength.</p>
           </article>
           <article>
             <span>04</span>
             <h3>Evidence-based care</h3>
-            <p>Treatment aligned with current practice, your diagnosis and your personal goals.</p>
+            <p>Every treatment choice is grounded in proven clinical science and aligned with your recovery goals.</p>
           </article>
         </div>
       </section>
@@ -425,7 +410,7 @@ export default function AboutPage() {
             </div>
             <h2 className="about-timeline-title">Experience &amp; Training</h2>
             <p className="about-timeline-subtitle">
-              Dr. Harshil Shah’s journey in orthopaedics has been shaped by years of hands-on clinical training in India and the United States. From his early medical education to advanced fellowships in joint replacement, sports injuries and shoulder surgery, each stage of his training has added to the way he approaches patient care today.
+              My orthopaedic practice has been shaped by comprehensive clinical training across premier centers in India and the United States. From my early medical residency in Ahmedabad to advanced fellowships in joint replacement, sports trauma, and shoulder surgery, every stage has deepened my commitment to patient-first care.
             </p>
           </div>
 
@@ -494,12 +479,12 @@ export default function AboutPage() {
               </div>
               <h2 className="about-journey-title">A Well-Rounded Orthopaedic Journey</h2>
               <p className="about-journey-lead">
-                Training across institutions in <strong>Ahmedabad, Mumbai, Pune and the United States</strong> has given Dr. Harshil Shah a broad perspective on orthopaedic care.
+                Training across leading institutions in <strong>Ahmedabad, Mumbai, Pune, and the United States</strong> has given me a comprehensive, patient-centered perspective on bone and joint care.
               </p>
             </div>
 
             <div className="about-journey-specialties-wrap">
-              <span className="about-journey-list-title">His experience includes:</span>
+              <span className="about-journey-list-title">My clinical experience includes:</span>
               <div className="about-journey-grid">
                 {expertiseList.map((item, idx) => (
                   <div key={idx} className="about-journey-item">
@@ -517,7 +502,7 @@ export default function AboutPage() {
             <div className="about-journey-philosophy-card">
               <div className="about-journey-quote-icon">“</div>
               <p className="about-journey-philosophy-text">
-                Today, he brings this experience together with a simple goal: <strong>to understand each patient’s problem clearly, explain the available treatment options and help them return to movement and daily life with confidence.</strong>
+                My goal with every patient is simple: <strong>to understand your condition clearly, explain every option with honesty, and help you return to comfortable movement and active daily life with confidence.</strong>
               </p>
               <div className="about-journey-cta-row">
                 <Link to="/appointment" className="button button-white">
@@ -540,9 +525,9 @@ export default function AboutPage() {
         <div className="shell">
           <div className="about-faq-header">
             <span className="about-faq-kicker">FREQUENTLY ASKED QUESTIONS</span>
-            <h2 className="about-faq-title">About Dr. Harshil Shah &amp; Consultations</h2>
+            <h2 className="about-faq-title">Consultations &amp; Clinical Care FAQs</h2>
             <p className="about-faq-subtitle">
-              Key questions regarding clinical experience, surgical specialities, and consultation guidance.
+              Common questions regarding my surgical specialities, consultation process, and recovery guidance.
             </p>
           </div>
 
@@ -590,34 +575,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section" aria-label="Book appointment callout">
-        <div className="shell cta-grid">
-          <div className="cta-left">
-            <h2 className="cta-main-title">
-              Bring your reports.<br />
-              <span className="cta-title-accent">Bring your questions.</span>
-            </h2>
-          </div>
-          <div className="cta-right">
-            <p className="cta-desc">
-              A consultation is time to understand the full picture—not to rush into a procedure.
-            </p>
-            <div className="cta-actions">
-              <Link className="cta-btn-white" to="/appointment">
-                <span>Book appointment</span>
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </Link>
-              <a href="tel:+919316753985" className="cta-phone-block">
-                <small>OR CALL THE CLINIC</small>
-                <strong>+91 93167 53985</strong>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

@@ -27,6 +27,7 @@ import HomePage from './pages/HomePage';
 const AboutPage = lazyWithRetry(() => import('./pages/AboutPage'));
 const TreatmentsPage = lazyWithRetry(() => import('./pages/TreatmentsPage'));
 const PatientGuidesPage = lazyWithRetry(() => import('./pages/PatientGuidesPage'));
+const BrochuresPage = lazyWithRetry(() => import('./pages/BrochuresPage'));
 const GalleryPage = lazyWithRetry(() => import('./pages/GalleryPage'));
 const SurgicalVideosPage = lazyWithRetry(() => import('./pages/SurgicalVideosPage'));
 const FaqPage = lazyWithRetry(() => import('./pages/FaqPage'));
@@ -92,6 +93,8 @@ export default function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/treatments" element={<TreatmentsPage />} />
               <Route path="/patient-guides" element={<PatientGuidesPage />} />
+              <Route path="/brochures" element={<BrochuresPage />} />
+              <Route path="/brochure" element={<Navigate to="/brochures" replace />} />
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/operation-theatre" element={<SurgicalVideosPage />} />
               <Route path="/surgical-videos" element={<SurgicalVideosPage />} />

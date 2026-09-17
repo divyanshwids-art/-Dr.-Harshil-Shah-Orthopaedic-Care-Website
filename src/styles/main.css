@@ -4437,7 +4437,7 @@ body {
 }
 
 .guides-hero-copy {
-  max-width: 480px;
+  max-width: 620px;
   flex: 1;
 }
 
@@ -4445,17 +4445,26 @@ body {
   margin-bottom: 12px;
 }
 
-.guides-hero-copy h1 {
-  font-size: clamp(38px, 4.4vw, 58px);
-  color: var(--navy);
-  line-height: 1.12;
-  margin: 0 0 16px;
-  font-weight: 760;
+.guides-hero-copy h1,
+.guides-hero-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(30px, 4vw, 54px) !important;
+  color: var(--navy) !important;
+  line-height: 1.15 !important;
+  margin: 0 0 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.025em !important;
 }
 
-.guides-hero-copy h1 em {
-  color: var(--teal);
-  font-style: italic;
+.guides-hero-line1 {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+.guides-hero-line2 {
+  display: block !important;
+  color: var(--teal) !important;
+  font-style: italic !important;
 }
 
 .guides-hero-copy p {
@@ -7283,15 +7292,28 @@ body {
 .contact-guide-banner {
   background: linear-gradient(135deg, #091e30 0%, #0c4850 55%, #0e555a 100%);
   padding: 95px 0 105px;
+  background: transparent;
+  padding: 30px 0 76px;
   overflow: hidden;
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-guide-card {
+  background: linear-gradient(135deg, #f0fdfa 0%, #e6f7f8 50%, #f1f9fa 100%);
+  border: 1.5px solid #bbf0ee;
+  border-radius: 24px;
+  padding: 48px 52px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-guide-grid {
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
   gap: 70px;
+  gap: 50px;
   display: grid;
 }
 
@@ -7299,6 +7321,7 @@ body {
 .contact-3d-showcase {
   position: relative;
   height: 440px;
+  height: 400px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -7311,6 +7334,7 @@ body {
   width: 360px;
   height: 360px;
   background: radial-gradient(circle, rgba(59, 179, 188, 0.35) 0%, rgba(20, 108, 114, 0.12) 55%, transparent 75%);
+  background: radial-gradient(circle, rgba(20, 108, 114, 0.12) 0%, rgba(20, 108, 114, 0.03) 55%, transparent 75%);
   border-radius: 50%;
   filter: blur(30px);
   pointer-events: none;
@@ -7322,6 +7346,9 @@ body {
   width: 380px;
   height: 380px;
   border: 1.5px solid rgba(255, 255, 255, 0.14);
+  width: 360px;
+  height: 360px;
+  border: 1.5px solid rgba(20, 108, 114, 0.18);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -7331,6 +7358,9 @@ body {
   width: 280px;
   height: 280px;
   border: 1.5px dashed rgba(59, 179, 188, 0.35);
+  width: 270px;
+  height: 270px;
+  border: 1.5px dashed rgba(20, 108, 114, 0.3);
   border-radius: 50%;
   pointer-events: none;
   animation: contactOrbitDashedSpin 40s linear infinite;
@@ -7471,8 +7501,10 @@ body {
 }
 
 /* Right Column: High-Contrast Illuminated Guidance Typography */
+/* Right Column: Guidance Typography */
 .contact-guide-content {
   color: #ffffff;
+  color: #0f172a;
 }
 
 .guide-kicker-cyan {
@@ -7480,8 +7512,11 @@ body {
   font-size: 11.5px;
   font-weight: 800;
   color: #3bb3bc;
+  font-weight: 700;
+  color: #146c72;
   letter-spacing: 0.08em;
   margin-bottom: 14px;
+  margin-bottom: 12px;
   text-transform: uppercase;
 }
 
@@ -7493,10 +7528,17 @@ body {
   line-height: 1.25;
   letter-spacing: -0.025em;
   margin: 0 0 16px;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+  margin: 0 0 14px !important;
 }
 
 .contact-guide-accent {
   color: #3bb3bc !important;
+  color: #146c72 !important;
   font-style: normal;
   display: inline !important;
   white-space: nowrap !important;
@@ -7508,6 +7550,12 @@ body {
   color: #e2e8f0 !important;
   font-weight: 450;
   margin-bottom: 30px;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  font-weight: 450 !important;
+  margin-bottom: 24px !important;
   max-width: 480px;
 }
 
@@ -7521,9 +7569,17 @@ body {
   font-size: 14.5px;
   padding: 13px 26px;
   border-radius: 12px;
+  background: #146c72 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 13px 26px !important;
+  border-radius: 12px !important;
   text-decoration: none;
   box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.35);
   transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(20, 108, 114, 0.2) !important;
+  transition: all 0.2s ease !important;
 }
 
 .contact-guide-cta-btn:hover {
@@ -7531,6 +7587,10 @@ body {
   color: #146c72;
   transform: translateY(-3px);
   box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.45);
+  background: #0d5257 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(20, 108, 114, 0.3) !important;
 }
 
 @media (max-width: 980px) {
@@ -15497,7 +15557,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   display: block;
 }
 
@@ -22161,44 +22221,54 @@ button {
 
 /* ── Still Need Help CTA ─────────────────────────────────────────────────── */
 .faq-cta-section {
-  background: var(--navy);
-  padding: 80px 0 88px;
+  background: transparent;
+  padding: 30px 0 76px;
   font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+.faq-cta-card {
+  background: linear-gradient(135deg, #f0fdfa 0%, #e6f7f8 50%, #f1f9fa 100%);
+  border: 1.5px solid #bbf0ee;
+  border-radius: 24px;
+  padding: 48px 52px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
 }
 
 .faq-cta-grid {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 60px;
+  gap: 48px;
   align-items: center;
 }
 
 .faq-cta-heading {
-  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-  font-size: clamp(28px, 3.2vw, 42px);
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin: 0 0 14px;
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+  margin: 0 0 12px !important;
 }
 
 .faq-cta-desc {
-  font-size: 15.5px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0 0 20px;
-  max-width: 480px;
-  font-weight: 450;
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  margin: 0 0 18px !important;
+  max-width: 520px;
+  font-weight: 450 !important;
 }
 
 .faq-cta-sub {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  color: #146c72 !important;
+  font-weight: 600 !important;
 }
 
 .faq-cta-right {
@@ -22213,44 +22283,46 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--teal);
-  color: #ffffff;
-  padding: 14px 28px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 700;
+  background: #146c72 !important;
+  color: #ffffff !important;
+  padding: 13px 26px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: all 0.2s ease;
   border: none;
+  box-shadow: 0 4px 14px rgba(20, 108, 114, 0.2);
   font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
 .faq-cta-primary:hover {
-  background: var(--teal-dark);
-  color: #ffffff;
+  background: #0d5257 !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(20, 108, 114, 0.3);
 }
 
 .faq-cta-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 13px 28px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 700;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  background: transparent;
-  color: #ffffff;
+  padding: 12px 26px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border: 1.5px solid #146c72 !important;
+  background: #ffffff !important;
+  color: #146c72 !important;
   text-decoration: none;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: all 0.2s ease;
   font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
 .faq-cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.7);
-  color: #ffffff;
+  background: #f0fdfa !important;
+  border-color: #0d5257 !important;
+  color: #0d5257 !important;
   transform: translateY(-2px);
 }
 
@@ -22259,22 +22331,36 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 11px 24px;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: transparent;
+  padding: 12px 24px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #15803d !important;
+  border: 1.5px solid #86efac !important;
+  background: #ffffff !important;
   text-decoration: none;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: all 0.2s ease;
   font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
 .faq-cta-whatsapp:hover {
-  color: #22c55e;
-  border-color: #22c55e;
-  background: rgba(34, 197, 94, 0.08);
+  color: #166534 !important;
+  border-color: #22c55e !important;
+  background: #f0fdf4 !important;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 860px) {
+  .faq-cta-card {
+    padding: 32px 24px;
+  }
+  .faq-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .faq-cta-right {
+    min-width: 100%;
+  }
 }
 
 /* ── Disclaimer ───────────────────────────────────────────────────────────── */
@@ -31995,6 +32081,540 @@ html body * {
 }
 
 /* ============================================================
+   About Page Typography, Highlights & Balance (Matching Home Page)
+   ============================================================ */
+.about-page {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+.about-page h1,
+.about-page h2,
+.about-page h3,
+.about-page h4 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  color: #0f172a !important;
+}
+
+.about-page .about-hero-title {
+  font-size: clamp(28px, 3.5vw, 38px) !important;
+  font-weight: 800 !important;
+  line-height: 1.22 !important;
+  margin-bottom: 14px !important;
+}
+
+.about-page .about-hero-desc {
+  font-size: 15.5px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  margin-bottom: 20px !important;
+}
+
+.about-page .about-hero-highlights {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  max-width: 580px !important;
+  margin: 18px 0 22px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.about-page .about-hero-highlights li {
+  position: relative !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-left: 3.5px solid #146c72 !important;
+  border-radius: 9px !important;
+  padding: 11px 16px !important;
+  font-size: 14.5px !important;
+  line-height: 1.55 !important;
+  color: #334155 !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+  transition: all 0.2s ease !important;
+}
+
+.about-page .about-hero-highlights li:hover {
+  border-color: #cbd5e1 !important;
+  border-left-color: #146c72 !important;
+  box-shadow: 0 4px 14px rgba(20, 108, 114, 0.08) !important;
+  transform: translateX(2px) !important;
+}
+
+.about-page .about-hero-highlights li::before {
+  display: none !important;
+}
+
+.about-page .about-hero-highlights strong {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  margin-right: 6px !important;
+}
+
+.about-page .about-btn-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #146c72 !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 11px 28px !important;
+  border-radius: 999px !important;
+  border: none !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(20, 108, 114, 0.22) !important;
+  transition: all 0.2s ease !important;
+}
+
+.about-page .about-btn-primary:hover {
+  background: #0d5257 !important;
+  box-shadow: 0 6px 18px rgba(20, 108, 114, 0.32) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Story Section */
+.about-page .story-lead h2 {
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+}
+
+.about-page .story-lead-sub {
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  color: #475569 !important;
+}
+
+.about-page .story-quote {
+  background: #f0fdfa !important;
+  border-left: 3.5px solid #146c72 !important;
+  border-radius: 8px !important;
+  padding: 14px 18px !important;
+  font-size: 15.5px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  line-height: 1.62 !important;
+  margin-bottom: 18px !important;
+}
+
+.about-page .story-copy p {
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: #334155 !important;
+  margin-bottom: 16px !important;
+}
+
+/* Profile Snapshot 3 items - Highlighted & Prominent */
+.about-page .about-profile-snapshot {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 18px !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  padding: 16px 0 28px !important;
+}
+
+@media (max-width: 900px) {
+  .about-page .about-profile-snapshot {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
+.about-page .about-profile-snapshot article {
+  background: linear-gradient(135deg, #ffffff 0%, #f4fbfb 100%) !important;
+  border: 1.5px solid #ccede8 !important;
+  border-left: 4.5px solid #146c72 !important;
+  border-radius: 14px !important;
+  padding: 20px 22px !important;
+  box-shadow: 0 4px 18px rgba(20, 108, 114, 0.08) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  transition: all 0.25s ease !important;
+}
+
+.about-page .about-profile-snapshot article:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(20, 108, 114, 0.14) !important;
+  border-color: #146c72 !important;
+}
+
+.about-page .about-profile-snapshot article span {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #146c72 !important;
+  margin-bottom: 6px !important;
+}
+
+.about-page .about-profile-snapshot article strong {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 750 !important;
+  color: #0f172a !important;
+  line-height: 1.45 !important;
+}
+
+/* Three joints banner typography & spacing */
+.about-page .about-focus-content h2 {
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin-bottom: 14px !important;
+}
+
+.about-page .about-focus-content p {
+  font-size: 15px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+}
+
+.about-page .about-focus-care-points {
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+.about-page .about-focus-care-point p {
+  font-size: 13.5px !important;
+  line-height: 1.55 !important;
+  color: #475569 !important;
+}
+
+.about-page .about-focus-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #146c72 !important;
+  transition: all 0.2s ease !important;
+}
+
+.about-page .about-focus-link:hover {
+  color: #0c4850 !important;
+  transform: translateX(3px) !important;
+}
+
+/* Principles section - matching Journey box background */
+.about-page .principles-section {
+  background: linear-gradient(135deg, #0c4850 0%, #0e555a 50%, #146c72 100%) !important;
+  padding: 68px 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.about-page .principles-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -80px !important;
+  right: -80px !important;
+  width: 320px !important;
+  height: 320px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, rgba(59, 179, 188, 0.22) 0%, transparent 70%) !important;
+  pointer-events: none !important;
+}
+
+.about-page .principles-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+@media (max-width: 991px) {
+  .about-page .principles-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page .principles-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+.about-page .principles-grid article {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 16px !important;
+  padding: 28px 24px !important;
+  min-height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  backdrop-filter: blur(8px) !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease !important;
+}
+
+.about-page .principles-grid article:first-child {
+  border-left: 1.5px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+.about-page .principles-grid article:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: #5eead4 !important;
+  transform: translateY(-3px) !important;
+}
+
+.about-page .principles-grid article > span {
+  display: inline-block !important;
+  width: fit-content !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  color: #5eead4 !important;
+  background: rgba(94, 234, 212, 0.15) !important;
+  border: 1px solid rgba(94, 234, 212, 0.35) !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+  margin-bottom: 16px !important;
+}
+
+.about-page .principles-grid article h3 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.35 !important;
+  margin: 0 0 10px !important;
+}
+
+.about-page .principles-grid article p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+  color: #e2f1f2 !important;
+  margin: 0 !important;
+}
+
+/* Timeline section */
+.about-page .about-timeline-title {
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  line-height: 1.25 !important;
+}
+
+.about-page .about-timeline-subtitle {
+  font-size: 15px !important;
+  line-height: 1.68 !important;
+  color: #475569 !important;
+}
+
+.about-page .about-timeline-heading {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+
+.about-page .about-timeline-desc {
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+  color: #334155 !important;
+}
+
+/* Journey box */
+.about-page .about-journey-section {
+  padding: 50px 0 80px !important;
+  background: #f8fafc !important;
+}
+
+.about-page .about-journey-box {
+  background: linear-gradient(135deg, #093339 0%, #0d4a52 50%, #146c72 100%) !important;
+  border-radius: 28px !important;
+  padding: 56px 48px !important;
+  color: #ffffff !important;
+  box-shadow: 0 20px 50px rgba(11, 47, 68, 0.2) !important;
+}
+
+@media (max-width: 768px) {
+  .about-page .about-journey-box {
+    padding: 36px 22px !important;
+    border-radius: 20px !important;
+  }
+}
+
+.about-page .about-journey-header .eyebrow {
+  color: #5eead4 !important;
+  font-weight: 700 !important;
+  font-size: 12.5px !important;
+  letter-spacing: 0.08em !important;
+  margin-bottom: 12px !important;
+}
+
+.about-page .about-journey-header .eyebrow span {
+  background: #5eead4 !important;
+}
+
+.about-page .about-journey-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  line-height: 1.25 !important;
+  margin: 0 0 16px !important;
+  letter-spacing: -0.02em !important;
+}
+
+.about-page .about-journey-lead {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+  color: #e2f1f2 !important;
+  margin: 0 !important;
+}
+
+.about-page .about-journey-lead strong {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.about-page .about-journey-specialties-wrap {
+  margin: 36px 0 !important;
+}
+
+.about-page .about-journey-list-title {
+  display: block !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #5eead4 !important;
+  margin-bottom: 18px !important;
+}
+
+.about-page .about-journey-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  gap: 14px !important;
+}
+
+.about-page .about-journey-item {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  transition: all 0.25s ease !important;
+}
+
+.about-page .about-journey-item:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: #5eead4 !important;
+  transform: translateY(-2px) !important;
+}
+
+.about-page .about-journey-icon {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  background: #3bb3bc !important;
+  color: #0c4850 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.about-page .about-journey-item-text {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  line-height: 1.35 !important;
+}
+
+.about-page .about-journey-philosophy-card {
+  background: rgba(0, 0, 0, 0.28) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 18px !important;
+  padding: 32px 36px !important;
+  position: relative !important;
+}
+
+@media (max-width: 600px) {
+  .about-page .about-journey-philosophy-card {
+    padding: 24px 20px !important;
+  }
+}
+
+.about-page .about-journey-quote-icon {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 64px !important;
+  line-height: 1 !important;
+  color: #3bb3bc !important;
+  position: absolute !important;
+  top: 12px !important;
+  left: 24px !important;
+  opacity: 0.35 !important;
+  pointer-events: none !important;
+}
+
+.about-page .about-journey-philosophy-text {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+  color: #f1fbfb !important;
+  margin: 0 0 24px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.about-page .about-journey-philosophy-text strong {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.about-page .about-journey-cta-row .button-white {
+  background: #ffffff !important;
+  color: #0c4850 !important;
+  font-weight: 700 !important;
+}
+
+.about-page .about-journey-cta-row .button-outline-white {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+/* FAQ section */
+.about-page .about-faq-title {
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  line-height: 1.25 !important;
+}
+
+.about-page .about-faq-subtitle {
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  color: #475569 !important;
+}
+
+.about-page .about-faq-q-text {
+  font-size: 15.5px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+
+.about-page .about-faq-answer-inner p {
+  font-size: 14.5px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+}
+
+/* ============================================================
    Hero Highlights Box Section (replaces old slideshow)
    ============================================================ */
 .hero-highlights-box-section {
@@ -32361,4 +32981,1038 @@ html body * {
 /* Remove margin-right when inside btns-right group */
 .hero-ol-btns-right .hero-ol-btn-primary {
   margin-right: 0;
+}
+
+/* ==========================================================================
+   TREATMENTS PAGE TYPOGRAPHY & VISUAL HARMONY (Matching Home & About Pages)
+   ========================================================================== */
+.treatments-page {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+.treatments-page h1,
+.treatments-page h2,
+.treatments-page h3,
+.treatments-page h4 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  color: #0f172a !important;
+}
+
+/* Hero Section */
+.treatments-page .treatment-hero h1 {
+  font-size: clamp(28px, 3.5vw, 40px) !important;
+  font-weight: 800 !important;
+  line-height: 1.22 !important;
+  color: #0f172a !important;
+  margin-bottom: 14px !important;
+}
+
+.treatments-page .treatment-hero p {
+  font-size: 15.5px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  max-width: 540px !important;
+}
+
+/* 3D Explorer Section */
+.treatments-page .treatment-3d-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  margin-bottom: 12px !important;
+}
+
+.treatments-page .treatment-3d-subtitle {
+  font-size: 15px !important;
+  line-height: 1.68 !important;
+  color: #475569 !important;
+  max-width: 720px !important;
+}
+
+/* Tabs Bar */
+.treatments-page .treatment-tab-pill {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+/* Joint Rows (Knee, Hip, Shoulder) */
+.treatments-page .treatment-detail h2 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  margin-bottom: 14px !important;
+}
+
+.treatments-page .treatment-detail p {
+  font-size: 15px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  margin-bottom: 22px !important;
+}
+
+.treatments-page .treatment-list-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid #edf7f6 !important;
+}
+
+.treatments-page .treatment-list-item span {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #146c72 !important;
+  background: #e6f4f5 !important;
+  border-radius: 6px !important;
+  padding: 3px 8px !important;
+  flex-shrink: 0 !important;
+}
+
+.treatments-page .treatment-list-item strong {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 650 !important;
+  color: #0f172a !important;
+  line-height: 1.4 !important;
+}
+
+/* Action buttons */
+.treatments-page .button {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.treatments-page .treatment-brochure-quicklink {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 650 !important;
+  color: #146c72 !important;
+  background: #f0fdf9 !important;
+  border: 1.5px solid #ccede8 !important;
+  border-radius: 999px !important;
+  padding: 9px 18px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.treatments-page .treatment-brochure-quicklink:hover {
+  background: #e0f8f4 !important;
+  border-color: #146c72 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Guides feature */
+.treatments-page .treatment-guides-copy h2 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  margin-bottom: 14px !important;
+}
+
+.treatments-page .treatment-guides-copy p {
+  font-size: 15px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  margin-bottom: 22px !important;
+}
+
+.treatments-page .treatment-guide-notes span {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+}
+
+.treatments-page .treatment-guide-notes b {
+  color: #146c72 !important;
+  font-weight: 800 !important;
+}
+
+/* More Specialist Care Section Alignment */
+.treatments-page .more-care {
+  padding: 84px 0 96px !important;
+  background: #f8fafc !important;
+  border-top: 1px solid #edf7f6 !important;
+  border-bottom: 1px solid #edf7f6 !important;
+}
+
+.treatments-page .more-care-heading {
+  max-width: 820px !important;
+  margin: 0 0 38px 0 !important;
+  text-align: left !important;
+}
+
+.treatments-page .more-care-heading .eyebrow {
+  margin-bottom: 12px !important;
+}
+
+.treatments-page .more-care-heading h2 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  margin: 0 0 14px 0 !important;
+}
+
+.treatments-page .more-care-heading h2 em {
+  color: #146c72 !important;
+  font-style: normal !important;
+}
+
+.treatments-page .more-care-heading p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.7 !important;
+  color: #475569 !important;
+  margin: 0 !important;
+}
+
+.treatments-page .more-care-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 22px !important;
+  border: none !important;
+  margin-top: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .treatments-page .more-care-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+.treatments-page .more-care-grid article,
+.treatments-page .more-care-grid article:last-child {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-left: 4.5px solid #146c72 !important;
+  border-radius: 14px !important;
+  padding: 26px 22px !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  transition: all 0.25s ease !important;
+}
+
+.treatments-page .more-care-grid article:hover {
+  transform: translateY(-3px) !important;
+  border-color: #146c72 !important;
+  box-shadow: 0 8px 24px rgba(20, 108, 114, 0.1) !important;
+}
+
+.treatments-page .more-care-grid article h3 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 17.5px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.35 !important;
+  margin: 0 0 10px 0 !important;
+}
+
+.treatments-page .more-care-grid article p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+  color: #475569 !important;
+  margin: 0 !important;
+}
+
+/* Treatments FAQ Section */
+.treatments-page .treatment-faq-header h2 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  margin-bottom: 12px !important;
+}
+
+.treatments-page .treatment-faq-header p {
+  font-size: 15px !important;
+  line-height: 1.68 !important;
+  color: #475569 !important;
+}
+
+.treatments-page .treatment-faq-card {
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  margin-bottom: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+.treatments-page .treatment-faq-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04) !important;
+}
+
+.treatments-page .treatment-faq-q {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+
+.treatments-page .treatment-faq-body p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+}
+
+/* Medical Note */
+.treatments-page .medical-note {
+  background: #f1f8f9 !important;
+  border-top: 1px solid #d4ecee !important;
+  padding: 24px 0 !important;
+}
+
+.treatments-page .medical-note span {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #146c72 !important;
+  background: #dff2f3 !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+}
+
+.treatments-page .medical-note p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: #334155 !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL SITEWIDE TYPOGRAPHY & CONTRAST HARMONIZATION
+   Applies to: Patient Guides, Appointment, Contact, FAQ, Gallery, Surgical
+   ========================================================================== */
+
+/* 1. Patient Guides Page */
+.guides-page .guides-hero-copy h1 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(34px, 4.4vw, 56px) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.025em !important;
+  color: #0f172a !important;
+}
+
+.guides-page .guides-hero-copy p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(15px, 1.8vw, 17px) !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+}
+
+.guides-page .eras-heading h2,
+.guides-page .phase-detail-header h2,
+.guides-page .brochures-section-header h2 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(28px, 3.4vw, 42px) !important;
+  font-weight: 800 !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.02em !important;
+  color: #0f172a !important;
+}
+
+.guides-page .eras-lead,
+.guides-page .phase-lead,
+.guides-page .brochures-lead {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.7 !important;
+  color: #334155 !important;
+}
+
+.guides-page .phase-card,
+.guides-page .patient-brochure-card {
+  border-radius: 14px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.guides-page .phase-card:hover,
+.guides-page .patient-brochure-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 8px 24px rgba(20, 108, 114, 0.08) !important;
+}
+
+.guides-page .phase-card h3,
+.guides-page .brochure-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+
+.guides-page .phase-card p,
+.guides-page .phase-card-list li,
+.guides-page .brochure-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.62 !important;
+  color: #334155 !important;
+}
+
+.guides-page .home-milestones-card {
+  border-radius: 16px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #f8fafc !important;
+}
+
+/* 2. Appointment Page */
+.appt-page-container .appt-hero-heading {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(32px, 4vw, 50px) !important;
+  font-weight: 800 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.appt-page-container .appt-hero-lead {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.7 !important;
+  color: #cbd5e1 !important;
+}
+
+.appt-page-container .appt-card-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(24px, 2.8vw, 32px) !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+}
+
+.appt-page-container .appt-field-label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+}
+
+.appt-page-container .appt-text-input {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+}
+
+/* 3. Contact Page: Clean, Balanced Typography Hierarchy (matches HomePage) */
+.contact-photo-hero-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+  color: #0f172a !important;
+  margin-bottom: 12px !important;
+}
+
+.contact-photo-hero-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  margin-bottom: 18px !important;
+}
+
+.contact-photo-hero-highlights li {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #334155 !important;
+}
+
+.contact-main-heading,
+.visit-main-heading,
+.contact-guide-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+  color: #0f172a !important;
+  margin-bottom: 12px !important;
+}
+
+.contact-heading-accent,
+.visit-heading-accent {
+  color: #146c72 !important;
+}
+
+.contact-intro-desc,
+.visit-intro-lead {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.68 !important;
+  color: #1e293b !important;
+  margin-bottom: 20px !important;
+}
+
+.contact-guide-lead {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+}
+
+.contact-feature-card {
+  border-radius: 14px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.25s ease !important;
+}
+
+.contact-feature-card:hover {
+  border-color: #146c72 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(20, 108, 114, 0.08) !important;
+}
+
+.contact-card-kicker {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  color: #146c72 !important;
+}
+
+.contact-card-main {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.35 !important;
+}
+
+.contact-card-sub {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.55 !important;
+  color: #475569 !important;
+}
+
+.contact-num-badge {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #146c72 !important;
+}
+
+.contact-emergency-card strong {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+
+.contact-emergency-card p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.55 !important;
+  color: #475569 !important;
+}
+
+.visit-step-card {
+  border-radius: 14px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+  padding: 24px 22px !important;
+}
+
+.visit-step-num {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  color: #146c72 !important;
+}
+
+.visit-step-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.35 !important;
+  margin: 12px 0 8px !important;
+}
+
+.visit-step-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.6 !important;
+  color: #334155 !important;
+}
+
+.visit-step-tag {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #146c72 !important;
+  background: #f0fdfa !important;
+  border: 1px solid #ccfbf1 !important;
+}
+
+.visit-tip-bar strong {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+
+.visit-tip-bar span {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 450 !important;
+  line-height: 1.55 !important;
+  color: #334155 !important;
+}
+
+.contact-guide-cta-btn {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+/* 4. FAQ Page: Clean, Balanced Typography Hierarchy (matches HomePage) */
+.faq-hero-heading {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+  color: #0f172a !important;
+  margin-bottom: 12px !important;
+}
+
+.faq-heading-accent {
+  color: #146c72 !important;
+}
+
+.faq-hero-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.68 !important;
+  color: #1e293b !important;
+  margin-bottom: 10px !important;
+}
+
+.faq-hero-subdesc {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.6 !important;
+  color: #334155 !important;
+  margin-bottom: 18px !important;
+}
+
+.faq-hero-highlights li {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #334155 !important;
+}
+
+.faq-section-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(22px, 2.2vw, 28px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  margin-bottom: 8px !important;
+}
+
+.faq-section-sub {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 450 !important;
+  line-height: 1.65 !important;
+  color: #334155 !important;
+}
+
+.faq-group-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  color: #0f172a !important;
+}
+
+.faq-group-count {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #64748b !important;
+}
+
+.faq-group-num {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #146c72 !important;
+}
+
+.faq-item-question {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  color: #0f172a !important;
+  margin-bottom: 10px !important;
+}
+
+.faq-answer-points li {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.65 !important;
+  color: #334155 !important;
+}
+
+.faq-sidebar-label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  color: #64748b !important;
+}
+
+.faq-sidebar-item {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #334155 !important;
+}
+
+.faq-sidebar-item--active {
+  font-weight: 700 !important;
+  color: #146c72 !important;
+  background: #f0fdfa !important;
+}
+
+.faq-prep-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  margin: 10px 0 8px !important;
+}
+
+.faq-prep-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 450 !important;
+  line-height: 1.6 !important;
+  color: #334155 !important;
+}
+
+.faq-prep-num {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #146c72 !important;
+}
+
+.faq-support-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.35 !important;
+  margin: 12px 0 8px !important;
+}
+
+.faq-support-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.6 !important;
+  color: #334155 !important;
+}
+
+.faq-support-link {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #146c72 !important;
+}
+
+/* 5. Gallery Page */
+.gallery-hero-title,
+.gallery-categories-title,
+.gallery-stacked-heading h2 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(32px, 4vw, 52px) !important;
+  font-weight: 800 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.02em !important;
+  color: #0f172a !important;
+}
+
+.gallery-hero-subtitle,
+.gallery-categories-desc,
+.gallery-stacked-heading p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+}
+
+/* 6. Surgical Videos Page */
+.surgical-hero-title,
+.surgical-section-title,
+.cta-main-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(32px, 4vw, 52px) !important;
+  font-weight: 800 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.surgical-hero-desc,
+.surgical-section-subtitle,
+.cta-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.68 !important;
+}
+
+.surgical-card-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  color: #0f172a !important;
+}
+
+.surgical-card-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+  color: #475569 !important;
+}
+
+/* 7. Patient Guides Page Typography & Layout */
+.patient-guides-page-wrapper {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+}
+
+.patient-guides-page-wrapper .eyebrow {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--teal) !important;
+}
+
+/* ============================================================
+   PATIENT GUIDES & BROCHURES PAGES:
+   Clean, Balanced Typography & Visual Alignment
+   - Identical typography hierarchy matching Home Page (.home-page)
+   - Headings: balanced clamp(24px, 2.5vw, 32px), weight 700, sans-serif
+   - Highlights: #146c72, non-italicized
+   - Lead & Subtitle: 15.5px, weight 450, clean line-height 1.68
+   - Card Titles: 17px - 18px, weight 700
+   - Feature Headings: 15px, weight 700
+   - Body & List Text: 14px - 14.5px, weight 450, line-height 1.6
+   - All serif fonts removed; 100% clean modern aesthetic
+   ============================================================ */
+
+/* Main Section & Hero Headings */
+.patient-guides-page-wrapper .guides-hero-title,
+.patient-guides-page-wrapper .guides-hero-copy h1,
+.patient-guides-page-wrapper .eras-heading h2,
+.patient-guides-page-wrapper .phase-detail-header h2,
+.brochures-page .brochures-hero-title,
+.brochures-page .brochures-section-header h2 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  margin: 0 0 12px !important;
+}
+
+/* Highlight text in headings */
+.patient-guides-page-wrapper .guides-hero-line2,
+.patient-guides-page-wrapper h2 em,
+.brochures-page .text-highlight-blue,
+.brochures-page h2 em {
+  color: #146c72 !important;
+  font-style: normal !important;
+}
+
+.patient-guides-page-wrapper .guides-hero-line1 {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+/* Eyebrows / Kickers */
+.patient-guides-page-wrapper .eyebrow,
+.brochures-page .eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #146c72 !important;
+  margin-bottom: 12px !important;
+}
+
+/* Section Descriptions / Leads */
+.patient-guides-page-wrapper .guides-hero-copy p,
+.patient-guides-page-wrapper .eras-lead,
+.patient-guides-page-wrapper .phase-lead,
+.brochures-page .brochures-hero-desc,
+.brochures-page .brochures-lead {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.68 !important;
+  color: #1e293b !important;
+  max-width: 680px !important;
+}
+
+/* Card Titles & Major Subheadings */
+.patient-guides-page-wrapper .phase-card h3,
+.patient-guides-page-wrapper .quiet-step-grid article h3,
+.patient-guides-page-wrapper .home-milestones-header h3,
+.brochures-page .brochure-title,
+.brochures-page .care-help-text h3 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.35 !important;
+  margin: 0 0 6px !important;
+}
+
+/* Feature & Subsection Headings */
+.patient-guides-page-wrapper .eras-step-title,
+.patient-guides-page-wrapper .eras-readiness article strong,
+.patient-guides-page-wrapper .milestone-block h4,
+.patient-guides-page-wrapper .milestone-step strong,
+.brochures-page .brochure-topics-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.4 !important;
+}
+
+/* Supporting / Card Paragraphs & List Items */
+.patient-guides-page-wrapper .phase-card p,
+.patient-guides-page-wrapper .phase-card-list li,
+.patient-guides-page-wrapper .eras-readiness article p,
+.patient-guides-page-wrapper .eras-step-desc,
+.patient-guides-page-wrapper .quiet-step-grid article p,
+.patient-guides-page-wrapper .milestone-items li,
+.patient-guides-page-wrapper .milestone-step p,
+.patient-guides-page-wrapper .phase-tip-text,
+.brochures-page .brochure-desc,
+.brochures-page .brochure-subtitle,
+.brochures-page .brochure-topics-list li,
+.brochures-page .care-help-text p {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.6 !important;
+  color: #334155 !important;
+}
+
+.patient-guides-page-wrapper .phase-card-list li strong {
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+
+/* Milestones Divider & Badge Alignment */
+.patient-guides-page-wrapper .milestone-divider {
+  display: block !important;
+  width: 36px !important;
+  min-width: 36px !important;
+  height: 2px !important;
+  background: #cbd5e1 !important;
+  border-radius: 2px !important;
+  margin: 0 12px !important;
+  align-self: center !important;
+  border: none !important;
+  content: '' !important;
+}
+
+/* Brochures Page Hero & Section Alignment */
+.brochures-page .brochures-hero-section {
+  background: #fbfaf8;
+  padding: 56px 0 32px;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.brochures-page .brochures-hero-header {
+  max-width: 720px;
+}
+
+.brochures-page .brochure-subtitle {
+  font-size: 13.5px !important;
+  color: #146c72 !important;
+  font-weight: 600 !important;
+}
+
+/* Phase Cards Clean Step Header (Symbols Removed) */
+.patient-guides-page-wrapper .phase-card-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  margin-bottom: 12px !important;
+}
+
+.patient-guides-page-wrapper .phase-card-step {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.05em !important;
+  color: #146c72 !important;
+  background: #e6f4f5 !important;
+  padding: 3px 10px !important;
+  border-radius: 6px !important;
+  display: inline-block !important;
+}
+
+.patient-guides-page-wrapper .phase-tip-banner {
+  background: #f0fdfa !important;
+  border: 1px solid rgba(20, 108, 114, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 16px 20px !important;
+  margin-top: 24px !important;
 }

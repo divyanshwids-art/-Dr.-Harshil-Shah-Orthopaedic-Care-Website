@@ -306,7 +306,7 @@ function LazyVideoCard({ video, onSelect }) {
         <p className="surgical-card-desc">{video.desc}</p>
         <div className="surgical-card-footer">
           <span className="surgical-card-action-text">
-            Watch Full Procedure <span aria-hidden="true">→</span>
+            Watch Full Procedure
           </span>
         </div>
       </div>
@@ -421,7 +421,7 @@ export default function SurgicalVideosPage() {
             Surgical Procedures &amp; <span className="text-gradient-cyan">Clinical Videos</span>
           </h1>
           <p className="surgical-hero-desc">
-            Authentic intra-operative video recordings demonstrating robotic joint replacements, keyhole arthroscopy, and complex reconstructive techniques by Dr. Harshil Shah.
+            Authentic intra-operative video recordings demonstrating the robotic joint replacements, keyhole arthroscopy, and reconstructive techniques I perform in my clinical practice.
           </p>
 
           {/* ============================================================
@@ -648,7 +648,7 @@ export default function SurgicalVideosPage() {
             <div className="surgical-modal-info">
               <div className="modal-header-line">
                 <span className="modal-cat-tag">{modalVideo.categoryName}</span>
-                <span className="modal-file-id">Dr. Harshil Shah Clinical Archive</span>
+                <span className="modal-file-id">My Clinical Surgical Archive</span>
               </div>
               <h2 className="modal-title">{modalVideo.title}</h2>
               <p className="modal-desc">{modalVideo.desc}</p>
@@ -660,9 +660,6 @@ export default function SurgicalVideosPage() {
                   onClick={() => setModalVideo(null)}
                 >
                   <span>Book Consultation for this Condition</span>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
                 </Link>
                 <button
                   type="button"
@@ -693,9 +690,6 @@ export default function SurgicalVideosPage() {
             <div className="cta-actions">
               <Link className="cta-btn-white" to="/appointment">
                 <span>Book appointment</span>
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
               </Link>
               <a href="tel:+919316753985" className="cta-phone-block">
                 <small>DIRECT CLINIC DESK</small>

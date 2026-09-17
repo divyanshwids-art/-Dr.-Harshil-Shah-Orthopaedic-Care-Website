@@ -28,7 +28,7 @@ export default function ContactPage() {
             <p className="contact-photo-hero-desc">
               Have questions about treatment, surgery, or recovery?
               <br />
-              Our team is here to help you with expert advice and personalized care.
+              I am here with my clinical team to help you with clear guidance and personalized care.
             </p>
             <ul className="contact-photo-hero-highlights" aria-label="Contact support options">
               <li>Appointment assistance</li>
@@ -44,11 +44,7 @@ export default function ContactPage() {
         <div className="shell contact-grid">
           <div className="contact-intro">
             <h2 className="contact-main-heading">
-              Clear support,
-              <br />
-              <span className="contact-heading-accent">from the first</span>
-              <br />
-              call.
+              Clear support, <span className="contact-heading-accent">from the first call.</span>
             </h2>
 
             <div className="contact-heading-bar" />
@@ -85,11 +81,6 @@ export default function ContactPage() {
                 <strong className="contact-card-main">+91 93167 53985</strong>
                 <p className="contact-card-sub">For appointments and direct enquiries</p>
               </div>
-              <div className="contact-arrow-circle">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
             </a>
 
             <a href="https://wa.me/919316753985" target="_blank" rel="noreferrer" className="contact-feature-card">
@@ -99,24 +90,14 @@ export default function ContactPage() {
                 <strong className="contact-card-main">+91 93167 53985</strong>
                 <p className="contact-card-sub">Fast responses & appointment coordination</p>
               </div>
-              <div className="contact-arrow-circle">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
             </a>
 
             <a href="https://share.google/MBpDzvqtecRuH4gf8" target="_blank" rel="noreferrer" className="contact-feature-card">
               <span className="contact-num-badge">03</span>
               <div className="contact-card-body">
                 <span className="contact-card-kicker">CLINIC LOCATION</span>
-                <strong className="contact-card-main">Garden, Pakwan cross road, near Bodakdev, Ahmedabad</strong>
-                <p className="contact-card-sub">Bodakdev, Ahmedabad, Gujarat 380054 (Open Maps)</p>
-              </div>
-              <div className="contact-arrow-circle">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                <strong className="contact-card-main">Pakwan Cross Road, Bodakdev, Ahmedabad</strong>
+                <p className="contact-card-sub">Bodakdev, Ahmedabad, Gujarat 380054 (Open in Google Maps)</p>
               </div>
             </a>
 
@@ -127,11 +108,6 @@ export default function ContactPage() {
                 <strong className="contact-card-main">harshilshah199706@gmail.com</strong>
                 <p className="contact-card-sub">Share medical queries or scan reports</p>
               </div>
-              <div className="contact-arrow-circle">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
             </a>
 
             <Link to="/appointment" className="contact-feature-card">
@@ -140,11 +116,6 @@ export default function ContactPage() {
                 <span className="contact-card-kicker">ONLINE FORM</span>
                 <strong className="contact-card-main">Request an appointment</strong>
                 <p className="contact-card-sub">Send your preferred day, time and reason</p>
-              </div>
-              <div className="contact-arrow-circle">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
               </div>
             </Link>
           </div>
@@ -160,7 +131,7 @@ export default function ContactPage() {
             </h2>
 
             <p className="visit-intro-lead">
-              A few simple preparation steps allow Dr. Harshil Shah to provide an accurate clinical assessment and a targeted recovery pathway from day one.
+              A few simple preparation steps allow me to provide an accurate clinical assessment and guide you toward a targeted recovery pathway from day one.
             </p>
           </header>
 
@@ -203,7 +174,7 @@ export default function ContactPage() {
                 Note down daily medicines, blood thinners, past surgeries, and any known drug or analgesic allergies.
               </p>
               <div className="visit-step-footer">
-                <span className="visit-step-tag">Crucial for Surgical Safety</span>
+                <span className="visit-step-tag">Crucial for Clinical Safety</span>
               </div>
             </div>
 
@@ -224,7 +195,7 @@ export default function ContactPage() {
                 Write down when pain triggers, daily activities affected, and what outcome goals you want to achieve.
               </p>
               <div className="visit-step-footer">
-                <span className="visit-step-tag">Dedicated Doctor Discussion</span>
+                <span className="visit-step-tag">One-on-One Discussion</span>
               </div>
             </div>
           </div>
@@ -239,7 +210,7 @@ export default function ContactPage() {
             </div>
             <div className="visit-tip-text">
               <strong>Digital Scans Supported:</strong>
-              <span>You can bring physical films, CDs, pendrives, or share reports directly over WhatsApp.</span>
+              <span>You can bring physical films, CDs, pen drives, or share reports directly over WhatsApp.</span>
             </div>
           </div>
         </div>
@@ -247,55 +218,56 @@ export default function ContactPage() {
 
       {/* Educational Guide Banner (Executive 3D Visual Section) */}
       <section className="contact-guide-banner">
-        <div className="shell contact-guide-grid">
-          {/* Left: 3D Joint Anatomy Models Orbiting along Circular Track */}
-          <div className="contact-3d-showcase" aria-hidden="true">
-            <div className="contact-3d-ambient-glow" />
-            <div className="contact-3d-orbit orbit-primary" />
-            <div className="contact-3d-orbit orbit-secondary" />
+        <div className="shell">
+          <div className="contact-guide-card">
+            <div className="contact-guide-grid">
+              {/* Left: 3D Joint Anatomy Models Orbiting along Circular Track */}
+              <div className="contact-3d-showcase" aria-hidden="true">
+                <div className="contact-3d-ambient-glow" />
+                <div className="contact-3d-orbit orbit-primary" />
+                <div className="contact-3d-orbit orbit-secondary" />
 
-            {/* Revolving Orbit Track */}
-            <div className="contact-orbit-track">
-              {/* Joint 1: Hip */}
-              <div className="contact-orbit-slot slot-hip">
-                <div className="contact-orbit-counter">
-                  <img src="/hip-3d.webp" alt="3D Hip Anatomy" className="contact-3d-img" />
-                  <span className="contact-3d-label">Hip Preservation</span>
+                {/* Revolving Orbit Track */}
+                <div className="contact-orbit-track">
+                  {/* Joint 1: Hip */}
+                  <div className="contact-orbit-slot slot-hip">
+                    <div className="contact-orbit-counter">
+                      <img src="/hip-3d.webp" alt="3D Hip Anatomy" className="contact-3d-img" />
+                      <span className="contact-3d-label">Hip Preservation</span>
+                    </div>
+                  </div>
+
+                  {/* Joint 2: Knee */}
+                  <div className="contact-orbit-slot slot-knee">
+                    <div className="contact-orbit-counter">
+                      <img src="/knee-3d.webp" alt="3D Knee Anatomy" className="contact-3d-img" />
+                      <span className="contact-3d-label">Knee Care</span>
+                    </div>
+                  </div>
+
+                  {/* Joint 3: Shoulder */}
+                  <div className="contact-orbit-slot slot-shoulder">
+                    <div className="contact-orbit-counter">
+                      <img src="/shoulder-3d.webp" alt="3D Shoulder Anatomy" className="contact-3d-img" />
+                      <span className="contact-3d-label">Shoulder Mobility</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Joint 2: Knee */}
-              <div className="contact-orbit-slot slot-knee">
-                <div className="contact-orbit-counter">
-                  <img src="/knee-3d.webp" alt="3D Knee Anatomy" className="contact-3d-img" />
-                  <span className="contact-3d-label">Knee Care</span>
-                </div>
-              </div>
-
-              {/* Joint 3: Shoulder */}
-              <div className="contact-orbit-slot slot-shoulder">
-                <div className="contact-orbit-counter">
-                  <img src="/shoulder-3d.webp" alt="3D Shoulder Anatomy" className="contact-3d-img" />
-                  <span className="contact-3d-label">Shoulder Mobility</span>
-                </div>
+              {/* Right: High-Contrast Illuminated Guidance Text */}
+              <div className="contact-guide-content">
+                <h2 className="contact-guide-title">
+                  Know the journey. <span className="contact-guide-accent">Ask better questions.</span>
+                </h2>
+                <p className="contact-guide-lead">
+                  Review my specialized ERAS (Enhanced Recovery After Surgery) pathway before your consultation so you can make confident, informed decisions about your joint recovery.
+                </p>
+                <Link className="contact-guide-cta-btn" to="/patient-guides#eras">
+                  <span>Explore ERAS Guidance</span>
+                </Link>
               </div>
             </div>
-          </div>
-
-          {/* Right: High-Contrast Illuminated Guidance Text */}
-          <div className="contact-guide-content">
-            <h2 className="contact-guide-title">
-              Know the journey. <span className="contact-guide-accent">Ask better questions.</span>
-            </h2>
-            <p className="contact-guide-lead">
-              Review our specialized ERAS (Enhanced Recovery After Surgery) pathway before your consultation so you can make confident, informed decisions about your joint recovery.
-            </p>
-            <Link className="contact-guide-cta-btn" to="/patient-guides#eras">
-              <span>Explore ERAS Guidance</span>
-              <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
           </div>
         </div>
       </section>

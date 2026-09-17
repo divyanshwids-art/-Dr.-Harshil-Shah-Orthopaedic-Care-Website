@@ -6,43 +6,43 @@ import ErrorBoundary from '../components/ErrorBoundary';
 const TREATMENT_FAQS = [
   {
     id: 'treatment-faq-1',
-    question: 'What orthopaedic treatments does Dr. Harshil Shah offer?',
-    answer: 'Dr. Harshil Shah provides comprehensive surgical and non-surgical treatments for knee, hip, and shoulder conditions. His expertise includes robotic-assisted total and partial knee replacements, muscle-sparing total hip replacements, keyhole arthroscopic surgery (ACL/PCL reconstruction, meniscal repair, rotator cuff repair, labral stabilization), revision joint reconstructions, complex trauma management, and structured non-surgical joint preservation protocols.'
+    question: 'What joint conditions and treatments do you specialize in?',
+    answer: 'My clinical practice focuses on disorders of the knee, hip, and shoulder. This includes robotic-assisted joint replacement, revision surgery, keyhole arthroscopy for sports injuries (such as ACL and meniscus tears), rotator cuff repairs, and structured non-surgical joint preservation.'
   },
   {
     id: 'treatment-faq-2',
-    question: 'Which knee conditions can be treated without surgery?',
-    answer: 'Many knee conditions—including early to moderate osteoarthritis, mild degenerative meniscal fraying, minor ligament sprains (Grade 1/2 MCL or LCL), patellofemoral pain syndrome, tendonitis, and bursitis—frequently improve with non-surgical care. Conservative treatment plans combine structured physiotherapy, muscle strengthening, weight optimisation, activity modification, anti-inflammatory medications, and targeted joint injections.'
+    question: 'Can my knee pain be treated without undergoing surgery?',
+    answer: 'Yes, in many cases. Early-stage osteoarthritis, mild meniscal tears, tendonitis, and ligament sprains often improve significantly with non-surgical management. I routinely prescribe targeted physiotherapy, muscle strengthening, lifestyle modifications, and medication before ever considering a procedure.'
   },
   {
     id: 'treatment-faq-3',
     question: 'What treatment options are available for hip pain and arthritis?',
-    answer: 'For early-stage hip pain, bursitis, muscle strain, or early arthritis, initial treatment focuses on physiotherapy, gait training, anti-inflammatory medication, and lifestyle adjustments. For advanced arthritis or avascular necrosis (AVN) with significant joint collapse and persistent pain, total hip replacement (THR)—utilising modern muscle-sparing techniques and durable ceramic implants—provides excellent long-term pain relief and restores natural mobility.'
+    answer: 'For early hip discomfort, bursitis, or mild wear, we focus on muscle-strengthening exercises, gait correction, and medical therapy. When advanced arthritis or avascular necrosis (AVN) causes persistent pain and stiffness, modern muscle-sparing hip replacement offers dependable, long-term pain relief and restores natural walking.'
   },
   {
     id: 'treatment-faq-4',
-    question: 'How are shoulder pain, rotator cuff problems and instability treated?',
-    answer: 'Treatment depends on the underlying diagnosis. Frozen shoulder, impingement syndrome, and mild tendinopathy often respond well to focused physiotherapy, posture correction, and targeted anti-inflammatory injections. For structural issues like significant rotator cuff tears, recurrent dislocations, labral (Bankart) tears, or advanced shoulder arthritis, minimally invasive arthroscopic repair or shoulder replacement (anatomic or reverse) is recommended to restore stability and overhead function.'
+    question: 'How do you approach shoulder pain and rotator cuff tears?',
+    answer: 'My approach depends on your specific diagnosis. Frozen shoulder and mild tendinopathy often respond very well to guided physiotherapy and anti-inflammatory care. For structural issues like full-thickness rotator cuff tears or recurring dislocations, I perform minimally invasive keyhole arthroscopy to repair tendons and stabilize the joint.'
   },
   {
     id: 'treatment-faq-5',
-    question: 'When is arthroscopic surgery recommended?',
-    answer: 'Arthroscopy (keyhole surgery) is recommended when internal joint structures—such as torn cruciate ligaments (ACL/PCL), damaged meniscal cartilage, loose bodies, or torn shoulder rotator cuffs and labrums—require repair or reconstruction that cannot heal through non-surgical means alone. It uses miniature instruments and high-definition cameras through tiny incisions, minimising tissue trauma and accelerating recovery.'
+    question: 'When is keyhole arthroscopic surgery recommended?',
+    answer: 'I recommend arthroscopy when internal joint structures—such as torn cruciate ligaments (ACL/PCL), damaged meniscus cartilage, or torn shoulder labrums—cannot heal through therapy alone. By using miniature cameras and precision instruments through tiny keyhole incisions, we minimize muscle trauma and accelerate recovery.'
   },
   {
     id: 'treatment-faq-6',
-    question: 'When is joint replacement considered for knee, hip or shoulder problems?',
-    answer: 'Joint replacement is considered when advanced joint damage (severe osteoarthritis, avascular necrosis, or joint destruction) causes persistent pain, stiffness, and loss of daily function that no longer responds adequately to conservative treatments like physiotherapy and medications. The decision is made collaboratively based on pain severity, functional impairment, and radiographic findings—not age alone.'
+    question: 'How do we decide if joint replacement is necessary?',
+    answer: 'We consider joint replacement only when joint wear or avascular necrosis causes persistent pain and restricted mobility that no longer responds to non-surgical care. The decision is made together after a careful clinical exam and scan review, focusing on your quality of life rather than age alone.'
   },
   {
     id: 'treatment-faq-7',
-    question: 'How are sports injuries such as ACL, meniscus and ligament injuries treated?',
-    answer: 'Treatment is tailored to the specific injury grade, patient activity goals, and joint stability. Minor sprains and stable partial meniscal tears may be managed with rehabilitation and bracing. Complete ACL tears, unstable multi-ligament injuries, and repairable meniscus tears in active individuals are typically treated with advanced keyhole arthroscopic reconstruction and meniscal repair to restore joint stability and protect long-term cartilage health.'
+    question: 'How do you treat sports injuries such as ACL or meniscus tears?',
+    answer: 'Treatment is tailored to your activity level and the severity of the injury. Minor sprains can often heal with structured bracing and rehabilitation. For active patients with complete ACL tears or repairable meniscus injuries, I perform anatomical keyhole reconstruction to restore joint stability and protect long-term cartilage health.'
   },
   {
     id: 'treatment-faq-8',
-    question: 'How does Dr. Harshil Shah decide which treatment is right for each patient?',
-    answer: 'Dr. Shah uses a comprehensive, individualised assessment that combines a thorough clinical examination, detailed review of X-rays and MRI scans, and an in-depth conversation about your daily activities, occupational demands, and personal goals. Non-surgical options are always prioritised first when viable, and surgical options are recommended only when they offer a predictable, meaningful improvement in your mobility and quality of life.'
+    question: 'How do you determine the best treatment plan for me?',
+    answer: 'I combine a comprehensive physical examination, an in-depth review of your X-rays or MRI scans, and an honest conversation about your daily activities and goals. I explain every sensible option in plain language so that we can choose the safest, most effective path together.'
   }
 ];
 
@@ -77,15 +77,15 @@ export default function TreatmentsPage() {
         <div className="shell treatment-hero-inner">
           <div className="treatment-hero-copy">
             <div className="eyebrow">
-              <span></span> Specialist Orthopaedic Care
+              <span></span> My Treatment Approach
             </div>
             <h1>
-              Specialist care for
+              Personalized care for
               <br />
-              <em>better movement.</em>
+              <em>natural movement.</em>
             </h1>
             <p>
-              Personalised knee, hip, and shoulder treatments to restore mobility and active life.
+              I provide tailored knee, hip, and shoulder treatments designed around your symptoms, everyday routine, and long-term mobility goals.
             </p>
             <div className="treatment-hero-actions">
               <button
@@ -93,10 +93,7 @@ export default function TreatmentsPage() {
                 className="button button-primary"
                 onClick={() => scrollToSection('3d-explorer')}
               >
-                Read More{' '}
-                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="icon" style={{ width: '16px', height: '16px', marginLeft: '4px' }}>
-                  <path d="M19 9l-7 7-7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                Read More
               </button>
             </div>
           </div>
@@ -109,7 +106,7 @@ export default function TreatmentsPage() {
           <div className="treatment-3d-header">
             <h2 className="treatment-3d-title">Understand Your Joint Health in 3D</h2>
             <p className="treatment-3d-subtitle">
-              Explore the knee, hip, and shoulder to better understand your anatomy and treatment options.
+              I believe informed patients make the best recovery choices. Explore the interactive 3D model below to see the key ligaments, tendons, and cartilage structures of the knee, hip, and shoulder.
             </p>
           </div>
 
@@ -136,7 +133,7 @@ export default function TreatmentsPage() {
                   className="button button-outline"
                   onClick={() => scrollToSection(activeJointTab === 'more' ? 'knee' : activeJointTab)}
                 >
-                  View Treatment Options ↓
+                  View Treatment Options
                 </button>
               </div>
             }
@@ -199,7 +196,7 @@ export default function TreatmentsPage() {
             </div>
             <div className="treatment-detail">
               <div className="eyebrow">
-                <span></span> Knee care
+                <span></span> Knee Care
               </div>
               <h2>
                 Knee conditions &amp;
@@ -207,39 +204,33 @@ export default function TreatmentsPage() {
                 <em>treatment options.</em>
               </h2>
               <p>
-                Care for pain, instability and injuries that keep you from walking, climbing stairs or returning to sport.
+                Whether you are experiencing knee stiffness on stairs, persistent arthritis pain, or an acute sports ligament injury, my focus is on preserving your natural joint and restoring stable, comfortable movement.
               </p>
               <div className="treatment-list">
                 <div className="treatment-list-item">
                   <span>01</span>
-                  <strong>Robotic, muscle-sparing joint replacement</strong>
-
+                  <strong>Robotic &amp; muscle-sparing knee replacement</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>02</span>
-                  <strong>Day-care joint replacement pathway</strong>
-                  
+                  <strong>Keyhole arthroscopy for meniscus &amp; cartilage repair</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>03</span>
-                  <strong>ACL reconstruction with graft options</strong>
-
+                  <strong>ACL &amp; multi-ligament reconstruction</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>04</span>
-                  <strong>Lateral extra-articular tenodesis (LET)</strong>
-
+                  <strong>Lateral extra-articular tenodesis (LET) for rotary stability</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>05</span>
-                  <strong>Meniscus and cartilage arthroscopy</strong>
-
+                  <strong>Non-surgical joint preservation &amp; rapid recovery pathways</strong>
                 </div>
               </div>
               <div className="treatment-action-group" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
                 <Link className="button button-outline" to="/appointment">
-                  Discuss your symptoms{' '}
-
+                  Discuss Your Symptoms
                 </Link>
                 <a
                   href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf"
@@ -248,10 +239,6 @@ export default function TreatmentsPage() {
                   className="treatment-brochure-quicklink"
                   title="Download Knee Replacement Patient Guide (PDF)"
                 >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                  </svg>
                   <span>Knee Guide (PDF)</span>
                 </a>
               </div>
@@ -267,7 +254,7 @@ export default function TreatmentsPage() {
             </div>
             <div className="treatment-detail">
               <div className="eyebrow">
-                <span></span> Hip care
+                <span></span> Hip Care
               </div>
               <h2>
                 Hip conditions &amp;
@@ -275,39 +262,33 @@ export default function TreatmentsPage() {
                 <em>treatment options.</em>
               </h2>
               <p>
-                Accurate evaluation for groin pain, stiffness, sports-related impingement and loss of mobility.
+                I evaluate groin discomfort, deep joint stiffness, avascular necrosis, and cartilage wear to help you regain comfortable walking and active mobility without lingering hip pain.
               </p>
               <div className="treatment-list">
                 <div className="treatment-list-item">
                   <span>01</span>
-                  <strong>Avascular necrosis (AVN) care</strong>
-
+                  <strong>Direct anterior &amp; muscle-sparing hip replacement</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>02</span>
-                  <strong>Direct anterior hip replacement</strong>
-
+                  <strong>Avascular necrosis (AVN) early-stage joint preservation</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>03</span>
-                  <strong>STAR muscle-sparing approach</strong>
-
+                  <strong>Robotic-guided total hip reconstruction</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>04</span>
-                  <strong>Robotic and day-care pathways</strong>
-
+                  <strong>Femoroacetabular impingement (FAI) care</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>05</span>
-                  <strong>FAI: cam and pincer impingement</strong>
-
+                  <strong>Rapid recovery &amp; day-care mobility pathways</strong>
                 </div>
               </div>
               <div className="treatment-action-group" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
                 <Link className="button button-outline" to="/appointment">
-                  Discuss your symptoms{' '}
-
+                  Discuss Your Symptoms
                 </Link>
                 <a
                   href="/galleri/brochure/02_Understanding_Hip_Replacement_Guide_Dr_Harshil_Shah.pdf"
@@ -316,10 +297,6 @@ export default function TreatmentsPage() {
                   className="treatment-brochure-quicklink"
                   title="Download Hip Replacement Patient Guide (PDF)"
                 >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                  </svg>
                   <span>Hip Guide (PDF)</span>
                 </a>
               </div>
@@ -335,7 +312,7 @@ export default function TreatmentsPage() {
             </div>
             <div className="treatment-detail">
               <div className="eyebrow">
-                <span></span> Shoulder care
+                <span></span> Shoulder Care
               </div>
               <h2>
                 Shoulder conditions &amp;
@@ -343,50 +320,39 @@ export default function TreatmentsPage() {
                 <em>treatment options.</em>
               </h2>
               <p>
-                Treatment for night pain, weakness, instability and restricted overhead movement.
+                Whether you struggle with sleep-disturbing night pain, recurrent dislocations, or restricted overhead reach, I focus on restoring shoulder stability, rotator cuff strength, and easy daily function.
               </p>
               <div className="treatment-list">
                 <div className="treatment-list-item">
                   <span>01</span>
-                  <strong>Shoulder arthroscopy</strong>
-
+                  <strong>Keyhole arthroscopic rotator cuff repair</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>02</span>
-                  <strong>Rotator cuff repair</strong>
-
+                  <strong>Shoulder stabilization for recurrent dislocations</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>03</span>
-                  <strong>Recurrent dislocation and instability</strong>
-
+                  <strong>Reverse &amp; anatomical shoulder replacement</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>04</span>
-                  <strong>Frozen shoulder treatment</strong>
-
+                  <strong>Frozen shoulder hydrodilatation &amp; release</strong>
                 </div>
                 <div className="treatment-list-item">
                   <span>05</span>
-                  <strong>Reverse shoulder replacement</strong>
-
+                  <strong>Acromioplasty &amp; subacromial decompression</strong>
                 </div>
               </div>
               <div className="treatment-action-group" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
                 <Link className="button button-outline" to="/appointment">
-                  Discuss your symptoms{' '}
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="icon">
-                    <path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  Discuss Your Symptoms
                 </Link>
                 <span
                   aria-disabled="true"
                   className="treatment-brochure-quicklink"
-                  title="Download Shoulder Arthroscopy Patient Guide (PDF)"
+                  title="Shoulder Arthroscopy Patient Guide (PDF)"
                 >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
-                  </svg>
                   <span>Shoulder Guide (PDF)</span>
                 </span>
               </div>
@@ -399,29 +365,26 @@ export default function TreatmentsPage() {
         <div className="shell treatment-guides-grid">
           <div className="treatment-guides-copy">
             <h2>
-              A recovery plan you can
+              A structured recovery plan
               <br />
-              <em>actually follow.</em>
+              <em>designed for clarity.</em>
             </h2>
             <p>
-              Clear visual guidance complements your personal instructions. It helps patients and families understand the early priorities without turning recovery into a long list of medical terms.
+              Recovery is a partnership. Alongside your clinical visits, I provide clear visual guides so you and your family know exactly what to do before treatment, during early healing, and throughout your rehabilitation milestones.
             </p>
             <div className="treatment-guide-notes">
               <span>
-                <b>01</b> Prepare before surgery
+                <b>01</b> Preparation &amp; pre-hab
               </span>
               <span>
-                <b>02</b> Protect the early phase
+                <b>02</b> Safe early movement
               </span>
               <span>
-                <b>03</b> Progress with guidance
+                <b>03</b> Guided rehabilitation
               </span>
             </div>
             <Link className="button button-outline" to="/patient-guides">
-              Open patient guides{' '}
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="icon">
-                <path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              View Patient Guides
             </Link>
           </div>
         </div>
@@ -432,27 +395,27 @@ export default function TreatmentsPage() {
         <div className="shell">
           <div className="section-heading more-care-heading">
             <div className="eyebrow">
-              <span></span> More specialist care
+              <span></span> Comprehensive Approach
             </div>
             <h2>
-              One diagnosis. <em>More than one option.</em>
+              Every condition. <em>A clear, personalized path.</em>
             </h2>
             <p>
-              The first goal is to understand the source of symptoms. Treatment may include medicines, guided rehabilitation, injections or surgery when the expected benefit makes it appropriate.
+              My first commitment is to identify the true root cause of your symptoms. Surgery is never the default—I guide you through every appropriate option, from non-surgical therapy to advanced reconstructive care.
             </p>
           </div>
           <div className="more-care-grid">
             <article>
-              <h3>Sports injuries</h3>
-              <p>Assessment and structured return-to-activity planning for ligament, cartilage and overuse injuries.</p>
+              <h3>Sports Injury Care</h3>
+              <p>Specialized assessment and return-to-sport pathways for ligament, meniscus, and joint overload injuries in active individuals.</p>
             </article>
             <article>
-              <h3>Non-surgical care</h3>
-              <p>Stage-appropriate options to manage symptoms and improve function before considering surgery.</p>
+              <h3>Conservative Treatment</h3>
+              <p>Stage-appropriate non-surgical options—including targeted physical therapy, joint preservation protocols, and lifestyle adjustments.</p>
             </article>
             <article>
-              <h3>Rehabilitation guidance</h3>
-              <p>The right physiotherapy at the right time, with progress milestones that are easy to understand.</p>
+              <h3>Structured Rehabilitation</h3>
+              <p>Tailored physiotherapy milestones designed with clear goals so you can track your strength and mobility progress every week.</p>
             </article>
           </div>
         </div>
@@ -469,7 +432,7 @@ export default function TreatmentsPage() {
               Frequently Asked <em>Questions</em>
             </h2>
             <p>
-              Clear answers to common questions about orthopaedic diagnosis, non-surgical options, robotic surgery, and recovery.
+              Clear answers to common questions about my diagnostic approach, non-surgical options, robotic surgery, and recovery.
             </p>
           </div>
 
@@ -520,7 +483,7 @@ export default function TreatmentsPage() {
             <div className="treatment-faq-footer-card">
               <div className="treatment-faq-footer-info">
                 <h4>Have more questions about your condition?</h4>
-                <p>Explore our complete knowledge library or discuss your symptoms directly with our specialist team.</p>
+                <p>Explore our complete knowledge library or schedule a consultation to discuss your symptoms directly.</p>
               </div>
               <div className="treatment-faq-footer-actions">
                 <Link to="/faq" className="button button-outline">
@@ -542,12 +505,6 @@ export default function TreatmentsPage() {
           <p>
             Treatment depends on a clinical examination and appropriate imaging. Website information cannot replace a personal medical consultation.
           </p>
-          <Link to="/appointment">
-            Book a consultation{' '}
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="icon">
-              <path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
         </div>
       </section>
     </div>

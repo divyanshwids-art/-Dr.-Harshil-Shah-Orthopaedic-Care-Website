@@ -8,13 +8,13 @@ export default function GalleryPage() {
   const cardRefs = useRef({});
 
   const categories = [
-    { id: 'all', label: 'All', icon: '✦', desc: 'Complete visual timeline of surgical practice and patient care' },
-    { id: 'clinical-practice', label: 'Clinical Practice', icon: '🩺', desc: 'Outpatient consultations, diagnostics, and patient care planning' },
-    { id: 'surgical-theatre', label: 'Surgical Theatre', icon: '🏥', desc: 'High-precision robotic surgeries, joint replacements, and arthroscopy' },
-    { id: 'academic-training', label: 'Academic & Training', icon: '🎓', desc: 'Faculty presentations, cadaveric workshops, and clinical masterclasses' },
-    { id: 'professional-journey', label: 'Professional Journey', icon: '💼', desc: 'Scientific research, clinical papers, and specialist fellowships' },
-    { id: 'patient-care', label: 'Patient Care', icon: '🤝', desc: 'Post-op mobility restoration, personalized counseling, and rehabilitation' },
-    { id: 'events-honors', label: 'Events & Honors', icon: '🏆', desc: 'Association milestones, awards, CME conferences, and recognitions' },
+    { id: 'all', label: 'All', desc: 'Complete visual timeline of surgical practice and patient care' },
+    { id: 'clinical-practice', label: 'Clinical Practice', desc: 'Outpatient consultations, diagnostics, and patient care planning' },
+    { id: 'surgical-theatre', label: 'Surgical Theatre', desc: 'High-precision robotic surgeries, joint replacements, and arthroscopy' },
+    { id: 'academic-training', label: 'Academic & Training', desc: 'Faculty presentations, cadaveric workshops, and clinical masterclasses' },
+    { id: 'professional-journey', label: 'Professional Journey', desc: 'Scientific research, clinical papers, and specialist fellowships' },
+    { id: 'patient-care', label: 'Patient Care', desc: 'Post-op mobility restoration, personalized counseling, and rehabilitation' },
+    { id: 'events-honors', label: 'Events & Honors', desc: 'Association milestones, awards, CME conferences, and recognitions' },
   ];
 
   // Reset and re-trigger observer on filter category change
@@ -263,7 +263,7 @@ export default function GalleryPage() {
               <span className="hero-accent-text">journey of care.</span>
             </h1>
             <p className="gallery-hero-subtitle">
-              A comprehensive visual journey through Dr. Harshil Shah's clinical practice, advanced robotic joint surgeries, academic CME forums, and surgical fellowships.
+              A comprehensive visual journey through my clinical practice, advanced joint procedures, academic forums, and surgical training milestones.
             </p>
 
             {/* Filter Tabs in Hero */}
@@ -279,7 +279,7 @@ export default function GalleryPage() {
                     className={`gallery-filter-pill ${activeCategory === cat.id ? 'active' : ''}`}
                     onClick={() => handleCategoryChange(cat.id)}
                   >
-                    {cat.icon} {cat.label} ({count})
+                    {cat.label} ({count})
                   </button>
                 );
               })}
@@ -288,7 +288,7 @@ export default function GalleryPage() {
                 className="gallery-filter-pill"
                 style={{ background: 'linear-gradient(135deg, #146c72, #0e555a)', color: '#ffffff', borderColor: '#3bb3bc', fontWeight: 800 }}
               >
-                🎬 Surgical &amp; OT Videos (19) →
+                Surgical &amp; OT Videos (19)
               </Link>
             </div>
           </div>
@@ -345,7 +345,6 @@ export default function GalleryPage() {
                   className={`gallery-cat-btn ${isActive ? 'is-active' : ''}`}
                   onClick={() => handleCategoryChange(cat.id)}
                 >
-                  <span className="cat-btn-icon">{cat.icon}</span>
                   <span className="cat-btn-label">{cat.label}</span>
                   <span className="cat-btn-count">{count}</span>
                 </button>
@@ -357,7 +356,6 @@ export default function GalleryPage() {
               className="gallery-cat-btn gallery-cat-btn-video"
               title="Watch high-definition surgical recordings"
             >
-              <span className="cat-btn-icon">🎬</span>
               <span className="cat-btn-label">Surgical &amp; OT Videos</span>
               <span className="cat-btn-count video-badge">19</span>
             </Link>
@@ -381,7 +379,7 @@ export default function GalleryPage() {
                 className="gallery-reset-filter-btn"
                 onClick={() => handleCategoryChange('all')}
               >
-                Reset to All ✕
+                Reset to All
               </button>
             )}
           </div>
@@ -488,21 +486,21 @@ export default function GalleryPage() {
               <img src="/hip-3d.webp" alt="3D hip joint visualization" />
               <span>
                 <strong>Prepare before surgery</strong>
-                <i>Read guidance →</i>
+                <i>Read guidance</i>
               </span>
             </Link>
             <Link to="/patient-guides#quiet-knee">
               <img src="/knee-3d.webp" alt="3D knee joint visualization" />
               <span>
                 <strong>Protect early recovery</strong>
-                <i>Read guidance →</i>
+                <i>Read guidance</i>
               </span>
             </Link>
             <Link to="/patient-guides#quiet-knee">
               <img src="/shoulder-3d.webp" alt="3D shoulder joint visualization" />
               <span>
                 <strong>Progress with support</strong>
-                <i>Read guidance →</i>
+                <i>Read guidance</i>
               </span>
             </Link>
           </div>
@@ -513,7 +511,6 @@ export default function GalleryPage() {
       <section className="gallery-note">
         <div className="shell">
           <div>
-            <span>✦</span>
             <p>Looking for information about a condition or treatment?</p>
           </div>
           <Link className="button button-light" to="/treatments">

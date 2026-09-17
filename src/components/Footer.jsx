@@ -108,9 +108,10 @@ export default function Footer() {
         {/* Explore Col */}
         <div className="footer-nav-col">
           <p className="footer-label">Explore</p>
-          <Link to="/about">About the doctor</Link>
+          <Link to="/about">About Dr. Harshil Shah</Link>
           <Link to="/treatments">Treatments</Link>
           <Link to="/patient-guides">Patient guides</Link>
+          <Link to="/brochures">Patient brochures</Link>
           <Link to="/gallery">Case gallery</Link>
         </div>
 
@@ -191,9 +192,6 @@ export default function Footer() {
           title="Scroll back to top"
         >
           <span>Back to top</span>
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-          </svg>
         </button>
         <span>Medical information is for general education, not a diagnosis.</span>
       </div>
