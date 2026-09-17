@@ -8,9 +8,8 @@ export default function ContactPage() {
       <section className="contact-photo-hero">
         <div className="contact-photo-hero-bg-wrap" aria-hidden="true">
           <picture className="contact-photo-hero-picture">
-            <source srcSet="/contact-hero-doctor.webp" type="image/webp" />
             <img
-              src="/contact-hero-doctor.png"
+              src="/doctor-hero-IMG_2501.png"
               alt="Dr. Harshil Shah - Orthopaedic Surgeon Consultation"
               className="contact-photo-hero-img"
               loading="eager"
