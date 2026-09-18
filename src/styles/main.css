@@ -175,46 +175,50 @@ img {
 }
 
 .topbar {
-  background: var(--navy);
-  color: #fffc;
+  background: #0c4349;
+  color: rgba(255, 255, 255, 0.9);
   letter-spacing: .035em;
-  font-size: 12px
+  font-size: 12px;
 }
 
 .topbar-inner {
   justify-content: space-between;
   align-items: center;
   height: 36px;
-  display: flex
+  display: flex;
 }
 
 .topbar-actions {
   align-items: center;
   gap: 14px;
-  display: flex
+  display: flex;
 }
 
 .topbar-actions a {
-  color: #fff;
-  font-weight: 700
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+.topbar-actions a:hover {
+  color: #ffffff;
 }
 
 .topbar-dot {
-  background: var(--saffron);
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   width: 3px;
-  height: 3px
+  height: 3px;
 }
 
 .site-header {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid #eef3f4;
   z-index: 50;
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  background: #ffffffeb;
-  height: 88px;
+  background: #ffffff;
+  height: 80px;
   position: sticky;
-  top: 0
+  top: 0;
 }
 
 .nav-wrap {
@@ -222,34 +226,34 @@ img {
   align-items: center;
   gap: 28px;
   height: 100%;
-  display: flex
+  display: flex;
 }
 
 .brand {
   align-items: center;
   gap: 12px;
   min-width: 215px;
-  display: inline-flex
+  display: inline-flex;
 }
 
 .brand-mark {
   width: 34px;
   height: 34px;
-  color: var(--teal);
-  flex: none
+  color: #146c72;
+  flex: none;
 }
 
 .brand-copy {
   flex-direction: column;
   line-height: 1.05;
-  display: flex
+  display: flex;
 }
 
 .brand-copy strong {
   font-family: var(--serif);
   letter-spacing: -.02em;
   font-size: 18px;
-  font-weight: 700
+  font-weight: 700;
 }
 
 .brand-copy small {
@@ -258,46 +262,52 @@ img {
   letter-spacing: .22em;
   margin-top: 5px;
   font-size: 8px;
-  font-weight: 700
+  font-weight: 700;
 }
 
 .desktop-nav {
   align-items: center;
-  gap: 30px;
+  gap: 28px;
   margin-left: auto;
-  display: flex
+  display: flex;
 }
 
 .desktop-nav a {
   color: #36515a;
-  padding: 34px 0 31px;
-  font-size: 13px;
-  position: relative
+  padding: 30px 0 28px;
+  font-size: 13.5px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
 .desktop-nav a:after {
   content: "";
-  background: var(--saffron);
+  background: #146c72;
   height: 2px;
   transition: right .28s;
   position: absolute;
-  bottom: 22px;
+  bottom: 18px;
   left: 0;
-  right: 100%
+  right: 100%;
+}
+
+.desktop-nav a:hover {
+  color: #146c72;
 }
 
 .desktop-nav a:hover:after,
 .desktop-nav a.active:after {
-  right: 0
+  right: 0;
 }
 
 .desktop-nav a.active {
-  color: var(--ink);
-  font-weight: 700
+  color: #146c72;
+  font-weight: 600;
 }
 
 .button {
-  background: var(--teal);
+  background: #0e555a;
   color: #fff;
   border: 1px solid var(--teal);
   letter-spacing: .02em;
@@ -21625,271 +21635,307 @@ button {
 
 /* ── FAQ Explorer ─────────────────────────────────────────────────────────── */
 .faq-explorer {
-  background: #f7fbfc;
-  padding: 48px 0;
+  background: #f8fbfb;
+  padding: 56px 0 72px;
 }
 
-.faq-explorer-grid {
-  display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 48px;
-  align-items: start;
+.faq-explorer-main {
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
-/* Sidebar */
-.faq-sidebar {
-  position: sticky;
-  top: 130px;
-  background: #fff;
-  border: 1.5px solid #edf7f6;
-  border-radius: 16px;
-  padding: 24px 20px;
-  height: calc(100vh - 160px);
-  min-height: 520px;
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+/* Header */
+.faq-explorer-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 32px;
 }
 
-.faq-sidebar::-webkit-scrollbar {
-  display: none;
-}
-
-.faq-sidebar-label {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: #8ba2ae;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  padding-left: 4px;
-}
-
-.faq-sidebar-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  padding: 9px 10px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  border-radius: 8px;
-  text-align: left;
-  margin-bottom: 2px;
-  transition: background 0.15s ease;
-  position: relative;
-  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-}
-
-.faq-sidebar-item:hover {
-  background: #f0faf9;
-}
-
-.faq-sidebar-item--active {
-  background: #eaf7f5;
-}
-
-.faq-sidebar-item--active::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 6px;
-  bottom: 6px;
-  width: 3px;
-  background: var(--teal);
-  border-radius: 2px;
-}
-
-.faq-sidebar-num {
-  font-size: 11px;
-  font-weight: 800;
-  color: #b8cdd8;
-  letter-spacing: 0.04em;
-  flex-shrink: 0;
-  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-  min-width: 20px;
-}
-
-.faq-sidebar-item--active .faq-sidebar-num {
-  color: var(--teal);
-}
-
-.faq-sidebar-text {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--ink-soft);
-  line-height: 1.35;
-  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-}
-
-.faq-sidebar-item--active .faq-sidebar-text {
-  color: var(--ink);
-}
-
-.faq-sidebar-cta {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid #e8eff4;
-}
-
-.faq-sidebar-cta p {
-  font-size: 13px;
-  color: var(--ink-soft);
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-/* Right scroll container */
-.faq-content-scroll--active {
-  height: calc(100vh - 160px);
-  min-height: 520px;
-  overflow-y: auto;
-  overscroll-behavior: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(12, 123, 121, 0.22) transparent;
-  padding-right: 14px;
-  padding-bottom: 30px;
-  scroll-behavior: smooth;
-}
-
-.faq-content-scroll--active::-webkit-scrollbar {
-  width: 5px;
-}
-
-.faq-content-scroll--active::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.faq-content-scroll--active::-webkit-scrollbar-thumb {
-  background: rgba(12, 123, 121, 0.22);
-  border-radius: 999px;
-}
-
-.faq-content-scroll--active::-webkit-scrollbar-thumb:hover {
-  background: rgba(12, 123, 121, 0.40);
-}
-
-/* Content column wrapper */
-.faq-content {
-  min-width: 0;
-}
-
-.faq-content--full {
-  grid-column: 1 / -1;
-}
-
-.faq-explorer-head {
-  margin-bottom: 36px;
-}
-
-.faq-reset-btn {
+.faq-badge-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(12, 123, 121, 0.09);
   color: var(--teal);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+.faq-explorer-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+.faq-explorer-header p {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Quick Search Box */
+.faq-search-wrapper {
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+.faq-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid #dbe7eb;
+  border-radius: 9999px;
+  padding: 8px 18px 8px 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.faq-search-box:focus-within {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px rgba(12, 123, 121, 0.12);
+}
+
+.faq-search-icon {
+  color: #8ba2ae;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.faq-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14.5px;
+  color: var(--ink);
+  background: transparent;
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+.faq-search-input::placeholder {
+  color: #94a3b8;
+}
+
+.faq-search-clear {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px 0;
-  margin-top: 12px;
-  transition: opacity 0.15s ease;
+  color: #94a3b8;
+  padding: 4px;
+  font-size: 13px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.15s ease;
+}
+
+.faq-search-clear:hover {
+  color: var(--ink);
+}
+
+/* Single line category selection box */
+.faq-topics-box-container {
+  margin-bottom: 28px;
+  position: sticky;
+  top: 86px;
+  z-index: 15;
+  background: rgba(248, 251, 251, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 6px 0;
+}
+
+.faq-topics-selection-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1.5px solid #e1ecf0;
+  border-radius: 9999px;
+  padding: 6px 8px;
+  box-shadow: 0 4px 16px rgba(12, 123, 121, 0.06);
+}
+
+.faq-topics-nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #e1ecf0;
+  background: #f8fbfb;
+  color: #557280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.faq-topics-nav-btn:hover:not(:disabled) {
+  background: var(--teal);
+  color: #ffffff;
+  border-color: var(--teal);
+}
+
+.faq-topics-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.faq-topics-scroll-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding: 2px 2px;
+  white-space: nowrap;
+}
+
+.faq-topics-scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+.faq-topic-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1.5px solid #e6f0f3;
+  background: #ffffff;
+  color: #475569;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.18s ease;
   font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
-.faq-reset-btn:hover {
-  opacity: 0.75;
+.faq-topic-tab:hover {
+  background: #f0faf9;
+  border-color: var(--teal);
+  color: var(--teal);
 }
 
-/* ── FAQ Group ────────────────────────────────────────────────────────────── */
-.faq-group {
-  margin-bottom: 56px;
+.faq-topic-tab--active {
+  background: var(--teal) !important;
+  border-color: var(--teal) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(12, 123, 121, 0.28);
 }
 
-.faq-group-header {
+.faq-topic-tab-name {
+  white-space: nowrap;
+}
+
+.faq-topic-tab-count {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background: #eef5f7;
+  color: #64748b;
+  line-height: 1;
+  transition: all 0.18s ease;
+}
+
+.faq-topic-tab--active .faq-topic-tab-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* FAQ Content Card directly below selection box */
+.faq-content-card {
+  background: #ffffff;
+  border: 1.5px solid #e5eff1;
+  border-radius: 20px;
+  padding: 32px 36px;
+  box-shadow: 0 4px 24px rgba(12, 123, 121, 0.04);
+  animation: faqFadeIn 0.25s ease-out;
+}
+
+@keyframes faqFadeIn {
+  from {
+    opacity: 0.85;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-topic-card-header {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #edf7f6;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid #edf6f7;
+  margin-bottom: 10px;
 }
 
-.faq-group-num {
+.faq-topic-card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.faq-topic-card-badge {
   font-size: 11px;
   font-weight: 800;
   color: var(--teal);
+  background: #e8f6f5;
+  padding: 4px 10px;
+  border-radius: 6px;
   letter-spacing: 0.06em;
-  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-  padding-top: 4px;
+  text-transform: uppercase;
 }
 
-.faq-group-title {
-  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-  font-size: 20px;
+.faq-topic-card-title {
+  font-size: 22px;
   font-weight: 800;
   color: var(--ink);
-  line-height: 1.25;
   letter-spacing: -0.015em;
   margin: 0;
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
-.faq-group-count {
-  font-size: 13px;
-  color: #8ba2ae;
-  margin: 4px 0 0;
-  font-weight: 500;
+.faq-topic-card-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.faq-topic-card-count {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #7b93a0;
 }
 
 .faq-group-list {
   display: flex;
   flex-direction: column;
-}
-
-/* Mobile topic horizontal selector */
-.faq-mobile-topics {
-  display: none;
-  overflow-x: auto;
-  white-space: nowrap;
-  gap: 8px;
-  padding: 0 0 20px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.faq-mobile-topics::-webkit-scrollbar {
-  display: none;
-}
-
-.faq-mobile-topic-chip {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  padding: 7px 16px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--ink-soft);
-  background: transparent;
-  border: 1.5px solid #edf7f6;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-  white-space: nowrap;
-}
-
-.faq-mobile-topic-chip:hover {
-  border-color: var(--teal);
-  color: var(--teal);
-  background: #f0faf9;
-}
-
-.faq-mobile-topic-chip--active {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: #fff;
 }
 
 /* ── FAQ Item (Accordion) ─────────────────────────────────────────────────── */
@@ -22217,6 +22263,18 @@ button {
   width: 1px;
   background: #c8e9e4;
   align-self: stretch;
+}
+
+.faq-support-grid--single {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.faq-support-block--centered {
+  max-width: 640px !important;
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
 }
 
 /* ── Still Need Help CTA ─────────────────────────────────────────────────── */
@@ -22644,32 +22702,24 @@ button {
   /* ── Mobile/Tablet layout: single column, page scrolling ────────────────── */
   @media (max-width: 960px) {
     .faq-explorer {
-      padding: 40px 0 60px;
+      padding: 36px 0 52px;
     }
 
-    .faq-explorer-grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
+    .faq-topics-box-container {
+      top: 68px;
     }
 
-    /* Disable independent right-panel scrolling — full page scrolls instead */
-    .faq-content-scroll--active {
-      height: auto;
-      max-height: none;
-      overflow-y: visible;
-      padding-right: 0;
+    .faq-content-card {
+      padding: 20px 18px;
+      border-radius: 16px;
     }
 
-    /* Show mobile horizontal topic chips */
-    .faq-mobile-topics {
-      display: flex;
+    .faq-topic-card-title {
+      font-size: 18px;
     }
 
-    /* Hide desktop sidebar */
-    .faq-sidebar {
-      position: static;
-      display: none;
-      height: auto;
+    .faq-explorer-header h2 {
+      font-size: 24px;
     }
   }
 
@@ -33765,59 +33815,464 @@ html body * {
   color: #146c72 !important;
 }
 
-/* 5. Gallery Page */
-.gallery-hero-title,
-.gallery-categories-title,
-.gallery-stacked-heading h2 {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-  font-size: clamp(32px, 4vw, 52px) !important;
-  font-weight: 800 !important;
-  line-height: 1.18 !important;
-  letter-spacing: -0.02em !important;
-  color: #0f172a !important;
+/* ============================================================
+   GALLERY & SURGICAL VIDEOS PAGES:
+   Standardized Typography, Hierarchy & Theme Alignment
+   - Identical typography hierarchy matching Home Page (.home-page)
+   - Headings: balanced clamp(24px, 2.5vw, 32px) / clamp(26px, 2.8vw, 36px), weight 700, Plus Jakarta Sans
+   - Highlights: #146c72, non-italicized
+   - Subtitles: 15.5px, line-height 1.68, color #334155
+   - Cards: 17px title (weight 700), 14px-14.5px description (weight 450)
+   - Surgical CTA Card: light medical theme with generous bottom gap before footer
+   ============================================================ */
+
+/* 5. Gallery Page (All Moments & Clinical Practice Views) */
+.gallery-page-wrapper,
+.gallery-hero,
+.gallery-categories-section,
+.gallery-bento-section {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
 }
 
-.gallery-hero-subtitle,
-.gallery-categories-desc,
-.gallery-stacked-heading p {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+.gallery-hero-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(26px, 2.8vw, 36px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+  color: #ffffff !important;
+  margin: 0 0 16px !important;
+}
+
+.gallery-hero-title .hero-accent-text {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  background: linear-gradient(90deg, #3bb3bc, #5ebec6, #c2e5e4) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.gallery-hero-subtitle {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 15.5px !important;
+  font-weight: 450 !important;
   line-height: 1.68 !important;
+  color: #e2f2f1 !important;
+  margin: 0 0 28px !important;
+  max-width: 540px !important;
+  opacity: 0.96 !important;
+}
+
+.gallery-categories-badge {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #146c72 !important;
+  background: #e2f2f1 !important;
+  border: 1px solid #c2e5e4 !important;
+  margin-bottom: 14px !important;
+}
+
+.gallery-categories-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  text-align: center !important;
+  margin-bottom: 12px !important;
+}
+
+.gallery-categories-title span {
+  color: #146c72 !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.gallery-categories-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  text-align: center !important;
+  max-width: 720px !important;
+  margin: 0 auto !important;
+}
+
+.gallery-cat-btn {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.gallery-active-filter-bar,
+.active-filter-info,
+.active-filter-info strong,
+.active-filter-subdesc {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
   color: #334155 !important;
 }
 
-/* 6. Surgical Videos Page */
-.surgical-hero-title,
-.surgical-section-title,
-.cta-main-title {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-  font-size: clamp(32px, 4vw, 52px) !important;
-  font-weight: 800 !important;
-  line-height: 1.18 !important;
-  letter-spacing: -0.02em !important;
+.gallery-reset-filter-btn {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 650 !important;
 }
 
-.surgical-hero-desc,
-.surgical-section-subtitle,
-.cta-desc {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+.gallery-card-tag span {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 750 !important;
+}
+
+.gallery-card-info h3 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  color: #ffffff !important;
+}
+
+.gallery-card-big .gallery-card-info h3 {
+  font-size: 19px !important;
+  font-weight: 700 !important;
+}
+
+.gallery-card-info p {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.55 !important;
+  color: #f1f5f9 !important;
+}
+
+.gallery-modal-caption strong {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  color: #ffffff !important;
+}
+
+.gallery-modal-caption p {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.6 !important;
+  color: #cbd5e1 !important;
+}
+
+/* 6. Surgical & OT Videos Page */
+.surgical-page {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.surgical-hero-container .breadcrumb,
+.surgical-hero-container .breadcrumb * {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.surgical-hero-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(26px, 2.8vw, 36px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  text-align: center !important;
+  margin: 0 0 12px !important;
+}
+
+.surgical-hero-title .text-gradient-cyan {
+  color: #146c72 !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.surgical-hero-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 15.5px !important;
+  font-weight: 450 !important;
   line-height: 1.68 !important;
+  color: #334155 !important;
+  text-align: center !important;
+  max-width: 720px !important;
+  margin: 0 auto 36px !important;
+}
+
+.center-video-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  color: #0f172a !important;
+  margin: 0 0 6px !important;
+}
+
+.center-video-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 450 !important;
+  line-height: 1.6 !important;
+  color: #475569 !important;
+  margin: 0 !important;
+}
+
+.center-tag-chip {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.04em !important;
+}
+
+.stage-card-mini-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 650 !important;
+}
+
+.surgical-grid-section .eyebrow {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #146c72 !important;
+}
+
+.surgical-section-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  text-align: center !important;
+  margin: 0 0 10px !important;
+}
+
+.surgical-section-subtitle {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  text-align: center !important;
+  max-width: 720px !important;
+  margin: 0 auto 32px !important;
+}
+
+.surgical-filter-tab {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
 }
 
 .surgical-card-title {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-  font-size: 16px !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17px !important;
   font-weight: 700 !important;
-  line-height: 1.4 !important;
+  line-height: 1.35 !important;
   color: #0f172a !important;
+  margin: 0 0 6px !important;
 }
 
 .surgical-card-desc {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-  font-size: 13.5px !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 450 !important;
   line-height: 1.6 !important;
   color: #475569 !important;
+  margin: 0 0 14px !important;
+}
+
+.surgical-card-action-text {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #146c72 !important;
+}
+
+.card-badge-num,
+.card-badge-cat,
+.card-expand-pill {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+.surgical-modal-content .modal-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  color: #0f172a !important;
+}
+
+.surgical-modal-content .modal-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.6 !important;
+  color: #475569 !important;
+}
+
+/* Surgical Consultation CTA Container & Spacing Before Footer */
+.surgical-cta-section {
+  padding: 30px 0 84px !important;
+  background: #f8fafc !important;
+  position: relative !important;
+}
+
+.surgical-cta-card {
+  background: linear-gradient(135deg, #f0fdfa 0%, #e6f7f8 50%, #f8fafc 100%) !important;
+  border: 1.5px solid #bbf0ee !important;
+  border-radius: 24px !important;
+  padding: 48px 44px !important;
+  box-shadow: 0 16px 40px -12px rgba(20, 108, 114, 0.1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.surgical-cta-grid {
+  display: grid !important;
+  grid-template-columns: 1.25fr 0.85fr !important;
+  gap: 36px !important;
+  align-items: center !important;
+}
+
+.surgical-cta-heading {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  margin: 0 0 12px !important;
+}
+
+.surgical-cta-accent {
+  color: #146c72 !important;
+  font-style: normal !important;
+}
+
+.surgical-cta-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 450 !important;
+  line-height: 1.68 !important;
+  color: #334155 !important;
+  margin: 0 0 14px !important;
+}
+
+.surgical-cta-sub {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #146c72 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.surgical-cta-right {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.surgical-cta-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #146c72 !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  padding: 13px 26px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(20, 108, 114, 0.28) !important;
+  transition: all 0.25s ease !important;
+}
+
+.surgical-cta-primary:hover {
+  background: #0e555a !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(20, 108, 114, 0.35) !important;
+}
+
+.surgical-cta-secondary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1.5px solid #cbd5e1 !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  padding: 12px 24px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.surgical-cta-secondary:hover {
+  border-color: #146c72 !important;
+  color: #146c72 !important;
+  transform: translateY(-2px) !important;
+}
+
+.surgical-cta-whatsapp {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  background: #25d366 !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  padding: 12px 24px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25) !important;
+  transition: all 0.25s ease !important;
+}
+
+.surgical-cta-whatsapp:hover {
+  background: #1ebc59 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35) !important;
+}
+
+@media (max-width: 900px) {
+  .surgical-cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .surgical-cta-card {
+    padding: 32px 24px !important;
+  }
 }
 
 /* 7. Patient Guides Page Typography & Layout */
@@ -34015,4 +34470,2175 @@ html body * {
   border-radius: 12px !important;
   padding: 16px 20px !important;
   margin-top: 24px !important;
+}
+
+/* ========================================================================= */
+/* Phase Cards Precise Grid & Text Alignment (Before Surgery & Hospital Stay) */
+/* ========================================================================= */
+.patient-guides-page-wrapper .before-surgery-section .phase-cards-grid,
+.patient-guides-page-wrapper .hospital-stay-section .phase-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+  margin-bottom: 32px !important;
+}
+
+@media (max-width: 1080px) {
+  .patient-guides-page-wrapper .before-surgery-section .phase-cards-grid,
+  .patient-guides-page-wrapper .hospital-stay-section .phase-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .patient-guides-page-wrapper .before-surgery-section .phase-cards-grid,
+  .patient-guides-page-wrapper .hospital-stay-section .phase-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  padding: 24px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card:hover,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: #146c72 !important;
+  box-shadow: 0 12px 28px rgba(20, 108, 114, 0.1) !important;
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card-header,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  margin-bottom: 14px !important;
+  min-height: 26px !important;
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card-step,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card-step {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.06em !important;
+  color: #146c72 !important;
+  background: #e6f4f5 !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card h3,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card h3 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.35 !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 26px !important;
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card > p,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card > p {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  color: #475569 !important;
+  margin: 0 0 16px 0 !important;
+  min-height: 42px !important;
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card-list,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card-list {
+  list-style: none !important;
+  padding: 16px 0 0 0 !important;
+  margin: 0 !important;
+  border-top: 1px solid #edf2f7 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  flex: 1 1 auto !important;
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card-list li,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card-list li {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  color: #334155 !important;
+  position: relative !important;
+  padding-left: 18px !important;
+  margin: 0 !important;
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card-list li::before,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card-list li::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 2px !important;
+  top: 7px !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #146c72 !important;
+  box-shadow: 0 0 4px rgba(20, 108, 114, 0.3) !important;
+}
+
+.patient-guides-page-wrapper .before-surgery-section .phase-card-list li strong,
+.patient-guides-page-wrapper .hospital-stay-section .phase-card-list li strong {
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+
+/* ========================================================================= */
+/* About Page Hero Credentials Bar & FAQ Accent                             */
+/* ========================================================================= */
+.about-hero-section .about-profile-snapshot {
+  position: relative !important;
+  z-index: 2 !important;
+  margin-top: 36px !important;
+  padding: 0 !important;
+}
+
+.about-page .about-faq-title em {
+  color: #146c72 !important;
+  font-style: italic !important;
+}
+
+/* ========================================================================= */
+/* Exact Pixel-Perfect Reference UI Styles (Home Page Redesign)              */
+/* ========================================================================= */
+
+.mock-home {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #0f2b30;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Shell / Container */
+.mock-shell {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section Header */
+.mock-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.mock-section-header-left {
+  max-width: 680px;
+}
+
+.mock-eyebrow {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #146c72;
+  margin-bottom: 6px;
+}
+
+.mock-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0f2b30;
+  line-height: 1.25;
+  margin: 0 0 6px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.mock-subtitle {
+  font-size: 0.92rem;
+  color: #526e75;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.mock-pending-note {
+  font-size: 0.88rem;
+  color: #78909c;
+  margin: 4px 0 0;
+  font-style: normal;
+}
+
+/* Common Outline Pill Button */
+.mock-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  border: 1px solid #146c72;
+  color: #146c72;
+  background: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.mock-btn-outline:hover {
+  background: #eaf6f7;
+  color: #0e555a;
+  border-color: #0e555a;
+}
+
+/* Common Primary Dark Teal Button */
+.mock-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 6px;
+  background: #0e555a;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mock-btn-primary:hover {
+  background: #093f43;
+  color: #ffffff;
+}
+
+.mock-btn-primary-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.mock-btn-primary:hover .mock-btn-primary-arrow {
+  transform: translateX(3px);
+}
+
+/* ========================================================================= */
+/* 1. HERO BANNER SECTION (Doctor Image as Background)                       */
+/* ========================================================================= */
+.mock-hero {
+  position: relative;
+  background-color: #f6fafb;
+  background-image: 
+    linear-gradient(90deg, #f6fafb 0%, #f6fafb 38%, rgba(246, 250, 251, 0.94) 52%, rgba(246, 250, 251, 0.45) 70%, rgba(246, 250, 251, 0.1) 88%, rgba(246, 250, 251, 0) 100%),
+    url('/doctor-hero-office.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: auto 100%;
+  overflow: hidden;
+  padding: 70px 0 75px;
+  border-bottom: 1px solid #e5eef0;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+}
+
+.mock-hero-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.mock-hero-left {
+  max-width: 580px;
+  z-index: 2;
+}
+
+.mock-hero-doc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 108, 114, 0.2);
+  box-shadow: 0 2px 12px rgba(15, 43, 48, 0.06);
+  margin-bottom: 20px;
+}
+
+.mock-hero-doc-badge strong {
+  font-size: 0.92rem;
+  color: #0f2b30;
+  font-weight: 700;
+}
+
+.mock-hero-doc-badge span {
+  font-size: 0.8rem;
+  color: #146c72;
+  font-weight: 600;
+}
+
+.mock-hero-title {
+  font-size: 2.85rem;
+  font-weight: 800;
+  color: #0f2b30;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.mock-hero-desc {
+  font-size: 1.08rem;
+  color: #436269;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+.mock-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ========================================================================= */
+/* 2. WHY CHOOSE US SECTION                                                  */
+/* ========================================================================= */
+.mock-why-section {
+  padding: 50px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-why-card {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.mock-why-left h2,
+.mock-why-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0f2b30;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+.mock-text-teal {
+  color: #146c72;
+  position: relative;
+  display: inline-block;
+}
+
+.mock-text-teal::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 4px;
+  background: rgba(20, 108, 114, 0.22);
+  border-radius: 2px;
+}
+
+.mock-why-left p {
+  font-size: 0.88rem;
+  color: #526e75;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.mock-why-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.mock-why-item {
+  text-align: center;
+  padding: 16px 12px;
+  border-left: 1px solid #eef3f4;
+}
+
+.mock-why-item:first-child {
+  border-left: none;
+}
+
+.mock-why-icon-box {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #146c72;
+}
+
+.mock-why-item span {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #0f2b30;
+  line-height: 1.35;
+}
+
+/* ========================================================================= */
+/* 3. CONDITIONS WE TREAT (TREATMENT TYPES)                                  */
+/* ========================================================================= */
+.mock-treatments-section {
+  padding: 60px 0;
+  background: #f8fbfb;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.mock-condition-card {
+  background: #ffffff;
+  border: 1px solid #e2eef0;
+  border-radius: 12px;
+  padding: 22px 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.24s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(15, 43, 48, 0.02);
+}
+
+.mock-condition-card:hover {
+  transform: translateY(-3px);
+  border-color: #146c72;
+  box-shadow: 0 8px 20px rgba(20, 108, 114, 0.08);
+}
+
+.mock-condition-icon {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 14px;
+  color: #146c72;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mock-condition-card strong {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f2b30;
+  margin-bottom: 14px;
+  line-height: 1.3;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mock-condition-arrow {
+  color: #146c72;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.mock-condition-card:hover .mock-condition-arrow {
+  color: #0e555a;
+  text-decoration: underline;
+}
+
+/* ========================================================================= */
+/* 4. HOW DR. HARSHIL SHAH DOES TREATMENT? (OUR APPROACH)                    */
+/* ========================================================================= */
+.mock-approach-section {
+  padding: 65px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-approach-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.mock-approach-visual {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 43, 48, 0.08);
+}
+
+.mock-approach-img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  display: block;
+}
+
+.mock-play-btn-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(14, 85, 90, 0.88);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mock-play-btn-overlay:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: #0e555a;
+}
+
+.mock-approach-right p {
+  font-size: 0.92rem;
+  color: #526e75;
+  line-height: 1.6;
+  margin: 10px 0 20px;
+}
+
+.mock-about-desc {
+  font-size: 0.95rem;
+  color: #526e75;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.mock-about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+.mock-about-stat-card {
+  background: #f4fafb;
+  border: 1px solid #d9edf0;
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.mock-about-stat-number {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #146c72;
+  line-height: 1.15;
+}
+
+.mock-about-stat-label {
+  display: block;
+  font-size: 0.74rem;
+  color: #4a686f;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.mock-review-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0f9fa;
+  border: 1px solid #d2eaed;
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.82rem;
+  color: #146c72;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.mock-pending-box {
+  background: #ffffff;
+  border: 1.5px dashed #b8dee3;
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.mock-pending-tag {
+  display: inline-block;
+  background: #fff8eb;
+  border: 1px solid #fed7aa;
+  color: #b45309;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mock-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mock-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f2b30;
+}
+
+.mock-check-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0e555a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ========================================================================= */
+/* 5. REPUTATED PUBLICATIONS SECTION                                         */
+/* ========================================================================= */
+.mock-publications-section {
+  padding: 42px 0;
+  background: #f8fbfb;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-publications-inline-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: 700px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1.5px solid #e0eff1;
+  border-radius: 14px;
+  padding: 16px 28px;
+  box-shadow: 0 4px 16px rgba(15, 43, 48, 0.04);
+}
+
+.mock-publications-title {
+  margin: 0;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0f2b30;
+  line-height: 1.25;
+}
+
+.mock-toi-inline-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #ffffff;
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1px solid #e2eef0;
+  transition: all 0.25s ease;
+}
+
+.mock-toi-inline-card:hover {
+  border-color: #146c72;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(20, 108, 114, 0.08);
+}
+
+.mock-toi-logo-img-sm {
+  max-width: 170px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mock-publications-inline-wrap {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    padding: 20px 18px;
+  }
+}
+
+.mock-pubs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mock-pub-card {
+  background: #ffffff;
+  border: 1px solid #e2eef0;
+  border-radius: 14px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.24s ease;
+  box-shadow: 0 4px 14px rgba(15, 43, 48, 0.03);
+  position: relative;
+}
+
+.mock-pub-card:hover {
+  border-color: #146c72;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(20, 108, 114, 0.09);
+}
+
+.mock-pub-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #146c72;
+  background: #e6f5f7;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mock-pub-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #eaf6f7;
+  color: #146c72;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.mock-pub-title {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #0f2b30;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.mock-pub-journal {
+  font-size: 0.82rem;
+  color: #526e75;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.mock-pub-year {
+  font-size: 0.78rem;
+  color: #146c72;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ========================================================================= */
+/* 6. AWARDS OF DR. HARSHIL SHAH                                             */
+/* ========================================================================= */
+.mock-awards-section {
+  padding: 60px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mock-award-card {
+  background: #ffffff;
+  border: 1px solid #e2eef0;
+  border-radius: 14px;
+  padding: 28px 22px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.24s ease;
+  box-shadow: 0 4px 14px rgba(15, 43, 48, 0.03);
+}
+
+.mock-award-card:hover {
+  border-color: #146c72;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(20, 108, 114, 0.09);
+}
+
+.mock-award-card.is-primary-award {
+  background: linear-gradient(145deg, #ffffff 0%, #fffdf5 100%);
+  border: 1.5px solid #fde68a;
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.08);
+}
+
+.mock-award-photo-wrap {
+  width: 100%;
+  height: 195px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 1px solid rgba(253, 230, 138, 0.7);
+  box-shadow: 0 4px 14px rgba(15, 43, 48, 0.06);
+}
+
+.mock-award-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.mock-award-card:hover .mock-award-photo-img {
+  transform: scale(1.03);
+}
+
+.mock-award-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #b45309;
+  background: #fef3c7;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mock-award-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: #fdf8e6;
+  color: #d97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.mock-award-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f2b30;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.mock-award-desc {
+  font-size: 0.85rem;
+  color: #526e75;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  flex-grow: 1;
+}
+
+.mock-award-year {
+  font-size: 0.8rem;
+  color: #146c72;
+  font-weight: 700;
+}
+
+/* ========================================================================= */
+/* 7. DAY CARE JOINT REPLACEMENT                                             */
+/* ========================================================================= */
+.mock-why-icon-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.mock-condition-icon-img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.mock-condition-card:hover .mock-condition-icon-img {
+  transform: scale(1.1);
+}
+
+.mock-daycare-section {
+  padding: 60px 0;
+  background: #f8fbfb;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-daycare-box {
+  background: linear-gradient(135deg, #e7f6f8 0%, #f1fafb 100%);
+  border: 1.5px solid #cce8ec;
+  border-radius: 24px;
+  padding: 42px 46px;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 36px;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(20, 108, 114, 0.05);
+}
+
+.mock-daycare-left h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0f2b30;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  word-spacing: 0.22em;
+  letter-spacing: 0.02em;
+}
+
+.mock-daycare-left p {
+  font-size: 0.94rem;
+  color: #4a686f;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.mock-daycare-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+}
+
+.mock-daycare-badge-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+.mock-badge-col-left {
+  align-items: flex-end;
+}
+
+.mock-badge-col-right {
+  align-items: flex-start;
+}
+
+.mock-daycare-center {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.mock-daycare-ring {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(220, 243, 246, 0.85) 68%, rgba(20, 108, 114, 0.1) 100%);
+  border: 2px dashed rgba(20, 108, 114, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 32px rgba(20, 108, 114, 0.12), inset 0 2px 10px rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+
+.mock-daycare-joint-img {
+  max-width: 175px;
+  max-height: 175px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 22px rgba(20, 108, 114, 0.22));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mock-daycare-ring:hover .mock-daycare-joint-img {
+  transform: scale(1.08) rotate(2deg);
+}
+
+.mock-daycare-pill.mock-pill-round {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1.5px solid #bde2e7;
+  border-radius: 9999px;
+  padding: 13px 24px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0f2b30;
+  box-shadow: 0 4px 14px rgba(15, 43, 48, 0.06);
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.mock-daycare-pill.mock-pill-round:hover {
+  border-color: #146c72;
+  box-shadow: 0 6px 20px rgba(20, 108, 114, 0.16);
+  transform: translateY(-2px);
+  color: #146c72;
+}
+
+.mock-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #146c72;
+  box-shadow: 0 0 0 3px rgba(20, 108, 114, 0.18);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ========================================================================= */
+/* 8. ABOUT DR. HARSHIL SHAH                                                 */
+/* ========================================================================= */
+.mock-about-section {
+  padding: 65px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-about-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.mock-about-left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.mock-about-backdrop {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+  background: #dff5f6;
+  top: 10px;
+  z-index: 1;
+}
+
+.mock-about-doc-img {
+  position: relative;
+  z-index: 2;
+  max-width: 260px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.mock-about-right h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0f2b30;
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+
+.mock-about-right p {
+  font-size: 0.94rem;
+  color: #78909c;
+  margin: 0 0 22px;
+}
+
+/* ========================================================================= */
+/* 9. FREQUENTLY ASKED QUESTIONS (FAQS)                                      */
+/* ========================================================================= */
+.mock-faqs-section {
+  padding: 60px 0;
+  background: #f8fbfb;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-faqs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mock-faq-row {
+  background: #ffffff;
+  border: 1px solid #e2eef0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mock-faq-row:hover {
+  border-color: #146c72;
+}
+
+.mock-faq-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mock-faq-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0f2b30;
+}
+
+.mock-faq-icon-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #146c72;
+  color: #146c72;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mock-faq-plus {
+  color: #146c72;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mock-faq-body {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f6;
+  font-size: 0.88rem;
+  color: #78909c;
+  line-height: 1.5;
+}
+
+/* ========================================================================= */
+/* 10. WHAT OUR PATIENTS SAY (PATIENT STORIES)                               */
+/* ========================================================================= */
+.mock-reviews-section {
+  padding: 60px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.mock-review-card {
+  background: #ffffff;
+  border: 1px solid #e2eef0;
+  border-radius: 12px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(15, 43, 48, 0.02);
+}
+
+.mock-review-quote {
+  font-family: Georgia, serif;
+  font-size: 1.8rem;
+  color: #146c72;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.mock-review-text {
+  font-size: 0.88rem;
+  color: #526e75;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.mock-review-stars {
+  color: #f59e0b;
+  font-size: 0.92rem;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.mock-review-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #f1f5f6;
+  padding-top: 12px;
+}
+
+.mock-review-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #eaf6f7;
+  color: #146c72;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mock-review-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0f2b30;
+}
+
+/* ========================================================================= */
+/* 11. USEFUL INFORMATION (DOWNLOAD BROCHURES)                               */
+/* ========================================================================= */
+.mock-brochures-section {
+  padding: 60px 0;
+  background: #f8fbfb;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-brochures-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.mock-brochures-left h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0f2b30;
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+
+.mock-brochures-left p {
+  font-size: 0.9rem;
+  color: #526e75;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.mock-brochures-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.mock-guide-card {
+  position: relative;
+  background: #ffffff;
+  border: 1.5px solid #e0eff1;
+  border-radius: 16px;
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 4px 16px rgba(15, 43, 48, 0.04);
+  transition: all 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.mock-guide-card:hover {
+  border-color: #146c72;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(20, 108, 114, 0.12);
+}
+
+.mock-guide-logo-wrap {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  background: radial-gradient(circle, #eaf6f7 0%, #daf0f2 100%);
+  border: 1px solid #d0eaee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.mock-guide-card:hover .mock-guide-logo-wrap {
+  transform: scale(1.05);
+}
+
+.mock-guide-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  transition: all 0.25s ease;
+}
+
+.mock-guide-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.mock-guide-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #146c72;
+  background: #e6f5f7;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mock-guide-title {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f2b30;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.mock-guide-pages {
+  display: block;
+  font-size: 0.8rem;
+  color: #68858d;
+}
+
+/* Hover Download Overlay */
+.mock-guide-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(14, 85, 90, 0.96) 0%, rgba(20, 108, 114, 0.96) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease, transform 0.24s ease;
+  transform: scale(0.97);
+  z-index: 5;
+  text-decoration: none;
+}
+
+.mock-guide-card:hover .mock-guide-hover-overlay {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.mock-guide-dl-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0e555a;
+  padding: 11px 24px;
+  border-radius: 9999px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mock-guide-dl-action-btn:hover {
+  background: #eef8f9;
+  transform: scale(1.05);
+}
+
+/* ========================================================================= */
+/* 12. LIST OF HOSPITALS                                                     */
+/* ========================================================================= */
+.mock-hospitals-section {
+  padding: 60px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-hospitals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mock-hospital-card {
+  background: #ffffff;
+  border: 1.5px solid #e0eff1;
+  border-radius: 16px;
+  padding: 24px 22px;
+  box-shadow: 0 4px 14px rgba(15, 43, 48, 0.03);
+  transition: all 0.24s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-hospital-card:hover {
+  border-color: #146c72;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(20, 108, 114, 0.09);
+}
+
+.mock-hospital-info {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.mock-hospital-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f2b30;
+  margin-bottom: 6px;
+}
+
+.mock-hospital-loc {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.84rem;
+  color: #526e75;
+}
+
+/* ========================================================================= */
+/* 13. WHERE DR. HARSHIL SHAH WORKS (LOCATIONS)                              */
+/* ========================================================================= */
+.mock-locations-section {
+  padding: 60px 0;
+  background: #f8fbfb;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mock-location-card {
+  background: #ffffff;
+  border: 1px solid #e2eef0;
+  border-radius: 14px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.24s ease;
+  box-shadow: 0 2px 8px rgba(15, 43, 48, 0.02);
+}
+
+.mock-location-card:hover {
+  border-color: #146c72;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(20, 108, 114, 0.08);
+}
+
+.mock-location-card.is-active {
+  border-color: #146c72;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(20, 108, 114, 0.08);
+}
+
+.mock-loc-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eef4f5;
+}
+
+.mock-loc-logo-wrap {
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mock-loc-logo-img {
+  object-fit: contain;
+  display: block;
+}
+
+.mock-loc-logo-img.curis {
+  height: 52px;
+  width: auto;
+  max-width: 150px;
+}
+
+.mock-loc-logo-img.sterling {
+  height: 36px;
+  width: auto;
+  max-width: 140px;
+}
+
+.mock-loc-logo-img.lilavati {
+  height: 82px;
+  width: auto;
+  max-width: 175px;
+}
+
+.mock-loc-icon {
+  color: #146c72;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.mock-loc-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-loc-text strong {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #0f2b30;
+  margin-bottom: 4px;
+}
+
+.mock-loc-text span {
+  display: block;
+  font-size: 0.82rem;
+  color: #526e75;
+}
+
+/* ========================================================================= */
+/* 14. ROBOTIC SURGERY SECTION                                               */
+/* ========================================================================= */
+.mock-robotic-section {
+  padding: 65px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-feature-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.mock-feature-duo-visual {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 43, 48, 0.08);
+}
+
+.mock-feature-duo-img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  display: block;
+}
+
+.mock-feature-duo-content h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0f2b30;
+  margin: 6px 0 10px;
+}
+
+/* ========================================================================= */
+/* 15. ONLINE CONSULTATION SECTION (PHOTO REMOVED, UNIFIED LAYOUT)           */
+/* ========================================================================= */
+.mock-online-consult-section {
+  padding: 60px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-consult-card-unified {
+  background: linear-gradient(135deg, #f0f9fa 0%, #e5f4f6 100%);
+  border: 1.5px solid #cbe7eb;
+  border-radius: 22px;
+  padding: 44px 40px;
+  display: block;
+  box-shadow: 0 10px 30px rgba(15, 43, 48, 0.05);
+}
+
+.mock-consult-content-full {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mock-consult-content-full h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f2b30;
+  margin: 8px 0 12px;
+}
+
+.mock-consult-lead {
+  font-size: 0.98rem;
+  color: #4a686f;
+  line-height: 1.6;
+  max-width: 760px;
+  margin: 0 auto 32px;
+}
+
+.mock-consult-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 34px;
+  text-align: left;
+}
+
+.mock-consult-step-card {
+  background: #ffffff;
+  border: 1px solid #d4ebed;
+  border-radius: 14px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 14px rgba(15, 43, 48, 0.04);
+  transition: transform 0.22s ease, border-color 0.22s ease;
+  position: relative;
+}
+
+.mock-consult-step-card:hover {
+  transform: translateY(-3px);
+  border-color: #146c72;
+  box-shadow: 0 8px 22px rgba(20, 108, 114, 0.08);
+}
+
+.mock-consult-step-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #146c72;
+  background: #e5f6f8;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+.mock-consult-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #eef8f9;
+  color: #146c72;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.mock-consult-step-card strong {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #0f2b30;
+  margin-bottom: 6px;
+}
+
+.mock-consult-step-card p {
+  font-size: 0.85rem;
+  color: #557279;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.mock-consult-footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.mock-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: #ffffff;
+  padding: 11px 24px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  transition: all 0.22s ease;
+}
+
+.mock-btn-whatsapp:hover {
+  background: #1eb956;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  color: #ffffff;
+}
+
+.mock-consult-trust-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #146c72;
+}
+
+/* ========================================================================= */
+/* 16. BOTTOM CTA BAR (BOOK AN APPOINTMENT - GAP WITH FOOTER & CLEAR VISIBILITY) */
+/* ========================================================================= */
+.mock-cta-bar {
+  background: transparent;
+  padding: 15px 0 65px; /* Clean 65px gap before footer! */
+}
+
+.mock-cta-bar-inner {
+  background: linear-gradient(135deg, #093b3f 0%, #0e555a 50%, #156d73 100%);
+  border-radius: 22px;
+  padding: 34px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 16px 36px rgba(9, 59, 63, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mock-cta-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.mock-cta-calendar-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.mock-cta-bar-text strong {
+  display: block;
+  font-size: 1.32rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+  letter-spacing: -0.015em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.mock-cta-bar-text span {
+  display: block;
+  font-size: 0.94rem;
+  color: #daf5f7;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.mock-btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #093b3f;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.mock-btn-white:hover {
+  background: #f2fbfb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* Hospital & Location Badges */
+.mock-hospital-badge,
+.mock-location-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: #e6f5f7;
+  color: #146c72;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Video Section styles */
+.mock-video-section {
+  padding: 60px 0;
+  background: #f8fbfb;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.mock-video-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.mock-video-card {
+  background: #ffffff;
+  border: 1px solid #e2eef0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(15, 43, 48, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-video-frame-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000000;
+}
+
+.mock-video-frame-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mock-video-info {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.mock-video-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #146c72;
+  background: #e6f5f7;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.mock-video-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f2b30;
+  margin: 0 0 6px;
+}
+
+.mock-video-info p {
+  font-size: 0.86rem;
+  color: #526e75;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ========================================================================= */
+/* 17. FOOTER STYLES (MATCHING REFERENCE IMAGE)                              */
+/* ========================================================================= */
+.mock-footer {
+  background: #ffffff;
+}
+
+.mock-footer-top {
+  border-top: 1px solid #eef3f4;
+  padding: 32px 0;
+}
+
+.mock-footer-top-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.mock-footer-logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.mock-footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.mock-footer-nav a {
+  color: #36515a;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mock-footer-nav a:hover {
+  color: #146c72;
+}
+
+.mock-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mock-social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.mock-social-icon:hover {
+  transform: scale(1.1);
+}
+
+.mock-social-wa {
+  background: #25d366;
+}
+
+.mock-social-ig {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+.mock-social-li {
+  background: #0a66c2;
+}
+
+.mock-social-yt {
+  background: #ff0000;
+}
+
+.mock-footer-bottom {
+  background: #0c4349;
+  padding: 14px 0;
+  color: #a3cbcf;
+  font-size: 12px;
+}
+
+.mock-footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ========================================================================= */
+/* RESPONSIVENESS (MOBILE & TABLET)                                          */
+/* ========================================================================= */
+@media (max-width: 1024px) {
+  .mock-hero {
+    background-position: right 15% bottom;
+    padding: 60px 0;
+  }
+  .mock-conditions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .mock-pubs-grid,
+  .mock-awards-grid,
+  .mock-reviews-grid,
+  .mock-hospitals-grid,
+  .mock-locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mock-about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mock-brochures-layout {
+    grid-template-columns: 1fr;
+  }
+  .mock-daycare-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 32px 24px;
+  }
+  .mock-daycare-showcase {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mock-daycare-badge-col {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .mock-badge-col-left,
+  .mock-badge-col-right {
+    align-items: center;
+  }
+  .mock-footer-top-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .mock-footer-nav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .mock-hero {
+    background-image: 
+      linear-gradient(180deg, rgba(246, 250, 251, 0.94) 0%, rgba(246, 250, 251, 0.97) 55%, rgba(246, 250, 251, 0.88) 100%),
+      url('/doctor-hero-office.png');
+    background-position: center bottom;
+    background-size: cover;
+    padding: 50px 0 60px;
+    min-height: auto;
+  }
+  .mock-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .mock-hero {
+    background-image: 
+      linear-gradient(180deg, rgba(246, 250, 251, 0.95) 0%, rgba(246, 250, 251, 0.9) 100%),
+      url('/doctor-hero-office.png');
+    background-position: center right;
+    background-size: cover;
+    padding: 50px 0 50px;
+    min-height: auto;
+  }
+  .mock-hero-left {
+    max-width: 100%;
+  }
+  .mock-hero-title {
+    font-size: 2.1rem;
+  }
+  .mock-why-card,
+  .mock-approach-grid,
+  .mock-about-grid,
+  .mock-feature-duo,
+  .mock-consult-card,
+  .mock-brochures-layout {
+    grid-template-columns: 1fr;
+  }
+  .mock-why-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mock-why-item {
+    border-left: none;
+    border-top: 1px solid #eef3f4;
+  }
+  .mock-conditions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mock-consult-steps-grid,
+  .mock-video-grid,
+  .mock-pubs-grid,
+  .mock-awards-grid,
+  .mock-reviews-grid,
+  .mock-hospitals-grid,
+  .mock-locations-grid,
+  .mock-brochures-grid {
+    grid-template-columns: 1fr;
+  }
+  .mock-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mock-cta-bar-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .mock-cta-bar-left {
+    flex-direction: column;
+  }
+  .mock-footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+  }
 }

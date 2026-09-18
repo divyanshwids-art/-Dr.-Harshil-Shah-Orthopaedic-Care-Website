@@ -21,7 +21,7 @@ export const faqData = [
     category: 'Appointments',
     question: 'How do I book an appointment with Dr. Harshil Shah?',
     answer:
-      'You can schedule a consultation by completing the online appointment form on this website or by contacting the clinic via phone or WhatsApp at +91 93167 53985. The reception team will assist you in confirming a suitable date and consultation slot.',
+      'You can schedule a consultation by completing the online appointment form on this website or by contacting the clinic via phone or WhatsApp at +91 93167 53985. The clinic desk will assist you in confirming a suitable date and consultation slot.',
     keywords: ['book appointment', 'online consultation', 'WhatsApp booking', 'Dr Harshil Shah appointment', 'Ahmedabad clinic'],
     featured: true,
   },
@@ -46,7 +46,7 @@ export const faqData = [
     category: 'Appointments',
     question: 'What should I do if I need to reschedule or cancel my appointment?',
     answer:
-      'If you need to change your consultation time, please inform the clinic at least 24 hours in advance by phone or WhatsApp message. This helps our team offer the slot to another patient and arrange a convenient alternate time for you.',
+      'If you need to change your consultation time, please inform the clinic at least 24 hours in advance by phone or WhatsApp message. This helps the clinic offer the slot to another patient and arrange a convenient alternate time for you.',
     keywords: ['reschedule appointment', 'cancel consultation', 'change booking timing'],
   },
   {
@@ -54,9 +54,24 @@ export const faqData = [
     category: 'Appointments',
     question: 'I have persistent knee, hip or shoulder pain. When is the right time to book a consultation?',
     answer:
-      'Consider scheduling an evaluation if joint pain persists, progressively worsens, disturbs sleep, or interferes with daily walking or stairs. Early assessment can help identify the cause of symptoms and guide appropriate treatment before pain, instability or functional limitations worsen.',
-    keywords: ['knee pain consultation', 'hip pain doctor', 'shoulder pain specialist', 'joint stiffness'],
-    featured: true,
+      'You should consider consulting if pain persists beyond 1 to 2 weeks, restricts everyday activities such as walking, stair climbing or lifting, is accompanied by swelling or instability, or wakes you at night. Early evaluation helps determine conservative, non-surgical treatment options.',
+    keywords: ['knee pain doctor', 'hip stiffness clinic', 'shoulder pain consultation', 'early joint care'],
+  },
+  {
+    id: 'appt-same-day-urgent',
+    category: 'Appointments',
+    question: 'Can I request an urgent or same-day appointment for acute joint pain or a recent sports injury?',
+    answer:
+      'Urgent consultation requests for severe pain, sudden joint locking, or acute sports injuries are prioritized whenever the clinic schedule allows. Please contact the clinic directly by phone for urgent scheduling assistance.',
+    keywords: ['urgent orthopaedic appointment', 'acute joint pain', 'emergency bone injury'],
+  },
+  {
+    id: 'appt-outstation-patients',
+    category: 'Appointments',
+    question: 'How should outstation patients plan their visit to Ahmedabad for consultation?',
+    answer:
+      'Patients traveling from outside Ahmedabad are encouraged to contact the clinic beforehand. Sharing previous reports and scan summaries in advance allows me to coordinate consultation timing and any necessary on-day evaluations efficiently.',
+    keywords: ['outstation patient appointment', 'Ahmedabad orthopaedic visit', 'travel consultation planning'],
   },
   {
     id: 'appt-sports-injury-timing',
@@ -73,14 +88,6 @@ export const faqData = [
     answer:
       'For acute, severe pain or sudden injuries, contact the clinic line at +91 93167 53985 to check for an expedited consultation slot. If you experience major trauma, visible deformity, numbness, weakness, loss of sensation, a cold or pale limb, or breathing difficulty, proceed directly to the nearest hospital emergency department.',
     keywords: ['urgent orthopaedic appointment', 'acute joint pain', 'emergency bone injury'],
-  },
-  {
-    id: 'appt-outstation-patients',
-    category: 'Appointments',
-    question: 'How should outstation patients plan their visit to Ahmedabad for consultation?',
-    answer:
-      'Patients traveling from outside Ahmedabad are encouraged to contact the clinic beforehand. Sharing previous reports and scan summaries in advance allows our team to coordinate consultation timing and any necessary on-day evaluations efficiently.',
-    keywords: ['outstation patient appointment', 'Ahmedabad orthopaedic visit', 'travel consultation planning'],
   },
 
   // ─── 2. FIRST CONSULTATION ───────────────────────────────────────────────────
@@ -266,7 +273,7 @@ export const faqData = [
     category: 'Surgery',
     question: 'When can I start standing or walking after joint surgery?',
     answer:
-      'Many patients are encouraged to begin supported movement relatively early after surgery when medically appropriate, under guidance from the surgical and physiotherapy team. For joint replacement, guided standing or walking with a supportive aid often begins within 24 hours based on individual assessment.',
+      'Many patients are encouraged to begin supported movement relatively early after surgery when medically appropriate, under structured clinical guidance and individual evaluation. For joint replacement, guided standing or walking with a supportive aid often begins within 24 hours based on individual assessment.',
     keywords: ['walking after joint surgery', 'early mobilization', 'ERAS protocol walking'],
   },
   {
@@ -325,7 +332,7 @@ export const faqData = [
     category: 'Recovery',
     question: 'How can I manage pain and swelling at home after surgery?',
     answer:
-      'Pain and swelling are typically managed using prescribed medications, intermittent cold therapy (15–20 minutes at a time), elevating the limb above heart level during rest, and performing gentle circulatory exercises such as ankle pumps as instructed by your treating team.',
+      'Pain and swelling are typically managed using prescribed medications, intermittent cold therapy (15–20 minutes at a time), elevating the limb above heart level during rest, and performing gentle circulatory exercises such as ankle pumps as instructed by me during your care.',
     keywords: ['manage pain at home', 'swelling control after surgery', 'ice therapy post-op'],
   },
   {
@@ -333,7 +340,7 @@ export const faqData = [
     category: 'Recovery',
     question: 'What movements or activities should I avoid during early recovery?',
     answer:
-      'Avoid high-impact activities, sudden twisting movements, heavy lifting, and low floor seating unless specifically cleared. Keep the surgical dressing clean and dry until wound healing is confirmed by your clinical team.',
+      'Avoid high-impact activities, sudden twisting movements, heavy lifting, and low floor seating unless specifically cleared. Keep the surgical dressing clean and dry until wound healing is confirmed during your clinical review.',
     keywords: ['activities to avoid after surgery', 'post-surgery precautions', 'joint movement restrictions'],
   },
   {
@@ -509,7 +516,7 @@ export const faqData = [
     category: 'Follow-up Care',
     question: 'How often will I need follow-up visits during my recovery?',
     answer:
-      'Follow-up schedules vary according to the procedure and individual recovery. Your treating team will advise when reviews are required, with common milestones after joint surgery including visits around 2 weeks, 6 weeks, 3 months, and periodically thereafter as needed.',
+      'Follow-up schedules vary according to the procedure and individual recovery. I will advise when reviews are required, with common milestones after joint surgery including visits around 2 weeks, 6 weeks, 3 months, and periodically thereafter as needed.',
     keywords: ['follow-up visit schedule', 'post-op review frequency', 'recovery checkups'],
   },
   {

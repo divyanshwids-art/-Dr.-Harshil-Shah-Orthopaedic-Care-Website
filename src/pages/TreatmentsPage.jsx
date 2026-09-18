@@ -87,15 +87,6 @@ export default function TreatmentsPage() {
             <p>
               I provide tailored knee, hip, and shoulder treatments designed around your symptoms, everyday routine, and long-term mobility goals.
             </p>
-            <div className="treatment-hero-actions">
-              <button
-                type="button"
-                className="button button-primary"
-                onClick={() => scrollToSection('3d-explorer')}
-              >
-                Read More
-              </button>
-            </div>
           </div>
         </div>
       </section>

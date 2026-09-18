@@ -28,7 +28,7 @@ export default function ContactPage() {
             <p className="contact-photo-hero-desc">
               Have questions about treatment, surgery, or recovery?
               <br />
-              I am here with my clinical team to help you with clear guidance and personalized care.
+              I am here to help you with clear guidance, thorough evaluation, and personalized care.
             </p>
             <ul className="contact-photo-hero-highlights" aria-label="Contact support options">
               <li>Appointment assistance</li>

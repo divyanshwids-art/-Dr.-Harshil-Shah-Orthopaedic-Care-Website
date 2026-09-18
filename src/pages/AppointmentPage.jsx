@@ -361,7 +361,7 @@ export default function AppointmentPage() {
     } catch (error) {
       console.error('EmailJS appointment submission failed:', error);
       setErrorMessage(
-        'We were unable to submit your request at this moment. Please call our clinic directly at +91 93167 53985 for immediate booking.'
+        'Unable to submit your request at this moment. Please call the clinic directly at +91 93167 53985 for immediate booking.'
       );
     } finally {
       setLoading(false);
@@ -413,15 +413,15 @@ export default function AppointmentPage() {
                 <li className="appt-timeline-item">
                   <div className="appt-timeline-marker">1</div>
                   <div className="appt-timeline-content">
-                    <strong>Request Received & Triaged</strong>
-                    <p>Our clinical desk reviews your concern and slot preference.</p>
+                    <strong>Request Received &amp; Triaged</strong>
+                    <p>I review your concern and slot preference.</p>
                   </div>
                 </li>
                 <li className="appt-timeline-item">
                   <div className="appt-timeline-marker">2</div>
                   <div className="appt-timeline-content">
-                    <strong>Direct Coordinator Call</strong>
-                    <p>We confirm your clinic timing and answer your pre-visit questions.</p>
+                    <strong>Direct Confirmation Call</strong>
+                    <p>I confirm your clinic timing and answer your pre-visit questions.</p>
                   </div>
                 </li>
                 <li className="appt-timeline-item">
@@ -459,7 +459,7 @@ export default function AppointmentPage() {
                   <span className="appt-kicker">PATIENT INTAKE</span>
                   <h2 className="appt-card-title">Book an Appointment</h2>
                 </div>
-                <span className="appt-card-caption">Zero wait-time coordination</span>
+                
               </header>
 
               {/* Inline Error Notice */}
@@ -534,7 +534,7 @@ export default function AppointmentPage() {
                       <line x1="12" y1="8" x2="12.01" y2="8" />
                     </svg>
                     <p>
-                      A confirmation email has been dispatched. My team will contact you on <strong>{submittedData.patient_phone}</strong> to confirm your final consultation schedule.
+                      A confirmation email has been dispatched. I or my clinic desk will contact you on <strong>{submittedData.patient_phone}</strong> to confirm your final consultation schedule.
                     </p>
                   </div>
 
@@ -917,7 +917,7 @@ export default function AppointmentPage() {
                         className="appt-custom-check"
                       />
                       <span className="appt-consent-text">
-                        I consent to my clinical desk contacting me via Phone / WhatsApp to verify and coordinate my consultation appointment.
+                        I consent to Dr. Harshil Shah's clinic contacting me via Phone / WhatsApp to verify and coordinate my consultation appointment.
                       </span>
                     </label>
                     {fieldErrors.consent && <span className="appt-error-hint">{fieldErrors.consent}</span>}

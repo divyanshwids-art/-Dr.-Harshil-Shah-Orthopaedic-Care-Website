@@ -100,16 +100,6 @@ export default function PatientGuidesPage() {
             <p>
               My evidence-based orthopaedic guidance to support you through every stage of your joint replacement and recovery.
             </p>
-            <div className="guides-hero-actions">
-              <button
-                type="button"
-                className="button button-primary"
-                onClick={() => scrollToSection('eras')}
-                style={{ cursor: 'pointer' }}
-              >
-                Read Recovery Steps
-              </button>
-            </div>
           </div>
 
           {/* Pedestal 3D Joint Showcase Slider */}
@@ -127,9 +117,6 @@ export default function PatientGuidesPage() {
                       alt={joint.alt}
                       className={`guides-pedestal-3d-img guides-pedestal-img-${joint.id}`}
                     />
-                    <div className="guides-pedestal-tag">
-                      <span>{joint.name}</span>
-                    </div>
                   </div>
                 );
               })}
@@ -318,7 +305,7 @@ export default function PatientGuidesPage() {
               Hospital Stay: <em>Move With Support</em>
             </h2>
             <p className="phase-lead">
-              How my surgical team and I manage your pain comfortably, guide early walking within 24 hours, and prepare you safely for discharge.
+              How I manage your pain comfortably, guide early walking within 24 hours, and prepare you safely for discharge.
             </p>
           </div>
 
@@ -373,7 +360,7 @@ export default function PatientGuidesPage() {
               <p>Meeting key mobility milestones for a safe return home.</p>
               <ul className="phase-card-list">
                 <li><strong>Independent Transfers:</strong> Confident movement between bed, chair, and washroom.</li>
-                <li><strong>Stair Navigation:</strong> Safe step-climbing technique guided by our physiotherapist.</li>
+                <li><strong>Stair Navigation:</strong> Safe step-climbing technique guided by the physiotherapist.</li>
                 <li><strong>Stable Health Markers:</strong> Normal diet tolerance, stable vitals, and controlled pain.</li>
                 <li><strong>Discharge Plan:</strong> Detailed written medication schedule and emergency contact numbers.</li>
               </ul>
@@ -462,7 +449,7 @@ export default function PatientGuidesPage() {
                 <span>06</span>
                 <h3>Know the Warning Signs</h3>
                 <p>
-                  Contact me or my team immediately if you develop a fever (&gt; 101°F), sudden calf pain or swelling, or spreading wound redness.
+                  Contact me or the clinic desk immediately if you develop a fever (&gt; 101°F), sudden calf pain or swelling, or spreading wound redness.
                 </p>
               </article>
             </div>
@@ -502,7 +489,7 @@ export default function PatientGuidesPage() {
                   <li>Normal walking without a limp; confident, unassisted stairs.</li>
                   <li>Achieve 120°+ flexion and regain leg muscle stamina.</li>
                   <li>Resume low-impact activities such as swimming, cycling, and travel.</li>
-                  <li>Long-term joint preservation exercises to protect joint health.</li>
+                  <li>Guided exercises to support lifelong joint mobility and stability.</li>
                 </ul>
               </div>
             </div>

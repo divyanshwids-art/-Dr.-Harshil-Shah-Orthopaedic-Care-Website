@@ -167,7 +167,7 @@ export default function AppointmentForm() {
               Thank you, <strong>{submittedData.patient_name}</strong>. Your appointment request for <strong>{submittedData.service}</strong> on <strong>{submittedData.appointment_date} ({submittedData.appointment_time})</strong> has been received.
             </p>
             <p style={{ margin: '8px 0 0', color: '#64748b', fontSize: '13px' }}>
-              A confirmation has been sent to your email ({submittedData.patient_email}). Our clinic coordinator will contact you at <strong>{submittedData.patient_phone}</strong> to confirm your slot.
+              A confirmation has been sent to your email ({submittedData.patient_email}). The clinic desk will contact you at <strong>{submittedData.patient_phone}</strong> to confirm your slot.
             </p>
             <button
               type="button"
@@ -286,7 +286,7 @@ export default function AppointmentForm() {
               required
             />
             <span>
-              I agree to be contacted by my clinical team via phone / WhatsApp regarding my consultation request.
+              I agree to be contacted by Dr. Harshil Shah's clinic via phone / WhatsApp regarding my consultation request.
             </span>
           </label>
           {fieldErrors.consent && <small style={{ color: '#ef4444', display: 'block', marginBottom: '8px' }}>{fieldErrors.consent}</small>}
@@ -297,7 +297,7 @@ export default function AppointmentForm() {
             disabled={submitting}
             style={{ width: '100%', marginTop: '10px' }}
           >
-            {submitting ? 'Sending Request...' : 'Book Appointment'}
+            {submitting ? 'Sending Request...' : 'Book an Appointment'}
           </button>
 
           <div className="privacy-line">

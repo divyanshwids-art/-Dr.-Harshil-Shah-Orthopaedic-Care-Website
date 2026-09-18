@@ -198,19 +198,6 @@ export default function AboutPage() {
               <li><strong>Patient-focused care:</strong> Personalised plans supporting recovery and mobility</li>
               <li><strong>Clinical approach:</strong> Evidence-based treatment with clear guidance</li>
             </ul>
-
-            <div className="about-hero-ctas">
-              <a
-                href="#approach"
-                className="about-btn-primary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('approach')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                Read More
-              </a>
-            </div>
           </div>
 
           <div className="about-hero-visual-col">
@@ -226,6 +213,22 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Credentials & Specialization Bar */}
+        <div className="shell about-profile-snapshot" aria-label="Professional summary">
+          <article>
+            <span>Qualifications</span>
+            <strong>MBBS · M.S. (Orthopaedics) · FIJR · FIAS</strong>
+          </article>
+          <article>
+            <span>Specialization</span>
+            <strong>Knee, Hip &amp; Shoulder Reconstruction</strong>
+          </article>
+          <article>
+            <span>Advanced Training</span>
+            <strong>India · HSS New York · MGH Boston</strong>
+          </article>
         </div>
       </section>
 
@@ -256,21 +259,6 @@ export default function AboutPage() {
               Every recommendation begins with an accurate diagnosis. Non-surgical options such as targeted physiotherapy, lifestyle adjustments, and medication are always prioritized first. Surgery is only considered when it provides the safest, most dependable path to long-term relief and active living.
             </p>
           </div>
-        </div>
-
-        <div className="shell about-profile-snapshot" aria-label="Professional summary">
-          <article>
-            <span>Qualifications</span>
-            <strong>MBBS · M.S. (Orthopaedics) · FIJR · FIAS</strong>
-          </article>
-          <article>
-            <span>Specialization</span>
-            <strong>Knee, Hip &amp; Shoulder Reconstruction</strong>
-          </article>
-          <article>
-            <span>Advanced Training</span>
-            <strong>India · HSS New York · MGH Boston</strong>
-          </article>
         </div>
       </section>
 
@@ -309,10 +297,6 @@ export default function AboutPage() {
                         className="about-joint-3d-img"
                       />
                       <div className="about-joint-glow-aura" />
-                    </div>
-                    <div className="about-joint-card-tag">
-                      <span className="about-joint-num">{joint.badge}</span>
-                      <strong className="about-joint-name">{joint.name}</strong>
                     </div>
                   </div>
                 );
@@ -525,9 +509,11 @@ export default function AboutPage() {
         <div className="shell">
           <div className="about-faq-header">
             <span className="about-faq-kicker">FREQUENTLY ASKED QUESTIONS</span>
-            <h2 className="about-faq-title">Consultations &amp; Clinical Care FAQs</h2>
+            <h2 className="about-faq-title">
+              Consultations &amp; <em>Clinical Care</em>
+            </h2>
             <p className="about-faq-subtitle">
-              Common questions regarding my surgical specialities, consultation process, and recovery guidance.
+              Clear answers regarding appointments, surgical specialties, second opinions, and what to expect during your visit.
             </p>
           </div>
 

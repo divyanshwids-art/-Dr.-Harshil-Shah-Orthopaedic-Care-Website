@@ -1,630 +1,990 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import Recovery3DViewer from '../components/Recovery3DViewer';
-import ReviewsSlider from '../components/ReviewsSlider';
+import { faqData } from '../data/faqData';
 
 export default function HomePage() {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (idx) => {
+    setOpenFaq((prev) => (prev === idx ? null : idx));
+  };
+
+  // Top featured FAQs directly from faqData (same as FaqPage)
+  const homeFaqs = useMemo(() => {
+    const featured = faqData.filter((item) => item.featured);
+    return featured.length >= 4 ? featured.slice(0, 6) : faqData.slice(0, 6);
+  }, []);
+
   return (
-    <div className="home-page">
+    <div className="mock-home">
 
-      {/* Dr. Harshil Shah Banner Image */}
-      <div className="dr-banner-top">
-        <img
-          src="/dr.harshil shah banner.png"
-          alt="Dr. Harshil Shah - Consultant Orthopaedic Surgeon in Ahmedabad"
-          className="dr-banner-top-img"
-        />
-      </div>
-
-      {/* Hero Highlights Bar — Highlights LEFT | Buttons RIGHT */}
-      <section className="hero-oneline-section">
-        <div className="hero-oneline-bar">
-
-          {/* Highlight 1 */}
-          <div className="hero-ol-item">
-            <div className="hero-ol-text">
-              <span className="hero-ol-t1">Personalized</span>
-              <span className="hero-ol-t2">Care Plans</span>
+      {/* =========================================================================
+          1. HERO BANNER (With doctor background image)
+          ========================================================================= */}
+      <section className="mock-hero" aria-label="Hero Banner">
+        <div className="mock-shell">
+          <div className="mock-hero-inner">
+            <div className="mock-hero-left">
+              <div className="mock-hero-doc-badge">
+                <strong>Dr. Harshil Shah</strong>
+              </div>
+              <h1 className="mock-hero-title">
+                Expert Orthopaedic Care<br />
+                For Your Healthier Tomorrow
+              </h1>
+              <p className="mock-hero-desc">
+                I am dedicated to helping you overcome joint pain, walk comfortably again, and return to an active, happy life with gentle and personalized orthopaedic care.
+              </p>
+              <div className="mock-hero-actions">
+                <Link to="/appointment" className="mock-btn-primary">
+                  <span>Book an Appointment</span>
+                  <span className="mock-btn-primary-arrow">&rarr;</span>
+                </Link>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="hero-ol-sep" />
 
-          {/* Highlight 2 */}
-          <div className="hero-ol-item">
-            <div className="hero-ol-text">
-              <span className="hero-ol-t1">Evidence-Based</span>
-              <span className="hero-ol-t2">Care</span>
+      {/* =========================================================================
+          2. WHY ENTRUST YOUR CARE TO ME? (WITH EXTRACTED LOGOS)
+          ========================================================================= */}
+      <section className="mock-why-section" id="why-choose-me" aria-label="Why Entrust Your Care To Me">
+        <div className="mock-shell">
+          <div className="mock-why-card">
+            {/* Left 1/3 */}
+            <div className="mock-why-left">
+              <h2 className="mock-title mock-why-title">Your Recovery, <span className="mock-text-teal">My Priority</span></h2>
+              <p>
+                I’m here to listen to your concerns, understand your condition, and guide you with honesty. My approach is focused on safe, modern treatment and helping you return to a pain-free, active life with confidence.
+              </p>
+            </div>
+
+            {/* Right 2/3 - 4 Columns with exact matching Logos */}
+            <div className="mock-why-items">
+              {/* Item 1: Personalized Care Plans */}
+              <div className="mock-why-item">
+                <div className="mock-why-icon-box">
+                  <img
+                    src="/icons/personalized-care.webp"
+                    alt="Personalized Care Plans"
+                    className="mock-why-icon-img"
+                    loading="lazy"
+                  />
+                </div>
+                <span>Personalized<br />Care Plans</span>
+              </div>
+
+              {/* Item 2: Evidence-Based Treatment */}
+              <div className="mock-why-item">
+                <div className="mock-why-icon-box">
+                  <img
+                    src="/icons/evidence-based.webp"
+                    alt="Evidence-Based Treatment"
+                    className="mock-why-icon-img"
+                    loading="lazy"
+                  />
+                </div>
+                <span>Evidence-Based<br />Treatment</span>
+              </div>
+
+              {/* Item 3: Minimally Invasive Techniques */}
+              <div className="mock-why-item">
+                <div className="mock-why-icon-box">
+                  <img
+                    src="/icons/minimally-invasive.webp"
+                    alt="Minimally Invasive Techniques"
+                    className="mock-why-icon-img"
+                    loading="lazy"
+                  />
+                </div>
+                <span>Minimally Invasive<br />Techniques</span>
+              </div>
+
+              {/* Item 4: Patient-First Approach */}
+              <div className="mock-why-item">
+                <div className="mock-why-icon-box">
+                  <img
+                    src="/icons/patient-first.webp"
+                    alt="Patient-First Approach"
+                    className="mock-why-icon-img"
+                    loading="lazy"
+                  />
+                </div>
+                <span>Patient-First<br />Approach</span>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="hero-ol-sep" />
 
-          {/* Highlight 3 */}
-          <div className="hero-ol-item">
-            <div className="hero-ol-text">
-              <span className="hero-ol-t1">Long-Term</span>
-              <span className="hero-ol-t2">Mobility Focus</span>
+      {/* =========================================================================
+          3. CONDITIONS & CARE - CONDITIONS I TREAT (WITH EXACT MATCHING LOGOS)
+          ========================================================================= */}
+      <section className="mock-treatments-section" id="conditions" aria-label="Conditions I Treat">
+        <div className="mock-shell">
+          <div className="mock-section-header">
+            <div className="mock-section-header-left">
+              <h2 className="mock-title">Care For Your Condition</h2>
+              <p className="mock-subtitle">
+                Whether you’re dealing with joint pain, an injury, a fracture, or a spine condition, I’ll first understand what’s causing your problem and then guide you toward the right treatment for your recovery.
+              </p>
             </div>
-          </div>
-
-          <div className="hero-ol-sep" />
-
-          {/* Highlight 4 */}
-          <div className="hero-ol-item">
-            <div className="hero-ol-text">
-              <span className="hero-ol-t1">Patient-First</span>
-              <span className="hero-ol-t2">Approach</span>
-            </div>
-          </div>
-
-          {/* Buttons pushed to RIGHT */}
-          <div className="hero-ol-btns-right">
-            <Link to="/treatments" className="hero-ol-btn-secondary">
-              <span>Explore Treatments</span>
+            <Link to="/treatments" className="mock-btn-outline">
+              <span>Explore All Treatments &rarr;</span>
             </Link>
           </div>
 
-        </div>
-      </section>
-
-
-
-      {/* Doctor Experience Stats Bar (Placed above Areas of Care) */}
-      <section className="home-stats-overview-section" aria-label="Experience and Achievements">
-        <div className="shell">
-          <div className="home-stats-overview-grid">
-            <div className="doctor-stat-card">
-              <div className="doctor-stat-card-info">
-                <strong>12+</strong>
-                <span>Years of Experience</span>
+          <div className="mock-conditions-grid">
+            {/* Card 1: Knee Pain & Arthritis */}
+            <Link to="/treatments#knee" className="mock-condition-card">
+              <div className="mock-condition-icon">
+                <img
+                  src="/icons/knee-pain.webp"
+                  alt="Knee Pain & Arthritis"
+                  className="mock-condition-icon-img"
+                  loading="lazy"
+                />
               </div>
-            </div>
+              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Knee Pain &amp;<br />Arthritis</strong>
+              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
+                Relief and treatment for painful, stiff, or damaged knees.
+              </span>
+              <span className="mock-condition-arrow">Read More</span>
+            </Link>
 
-            <div className="doctor-stat-card">
-              <div className="doctor-stat-card-info">
-                <strong>2000+</strong>
-                <span>Joint Surgeries</span>
+            {/* Card 2: Shoulder Pain & Injuries */}
+            <Link to="/treatments#shoulder" className="mock-condition-card">
+              <div className="mock-condition-icon">
+                <img
+                  src="/icons/shoulder-pain.webp"
+                  alt="Shoulder Pain & Injuries"
+                  className="mock-condition-icon-img"
+                  loading="lazy"
+                />
               </div>
-            </div>
+              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Shoulder Pain &amp;<br />Injuries</strong>
+              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
+                Care for shoulder pain, stiffness, and sports-related injuries.
+              </span>
+              <span className="mock-condition-arrow">Read More</span>
+            </Link>
 
-            <div className="doctor-stat-card">
-              <div className="doctor-stat-card-info">
-                <strong>5000+</strong>
-                <span>Happy Patients</span>
+            {/* Card 3: Sports Injuries */}
+            <Link to="/treatments#sports" className="mock-condition-card">
+              <div className="mock-condition-icon">
+                <img
+                  src="/icons/sports-injuries.webp"
+                  alt="Sports Injuries"
+                  className="mock-condition-icon-img"
+                  loading="lazy"
+                />
               </div>
-            </div>
+              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Sports<br />Injuries</strong>
+              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
+                Helping you recover safely and return to the activities you enjoy.
+              </span>
+              <span className="mock-condition-arrow">Read More</span>
+            </Link>
 
-            <div className="doctor-stat-card">
-              <div className="doctor-stat-card-info">
-                <strong>98%</strong>
-                <span>Positive Feedback</span>
+            {/* Card 4: Spine Conditions */}
+            <Link to="/treatments#spine" className="mock-condition-card">
+              <div className="mock-condition-icon">
+                <img
+                  src="/icons/spine-disorders.webp"
+                  alt="Spine Conditions"
+                  className="mock-condition-icon-img"
+                  loading="lazy"
+                />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Spine<br />Conditions</strong>
+              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
+                Evaluation and treatment for back, neck, and spine-related problems.
+              </span>
+              <span className="mock-condition-arrow">Read More</span>
+            </Link>
 
-      {/* Areas of Care - Redesigned Section */}
-      <section className="care-section-redesign" id="care">
-        <div className="shell">
-          {/* Top Header Row */}
-          <div className="care-top-header">
-            <div className="care-top-left">
-              <h2 className="care-main-heading">
-                Specialised care for <span className="text-highlight-blue">joint mobility.</span>
-              </h2>
-              <p className="care-main-desc">
-                Dr. Harshil Shah provides simple, effective care for bone, joint, and ligament problems—helping you get relief from pain and return to comfortable movement.
-              </p>
-            </div>
+            {/* Card 5: Fractures & Trauma */}
+            <Link to="/treatments#trauma" className="mock-condition-card">
+              <div className="mock-condition-icon">
+                <img
+                  src="/icons/fractures-trauma.webp"
+                  alt="Fractures & Trauma"
+                  className="mock-condition-icon-img"
+                  loading="lazy"
+                />
+              </div>
+              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Fractures &amp;<br />Trauma</strong>
+              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
+                Expert care to help your injury heal properly and restore movement.
+              </span>
+              <span className="mock-condition-arrow">Read More</span>
+            </Link>
 
-            {/* Top Right 3 Pillars */}
-            <div className="care-top-pillars">
-              <div className="care-pillar-item">
-                <div className="care-pillar-text">
-                  <h4>Detailed Checkup</h4>
-                  <p>Careful examination and clear scan review.</p>
-                </div>
+            {/* Card 6: Joint Replacement */}
+            <Link to="/treatments#joint-replacement" className="mock-condition-card">
+              <div className="mock-condition-icon">
+                <img
+                  src="/icons/joint-replacement.webp"
+                  alt="Joint Replacement"
+                  className="mock-condition-icon-img"
+                  loading="lazy"
+                />
               </div>
-
-              <div className="care-pillar-divider" />
-
-              <div className="care-pillar-item">
-                <div className="care-pillar-text">
-                  <h4>Non-Surgical First</h4>
-                  <p>Trying medicines and therapy before surgery.</p>
-                </div>
-              </div>
-
-              <div className="care-pillar-divider" />
-
-              <div className="care-pillar-item">
-                <div className="care-pillar-text">
-                  <h4>Advanced Surgery</h4>
-                  <p>Modern, gentle techniques when needed.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 4 Specialty Cards Grid */}
-          <div className="care-cards-grid">
-            {/* Card 01: Knee Care */}
-            <div className="care-card-item">
-              <div className="care-card-img-wrapper">
-                <img src="/knee-care-card.jpg" alt="Knee Care" className="care-card-img care-card-img-default" />
-                <img src="/knee-motion-v2.webp" alt="3D Knee Joint Model" className="care-card-img care-card-img-hover3d" />
-                <span className="care-card-num-badge">01</span>
-              </div>
-              <div className="care-card-body">
-                <h3>Knee Care</h3>
-                <p>Treatment for knee pain, ligament injuries, cartilage wear, and arthritis.</p>
-                <Link to="/treatments#knee" className="care-card-link">
-                  <span>Explore Knee Care</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 02: Hip Care */}
-            <div className="care-card-item">
-              <div className="care-card-img-wrapper">
-                <img src="/hip-care-card.jpg" alt="Hip Care" className="care-card-img care-card-img-default" />
-                <img src="/hip-precision-v2.webp" alt="3D Hip Joint Model" className="care-card-img care-card-img-hover3d" />
-                <span className="care-card-num-badge">02</span>
-              </div>
-              <div className="care-card-body">
-                <h3>Hip Care</h3>
-                <p>Relief for hip pain, arthritis, stiffness, and difficulty walking.</p>
-                <Link to="/treatments#hip" className="care-card-link">
-                  <span>Explore Hip Care</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 03: Shoulder Care */}
-            <div className="care-card-item">
-              <div className="care-card-img-wrapper">
-                <img src="/shoulder-care-new.jpg" alt="Shoulder Care" className="care-card-img care-card-img-default" />
-                <img src="/shoulder-mobility-v2.webp" alt="3D Shoulder Joint Model" className="care-card-img care-card-img-hover3d" />
-                <span className="care-card-num-badge">03</span>
-              </div>
-              <div className="care-card-body">
-                <h3>Shoulder Care</h3>
-                <p>Care for shoulder pain, frozen shoulder, rotator cuff tears, and stiffness.</p>
-                <Link to="/treatments#shoulder" className="care-card-link">
-                  <span>Explore Shoulder Care</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 04: Sports Injuries */}
-            <div className="care-card-item">
-              <div className="care-card-img-wrapper">
-                <img src="/sports-injuries-card.jpg" alt="Sports Injuries" className="care-card-img care-card-img-default" />
-                <img src="/eras-journey-3d.webp" alt="3D Sports Joint Model" className="care-card-img care-card-img-hover3d" />
-                <span className="care-card-num-badge">04</span>
-              </div>
-              <div className="care-card-body">
-                <h3>Sports Injuries</h3>
-                <p>Fast recovery for sports injuries, muscle tears, sprains, and joint issues.</p>
-                <Link to="/treatments#sports" className="care-card-link">
-                  <span>Explore Sports Injuries</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Help Banner */}
-          <div className="care-help-banner">
-            <div className="care-help-left">
-              <div className="care-help-text">
-                <h3>Need advice on joint pain or treatment?</h3>
-                <p>We will examine your condition and guide you toward the right treatment.</p>
-              </div>
-            </div>
-            <div className="care-help-divider" />
-            <Link to="/treatments" className="care-help-btn">
-              <span>View All Treatments</span>
+              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Joint<br />Replacement</strong>
+              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
+                When necessary, advanced joint replacement care focused on restoring mobility.
+              </span>
+              <span className="mock-condition-arrow">Read More</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Block 1: Experience Personalized Rehabilitation (Redesigned) */}
-      <section className="rehab-section-v2" aria-label="Personalized Rehabilitation">
-        <div className="shell">
-          <div className="rehab-v2-grid">
-            {/* Left Content Column */}
-            <div className="rehab-v2-left">
-              <h2 className="rehab-title">
-                Structured recovery for <span className="text-highlight-blue">lasting mobility.</span>
-              </h2>
 
-              <p className="rehab-sub-text">
-                Good recovery takes time and the right guidance. We help you with safe daily exercises and clear milestones so you can regain your strength and confidence.
-              </p>
-
-              {/* 4 Feature Items */}
-              <div className="rehab-v2-features">
-                <div className="rehab-feature-item">
-                  <div className="rehab-feature-text">
-                    <h4>Personalized Pathways</h4>
-                    <p>Care plans tailored to your condition and daily routine.</p>
-                  </div>
-                </div>
-
-                <div className="rehab-feature-item">
-                  <div className="rehab-feature-text">
-                    <h4>Protecting Your Joints</h4>
-                    <p>Gentle techniques that protect healthy bone and cartilage.</p>
-                  </div>
-                </div>
-
-                <div className="rehab-feature-item">
-                  <div className="rehab-feature-text">
-                    <h4>Guided Exercises</h4>
-                    <p>Step-by-step physical therapy to rebuild strength safely.</p>
-                  </div>
-                </div>
-
-                <div className="rehab-feature-item">
-                  <div className="rehab-feature-text">
-                    <h4>Doctor Follow-Up</h4>
-                    <p>Direct follow-ups to track your recovery at every stage.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Consultation Callout Bar */}
-              <div className="rehab-cta-banner">
-                <div className="rehab-cta-left">
-                  <div className="rehab-cta-text">
-                    <strong>Looking for guidance on joint rehabilitation?</strong>
-                    <span>Book a consultation for a personalized assessment and a structured recovery plan.</span>
-                  </div>
-                </div>
-                <Link to="/appointment" className="rehab-cta-btn">
-                  <span>Schedule Consultation</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Visual Column */}
-            <div className="rehab-v2-right">
-              <div className="rehab-visual-stage">
-                {/* Large Blue Arch */}
-                <div className="rehab-blue-circle-arch" />
-
-                {/* Modest Knee Photo with Anatomical Joint Glow */}
-                <img src="/knee-care-card.jpg" alt="Personalized Rehabilitation" className="rehab-knee-model-img" />
-
-                {/* Doctor Quote Card */}
-                <div className="rehab-quote-card">
-                  <span className="rehab-quote-mark">“</span>
-                  <p className="rehab-quote-text">Recovery is a gradual journey. With patient guidance, safe daily exercises, and close follow-ups, we help you rebuild strength and return to an active life.</p>
-                  <div className="rehab-quote-line" />
-                  <strong className="rehab-doctor-signature">Dr. Harshil Shah</strong>
-                  <span className="rehab-doctor-role">Orthopaedic Surgeon</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Doctor Section: Care that starts with listening (Redesigned) */}
-      <section className="doctor-section-v2" aria-label="About the surgeon">
-        {/* Right Background Knee Line Sketch (User Uploaded PNG) */}
-        <div className="doctor-knee-sketch-wrap">
-          <img src="/knee-sketch-bg.png" alt="Knee Joint Line Art" className="doctor-knee-sketch-img" />
-        </div>
-
-        <div className="shell">
-          {/* Main 3-Column Grid */}
-          <div className="doctor-v2-main">
-            {/* Left Content Column */}
-            <div className="doctor-v2-left">
-
-              <h2 className="doctor-box-title">
-                Care that starts with <span>listening.</span>
-              </h2>
-
-              <p className="doctor-box-quote">
-                “Every patient's pain and lifestyle are unique. Listening carefully is always the first and most vital step in deciding the right treatment for you.”
-              </p>
-
-              <p className="doctor-box-desc">
-                Dr. Harshil Shah is a dedicated orthopaedic surgeon specializing in knee, hip, and shoulder joint care. With fellowship training in arthroscopy and joint replacement, his clinical approach prioritizes patient education and conservative therapies before considering surgery.
-              </p>
-
-              {/* 4 Feature Items */}
-              <div className="doctor-v2-features">
-                <div className="doctor-feature-item">
-                  <div className="doctor-feature-text">
-                    <strong>Clear Communication</strong>
-                    <span>We walk you through your MRI and X-ray scans in simple terms so you understand your condition.</span>
-                  </div>
-                </div>
-
-                <div className="doctor-feature-item">
-                  <div className="doctor-feature-text">
-                    <strong>Conservative Care First</strong>
-                    <span>Surgery is recommended only when non-surgical treatments no longer offer relief.</span>
-                  </div>
-                </div>
-
-                <div className="doctor-feature-item">
-                  <div className="doctor-feature-text">
-                    <strong>Minimally Invasive Focus</strong>
-                    <span>Modern surgical techniques aimed at minimal tissue disruption and faster rehabilitation.</span>
-                  </div>
-                </div>
-
-                <div className="doctor-feature-item">
-                  <div className="doctor-feature-text">
-                    <strong>Honest Guidance</strong>
-                    <span>Transparent discussions about treatment timelines, expected recovery, and realistic outcomes.</span>
-                  </div>
-                </div>
-              </div>
-
-              <Link to="/about" className="doctor-box-btn">
-                <span>About Me</span>
+      {/* =========================================================================
+          4. HOW I APPROACH YOUR TREATMENT (MY APPROACH)
+          ========================================================================= */}
+      <section className="mock-approach-section" id="approach" aria-label="My Treatment Approach">
+        <div className="mock-shell">
+          <div className="mock-approach-grid">
+            {/* Left: OT Surgery Image with Play Button */}
+            <div className="mock-approach-visual">
+              <img
+                src="/galleri/docter img/WhatsApp Image 2026-08-24 at 12.48.03 PM.webp"
+                alt="Dr. Harshil Shah performing surgery in theatre"
+                className="mock-approach-img"
+              />
+              <Link to="/surgical-videos" className="mock-play-btn-overlay" title="Watch Surgical Videos">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <polygon points="6 4 20 12 6 20 6 4" />
+                </svg>
               </Link>
             </div>
 
-            {/* Center Doctor Profile Image */}
-            <div className="doctor-v2-center">
-              <div className="doctor-v2-img-wrap">
-                <img src="/doctor-profile2.jpg" alt="Dr. Harshil Shah - Orthopaedic Surgeon" className="doctor-v2-img" />
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* Process Section - Redesigned matching reference image */}
-      <section className="section process-section-v2" aria-label="Your Care Journey">
-        <div className="shell process-v2-container">
-
-          {/* Top Header Row with Joint Sketch Graphic */}
-          <div className="process-v2-header">
-            <div className="process-v2-header-left">
-              <h2 className="process-v2-title">
-                Simple steps. <span className="text-highlight-blue">Clear care.</span>
-              </h2>
-              <p className="process-v2-desc">
-                No medical jargon and no rushed decisions—<br />
-                just honest advice and a plan you understand.
+            {/* Right Content */}
+            <div className="mock-approach-right">
+              
+              <h2 className="mock-title">How I Approach Your Treatment</h2>
+              <p>
+                My approach is simple: I listen carefully to your symptoms, suggest surgery only when it is truly necessary, and always focus on gentle, minimally invasive methods so you can recover safely and comfortably.
               </p>
-            </div>
 
-            {/* Top Right Joint Sketch Art & Dot Pattern */}
-            <div className="process-v2-sketch-wrap">
-              <div className="process-dot-matrix" />
-              <img src="/knee-sketch-bg.png" alt="Joint Line Art Illustration" className="process-sketch-img" />
-            </div>
-          </div>
+              <ul className="mock-checklist">
+                <li className="mock-checklist-item">
+                  <span className="mock-check-icon">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  <span>Accurate diagnosis and a thorough, personal evaluation</span>
+                </li>
 
-          {/* 3 Horizontal Steps Track */}
-          <div className="process-v2-steps-track">
+                <li className="mock-checklist-item">
+                  <span className="mock-check-icon">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  <span>Non-surgical medicines and physiotherapy explored first</span>
+                </li>
 
-            {/* Step 01 */}
-            <div className="process-v2-step-col">
-              <div className="process-v2-step-top">
-                <span className="process-v2-num">01</span>
-                <div className="process-v2-connector">
-                  <div className="process-connector-line" />
-                </div>
-              </div>
+                <li className="mock-checklist-item">
+                  <span className="mock-check-icon">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  <span>Minimally invasive techniques for faster recovery and minimal pain</span>
+                </li>
+              </ul>
 
-              <div className="process-v2-step-content">
-                <h3 className="process-v2-step-title">
-                  Listen &amp; examine
-                  <span className="process-title-line" />
-                </h3>
-                <p className="process-v2-step-desc">
-                  A detailed clinical consultation, joint mobility check, and clear review of your scans.
-                </p>
-              </div>
-            </div>
-
-            {/* Step 02 */}
-            <div className="process-v2-step-col">
-              <div className="process-v2-step-top">
-                <span className="process-v2-num">02</span>
-                <div className="process-v2-connector">
-                  <div className="process-connector-line" />
-                </div>
-              </div>
-
-              <div className="process-v2-step-content">
-                <h3 className="process-v2-step-title">
-                  Discuss options
-                  <span className="process-title-line" />
-                </h3>
-                <p className="process-v2-step-desc">
-                  Exploring physical therapy, lifestyle adjustments, and targeted medication before considering surgery.
-                </p>
-              </div>
-            </div>
-
-            {/* Step 03 */}
-            <div className="process-v2-step-col">
-              <div className="process-v2-step-top">
-                <span className="process-v2-num">03</span>
-              </div>
-
-              <div className="process-v2-step-content">
-                <h3 className="process-v2-step-title">
-                  Recover with support
-                  <span className="process-title-line" />
-                </h3>
-                <p className="process-v2-step-desc">
-                  Structured exercise plans, post-treatment guidance, and direct doctor follow-ups.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Bottom CTA Banner Box */}
-          <div className="process-v2-cta-banner">
-            <div className="process-cta-left">
-              <div className="process-cta-text">
-                <h4>Take the first step toward pain-free movement</h4>
-                <p>Schedule a consultation to discuss your symptoms and understand your care options.</p>
-              </div>
-            </div>
-
-            <div className="process-cta-right">
-              <div className="process-cta-divider" />
-              <Link to="/appointment" className="process-cta-btn">
-                <span>Book an Appointment</span>
+              <Link to="/about#approach" className="mock-btn-primary">
+                <span>Learn More</span>
+                <span className="mock-btn-primary-arrow">&rarr;</span>
               </Link>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* Patient Recovery Guides Feature — Redesigned V2 matching reference image */}
-      <section className="section home-guides-section-v2" aria-label="Patient Recovery Guides">
-        <div className="shell home-guides-v2-container">
 
-          {/* Top Main Grid: Left Copy & 3 Pills + Right 3D Showcase */}
-          <div className="home-guides-v2-grid">
+      {/* =========================================================================
+          5. RESEARCH & PUBLICATIONS
+          ========================================================================= */}
+      <section className="mock-publications-section" id="publications" aria-label="Research & Publications">
+        <div className="mock-shell">
+          <div className="mock-publications-inline-wrap">
+            <h2 className="mock-title mock-publications-title">Research &amp; Clinical Publications</h2>
+            <div className="mock-toi-inline-card">
+              <img
+                src="/times-of-india-health.png"
+                alt="The Times of India Health+"
+                className="mock-toi-logo-img-sm"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Left Content & Pills */}
-            <div className="home-guides-v2-copy">
-              {/* Main Heading */}
-              <h2 className="guides-v2-title">
-                Simple guides for <span className="text-highlight-blue">safe recovery.</span>
-              </h2>
 
-              {/* Sub-heading Description */}
-              <p className="guides-v2-desc">
-                Clear, practical guides to help you and your family prepare for treatment and recover safely at home.
+      {/* =========================================================================
+          6. HONORS & RECOGNITIONS
+          ========================================================================= */}
+      <section className="mock-awards-section" id="awards" aria-label="Honors & Recognition">
+        <div className="mock-shell">
+          <div className="mock-section-header">
+            <div className="mock-section-header-left">
+              
+              <h2 className="mock-title">Recognitions &amp; Honors</h2>
+              <p className="mock-subtitle">
+                Recognitions and advanced surgical fellowships that reflect my ongoing commitment to providing you with the highest standard of care.
               </p>
+            </div>
+           
+          </div>
 
-              {/* 3 Guide Pill Rows */}
-              <div className="guides-pills-list">
-
-                {/* Pill 1: Before */}
-                <Link to="/patient-guides#before" className="guide-pill-item">
-                  <div className="guide-pill-left">
-                    <div className="guide-pill-text">
-                      <strong>Before Treatment</strong>
-                      <span>Simple steps to prepare your home and daily routine</span>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Pill 2: Hospital */}
-                <Link to="/patient-guides#hospital" className="guide-pill-item">
-                  <div className="guide-pill-left">
-                    <div className="guide-pill-text">
-                      <strong>In Hospital</strong>
-                      <span>What happens during your hospital stay and early steps</span>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Pill 3: Home */}
-                <Link to="/patient-guides#home" className="guide-pill-item">
-                  <div className="guide-pill-left">
-                    <div className="guide-pill-text">
-                      <strong>At Home</strong>
-                      <span>Safe exercises and joint protection tips for home recovery</span>
-                    </div>
-                  </div>
-                </Link>
-
+          <div className="mock-awards-grid">
+            {/* Award 1: TOI Healthcare Leader 2026 */}
+            <div className="mock-award-card is-primary-award">
+              <div className="mock-award-photo-wrap">
+                <img
+                  src="/toi-healthcare-leaders-award.jpg"
+                  alt="Dr. Harshil Shah receiving Times of India Healthcare Leaders Award 2026"
+                  className="mock-award-photo-img"
+                  loading="lazy"
+                />
               </div>
+              <div className="mock-award-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </div>
+              <span className="mock-award-badge">Prestigious Award</span>
+              <strong className="mock-award-name">Times of India (TOI) Healthcare Leader 2026</strong>
+              <p className="mock-award-desc">
+                Awarded for clinical leadership in orthopaedic care, dedication to joint preservation, and helping patients recover safely with modern techniques.
+              </p>
+              <span className="mock-award-year">TOI Healthcare Awards &bull; 2026</span>
+            </div>
 
-              {/* Primary Action Button */}
-              <Link className="guides-v2-main-btn" to="/patient-guides">
-                <span>Explore Recovery Guides</span>
+            {/* Fellowship 2: Adult Reconstructive Arthroplasty */}
+            <div className="mock-award-card">
+              <div className="mock-award-icon" style={{ background: '#eaf6f7', color: '#146c72' }}>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </div>
+              <span className="mock-award-badge" style={{ background: '#e0f2fe', color: '#0369a1' }}>Fellowship</span>
+              <strong className="mock-award-name">Adult Reconstructive Arthroplasty Fellowship</strong>
+              <p className="mock-award-desc">
+                Sub-specialty training completed at P.D. Hinduja Hospital &amp; Breach Candy Hospital, Mumbai, focusing on complex primary and revision joint replacements.
+              </p>
+              <span className="mock-award-year">Mumbai, Maharashtra</span>
+            </div>
+
+            {/* Fellowship 3: Shoulder Arthroscopy */}
+            <div className="mock-award-card">
+              <div className="mock-award-icon" style={{ background: '#eaf6f7', color: '#146c72' }}>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </div>
+              <span className="mock-award-badge" style={{ background: '#f3e8ff', color: '#7e22ce' }}>Fellowship</span>
+              <strong className="mock-award-name">Shoulder Arthroscopy &amp; Reconstructive Surgery</strong>
+              <p className="mock-award-desc">
+                Specialized fellowship completed at Deenanath Mangeshkar Hospital, Pune, focusing on keyhole shoulder surgery, rotator cuff repair, and ligament stabilization.
+              </p>
+              <span className="mock-award-year">Pune, Maharashtra</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          7. DAY CARE JOINT REPLACEMENT (CIRCULAR SHOWCASE WITH ATTRACTIVE ROUND BADGES)
+          ========================================================================= */}
+      <section className="mock-daycare-section" id="day-care" aria-label="Day Care Joint Replacement">
+        <div className="mock-shell">
+          <div className="mock-daycare-box">
+            {/* Left Content */}
+            <div className="mock-daycare-left">
+              <h2 className="mock-title">Day Care Joint Replacement</h2>
+              <p>
+                With modern surgical techniques and gentle pain management, my goal is to help you start walking within hours of surgery and recover peacefully in the comfort of your own home.
+              </p>
+              <Link to="/treatments#knee" className="mock-btn-primary">
+                <span>Learn More</span>
+                <span className="mock-btn-primary-arrow">&rarr;</span>
               </Link>
             </div>
 
-            {/* Right Side 3D Stage Viewer */}
-            <div className="home-guides-v2-stage">
-              <Recovery3DViewer />
+            {/* Right: 3D Joint Model in Circular Ring with Round Badges surrounding it */}
+            <div className="mock-daycare-showcase">
+              {/* Left Badges */}
+              <div className="mock-daycare-badge-col mock-badge-col-left">
+                <div className="mock-daycare-pill mock-pill-round">
+                  <span className="mock-pill-dot" />
+                  <span>Less Pain</span>
+                </div>
+
+                <div className="mock-daycare-pill mock-pill-round">
+                  <span className="mock-pill-dot" />
+                  <span>Shorter Hospital Stay</span>
+                </div>
+              </div>
+
+              {/* Center: 3D Knee Joint visual in glowing circular ring */}
+              <div className="mock-daycare-center">
+                <div className="mock-daycare-ring">
+                  <img
+                    src="/knee-motion-v2.webp"
+                    alt="3D Knee joint replacement model"
+                    className="mock-daycare-joint-img"
+                  />
+                </div>
+              </div>
+
+              {/* Right Badges */}
+              <div className="mock-daycare-badge-col mock-badge-col-right">
+                <div className="mock-daycare-pill mock-pill-round">
+                  <span className="mock-pill-dot" />
+                  <span>Faster Recovery</span>
+                </div>
+
+                <div className="mock-daycare-pill mock-pill-round">
+                  <span className="mock-pill-dot" />
+                  <span>Better Mobility</span>
+                </div>
+              </div>
             </div>
-
           </div>
-
-          {/* Bottom Connected 4 Cards Grid (Protocol Highlights) */}
-          <div className="protocol-v2-rail-track" aria-label="Quiet Knee Protocol highlights">
-
-            {/* Card 01 */}
-            <Link to="/patient-guides#quiet-knee" className="protocol-v2-card">
-              <div className="protocol-card-num-wrap">
-                <span className="protocol-v2-num">01</span>
-                <span className="protocol-num-line" />
-              </div>
-              <div className="protocol-v2-img-wrap">
-                <img src="/knee-motion-v2.webp" alt="Manage swelling" className="protocol-v2-img" />
-              </div>
-              <h4 className="protocol-v2-title">Reduce swelling</h4>
-              <span className="protocol-title-line" />
-              <p className="protocol-v2-desc">Use ice packs and keep your leg rested and elevated as instructed.</p>
-            </Link>
-
-            {/* Card 02 */}
-            <Link to="/patient-guides#quiet-knee" className="protocol-v2-card">
-              <div className="protocol-card-num-wrap">
-                <span className="protocol-v2-num">02</span>
-                <span className="protocol-num-line" />
-              </div>
-              <div className="protocol-v2-img-wrap">
-                <img src="/hip-precision-v2.webp" alt="Protect extension" className="protocol-v2-img" />
-              </div>
-              <h4 className="protocol-v2-title">Straighten your joint</h4>
-              <span className="protocol-title-line" />
-              <p className="protocol-v2-desc">Focus on straightening your joint comfortably before attempting deep bending.</p>
-            </Link>
-
-            {/* Card 03 */}
-            <Link to="/patient-guides#quiet-knee" className="protocol-v2-card">
-              <div className="protocol-card-num-wrap">
-                <span className="protocol-v2-num">03</span>
-                <span className="protocol-num-line" />
-              </div>
-              <div className="protocol-v2-img-wrap">
-                <img src="/shoulder-mobility-v2.webp" alt="Pace your walking" className="protocol-v2-img" />
-              </div>
-              <h4 className="protocol-v2-title">Pace your walking</h4>
-              <span className="protocol-title-line" />
-              <p className="protocol-v2-desc">Use your walking stick or frame and do not rush your walking distance.</p>
-            </Link>
-
-            {/* Card 04 */}
-            <Link to="/patient-guides#quiet-knee" className="protocol-v2-card">
-              <div className="protocol-card-num-wrap">
-                <span className="protocol-v2-num">04</span>
-                <span className="protocol-num-line" />
-              </div>
-              <div className="protocol-v2-img-wrap">
-                <img src="/knee-3d.webp" alt="Rest before fatigue" className="protocol-v2-img" />
-              </div>
-              <h4 className="protocol-v2-title">Rest when tired</h4>
-              <span className="protocol-title-line" />
-              <p className="protocol-v2-desc">Take short rest breaks to keep your joint calm and prevent stiffness.</p>
-            </Link>
-
-          </div>
-
         </div>
       </section>
 
-      {/* Verified Patient Reviews Carousel */}
-      <ReviewsSlider />
+
+      {/* =========================================================================
+          8. ABOUT ME (DR. HARSHIL SHAH)
+          ========================================================================= */}
+      <section className="mock-about-section" id="about" aria-label="About Dr. Harshil Shah">
+        <div className="mock-shell">
+          <div className="mock-about-grid">
+            {/* Left: Doctor photo with soft backdrop */}
+            <div className="mock-about-left">
+              <div className="mock-about-backdrop" />
+              <img
+                src="/doctor-profile2.jpg"
+                alt="Dr. Harshil Shah - Consultant Orthopaedic Surgeon"
+                className="mock-about-doc-img"
+              />
+            </div>
+
+            {/* Right: Content */}
+            <div className="mock-about-right">
+              <h2 className="mock-title">Meet Your Orthopaedic Specialist</h2>
+              <p>
+                I’m Dr. Harshil Shah, Consultant Orthopaedic Surgeon, specializing in hip, knee, and shoulder conditions. My focus is on understanding your condition clearly, explaining your treatment options honestly, and choosing the right approach to help you move with greater comfort and confidence.
+              </p>
+              <p>
+                With advanced fellowship training in Joint Replacement and Arthroscopy from premier institutes in Mumbai and Pune, I practise full-time at Curis Hospitals and consult at Sterling Hospitals, Ahmedabad.
+              </p>
+
+              {/* Verified Safe Surgery Numbers Reported by Doctor */}
+              <div className="mock-about-stats">
+                <div className="mock-about-stat-card">
+                  <span className="mock-about-stat-number">3,000+</span>
+                  <span className="mock-about-stat-label">Trauma Surgeries</span>
+                </div>
+                <div className="mock-about-stat-card">
+                  <span className="mock-about-stat-number">500+</span>
+                  <span className="mock-about-stat-label">Joint Replacements</span>
+                </div>
+                <div className="mock-about-stat-card">
+                  <span className="mock-about-stat-number">250+</span>
+                  <span className="mock-about-stat-label">Arthroscopies</span>
+                </div>
+                <div className="mock-about-stat-card">
+                  <span className="mock-about-stat-number">G-36119</span>
+                  <span className="mock-about-stat-label">GMC Registered</span>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+                <Link to="/about" className="mock-btn-primary">
+                  <span>Know My Approach</span>
+                  <span className="mock-btn-primary-arrow">&rarr;</span>
+                </Link>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          10. WHAT MY PATIENTS SAY (VERIFIED GOOGLE REVIEWS - 5.0/5 RATING)
+          ========================================================================= */}
+      <section className="mock-reviews-section" id="reviews" aria-label="What My Patients Say">
+        <div className="mock-shell">
+          <div className="mock-section-header">
+            <div className="mock-section-header-left">
+                <h2 className="mock-title">Google Verified Rating and Reviews</h2>
+              
+            </div>
+            <a
+              href="https://maps.app.goo.gl/v94sN3JMwJMwKZYi6?g_st=iw"
+              target="_blank"
+              rel="noreferrer"
+              className="mock-btn-outline"
+            >
+              <span>View on Google</span>
+            </a>
+          </div>
+
+          <div className="mock-reviews-grid">
+            {/* Review 1 (Knee Replacement - Rushabh Shah) */}
+            <div className="mock-review-card">
+              <span className="mock-review-quote">&ldquo;</span>
+              <p className="mock-review-text">
+                &ldquo;Best surgeon for any orthopaedic treatment. He is very supportive and gives proper attention to every patient. I consulted him for my mother&apos;s right total knee replacement (TKR) surgery. Thanks to his excellent surgical skills, guidance, and post-op care, she recovered smoothly.&rdquo;
+              </p>
+              <div className="mock-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div className="mock-review-author">
+                <div className="mock-review-avatar">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                  </svg>
+                </div>
+                <div>
+                  <strong className="mock-review-name">Rushabh Shah</strong>
+                  <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d' }}>Knee Replacement (TKR) &bull; Google Review</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Review 2 (Orthopaedic Surgery - Nilesh Patel) */}
+            <div className="mock-review-card">
+              <span className="mock-review-quote">&ldquo;</span>
+              <p className="mock-review-text">
+                &ldquo;Dr. Harshil shah ek behtareen orthopedic surgeon hain. Unhone meri surgery bahut safalta-purvak ki. Unka treatment aur nature dono hi bahut supportive hain.&rdquo;
+              </p>
+              <div className="mock-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div className="mock-review-author">
+                <div className="mock-review-avatar">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                  </svg>
+                </div>
+                <div>
+                  <strong className="mock-review-name">Nilesh Patel</strong>
+                  <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d' }}>Orthopaedic Surgery &bull; Google Review</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Review 3 (Consultation & Care - Himanshu K) */}
+            <div className="mock-review-card">
+              <span className="mock-review-quote">&ldquo;</span>
+              <p className="mock-review-text">
+                &ldquo;Best Orthopedic Surgeon at Lilavati Clinic Ahmedabad. Very knowledgeable and polite doctor. Gives sufficient time to understand problems and provides accurate diagnosis and treatment.&rdquo;
+              </p>
+              <div className="mock-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div className="mock-review-author">
+                <div className="mock-review-avatar">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                  </svg>
+                </div>
+                <div>
+                  <strong className="mock-review-name">Himanshu K</strong>
+                  <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d' }}>Local Guide &bull; Google Review</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Review 4 (Patient Care & Recovery - Uma Santoki) */}
+            <div className="mock-review-card">
+              <span className="mock-review-quote">&ldquo;</span>
+              <p className="mock-review-text">
+                &ldquo;Best orthopaedic surgeon. Compassionate care, polite nature, and excellent expertise. Takes time to explain everything clearly and guides through recovery with patience. Thank you for your kind service.&rdquo;
+              </p>
+              <div className="mock-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div className="mock-review-author">
+                <div className="mock-review-avatar">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                  </svg>
+                </div>
+                <div>
+                  <strong className="mock-review-name">Uma Santoki</strong>
+                  <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d' }}>Patient Care &bull; Google Review</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          11. USEFUL INFORMATION (DOWNLOAD BROCHURES)
+          ========================================================================= */}
+      <section className="mock-brochures-section" id="brochures" aria-label="Useful Information">
+        <div className="mock-shell">
+          <div className="mock-brochures-layout">
+            {/* Left */}
+            <div className="mock-brochures-left">
+              <h2 className="mock-title">Know Your Condition. Know Your Options.</h2>
+              <p>
+                Understanding your condition can make your treatment journey easier. I’ve put together simple, practical guides to help you understand common orthopaedic problems, treatment options, and what to expect during recovery.
+              </p>
+              <Link to="/brochures" className="mock-btn-primary">
+                <span>Explore All Patient Guides &rarr;</span>
+              </Link>
+            </div>
+
+            {/* Right: 4 booklet cards with logos in 2x2 grid & hover download button */}
+            <div className="mock-brochures-grid">
+              {/* Booklet 1: Knee Replacement */}
+              <div className="mock-guide-card">
+                <div className="mock-guide-logo-wrap">
+                  <img
+                    src="/icons/knee-pain.webp"
+                    alt="Knee Replacement Patient Guide"
+                    className="mock-guide-logo-img"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mock-guide-info">
+                  <span className="mock-guide-badge">KNEE GUIDE</span>
+                  <strong className="mock-guide-title">Understanding Knee Replacement</strong>
+                  <span className="mock-guide-pages">Treatment &amp; Recovery &bull; Free Guide</span>
+                </div>
+                <a
+                  href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf"
+                  download="Understanding_Knee_Replacement_Guide.pdf"
+                  className="mock-guide-hover-overlay"
+                  title="Download Knee Replacement Guide"
+                >
+                  <span className="mock-guide-dl-action-btn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Download PDF</span>
+                  </span>
+                </a>
+              </div>
+
+              {/* Booklet 2: Hip Replacement */}
+              <div className="mock-guide-card">
+                <div className="mock-guide-logo-wrap">
+                  <img
+                    src="/icons/joint-replacement.webp"
+                    alt="Hip Replacement Patient Guide"
+                    className="mock-guide-logo-img"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mock-guide-info">
+                  <span className="mock-guide-badge">HIP GUIDE</span>
+                  <strong className="mock-guide-title">Understanding Hip Replacement</strong>
+                  <span className="mock-guide-pages">Treatment &amp; Recovery &bull; Free Guide</span>
+                </div>
+                <a
+                  href="/galleri/brochure/02_Understanding_Hip_Replacement_Guide_Dr_Harshil_Shah.pdf"
+                  download="Understanding_Hip_Replacement_Guide.pdf"
+                  className="mock-guide-hover-overlay"
+                  title="Download Hip Replacement Guide"
+                >
+                  <span className="mock-guide-dl-action-btn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Download PDF</span>
+                  </span>
+                </a>
+              </div>
+
+              {/* Booklet 3: Sports Injuries & Arthroscopy */}
+              <div className="mock-guide-card">
+                <div className="mock-guide-logo-wrap">
+                  <img
+                    src="/icons/sports-injuries.webp"
+                    alt="Sports Injuries & Arthroscopy Patient Guide"
+                    className="mock-guide-logo-img"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mock-guide-info">
+                  <span className="mock-guide-badge">SPORTS &amp; ACL</span>
+                  <strong className="mock-guide-title">Sports Injuries &amp; Arthroscopy</strong>
+                  <span className="mock-guide-pages">Injuries &amp; Recovery &bull; Free Guide</span>
+                </div>
+                <a
+                  href="/galleri/brochure/03_Understanding_Sports_Injuries_Arthroscopy_Guide_Dr_Harshil_Shah.pdf"
+                  download="Understanding_Sports_Injuries_Arthroscopy_Guide.pdf"
+                  className="mock-guide-hover-overlay"
+                  title="Download Sports Injuries Guide"
+                >
+                  <span className="mock-guide-dl-action-btn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Download PDF</span>
+                  </span>
+                </a>
+              </div>
+
+              {/* Booklet 4: Shoulder Care & Arthroscopy */}
+              <div className="mock-guide-card">
+                <div className="mock-guide-logo-wrap">
+                  <img
+                    src="/icons/shoulder-pain.webp"
+                    alt="Shoulder Care & Arthroscopy Patient Guide"
+                    className="mock-guide-logo-img"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mock-guide-info">
+                  <span className="mock-guide-badge">SHOULDER GUIDE</span>
+                  <strong className="mock-guide-title">Shoulder Care &amp; Arthroscopy</strong>
+                  <span className="mock-guide-pages">Conditions &amp; Treatment &bull; Free Guide</span>
+                </div>
+                <a
+                  href="/galleri/brochure/04_Understand_Your_Knee_Guide_Dr_Harshil_Shah.pdf"
+                  download="Understanding_Shoulder_Care_Guide.pdf"
+                  className="mock-guide-hover-overlay"
+                  title="Download Shoulder Care Guide"
+                >
+                  <span className="mock-guide-dl-action-btn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Download PDF</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          12. WHERE YOU CAN VISIT ME (OPD CLINICS & TIMINGS)
+          ========================================================================= */}
+      <section className="mock-locations-section" id="locations" aria-label="Where You Can Visit Me">
+        <div className="mock-shell">
+          <div className="mock-section-header">
+            <div className="mock-section-header-left">
+              <h2 className="mock-title">Where You Can Find Me</h2>
+              <p className="mock-subtitle">
+                You can meet me in person for a detailed consultation, examination, and review of your X-rays or MRI. I’ll take the time to understand your condition and explain the treatment options suited to you.
+              </p>
+            </div>
+            <Link to="/appointment" className="mock-btn-outline">
+              <span>Book an Appointment &rarr;</span>
+            </Link>
+          </div>
+
+          <div className="mock-locations-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+            {/* Card 1: Curis Hospitals (Main OPD Clinic) */}
+            <div className="mock-location-card is-active">
+              <div className="mock-loc-top-row">
+                <div className="mock-loc-logo-wrap">
+                  <img
+                    src="/curis-hospital-logo.png"
+                    alt="Curis Hospitals Logo"
+                    className="mock-loc-logo-img curis"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div className="mock-loc-text">
+                <strong>Curis Hospitals</strong>
+                <span>Sindhubhavan Road, Bodakdev, Ahmedabad</span>
+                <span style={{ display: 'block', marginTop: '8px', fontWeight: 700, color: '#146c72', fontSize: '0.86rem' }}>
+                  Mon–Sat: 10:00 AM–1:00 PM &bull; 5:00 PM–7:00 PM
+                </span>
+                <span style={{ display: 'block', fontSize: '0.82rem', color: '#526e75', marginTop: '6px', lineHeight: 1.45 }}>
+                  Regular consultations, joint examinations, imaging reviews, and follow-ups.
+                </span>
+              </div>
+            </div>
+
+            {/* Card 2: Sterling Hospitals (Visiting OPD Clinic) */}
+            <div className="mock-location-card">
+              <div className="mock-loc-top-row">
+                <div className="mock-loc-logo-wrap">
+                  <img
+                    src="/sterling-hospital-logo.png"
+                    alt="Sterling Hospitals Logo"
+                    className="mock-loc-logo-img sterling"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div className="mock-loc-text">
+                <strong>Sterling Hospitals</strong>
+                <span>Sterling Hospital Road, Memnagar, Ahmedabad</span>
+                <span style={{ display: 'block', fontSize: '0.82rem', color: '#526e75', marginTop: '8px', lineHeight: 1.45 }}>
+                  Focused consultations, pre-surgery evaluations, and second opinions.
+                </span>
+              </div>
+            </div>
+
+            {/* Card 3: Kakadya & Lilavati Hospitals (Specialty Clinic) */}
+            <div className="mock-location-card">
+              <div className="mock-loc-top-row">
+                <div className="mock-loc-logo-wrap">
+                  <img
+                    src="/lilavati-hospital-logo.png"
+                    alt="Lilavati Hospital Logo"
+                    className="mock-loc-logo-img lilavati"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div className="mock-loc-text">
+                <strong>Kakadya &amp; Lilavati Hospitals</strong>
+                <span>Ahmedabad, Gujarat</span>
+                <span style={{ display: 'block', fontSize: '0.82rem', color: '#526e75', marginTop: '8px', lineHeight: 1.45 }}>
+                  Specialty consultations for shoulder, sports injuries, and arthroscopy.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          13. FREQUENTLY ASKED QUESTIONS (FAQS - Directly from faqData)
+          ========================================================================= */}
+      <section className="mock-faqs-section" id="faqs" aria-label="Frequently Asked Questions">
+        <div className="mock-shell">
+          <div className="mock-section-header">
+            <div className="mock-section-header-left">
+              <h2 className="mock-title">Frequently Asked Questions</h2>
+              <p className="mock-subtitle">
+                Here are simple, clear answers to the questions my patients ask most often before consultation and treatment.
+              </p>
+            </div>
+            <Link to="/faq" className="mock-btn-outline">
+              <span>View All FAQs</span>
+            </Link>
+          </div>
+
+          <div className="mock-faqs-list">
+            {homeFaqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={faq.id || idx}
+                  className={`mock-faq-row ${isOpen ? 'is-open' : ''}`}
+                  onClick={() => toggleFaq(idx)}
+                >
+                  <div className="mock-faq-header-row">
+                    <div className="mock-faq-left">
+                      <span className="mock-faq-icon-circle">Q</span>
+                      <span className="mock-faq-question-text">{faq.question}</span>
+                    </div>
+                    <span className="mock-faq-plus">
+                      {isOpen ? '−' : '+'}
+                    </span>
+                  </div>
+                  {isOpen && (
+                    <div className="mock-faq-body">
+                      <p>{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          14. ROBOTIC SURGERY (ADVANCED SURGICAL TECHNOLOGY)
+          ========================================================================= */}
+      <section className="mock-robotic-section" id="robotic" aria-label="Robotic Surgery">
+        <div className="mock-shell">
+          <div className="mock-feature-duo">
+            <div className="mock-feature-duo-visual">
+              <img
+                src="/galleri/opreation/thumbnails/IMG_3715.webp"
+                alt="Robotic-Assisted Orthopaedic Procedure"
+                className="mock-feature-duo-img"
+              />
+            </div>
+            <div className="mock-feature-duo-content">
+              <h2 className="mock-title">Robotic-Assisted Precision Surgery</h2>
+              <p>
+                With modern robotic-assisted technology, I can perform joint replacements with sub-millimeter precision. This allows us to protect your healthy bone and ligaments, minimize recovery discomfort, and ensure your new joint moves naturally and lasts for many years.
+              </p>
+              <div style={{ marginTop: '20px' }}>
+                <Link to="/treatments" className="mock-btn-primary">
+                  <span>Learn More</span>
+                  <span className="mock-btn-primary-arrow">&rarr;</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          15. ONLINE CONSULTATION
+          ========================================================================= */}
+      <section className="mock-online-consult-section" id="online-consultation" aria-label="Online Consultation" style={{ marginBottom: '32px' }}>
+        <div className="mock-shell">
+          <div className="mock-consult-card-unified">
+            <div className="mock-consult-content-full">
+              <h2 className="mock-title">Consult With Me Online</h2>
+              <p className="mock-consult-lead">
+                If you live outside Ahmedabad, find it difficult to travel, or want an expert second opinion on your joint condition, you can consult with me directly from home. Share your MRI scans, X-rays, or medical reports on WhatsApp, and we will discuss your symptoms and plan the best path forward together.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="mock-consult-footer-actions">
+                <Link to="/appointment" className="mock-btn-primary">
+                  <span>Book an Appointment</span>
+                  <span className="mock-btn-primary-arrow">&rarr;</span>
+                </Link>
+                <a
+                  href="https://wa.me/917874904030?text=Hello%20Dr.%20Harshil%20Shah,%20I%20would%20like%20to%20consult%20online"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mock-btn-whatsapp"
+                >
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.02c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.14.11-3.66-.93-3.23-1.33-5.32-4.6-5.48-4.82-.16-.22-1.32-1.75-1.32-3.34 0-1.59.83-2.37 1.12-2.7.29-.33.64-.41.85-.41.21 0 .43 0 .61.01.2.01.47-.08.73.55.27.64.91 2.22.99 2.38.08.16.14.36.03.58-.11.22-.16.36-.33.55-.16.2-.35.44-.5.59-.16.16-.33.33-.14.66.19.33.84 1.38 1.8 2.24 1.24 1.1 2.28 1.44 2.61 1.6.33.16.52.14.72-.09.2-.23.83-.97 1.05-1.3.22-.33.44-.28.74-.16.3.11 1.93.91 2.26 1.07.33.16.55.25.63.38.08.14.08.8-.16 1.48z" />
+                  </svg>
+                  <span>Chat on WhatsApp (+91 78749 04030)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+
   const scrollToTop = () => {
     try {
       window.scrollTo({
@@ -23,6 +24,8 @@ export default function Footer() {
       window.scrollTo(0, 0);
     }
   };
+
+
 
   return (
     <footer className="footer">
@@ -118,7 +121,7 @@ export default function Footer() {
         {/* Patient Help Col */}
         <div className="footer-nav-col">
           <p className="footer-label">Patient Help</p>
-          <Link to="/appointment">Book appointment</Link>
+          <Link to="/appointment">Book an Appointment</Link>
           <Link to="/contact">Contact clinic</Link>
           <Link to="/faq">Common questions</Link>
         </div>
@@ -128,10 +131,10 @@ export default function Footer() {
           <p className="footer-label">Contact</p>
           <a
             className="footer-contact-address"
-            href="https://share.google/MBpDzvqtecRuH4gf8"
+            href="https://maps.app.goo.gl/v94sN3JMwJMwKZYi6?g_st=iw"
             target="_blank"
             rel="noopener noreferrer"
-            title="Open clinic location in Google Maps"
+            title="Open Curis Hospitals location in Google Maps"
           >
             <span className="footer-contact-icon">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -140,12 +143,12 @@ export default function Footer() {
               </svg>
             </span>
             <span className="footer-contact-text">
-              Garden, Pakwan cross road, near Bodakdev, Ahmedabad, Gujarat 380054
+              Curis Hospitals, Sindhubhavan Road, Bodakdev, Ahmedabad, Gujarat 380054
             </span>
           </a>
           <a
             className="footer-contact-link"
-            href="tel:+919316753985"
+            href="tel:+917874904030"
           >
             <span className="footer-contact-icon">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -153,7 +156,7 @@ export default function Footer() {
               </svg>
             </span>
             <span className="footer-contact-text">
-              +91 93167 53985
+              +91 78749 04030
             </span>
           </a>
           <a
@@ -170,11 +173,11 @@ export default function Footer() {
               harshilshah199706@gmail.com
             </span>
           </a>
-          <span className="footer-hours-text">Mon – Sat: 9:00 AM – 7:00 PM</span>
+          <span className="footer-hours-text">Mon – Sat: 10:00 AM – 1:00 PM &bull; 5:00 PM – 7:00 PM</span>
           <a
-            href="tel:+919316753985"
+            href="tel:+917874904030"
             className="footer-emergency-link"
-            title="Call +91 93167 53985 for 24-hour emergency"
+            title="Call +91 78749 04030 for emergency assistance"
           >
             <span className="footer-emergency-pulse" aria-hidden="true"></span>
             <span>24 Hours Open for Emergency</span>

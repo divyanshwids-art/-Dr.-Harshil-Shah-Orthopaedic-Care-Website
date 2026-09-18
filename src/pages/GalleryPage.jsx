@@ -1,11 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchParams] = useSearchParams();
+  const catParam = searchParams.get('category');
+  const [activeCategory, setActiveCategory] = useState(catParam || 'all');
   const [activeModalImg, setActiveModalImg] = useState(null);
   const [visibleCardIds, setVisibleCardIds] = useState(new Set());
   const cardRefs = useRef({});
+
+  useEffect(() => {
+    if (catParam) {
+      setActiveCategory(catParam);
+      setVisibleCardIds(new Set());
+    } else {
+      setActiveCategory('all');
+    }
+  }, [catParam]);
 
   const categories = [
     { id: 'all', label: 'All', desc: 'Complete visual timeline of surgical practice and patient care' },
@@ -164,7 +175,7 @@ export default function GalleryPage() {
       id: 21,
       src: `${DOCTOR_IMG_BASE}WhatsApp Image 2026-08-24 at 12.48.03 PM (1).webp`,
       tag: 'Surgical Theatre',
-      title: 'Team Briefing & Pre-Operative Check',
+      title: 'Pre-Operative Check & Surgical Readiness',
       subtitle: 'Ensuring utmost patient safety and surgical readiness',
       size: 'row', // 2x1 wide
       anim: 'left-to-right',
@@ -288,25 +299,16 @@ export default function GalleryPage() {
                 className="gallery-filter-pill"
                 style={{ background: 'linear-gradient(135deg, #146c72, #0e555a)', color: '#ffffff', borderColor: '#3bb3bc', fontWeight: 800 }}
               >
-                Surgical &amp; OT Videos (19)
+                Surgical &amp; OT Videos (18)
               </Link>
             </div>
           </div>
 
           <div className="gallery-hero-visual-panel" aria-hidden="true">
             <div className="gallery-hero-showcase-card">
-              <div className="hero-floating-badge badge-top">
-                <span className="badge-dot"></span>
-                <span>Robotic Precision &amp; 3D Care</span>
-              </div>
-
               <div className="hero-3d-models-wrap">
                 <img className="hero-3d-img hero-3d-shoulder" src="/shoulder-3d.webp" alt="3D Shoulder Joint" />
                 <img className="hero-3d-img hero-3d-knee" src="/knee-3d.webp" alt="3D Knee Joint" />
-              </div>
-
-              <div className="hero-floating-badge badge-bottom">
-                <span>Knee · Hip · Shoulder Joint Care</span>
               </div>
             </div>
           </div>
@@ -325,7 +327,7 @@ export default function GalleryPage() {
               Explore by <span>Specialized Categories</span>
             </h2>
             <p className="gallery-categories-desc">
-              All | Clinical Practice | Surgical Theatre | Academic &amp; Training | Professional Journey | Patient Care | Events &amp; Honors
+              Browse authentic photo documentation from surgical theatres, outpatient consultations, patient recovery, and academic workshops.
             </p>
           </div>
 
@@ -357,7 +359,7 @@ export default function GalleryPage() {
               title="Watch high-definition surgical recordings"
             >
               <span className="cat-btn-label">Surgical &amp; OT Videos</span>
-              <span className="cat-btn-count video-badge">19</span>
+              <span className="cat-btn-count video-badge">18</span>
             </Link>
           </div>
 
