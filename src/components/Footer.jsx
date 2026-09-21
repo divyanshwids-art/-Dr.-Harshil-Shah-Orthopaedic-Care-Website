@@ -39,25 +39,11 @@ export default function Footer() {
               className="brand-logo-img footer-logo-img"
             />
           </Link>
-          <p className="footer-brand-text">
-            Patient-first orthopaedic care for knee, hip and shoulder conditions, based in Gujarat, India.
-          </p>
-          <a
-            href="https://share.google/MBpDzvqtecRuH4gf8"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-location-badge"
-            title="Open clinic location in Google Maps"
-          >
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            Ahmedabad, Gujarat, India (View Map)
-          </a>
+
+
 
           {/* Social Links Row in Footer */}
-          <div className="footer-social-row" style={{ display: 'flex', gap: '10px', marginTop: '16px' }}>
+          <div className="footer-social-row" style={{ display: 'flex', gap: '12px', marginTop: '18px' }}>
             <a
               href="https://wa.me/919316753985"
               target="_blank"
@@ -106,6 +92,15 @@ export default function Footer() {
               </svg>
             </a>
           </div>
+          <span className="footer-hours-text" style={{ marginTop: '18px' }}>Mon – Sat: 10:00 AM – 1:00 PM &bull; 5:00 PM – 7:00 PM</span>
+                    <a
+            href="tel:+917874904030"
+            className="footer-emergency-link"
+            title="Call +91 78749 04030 for emergency assistance"
+          >
+            <span className="footer-emergency-pulse" aria-hidden="true"></span>
+            <span>24 Hours Open for Emergency</span>
+          </a>
         </div>
 
         {/* Explore Col */}
@@ -173,15 +168,7 @@ export default function Footer() {
               harshilshah199706@gmail.com
             </span>
           </a>
-          <span className="footer-hours-text">Mon – Sat: 10:00 AM – 1:00 PM &bull; 5:00 PM – 7:00 PM</span>
-          <a
-            href="tel:+917874904030"
-            className="footer-emergency-link"
-            title="Call +91 78749 04030 for emergency assistance"
-          >
-            <span className="footer-emergency-pulse" aria-hidden="true"></span>
-            <span>24 Hours Open for Emergency</span>
-          </a>
+
         </div>
       </div>
 

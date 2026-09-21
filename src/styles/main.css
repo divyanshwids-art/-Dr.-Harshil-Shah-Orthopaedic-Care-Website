@@ -34805,12 +34805,13 @@ html body * {
 }
 
 .mock-hero-title {
-  font-size: 2.85rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: #0f2b30;
-  line-height: 1.15;
+  line-height: 1.18;
   margin-bottom: 16px;
   letter-spacing: -0.02em;
+  max-width: 540px;
 }
 
 .mock-hero-desc {
@@ -34845,11 +34846,12 @@ html body * {
 
 .mock-why-left h2,
 .mock-why-title {
-  font-size: 1.85rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: #0f2b30;
   margin: 0 0 10px;
-  line-height: 1.25;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .mock-text-teal {
@@ -35298,7 +35300,7 @@ html body * {
 
 .mock-awards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
@@ -35321,9 +35323,16 @@ html body * {
 }
 
 .mock-award-card.is-primary-award {
-  background: linear-gradient(145deg, #ffffff 0%, #fffdf5 100%);
-  border: 1.5px solid #fde68a;
+  background: linear-gradient(145deg, #ffffff 0%, #ffffff 100%);
+  border: 1px solid #e2eef0;
+  border-radius: 14px;
   box-shadow: 0 6px 20px rgba(217, 119, 6, 0.08);
+}
+
+.mock-award-card.is-primary-award:hover {
+border-color: #146c72;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(20, 108, 114, 0.09);
 }
 
 .mock-award-photo-wrap {
@@ -35759,10 +35768,11 @@ html body * {
 }
 
 .mock-brochures-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 40px;
-  align-items: center;
+  display: block;
+}
+
+.mock-brochures-left {
+  margin-bottom: 24px;
 }
 
 .mock-brochures-left h2 {
@@ -35771,6 +35781,7 @@ html body * {
   color: #0f2b30;
   line-height: 1.25;
   margin: 0 0 10px;
+  white-space: nowrap;
 }
 
 .mock-brochures-left p {
@@ -35778,26 +35789,25 @@ html body * {
   color: #526e75;
   line-height: 1.55;
   margin-bottom: 20px;
+  max-width: 760px;
 }
 
 .mock-brochures-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .mock-guide-card {
-  position: relative;
   background: #ffffff;
   border: 1.5px solid #e0eff1;
   border-radius: 16px;
-  padding: 22px 20px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
+  overflow: hidden;
   box-shadow: 0 4px 16px rgba(15, 43, 48, 0.04);
   transition: all 0.26s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .mock-guide-card:hover {
@@ -35806,111 +35816,65 @@ html body * {
   box-shadow: 0 10px 26px rgba(20, 108, 114, 0.12);
 }
 
-.mock-guide-logo-wrap {
-  position: relative;
-  width: 68px;
-  height: 68px;
-  border-radius: 14px;
-  background: radial-gradient(circle, #eaf6f7 0%, #daf0f2 100%);
-  border: 1px solid #d0eaee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
+.mock-guide-cover-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #edf4f5;
 }
 
-.mock-guide-card:hover .mock-guide-logo-wrap {
-  transform: scale(1.05);
-}
-
-.mock-guide-logo-img {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  transition: all 0.25s ease;
-}
-
-.mock-guide-info {
+.mock-guide-body {
+  padding: 12px 14px 15px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  min-width: 0;
-}
-
-.mock-guide-badge {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #146c72;
-  background: #e6f5f7;
-  padding: 3px 9px;
-  border-radius: 9999px;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  gap: 8px;
 }
 
 .mock-guide-title {
   display: block;
-  font-size: 0.98rem;
+  font-size: 0.94rem;
   font-weight: 700;
   color: #0f2b30;
   line-height: 1.35;
-  margin-bottom: 4px;
+  margin: 0;
 }
 
-.mock-guide-pages {
+.mock-guide-desc {
   display: block;
+  margin: 0;
   font-size: 0.8rem;
-  color: #68858d;
+  color: #526e75;
+  line-height: 1.5;
 }
 
-/* Hover Download Overlay */
-.mock-guide-hover-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(14, 85, 90, 0.96) 0%, rgba(20, 108, 114, 0.96) 100%);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.24s ease, transform 0.24s ease;
-  transform: scale(0.97);
-  z-index: 5;
-  text-decoration: none;
-}
-
-.mock-guide-card:hover .mock-guide-hover-overlay {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
-}
-
-.mock-guide-dl-action-btn {
+.mock-guide-dl-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: #ffffff;
-  color: #0e555a;
-  padding: 11px 24px;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 8px 14px;
   border-radius: 9999px;
-  font-size: 0.92rem;
-  font-weight: 800;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease, background 0.2s ease;
+  background: #0e555a;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-.mock-guide-dl-action-btn:hover {
-  background: #eef8f9;
-  transform: scale(1.05);
+.mock-guide-dl-btn:hover {
+  background: #093f43;
+}
+
+.mock-guide-logo-wrap,
+.mock-guide-info,
+.mock-guide-badge,
+.mock-guide-pages,
+.mock-guide-hover-overlay,
+.mock-guide-dl-action-btn {
+  display: none !important;
 }
 
 /* ========================================================================= */

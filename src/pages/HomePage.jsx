@@ -25,9 +25,7 @@ export default function HomePage() {
         <div className="mock-shell">
           <div className="mock-hero-inner">
             <div className="mock-hero-left">
-              <div className="mock-hero-doc-badge">
-                <strong>Dr. Harshil Shah</strong>
-              </div>
+
               <h1 className="mock-hero-title">
                 Expert Orthopaedic Care<br />
                 For Your Healthier Tomorrow
@@ -57,7 +55,7 @@ export default function HomePage() {
             <div className="mock-why-left">
               <h2 className="mock-title mock-why-title">Your Recovery, <span className="mock-text-teal">My Priority</span></h2>
               <p>
-                I’m here to listen to your concerns, understand your condition, and guide you with honesty. My approach is focused on safe, modern treatment and helping you return to a pain-free, active life with confidence.
+                I’m here to listen to your concerns, understand your condition, and guide you with honesty.
               </p>
             </div>
 
@@ -128,9 +126,7 @@ export default function HomePage() {
           <div className="mock-section-header">
             <div className="mock-section-header-left">
               <h2 className="mock-title">Care For Your Condition</h2>
-              <p className="mock-subtitle">
-                Whether you’re dealing with joint pain, an injury, a fracture, or a spine condition, I’ll first understand what’s causing your problem and then guide you toward the right treatment for your recovery.
-              </p>
+
             </div>
             <Link to="/treatments" className="mock-btn-outline">
               <span>Explore All Treatments &rarr;</span>
@@ -348,9 +344,8 @@ export default function HomePage() {
           </div>
 
           <div className="mock-awards-grid">
-            {/* Award 1: TOI Healthcare Leader 2026 */}
-            <div className="mock-award-card is-primary-award">
-              <div className="mock-award-photo-wrap">
+            <div className="mock-award-card is-primary-award" style={{ display: 'grid', gridTemplateColumns: 'minmax(240px, 420px) minmax(0, 1fr)', gap: '22px', alignItems: 'center' }}>
+              <div className="mock-award-photo-wrap" style={{ marginBottom: 0, height: '230px' }}>
                 <img
                   src="/toi-healthcare-leaders-award.jpg"
                   alt="Dr. Harshil Shah receiving Times of India Healthcare Leaders Award 2026"
@@ -358,49 +353,21 @@ export default function HomePage() {
                   loading="lazy"
                 />
               </div>
-              <div className="mock-award-icon">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              </div>
-              <span className="mock-award-badge">Prestigious Award</span>
-              <strong className="mock-award-name">Times of India (TOI) Healthcare Leader 2026</strong>
-              <p className="mock-award-desc">
-                Awarded for clinical leadership in orthopaedic care, dedication to joint preservation, and helping patients recover safely with modern techniques.
-              </p>
-              <span className="mock-award-year">TOI Healthcare Awards &bull; 2026</span>
-            </div>
 
-            {/* Fellowship 2: Adult Reconstructive Arthroplasty */}
-            <div className="mock-award-card">
-              <div className="mock-award-icon" style={{ background: '#eaf6f7', color: '#146c72' }}>
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                </svg>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div className="mock-award-icon" style={{ background: '#eaf6f7', color: '#146c72' }}>
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                </div>
+                <span className="mock-award-badge" style={{ background: '#eaf6f7', color: '#146c72' }}>Prestigious Award</span>
+                <strong className="mock-award-name">Times of India (TOI) Healthcare Leader 2026</strong>
+                <p className="mock-award-desc">
+                  Awarded for clinical leadership in orthopaedic care, dedication to joint preservation, and helping patients recover safely with modern techniques.
+                </p>
+                <span className="mock-award-year">TOI Healthcare Awards &bull; 2026</span>
               </div>
-              <span className="mock-award-badge" style={{ background: '#e0f2fe', color: '#0369a1' }}>Fellowship</span>
-              <strong className="mock-award-name">Adult Reconstructive Arthroplasty Fellowship</strong>
-              <p className="mock-award-desc">
-                Sub-specialty training completed at P.D. Hinduja Hospital &amp; Breach Candy Hospital, Mumbai, focusing on complex primary and revision joint replacements.
-              </p>
-              <span className="mock-award-year">Mumbai, Maharashtra</span>
-            </div>
-
-            {/* Fellowship 3: Shoulder Arthroscopy */}
-            <div className="mock-award-card">
-              <div className="mock-award-icon" style={{ background: '#eaf6f7', color: '#146c72' }}>
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                </svg>
-              </div>
-              <span className="mock-award-badge" style={{ background: '#f3e8ff', color: '#7e22ce' }}>Fellowship</span>
-              <strong className="mock-award-name">Shoulder Arthroscopy &amp; Reconstructive Surgery</strong>
-              <p className="mock-award-desc">
-                Specialized fellowship completed at Deenanath Mangeshkar Hospital, Pune, focusing on keyhole shoulder surgery, rotator cuff repair, and ligament stabilization.
-              </p>
-              <span className="mock-award-year">Pune, Maharashtra</span>
             </div>
           </div>
         </div>
@@ -472,62 +439,6 @@ export default function HomePage() {
       {/* =========================================================================
           8. ABOUT ME (DR. HARSHIL SHAH)
           ========================================================================= */}
-      <section className="mock-about-section" id="about" aria-label="About Dr. Harshil Shah">
-        <div className="mock-shell">
-          <div className="mock-about-grid">
-            {/* Left: Doctor photo with soft backdrop */}
-            <div className="mock-about-left">
-              <div className="mock-about-backdrop" />
-              <img
-                src="/doctor-profile2.jpg"
-                alt="Dr. Harshil Shah - Consultant Orthopaedic Surgeon"
-                className="mock-about-doc-img"
-              />
-            </div>
-
-            {/* Right: Content */}
-            <div className="mock-about-right">
-              <h2 className="mock-title">Meet Your Orthopaedic Specialist</h2>
-              <p>
-                I’m Dr. Harshil Shah, Consultant Orthopaedic Surgeon, specializing in hip, knee, and shoulder conditions. My focus is on understanding your condition clearly, explaining your treatment options honestly, and choosing the right approach to help you move with greater comfort and confidence.
-              </p>
-              <p>
-                With advanced fellowship training in Joint Replacement and Arthroscopy from premier institutes in Mumbai and Pune, I practise full-time at Curis Hospitals and consult at Sterling Hospitals, Ahmedabad.
-              </p>
-
-              {/* Verified Safe Surgery Numbers Reported by Doctor */}
-              <div className="mock-about-stats">
-                <div className="mock-about-stat-card">
-                  <span className="mock-about-stat-number">3,000+</span>
-                  <span className="mock-about-stat-label">Trauma Surgeries</span>
-                </div>
-                <div className="mock-about-stat-card">
-                  <span className="mock-about-stat-number">500+</span>
-                  <span className="mock-about-stat-label">Joint Replacements</span>
-                </div>
-                <div className="mock-about-stat-card">
-                  <span className="mock-about-stat-number">250+</span>
-                  <span className="mock-about-stat-label">Arthroscopies</span>
-                </div>
-                <div className="mock-about-stat-card">
-                  <span className="mock-about-stat-number">G-36119</span>
-                  <span className="mock-about-stat-label">GMC Registered</span>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-                <Link to="/about" className="mock-btn-primary">
-                  <span>Know My Approach</span>
-                  <span className="mock-btn-primary-arrow">&rarr;</span>
-                </Link>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
       {/* =========================================================================
           10. WHAT MY PATIENTS SAY (VERIFIED GOOGLE REVIEWS - 5.0/5 RATING)
           ========================================================================= */}
@@ -639,145 +550,79 @@ export default function HomePage() {
       <section className="mock-brochures-section" id="brochures" aria-label="Useful Information">
         <div className="mock-shell">
           <div className="mock-brochures-layout">
-            {/* Left */}
             <div className="mock-brochures-left">
-              <h2 className="mock-title">Know Your Condition. Know Your Options.</h2>
+              <h2 className="mock-title">Patient Brochures for Better Understanding</h2>
               <p>
-                Understanding your condition can make your treatment journey easier. I’ve put together simple, practical guides to help you understand common orthopaedic problems, treatment options, and what to expect during recovery.
+                I believe informed patients make confident decisions. These simple guides explain common orthopaedic problems, treatment choices, and what recovery can look like.
               </p>
               <Link to="/brochures" className="mock-btn-primary">
                 <span>Explore All Patient Guides &rarr;</span>
               </Link>
             </div>
 
-            {/* Right: 4 booklet cards with logos in 2x2 grid & hover download button */}
             <div className="mock-brochures-grid">
-              {/* Booklet 1: Knee Replacement */}
               <div className="mock-guide-card">
-                <div className="mock-guide-logo-wrap">
-                  <img
-                    src="/icons/knee-pain.webp"
-                    alt="Knee Replacement Patient Guide"
-                    className="mock-guide-logo-img"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="mock-guide-info">
-                  <span className="mock-guide-badge">KNEE GUIDE</span>
-                  <strong className="mock-guide-title">Understanding Knee Replacement</strong>
-                  <span className="mock-guide-pages">Treatment &amp; Recovery &bull; Free Guide</span>
-                </div>
-                <a
-                  href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf"
-                  download="Understanding_Knee_Replacement_Guide.pdf"
-                  className="mock-guide-hover-overlay"
-                  title="Download Knee Replacement Guide"
-                >
-                  <span className="mock-guide-dl-action-btn">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1="12" y1="15" x2="12" y2="3" />
-                    </svg>
+                <img
+                  src="/knee-care-card.jpg"
+                  alt="Knee Replacement Patient Guide"
+                  className="mock-guide-cover-img"
+                  loading="lazy"
+                />
+                <div className="mock-guide-body">
+                  <h3 className="mock-guide-title">Understanding Knee Replacement</h3>
+                  <p className="mock-guide-desc">Joint care, recovery steps, and what to expect after surgery.</p>
+                  <a href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf" download="Understanding_Knee_Replacement_Guide.pdf" className="mock-guide-dl-btn" title="Download Knee Replacement Guide">
                     <span>Download PDF</span>
-                  </span>
-                </a>
+                  </a>
+                </div>
               </div>
 
-              {/* Booklet 2: Hip Replacement */}
               <div className="mock-guide-card">
-                <div className="mock-guide-logo-wrap">
-                  <img
-                    src="/icons/joint-replacement.webp"
-                    alt="Hip Replacement Patient Guide"
-                    className="mock-guide-logo-img"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="mock-guide-info">
-                  <span className="mock-guide-badge">HIP GUIDE</span>
-                  <strong className="mock-guide-title">Understanding Hip Replacement</strong>
-                  <span className="mock-guide-pages">Treatment &amp; Recovery &bull; Free Guide</span>
-                </div>
-                <a
-                  href="/galleri/brochure/02_Understanding_Hip_Replacement_Guide_Dr_Harshil_Shah.pdf"
-                  download="Understanding_Hip_Replacement_Guide.pdf"
-                  className="mock-guide-hover-overlay"
-                  title="Download Hip Replacement Guide"
-                >
-                  <span className="mock-guide-dl-action-btn">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1="12" y1="15" x2="12" y2="3" />
-                    </svg>
+                <img
+                  src="/hip-care-card.jpg"
+                  alt="Hip Replacement Patient Guide"
+                  className="mock-guide-cover-img"
+                  loading="lazy"
+                />
+                <div className="mock-guide-body">
+                  <h3 className="mock-guide-title">Understanding Hip Replacement</h3>
+                  <p className="mock-guide-desc">Simple guidance on treatment, recovery planning, and daily movement.</p>
+                  <a href="/galleri/brochure/02_Understanding_Hip_Replacement_Guide_Dr_Harshil_Shah.pdf" download="Understanding_Hip_Replacement_Guide.pdf" className="mock-guide-dl-btn" title="Download Hip Replacement Guide">
                     <span>Download PDF</span>
-                  </span>
-                </a>
+                  </a>
+                </div>
               </div>
 
-              {/* Booklet 3: Sports Injuries & Arthroscopy */}
               <div className="mock-guide-card">
-                <div className="mock-guide-logo-wrap">
-                  <img
-                    src="/icons/sports-injuries.webp"
-                    alt="Sports Injuries & Arthroscopy Patient Guide"
-                    className="mock-guide-logo-img"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="mock-guide-info">
-                  <span className="mock-guide-badge">SPORTS &amp; ACL</span>
-                  <strong className="mock-guide-title">Sports Injuries &amp; Arthroscopy</strong>
-                  <span className="mock-guide-pages">Injuries &amp; Recovery &bull; Free Guide</span>
-                </div>
-                <a
-                  href="/galleri/brochure/03_Understanding_Sports_Injuries_Arthroscopy_Guide_Dr_Harshil_Shah.pdf"
-                  download="Understanding_Sports_Injuries_Arthroscopy_Guide.pdf"
-                  className="mock-guide-hover-overlay"
-                  title="Download Sports Injuries Guide"
-                >
-                  <span className="mock-guide-dl-action-btn">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1="12" y1="15" x2="12" y2="3" />
-                    </svg>
+                <img
+                  src="/sports-injuries-card.jpg"
+                  alt="Sports Injuries & Arthroscopy Patient Guide"
+                  className="mock-guide-cover-img"
+                  loading="lazy"
+                />
+                <div className="mock-guide-body">
+                  <h3 className="mock-guide-title">Sports Injuries &amp; Arthroscopy</h3>
+                  <p className="mock-guide-desc">Understanding keyhole treatment, rehab progress, and return to activity.</p>
+                  <a href="/galleri/brochure/03_Understanding_Sports_Injuries_Arthroscopy_Guide_Dr_Harshil_Shah.pdf" download="Understanding_Sports_Injuries_Arthroscopy_Guide.pdf" className="mock-guide-dl-btn" title="Download Sports Injuries Guide">
                     <span>Download PDF</span>
-                  </span>
-                </a>
+                  </a>
+                </div>
               </div>
 
-              {/* Booklet 4: Shoulder Care & Arthroscopy */}
               <div className="mock-guide-card">
-                <div className="mock-guide-logo-wrap">
-                  <img
-                    src="/icons/shoulder-pain.webp"
-                    alt="Shoulder Care & Arthroscopy Patient Guide"
-                    className="mock-guide-logo-img"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="mock-guide-info">
-                  <span className="mock-guide-badge">SHOULDER GUIDE</span>
-                  <strong className="mock-guide-title">Shoulder Care &amp; Arthroscopy</strong>
-                  <span className="mock-guide-pages">Conditions &amp; Treatment &bull; Free Guide</span>
-                </div>
-                <a
-                  href="/galleri/brochure/04_Understand_Your_Knee_Guide_Dr_Harshil_Shah.pdf"
-                  download="Understanding_Shoulder_Care_Guide.pdf"
-                  className="mock-guide-hover-overlay"
-                  title="Download Shoulder Care Guide"
-                >
-                  <span className="mock-guide-dl-action-btn">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1="12" y1="15" x2="12" y2="3" />
-                    </svg>
+                <img
+                  src="/shoulder-care-new.jpg"
+                  alt="Shoulder Care & Arthroscopy Patient Guide"
+                  className="mock-guide-cover-img"
+                  loading="lazy"
+                />
+                <div className="mock-guide-body">
+                  <h3 className="mock-guide-title">Shoulder Care &amp; Arthroscopy</h3>
+                  <p className="mock-guide-desc">Practical information on pain relief, mobility, and shoulder recovery.</p>
+                  <a href="/galleri/brochure/04_Understand_Your_Knee_Guide_Dr_Harshil_Shah.pdf" download="Understanding_Shoulder_Care_Guide.pdf" className="mock-guide-dl-btn" title="Download Shoulder Care Guide">
                     <span>Download PDF</span>
-                  </span>
-                </a>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -937,7 +782,7 @@ export default function HomePage() {
             <div className="mock-feature-duo-content">
               <h2 className="mock-title">Robotic-Assisted Precision Surgery</h2>
               <p>
-                With modern robotic-assisted technology, I can perform joint replacements with sub-millimeter precision. This allows us to protect your healthy bone and ligaments, minimize recovery discomfort, and ensure your new joint moves naturally and lasts for many years.
+                With modern robotic-assisted technology, I can perform joint replacements with sub-millimeter precision. 
               </p>
               <div style={{ marginTop: '20px' }}>
                 <Link to="/treatments" className="mock-btn-primary">
@@ -960,7 +805,7 @@ export default function HomePage() {
             <div className="mock-consult-content-full">
               <h2 className="mock-title">Consult With Me Online</h2>
               <p className="mock-consult-lead">
-                If you live outside Ahmedabad, find it difficult to travel, or want an expert second opinion on your joint condition, you can consult with me directly from home. Share your MRI scans, X-rays, or medical reports on WhatsApp, and we will discuss your symptoms and plan the best path forward together.
+                If you live outside Ahmedabad, find it difficult to travel, or want an expert second opinion on your joint condition, you can consult with me directly from home.
               </p>
 
               {/* Action Buttons */}
