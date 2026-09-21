@@ -34754,7 +34754,7 @@ html body * {
   background-color: #f6fafb;
   background-image: 
     linear-gradient(90deg, #f6fafb 0%, #f6fafb 38%, rgba(246, 250, 251, 0.94) 52%, rgba(246, 250, 251, 0.45) 70%, rgba(246, 250, 251, 0.1) 88%, rgba(246, 250, 251, 0) 100%),
-    url('/doctor-hero-office.png');
+    url('/doctor-hero-IMG_2501.png');
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: auto 100%;
@@ -36572,7 +36572,7 @@ html body * {
   .mock-hero {
     background-image: 
       linear-gradient(180deg, rgba(246, 250, 251, 0.94) 0%, rgba(246, 250, 251, 0.97) 55%, rgba(246, 250, 251, 0.88) 100%),
-      url('/doctor-hero-office.png');
+      url('/doctor-hero-IMG_2501.png');
     background-position: center bottom;
     background-size: cover;
     padding: 50px 0 60px;
@@ -36586,7 +36586,7 @@ html body * {
   .mock-hero {
     background-image: 
       linear-gradient(180deg, rgba(246, 250, 251, 0.95) 0%, rgba(246, 250, 251, 0.9) 100%),
-      url('/doctor-hero-office.png');
+      url('/doctor-hero-IMG_2501.png');
     background-position: center right;
     background-size: cover;
     padding: 50px 0 50px;
