@@ -355,12 +355,7 @@ export default function HomePage() {
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <div className="mock-award-icon" style={{ background: '#eaf6f7', color: '#146c72' }}>
-                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                  </svg>
-                </div>
+
                 <span className="mock-award-badge" style={{ background: '#eaf6f7', color: '#146c72' }}>Prestigious Award</span>
                 <strong className="mock-award-name">Times of India (TOI) Healthcare Leader 2026</strong>
                 <p className="mock-award-desc">
@@ -595,7 +590,7 @@ export default function HomePage() {
 
               <div className="mock-guide-card">
                 <img
-                  src="/sports-injuries-card.jpg"
+                  src="/sports-injuries-card.png"
                   alt="Sports Injuries & Arthroscopy Patient Guide"
                   className="mock-guide-cover-img"
                   loading="lazy"
