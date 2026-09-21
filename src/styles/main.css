@@ -32664,6 +32664,465 @@ html body * {
   color: #334155 !important;
 }
 
+.about-page {
+  background: #edf5f4;
+  color: #1d2d35;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+.about-page * {
+  box-sizing: border-box;
+}
+
+.about-page .section-kicker {
+  display: inline-block;
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0d7d82;
+}
+
+.about-page .section-title {
+  margin: 0;
+  font-size: clamp(2rem, 2.7vw, 3rem);
+  line-height: 1.15;
+  color: #132b33;
+  font-weight: 800;
+}
+
+.about-page .section-subtitle {
+  margin: 12px 0 0;
+  max-width: 760px;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #526d76;
+}
+
+.about-banner-section {
+  background: #eaf4f3;
+  border-bottom: 1px solid #dfeceb;
+}
+
+.about-banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-page .about-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  padding: 52px 0 42px;
+}
+
+.about-banner-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-banner-title {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.05;
+  color: #132b33;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.about-banner-text {
+  margin: 16px 0 0;
+  max-width: 560px;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #3d5d66;
+}
+
+.about-banner-visual {
+  position: relative;
+  width: min(100%, 520px);
+  flex: 0 0 46%;
+}
+
+.about-banner-visual img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 26px;
+  display: block;
+  background: #dfeef0;
+}
+
+.about-banner-badge {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid #dfeceb;
+  color: #0e5d66;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.25;
+  box-shadow: 0 10px 22px rgba(19, 43, 51, 0.08);
+}
+
+.about-content-section,
+.about-experience-section,
+.about-success-section,
+.about-camp-section,
+.about-treatment-section {
+  background: #f5f9f8;
+}
+
+.about-content-section {
+  padding: 32px 0 0;
+}
+
+.about-split-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 18px 0 24px;
+}
+
+.about-profile-card {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.about-copy-block {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.about-copy-block h2 {
+  margin: 0;
+  font-size: clamp(2rem, 2.6vw, 2.5rem);
+  line-height: 1.15;
+  color: #132b33;
+  font-weight: 800;
+}
+
+.about-copy-block p {
+  margin: 18px 0 0;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #405c66;
+}
+
+.about-profile-card {
+  background: #f6fbfb;
+  border: 1px solid #dfeceb;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(19, 43, 51, 0.05);
+}
+
+.about-profile-card img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.about-profile-body {
+  padding: 20px 20px 18px;
+}
+
+.about-profile-body h3 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: #132b33;
+  font-weight: 800;
+}
+
+.about-role {
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+  color: #5a7581;
+}
+
+.about-profile-body ul {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.about-profile-body li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  font-size: 0.95rem;
+  color: #2d4954;
+}
+
+.about-profile-body li span {
+  display: inline-block;
+  min-width: 92px;
+  color: #0d7d82;
+  font-weight: 700;
+}
+
+.about-experience-section {
+  padding: 26px 0 16px;
+}
+
+.about-timeline {
+  position: relative;
+  margin-top: 16px;
+  padding-left: 30px;
+  border-left: 2px solid #bddcd7;
+}
+
+.about-timeline-item {
+  position: relative;
+  padding: 0 0 10px 0;
+}
+
+.about-timeline-dot {
+  position: absolute;
+  left: -37px;
+  top: 16px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 4px solid #1b9ca2;
+  box-shadow: 0 0 0 4px rgba(27, 156, 162, 0.12);
+}
+
+.about-timeline-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #dfeceb;
+  border-radius: 12px;
+  padding: 11px 14px;
+  box-shadow: 0 6px 18px rgba(19, 43, 51, 0.03);
+}
+
+.about-timeline-title-row {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0d7d82;
+}
+
+.about-timeline-card p {
+  margin: 6px 0 0;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: #405c66;
+}
+
+.about-success-section {
+  padding: 18px 0 30px;
+}
+
+.about-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.about-testimonial-card {
+  background: #f4fbfa;
+  border: 1px solid #dfeceb;
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  min-height: 220px;
+  box-shadow: 0 8px 20px rgba(19, 43, 51, 0.03);
+}
+
+.about-quote-icon {
+  font-size: 2.1rem;
+  line-height: 1;
+  color: #0d7d82;
+  font-weight: 800;
+}
+
+.about-testimonial-text {
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #2d4954;
+}
+
+.about-testimonial-footer {
+  margin-top: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.about-testimonial-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0d7d82;
+}
+
+.about-testimonial-detail {
+  font-size: 0.8rem;
+  color: #5a7581;
+}
+
+.about-camp-section {
+  padding: 16px 0 26px;
+}
+
+.about-camp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.about-camp-image-wrap {
+  border: 1px solid #dfeceb;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #e9f3f2;
+}
+
+.about-camp-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.about-camp-copy h2 {
+  margin: 0;
+  font-size: clamp(2rem, 2.6vw, 2.9rem);
+  line-height: 1.15;
+  color: #132b33;
+  font-weight: 800;
+}
+
+.about-camp-copy p {
+  margin: 16px 0 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #405c66;
+}
+
+.about-treatment-section {
+  padding: 18px 0 54px;
+}
+
+.about-treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.about-treatment-card {
+  background: #f9fcfb;
+  border: 1px solid #dfeceb;
+  border-radius: 14px;
+  padding: 20px 18px;
+  min-height: 140px;
+  box-shadow: 0 8px 18px rgba(19, 43, 51, 0.03);
+}
+
+.about-treatment-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #dff5f5;
+  color: #0d7d82;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.about-treatment-card h3 {
+  margin: 12px 0 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: #132b33;
+  font-weight: 800;
+}
+
+.about-treatment-card span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #5a7581;
+}
+
+@media (max-width: 900px) {
+  .about-page .about-banner-inner,
+  .about-split-layout,
+  .about-camp-grid,
+  .about-testimonials-grid,
+  .about-treatment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page .about-banner-inner,
+  .about-split-layout,
+  .about-camp-grid {
+    display: grid;
+  }
+
+  .about-profile-card,
+  .about-copy-block {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .about-banner-visual {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-testimonials-grid {
+    display: grid;
+  }
+
+  .about-treatment-grid {
+    display: grid;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-page .about-banner-inner {
+    padding-top: 32px;
+    padding-bottom: 28px;
+  }
+
+  .about-banner-visual img {
+    height: 320px;
+  }
+
+  .about-profile-body h3 {
+    font-size: 1.6rem;
+  }
+
+  .about-treatment-card {
+    min-height: 120px;
+  }
+}
+
 /* ============================================================
    Hero Highlights Box Section (replaces old slideshow)
    ============================================================ */
