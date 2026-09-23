@@ -125,7 +125,7 @@ input:where([type=button], [type=reset], [type=submit]) {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   max-width: 100vw !important;
   width: 100% !important;
 }
@@ -136,7 +136,8 @@ body {
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
   margin: 0;
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
   max-width: 100vw !important;
   width: 100% !important;
   position: relative;
@@ -144,8 +145,10 @@ body {
 
 #root,
 .app,
+.app-container,
 .home-page {
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
   max-width: 100vw !important;
   width: 100% !important;
 }
@@ -3900,23 +3903,29 @@ body {
 }
 
 .treatment-hero-copy h1 {
-  font-size: clamp(34px, 3.8vw, 52px);
-  line-height: 1.15;
-  color: var(--navy);
-  margin: 0 0 14px;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #0f172a;
+  font-weight: 700;
+  margin: 0 0 12px;
 }
 
 .treatment-hero-copy h1 em {
-  color: var(--teal);
-  font-style: italic;
+  color: #146c72;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .treatment-hero-copy p {
-  color: var(--ink-soft);
-  font-size: 15px;
-  line-height: 1.65;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #334155;
+  font-size: 15.5px;
+  line-height: 1.68;
+  font-weight: 450;
   margin: 0 0 22px;
-  max-width: 400px;
+  max-width: 440px;
 }
 
 .treatment-hero-actions {
@@ -5616,32 +5625,48 @@ body {
    ========================================================================== */
 .about-hero-section {
   background: #f8fafc;
-  padding: 38px 0 48px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid #e2e8f0;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
   font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
-.about-hero-backdrop-pattern {
+.about-hero-bg-container {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(20, 108, 114, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
+  overflow: hidden;
   pointer-events: none;
-  opacity: 0.7;
 }
 
-.about-hero-container {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 56px;
-  align-items: center;
+.about-hero-bg-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 58%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.about-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #f8fafc 0%, #f8fafc 40%, rgba(248, 250, 252, 0.88) 52%, rgba(248, 250, 252, 0.18) 72%, transparent 90%);
+}
+
+.about-hero-inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  width: 100%;
+  padding: 56px 0;
 }
 
-.about-hero-content {
+.about-hero-copy {
+  max-width: 540px;
+  text-align: left;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -5890,21 +5915,27 @@ body {
 }
 
 @media (max-width: 980px) {
-  .about-hero-container {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
   .about-hero-section {
-    padding: 30px 0 42px;
+    min-height: auto;
+    padding: 28px 0 36px;
   }
 
-  .about-portrait-card {
-    max-width: 340px;
+  .about-hero-bg-img {
+    width: 100%;
+    opacity: 0.16;
+    object-position: center top;
   }
 
-  .about-portrait-photo {
-    height: 400px;
+  .about-hero-scrim {
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.92) 100%);
+  }
+
+  .about-hero-inner {
+    padding: 24px 0;
+  }
+
+  .about-hero-copy {
+    max-width: 100%;
   }
 }
 
@@ -25354,7 +25385,7 @@ re {
    ========================================================================== */
 @media (max-width: 1024px) {
   body {
-    padding-top: 76px !important;
+    padding-top: 0 !important;
   }
 
   header.site-header,
@@ -25398,23 +25429,15 @@ re {
 
 .gallery-hero-custom {
   position: relative;
-  background: linear-gradient(135deg, #071e33 0%, #0c3350 40%, #0e555a 85%, #146c72 100%);
-  color: #ffffff;
+  background: #f6fafb;
+  color: #0f2b30;
   padding: 68px 0 76px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(59, 179, 188, 0.2);
+  border-bottom: 1px solid #e5eef0;
 }
 
 .gallery-hero-bg-glow {
-  position: absolute;
-  top: -20%;
-  right: 10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(59, 179, 188, 0.25) 0%, rgba(20, 108, 114, 0.08) 50%, transparent 70%);
-  filter: blur(60px);
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .gallery-hero-grid {
@@ -25432,34 +25455,34 @@ re {
   gap: 8px;
   font-size: 13px;
   font-weight: 600;
-  color: #c2e5e4;
+  color: #557277;
   margin-bottom: 14px;
 }
 
 .gallery-breadcrumb a {
-  color: #e2f2f1;
+  color: #146c72;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .gallery-breadcrumb a:hover {
-  color: #ffffff;
+  color: #0f2b30;
   text-decoration: underline;
 }
 
 .gallery-breadcrumb .current {
-  color: #3bb3bc;
+  color: #0f2b30;
 }
 
 .gallery-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(59, 179, 188, 0.15);
-  border: 1px solid rgba(59, 179, 188, 0.35);
+  background: rgba(20, 108, 114, 0.08);
+  border: 1px solid rgba(20, 108, 114, 0.2);
   padding: 5px 12px;
   border-radius: 999px;
-  color: #3bb3bc;
+  color: #146c72;
   font-size: 11.5px;
   font-weight: 750;
   letter-spacing: 0.08em;
@@ -25471,8 +25494,8 @@ re {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #3bb3bc;
-  box-shadow: 0 0 10px #3bb3bc;
+  background: #146c72;
+  box-shadow: 0 0 10px #146c72;
   animation: pulseDot 2s infinite ease-in-out;
 }
 
@@ -25493,29 +25516,27 @@ re {
 .gallery-hero-title {
   font-size: clamp(38px, 4.8vw, 56px);
   font-weight: 800;
-  color: #ffffff !important;
+  color: #0f2b30 !important;
   line-height: 1.12;
   margin: 0 0 18px;
   letter-spacing: -0.02em;
 }
 
 .gallery-hero-title .hero-accent-text {
-  background: linear-gradient(90deg, #3bb3bc, #5ebec6, #c2e5e4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-style: italic;
-  font-family: var(--serif, Georgia, serif);
-  font-weight: 600;
+  color: #0f2b30 !important;
+  -webkit-text-fill-color: #0f2b30 !important;
+  background: none !important;
+  font-style: normal;
+  font-weight: 800;
 }
 
 .gallery-hero-subtitle {
   font-size: 16px;
   line-height: 1.65;
-  color: #e2f2f1 !important;
+  color: #436269 !important;
   margin: 0 0 28px;
-  max-width: 540px;
-  opacity: 0.96;
+  max-width: 560px;
+  opacity: 1;
 }
 
 /* Filter Tabs */
@@ -25528,31 +25549,30 @@ re {
 
 .gallery-filter-pill {
   padding: 9px 18px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: #ffffff;
+  border: 1px solid #d4e0e2;
   border-radius: 999px;
-  color: #ffffff;
+  color: #0f2b30;
   font-size: 13.5px;
   font-weight: 650;
   font-family: inherit;
   cursor: pointer;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(15, 43, 48, 0.04);
 }
 
 .gallery-filter-pill:hover {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: #f0f7f8;
+  border-color: #146c72;
+  color: #146c72;
   transform: translateY(-2px);
 }
 
 .gallery-filter-pill.active {
-  background: #ffffff !important;
-  color: #0e555a !important;
-  border-color: #ffffff !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+  background: #146c72 !important;
+  color: #ffffff !important;
+  border-color: #146c72 !important;
+  box-shadow: 0 6px 20px rgba(20, 108, 114, 0.25) !important;
   transform: translateY(-2px);
 }
 
@@ -25567,18 +25587,16 @@ re {
   position: relative;
   width: 100%;
   max-width: 440px;
-  height: 380px;
-  background: radial-gradient(circle at 50% 35%, rgba(14, 52, 82, 0.7) 0%, rgba(6, 22, 38, 0.85) 100%);
-  border: 1px solid rgba(59, 179, 188, 0.32);
+  height: 350px;
+  background: linear-gradient(145deg, #ffffff 0%, #edf6f7 100%);
+  border: 1.5px solid #d4e7e9;
   border-radius: 28px;
-  box-shadow: 0 25px 60px -15px rgba(2, 6, 23, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 45px -12px rgba(15, 43, 48, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
   padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   overflow: visible;
 }
 
@@ -25690,8 +25708,8 @@ re {
    Gallery Categories Section
    ============================================================ */
 .gallery-categories-section {
-  padding: 48px 0 28px;
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 36px 0 28px;
+  background: #f8fafc;
   border-bottom: 1px solid #e2e8f0;
   position: relative;
 }
@@ -25699,7 +25717,12 @@ re {
 .gallery-categories-header {
   text-align: center;
   max-width: 820px;
-  margin: 0 auto 28px;
+  margin: 0 auto 22px;
+}
+
+.gallery-filter-selection-wrapper {
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
 .gallery-categories-badge {
@@ -25957,48 +25980,31 @@ re {
 
 .gallery-bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 270px;
-  grid-auto-flow: dense;
-  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
-/* Card Shape Sizes */
-.gallery-bento-card {
+/* Card Shape Sizes: All images and cards have identical dimensions */
+.gallery-bento-card,
+.gallery-bento-card.gallery-card-uniform,
+.gallery-bento-card.gallery-card-big,
+.gallery-bento-card.gallery-card-column,
+.gallery-bento-card.gallery-card-row,
+.gallery-bento-card.gallery-card-small {
+  grid-column: span 1 !important;
+  grid-row: span 1 !important;
+  width: 100% !important;
+  height: 290px !important;
   position: relative;
-  border-radius: 22px;
+  border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
   background: #0b1523;
   border: 1px solid rgba(20, 108, 114, 0.18);
-  box-shadow: 0 12px 35px -10px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 28px -8px rgba(15, 23, 42, 0.12);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.3s ease;
-}
-
-/* Big Hero Card: 2 columns x 2 rows (562px tall) */
-.gallery-bento-card.gallery-card-big {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-/* Column Card: 1 column x 2 rows (Tall Portrait) */
-.gallery-bento-card.gallery-card-column {
-  grid-column: span 1;
-  grid-row: span 2;
-}
-
-/* Row Card: 2 columns x 1 row (Wide Panoramic) */
-.gallery-bento-card.gallery-card-row {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-
-/* Small Card: 1 column x 1 row */
-.gallery-bento-card.gallery-card-small {
-  grid-column: span 1;
-  grid-row: span 1;
 }
 
 .gallery-card-inner {
@@ -26432,8 +26438,19 @@ re {
 /* Responsive Grid Breakdown */
 @media (max-width: 1024px) {
   .gallery-bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 240px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .gallery-bento-card,
+  .gallery-bento-card.gallery-card-uniform,
+  .gallery-bento-card.gallery-card-big,
+  .gallery-bento-card.gallery-card-column,
+  .gallery-bento-card.gallery-card-row,
+  .gallery-bento-card.gallery-card-small {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    height: 260px !important;
   }
 }
 
@@ -26444,17 +26461,19 @@ re {
   }
 
   .gallery-bento-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 260px;
-    gap: 16px;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 
+  .gallery-bento-card,
+  .gallery-bento-card.gallery-card-uniform,
   .gallery-bento-card.gallery-card-big,
   .gallery-bento-card.gallery-card-column,
   .gallery-bento-card.gallery-card-row,
   .gallery-bento-card.gallery-card-small {
-    grid-column: span 1;
-    grid-row: span 1;
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    height: 240px !important;
   }
 }
 
@@ -27107,34 +27126,92 @@ re {
   margin: 0 0 32px;
 }
 
-.surgical-filter-bar {
+.surgical-filter-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #e8edf2;
+  border-radius: 9999px;
+  padding: 6px 8px;
+  max-width: 980px;
+  margin: 0 auto 36px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+  position: relative;
+}
+
+.surgical-filter-nav-btn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #64748b;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.surgical-filter-nav-btn:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+.surgical-filter-nav-btn:disabled {
+  opacity: 0.35;
+  border-color: #f1f5f9;
+  color: #cbd5e1;
+  cursor: default;
+}
+
+.surgical-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2px 4px;
+  flex: 1;
+}
+
+.surgical-filter-bar::-webkit-scrollbar {
+  display: none;
 }
 
 .surgical-filter-tab {
   background: #ffffff;
-  border: 1px solid #cbd5e1;
-  border-radius: 999px;
-  padding: 8px 16px;
-  color: #334155;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  color: #475569;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 13.5px;
+  font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: all 0.2s ease;
 }
 
 .surgical-filter-tab:hover {
-  background: #f8fafc;
+  background: #ffffff;
   border-color: #146c72;
+  color: #146c72;
+}
+
+.surgical-filter-tab:hover .filter-tab-count {
+  background: #e6f3f4;
   color: #146c72;
 }
 
@@ -27142,18 +27219,26 @@ re {
   background: #146c72;
   border-color: #146c72;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(20, 108, 114, 0.25);
+  box-shadow: 0 2px 8px rgba(20, 108, 114, 0.2);
 }
 
 .filter-tab-count {
-  font-size: 11px;
-  background: rgba(0, 0, 0, 0.08);
-  padding: 2px 6px;
-  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: #64748b;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
 .surgical-filter-tab.is-active .filter-tab-count {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.22);
   color: #ffffff;
 }
 
@@ -32686,11 +32771,13 @@ html body * {
 }
 
 .about-page .section-title {
-  margin: 0;
-  font-size: clamp(2rem, 2.7vw, 3rem);
-  line-height: 1.15;
-  color: #132b33;
-  font-weight: 800;
+  margin: 0 0 12px !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
 }
 
 .about-page .section-subtitle {
@@ -32816,18 +32903,22 @@ html body * {
 }
 
 .about-copy-block h2 {
-  margin: 0;
-  font-size: clamp(2rem, 2.6vw, 2.5rem);
-  line-height: 1.15;
-  color: #132b33;
-  font-weight: 800;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  margin: 0 0 12px;
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #0f172a;
+  font-weight: 700;
 }
 
-.about-copy-block p {
-  margin: 18px 0 0;
-  font-size: 1.02rem;
-  line-height: 1.8;
-  color: #405c66;
+.about-copy-block > p {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  margin: 0 0 18px;
+  font-size: 15.5px;
+  line-height: 1.68;
+  font-weight: 450;
+  color: #334155;
 }
 
 .about-focus-grid {
@@ -33277,53 +33368,27 @@ html body * {
 }
 
 .about-treatment-card {
-  background: #f9fcfb;
-  border: 1px solid #dfeceb;
-  border-radius: 14px;
-  padding: 20px 18px;
-  min-height: 140px;
-  box-shadow: 0 8px 18px rgba(19, 43, 51, 0.03);
-}
-
-.about-treatment-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #dff5f5;
-  color: #0d7d82;
-  font-size: 1.1rem;
-  font-weight: 800;
-}
-
-.about-treatment-icon img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
-.about-treatment-heading {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(13, 45, 58, 0.18);
   display: flex;
-  align-items: center;
-  gap: 12px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.about-treatment-card h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.3;
-  color: #132b33;
-  font-weight: 800;
+.about-treatment-card:hover {
+  border-color: #146c72;
+  box-shadow: 0 12px 32px rgba(20, 108, 114, 0.25);
+  transform: translateY(-3px);
 }
 
-.about-treatment-card span {
+.about-treatment-card-img {
+  width: 100%;
+  height: auto;
   display: block;
-  margin-top: 8px;
-  font-size: 0.82rem;
-  line-height: 1.6;
-  color: #5a7581;
+  margin-top: -1.5%;
+  margin-bottom: -1.5%;
+  object-fit: cover;
 }
 
 @media (max-width: 900px) {
@@ -33393,11 +33458,8 @@ html body * {
   .about-stat-card:last-child {
     border-bottom: 0;
   }
-
-  .about-treatment-card {
-    min-height: 120px;
-  }
 }
+
 
 /* About experience timeline */
 .about-experience-section .about-experience-timeline {
@@ -33711,11 +33773,12 @@ html body * {
 
 .about-experience-section .about-experience-detail h3 {
   max-width: 620px;
-  margin: 17px 0 18px;
-  color: #132b33;
-  font-size: clamp(1.55rem, 2.5vw, 2.18rem);
-  font-weight: 800;
-  line-height: 1.2;
+  margin: 14px 0 16px;
+  color: #0f172a !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(20px, 2.2vw, 26px) !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
 }
 
 .about-experience-section .about-experience-detail-rule {
@@ -34463,25 +34526,96 @@ html body * {
 }
 
 /* ==========================================================================
-   UNIVERSAL SITEWIDE TYPOGRAPHY & CONTRAST HARMONIZATION
-   Applies to: Patient Guides, Appointment, Contact, FAQ, Gallery, Surgical
+   MASTER STANDARDIZED FIRST SECTION (HERO) TYPOGRAPHY
+   Applies identically across ALL pages: Home, About, Treatments, Brochures,
+   Gallery, Surgical Videos, FAQ, Appointment, Contact, and Patient Guides.
    ========================================================================== */
 
-/* 1. Patient Guides Page */
-.guides-page .guides-hero-copy h1 {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-  font-size: clamp(34px, 4.4vw, 56px) !important;
-  font-weight: 800 !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.025em !important;
+/* 1. All First-Section Headings - Exact Identical Size, Weight & Style */
+.mock-hero-title,
+.about-hero-title,
+.about-hero-copy h1,
+.about-copy-block h2,
+.about-page .section-title,
+.section-title,
+.treatment-hero-copy h1,
+.brochures-hero-title,
+.brochures-page .brochures-hero-title,
+.gallery-hero-title,
+.surgical-section-title,
+.surgical-hero-title,
+.faq-hero-heading,
+.contact-hero-title,
+.contact-support-main-heading,
+.contact-photo-hero-title,
+.contact-main-heading,
+.appt-page-container .appt-hero-heading,
+.guides-page .guides-hero-copy h1,
+.patient-guides-page-wrapper .guides-hero-title,
+.patient-guides-page-wrapper .guides-hero-copy h1 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
   color: #0f172a !important;
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
 }
 
-.guides-page .guides-hero-copy p {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-  font-size: clamp(15px, 1.8vw, 17px) !important;
+/* 2. All First-Section Heading Accents, Highlights, Em */
+.mock-hero-title span,
+.mock-hero-title em,
+.about-hero-title span,
+.about-hero-accent,
+.about-copy-block h2 span,
+.about-copy-block h2 em,
+.treatment-hero-copy h1 em,
+.treatment-hero-copy h1 span,
+.brochures-hero-title span,
+.brochures-page .text-highlight-blue,
+.gallery-hero-title span,
+.gallery-hero-title .hero-accent-text,
+.surgical-hero-title .text-gradient-cyan,
+.surgical-section-title span,
+.faq-hero-heading span,
+.faq-heading-accent,
+.contact-hero-title span,
+.contact-heading-accent,
+.patient-guides-page-wrapper .guides-hero-line2 {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  font-style: normal !important;
+  color: #146c72 !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+/* 3. All First-Section Body Paragraphs - Exact Identical Size, Weight & Style */
+.mock-hero-desc,
+.about-hero-desc,
+.about-copy-block > p,
+.treatment-hero-copy p,
+.brochures-hero-desc,
+.brochures-page .brochures-hero-desc,
+.gallery-hero-subtitle,
+.surgical-section-subtitle,
+.surgical-hero-desc,
+.faq-hero-desc,
+.contact-hero-desc,
+.contact-photo-hero-desc,
+.contact-intro-desc,
+.appt-page-container .appt-hero-lead,
+.guides-page .guides-hero-copy p,
+.patient-guides-page-wrapper .guides-hero-copy p {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 450 !important;
   line-height: 1.68 !important;
   color: #334155 !important;
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
 }
 
 .guides-page .eras-heading h2,
@@ -34543,21 +34677,6 @@ html body * {
 }
 
 /* 2. Appointment Page */
-.appt-page-container .appt-hero-heading {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-  font-size: clamp(32px, 4vw, 50px) !important;
-  font-weight: 800 !important;
-  line-height: 1.18 !important;
-  letter-spacing: -0.02em !important;
-}
-
-.appt-page-container .appt-hero-lead {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-  font-size: 15.5px !important;
-  line-height: 1.7 !important;
-  color: #cbd5e1 !important;
-}
-
 .appt-page-container .appt-card-title {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
   font-size: clamp(24px, 2.8vw, 32px) !important;
@@ -34947,22 +35066,21 @@ html body * {
 
 .gallery-hero-title {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: clamp(26px, 2.8vw, 36px) !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
   font-weight: 700 !important;
   line-height: 1.25 !important;
   letter-spacing: -0.015em !important;
-  color: #ffffff !important;
-  margin: 0 0 16px !important;
+  color: #0f172a !important;
+  margin: 0 0 12px !important;
 }
 
 .gallery-hero-title .hero-accent-text {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-family: inherit !important;
   font-style: normal !important;
-  font-weight: 700 !important;
-  background: linear-gradient(90deg, #3bb3bc, #5ebec6, #c2e5e4) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
+  font-weight: inherit !important;
+  color: #146c72 !important;
+  -webkit-text-fill-color: initial !important;
+  background: none !important;
 }
 
 .gallery-hero-subtitle {
@@ -34970,10 +35088,10 @@ html body * {
   font-size: 15.5px !important;
   font-weight: 450 !important;
   line-height: 1.68 !important;
-  color: #e2f2f1 !important;
+  color: #334155 !important;
   margin: 0 0 28px !important;
-  max-width: 540px !important;
-  opacity: 0.96 !important;
+  max-width: 560px !important;
+  opacity: 1 !important;
 }
 
 .gallery-categories-badge {
@@ -35098,7 +35216,7 @@ html body * {
 
 .surgical-hero-title {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: clamp(26px, 2.8vw, 36px) !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
   font-weight: 700 !important;
   letter-spacing: -0.015em !important;
   line-height: 1.25 !important;
@@ -35916,20 +36034,23 @@ html body * {
 }
 
 .mock-hero-title {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: #0f2b30;
-  line-height: 1.18;
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  letter-spacing: -0.015em;
   max-width: 540px;
 }
 
 .mock-hero-desc {
-  font-size: 1.08rem;
-  color: #436269;
-  margin-bottom: 30px;
-  line-height: 1.6;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15.5px;
+  color: #334155;
+  margin-bottom: 24px;
+  line-height: 1.68;
+  font-weight: 450;
   max-width: 560px;
 }
 
@@ -36274,7 +36395,7 @@ html body * {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   background: #ffffff;
   border: 1.5px solid #e0eff1;
@@ -36285,10 +36406,11 @@ html body * {
 
 .mock-publications-title {
   margin: 0;
-  font-size: 1.85rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #0f2b30;
   line-height: 1.25;
+  white-space: nowrap;
 }
 
 .mock-toi-inline-card {
@@ -36322,6 +36444,18 @@ html body * {
     text-align: center;
     gap: 16px;
     padding: 20px 18px;
+  }
+
+  .mock-publications-title {
+    font-size: 1.15rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 400px) {
+  .mock-publications-title {
+    font-size: 1.02rem;
+    white-space: nowrap;
   }
 }
 
@@ -37670,9 +37804,6 @@ border-color: #146c72;
   .mock-hero-left {
     max-width: 100%;
   }
-  .mock-hero-title {
-    font-size: 2.1rem;
-  }
   .mock-why-card,
   .mock-approach-grid,
   .mock-about-grid,
@@ -37717,3 +37848,317 @@ border-color: #146c72;
     text-align: center;
   }
 }
+
+@media (max-width: 767px) {
+  body {
+    padding-top: 0 !important;
+  }
+
+  .mock-shell {
+    padding: 0 16px;
+  }
+
+  .mock-hero {
+    padding: 24px 0 36px !important;
+    background-position: 65% bottom;
+  }
+
+  .mock-hero-title {
+    font-size: clamp(1.7rem, 8vw, 2.15rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .mock-hero-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .mock-hero-actions,
+  .mock-hero-actions .mock-btn-primary {
+    width: 100%;
+  }
+
+  .mock-hero-actions .mock-btn-primary {
+    justify-content: space-between;
+  }
+
+  .mock-treatments-section,
+  .mock-approach-section,
+  .mock-awards-section,
+  .mock-daycare-section,
+  .mock-reviews-section,
+  .mock-brochures-section,
+  .mock-locations-section,
+  .mock-online-consult-section,
+  .mock-video-section {
+    padding: 44px 0;
+  }
+
+  .mock-title {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .mock-section-header {
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .mock-section-header-left,
+  .mock-subtitle {
+    max-width: 100%;
+  }
+
+  .mock-section-header .mock-btn-outline {
+    align-self: stretch;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .mock-conditions-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .mock-condition-card {
+    min-width: 0;
+    padding: 18px 10px;
+  }
+
+  .mock-condition-card strong {
+    font-size: 0.8rem;
+  }
+
+  .mock-condition-card > span:not(.mock-condition-arrow) {
+    font-size: 0.72rem !important;
+  }
+
+  .mock-approach-grid,
+  .mock-feature-duo {
+    gap: 28px;
+  }
+
+  .mock-approach-img,
+  .mock-feature-duo-img {
+    height: 230px;
+  }
+
+  .mock-publications-inline-wrap {
+    max-width: 100%;
+  }
+
+  .mock-publications-title {
+    white-space: normal;
+  }
+
+  .mock-award-card.is-primary-award {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 18px;
+  }
+
+  .mock-award-card.is-primary-award .mock-award-photo-wrap {
+    height: 190px !important;
+  }
+
+  .mock-daycare-box {
+    padding: 26px 16px;
+    border-radius: 18px;
+  }
+
+  .mock-daycare-left {
+    text-align: left;
+  }
+
+  .mock-daycare-left .mock-btn-primary {
+    width: 100%;
+  }
+
+  .mock-daycare-showcase {
+    gap: 14px;
+  }
+
+  .mock-daycare-badge-col {
+    width: 100%;
+  }
+
+  .mock-daycare-pill.mock-pill-round {
+    max-width: 100%;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .mock-daycare-ring {
+    width: 180px;
+    height: 180px;
+  }
+
+  .mock-daycare-joint-img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  .mock-faq-row {
+    padding: 14px;
+  }
+
+  .mock-faq-left {
+    gap: 9px;
+    font-size: 0.84rem;
+  }
+
+  .mock-reviews-grid,
+  .mock-brochures-grid,
+  .mock-locations-grid,
+  .mock-hospitals-grid {
+    gap: 14px;
+  }
+
+  .mock-home .mock-locations-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mock-brochures-left h2 {
+    white-space: normal;
+  }
+
+  .mock-guide-cover-img {
+    height: 180px;
+  }
+
+  .mock-location-card {
+    padding: 18px 16px;
+  }
+
+  .mock-cta-bar {
+    padding: 12px 0 44px;
+  }
+
+  .mock-cta-bar-inner {
+    padding: 26px 18px;
+    border-radius: 16px;
+  }
+
+  .mock-cta-bar-text strong {
+    font-size: 1.1rem;
+  }
+
+  .mock-btn-white,
+  .mock-btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   Guaranteed Sticky Header Implementation
+   ============================================================ */
+html {
+  overflow-x: clip !important;
+}
+
+body {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+
+#root,
+.app-container,
+.app,
+.home-page,
+.mock-home {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+
+.site-header,
+header#site-header {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  background: #ffffff !important;
+  width: 100% !important;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04) !important;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease !important;
+}
+
+.site-header.is-scrolled,
+header#site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.98) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ============================================================
+   Remove Mobile Top Space Before First Section Across ALL Pages
+   ============================================================ */
+@media (max-width: 1024px) {
+  html,
+  body,
+  #root,
+  .app-container,
+  .app,
+  main {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .mock-hero {
+    padding: 24px 0 32px !important;
+    min-height: auto !important;
+  }
+
+  .treatment-hero {
+    padding-top: 18px !important;
+    padding-bottom: 24px !important;
+    min-height: auto !important;
+  }
+
+  .brochures-page .brochures-hero-section,
+  .brochures-hero-section {
+    padding: 22px 0 20px !important;
+  }
+
+  .gallery-hero-custom {
+    padding: 24px 0 28px !important;
+    min-height: auto !important;
+  }
+
+  .faq-hero {
+    padding: 20px 0 24px !important;
+    min-height: auto !important;
+  }
+
+  .contact-hero-redesign {
+    padding: 12px 0 18px !important;
+    min-height: auto !important;
+  }
+
+  .surgical-grid-section {
+    padding-top: 20px !important;
+  }
+
+  /* Keep all About Page section headings identical in size to first section */
+  .about-page .section-title,
+  .about-page .about-copy-block h2 {
+    font-size: clamp(22px, 5.5vw, 28px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.015em !important;
+  }
+
+  .about-page .about-experience-detail h3 {
+    font-size: clamp(18px, 4.5vw, 22px) !important;
+    line-height: 1.3 !important;
+  }
+}
+
+

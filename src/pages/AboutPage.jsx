@@ -58,17 +58,17 @@ const testimonialItems = [
 ];
 
 const treatmentItems = [
-  { title: 'Knee Care', icon: '/icons/knee-pain.webp', text: 'Ligament injuries, meniscus tears, arthritis, ACL reconstruction (all graft options + LET), robotic & muscle-sparing day-care replacement' },
-  { title: 'Hip Care', icon: '/icons/joint-replacement.webp', text: 'AVN, sports-related hip pain, FAI (cam/pincer), muscle-sparing anterior approach, day-care & robotic replacement' },
-  { title: 'Shoulder Care', icon: '/icons/shoulder-pain.webp', text: 'Arthroscopy, rotator cuff injury, frozen shoulder, recurrent dislocation/instability, reverse shoulder replacement' },
-  { title: 'Sports Injuries', icon: '/icons/sports-injuries.webp', text: 'Targeted care for ligament, muscle, and joint injuries to help you return to sport safely and confidently.' }
+  { title: 'Knee Care', image: '/first.png', text: 'Ligament injuries, meniscus tears, arthritis, ACL reconstruction (all graft options + LET), robotic & muscle-sparing day-care replacement' },
+  { title: 'Hip Care', image: '/secound.png', text: 'AVN, sports-related hip pain, FAI (cam/pincer), muscle-sparing anterior approach, day-care & robotic replacement' },
+  { title: 'Shoulder Care', image: '/three.png', text: 'Arthroscopy, rotator cuff injury, frozen shoulder, recurrent dislocation/instability, reverse shoulder replacement' },
+  { title: 'Sports Injuries', image: '/four.png', text: 'Targeted care for ligament, muscle, and joint injuries to help you return to sport safely and confidently.' }
 ];
 
 const aboutFocusItems = [
-  { title: 'Patient‑first decisions', text: 'Surgery only when truly needed. We consider medical therapy first where possible.' },
-  { title: 'Clear, calm guidance', text: 'Simple explanations, no rushing, and support at each step of your journey.' },
-  { title: 'Quicker recovery', text: 'Muscle‑preserving techniques to help you bounce back sooner.' },
-  { title: 'Safe, evidence‑based care', text: 'Treatments aligned with current best practices and your goals.' }
+  { title: 'Patient-First Treatment', text: 'Every treatment plan is based on your condition, lifestyle, concerns, and recovery goals.' },
+  { title: 'Clear Treatment Guidance', text: 'Your diagnosis and treatment options are explained simply, so you can make informed decisions about your care.' },
+  { title: 'Focused on Recovery', text: 'Treatment goes beyond relieving pain, with a focus on helping you regain movement and return to everyday activities.' },
+  { title: 'Evidence-Based Orthopaedic Care', text: 'Treatment decisions are guided by established medical evidence while being tailored to your individual needs.' }
 ];
 
 const aboutStats = [
@@ -185,21 +185,35 @@ export default function AboutPage() {
   const activeExperience = experienceItems[selectedExperience];
 
   return (
-    <div className="about-page">
-      <section className="about-banner-section">
-        <img
-          className="about-banner-image"
-          src="/ChatGPT Image Sep 21, 2026, 06_03_06 PM.png"
-          alt="Dr. Harshil Shah Orthopaedic Care"
-        />
+    <div className="about-page mock-home">
+      {/* 1. HERO BANNER (Exact same structure and styling as Home Page) */}
+      <section className="mock-hero" aria-label="Hero Banner">
+        <div className="mock-shell">
+          <div className="mock-hero-inner">
+            <div className="mock-hero-left">
+              <h1 className="mock-hero-title">
+                Let’s Get You Moving Again
+              </h1>
+              <p className="mock-hero-desc">
+                Because recovery isn’t just about reducing pain. It’s about getting back to what you love.
+              </p>
+              <div className="mock-hero-actions">
+                <Link to="" className="mock-btn-primary">
+                  <span>DR Harshil Shah</span>
+                </Link>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="about-content-section">
         <div className="shell about-split-layout">
           <div className="about-copy-block">
-            <h2>About</h2>
+            <h2>Orthopaedic Care Focused on Your Recovery</h2>
             <p>
-              I’m an orthopedic surgeon focused on helping you move without fear. Through muscle‑preserving techniques and thoughtful recovery plans, my aim is to get you back to life quickly sometimes with immediate post‑operative walking and minimal physiotherapy when appropriate.            </p>
+              Quality orthopaedic care begins with understanding the cause of your pain and how it affects your everyday life. The approach is centred on accurate diagnosis, clear treatment guidance, and care tailored to each patient’s condition and needs. Whether you are dealing with joint pain, sports injuries, arthritis, or another orthopaedic concern, the goal is to choose the right treatment for you, recommend surgery only when necessary, and support a safe recovery that helps you return to the activities you value.           </p>
 
             <div className="about-focus-grid">
               {aboutFocusItems.map((item) => (
@@ -272,29 +286,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="about-success-section">
-        <div className="shell">
-          <h2 className="section-title">Success Stories</h2>
-          <p className="section-subtitle">A collection of successful treatments and moments that truly made a difference.</p>
 
-          <div className="about-testimonials-grid">
-            {testimonialItems.map((item) => (
-              <article key={item.label} className="about-testimonial-card">
-                <div className="about-quote-icon">“</div>
-                <p className="about-testimonial-text">{item.quote}</p>
-                <div className="about-testimonial-footer">
-                  <span className="about-testimonial-label">{item.label}</span>
-                  <span className="about-testimonial-detail">{item.detail}</span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="about-camp-section" id="camps-work">
         <div className="shell">
-          <h2 className="section-title">Camps Work</h2>
+          <h2 className="section-title">Serving the Community Through Awareness</h2>
 
           <div className="about-camp-container">
             {campItems.map((camp) => (
@@ -331,13 +327,7 @@ export default function AboutPage() {
           <div className="about-treatment-grid">
             {treatmentItems.map((item) => (
               <div key={item.title} className="about-treatment-card">
-                <div className="about-treatment-heading">
-                  <div className="about-treatment-icon" aria-hidden="true">
-                    <img src={item.icon} alt="" />
-                  </div>
-                  <h3>{item.title}</h3>
-                </div>
-                {item.text && <span>{item.text}</span>}
+                <img src={item.image} alt={item.title} className="about-treatment-card-img" />
               </div>
             ))}
           </div>

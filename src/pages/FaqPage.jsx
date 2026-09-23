@@ -18,7 +18,7 @@ const CATEGORY_TABS = [
 
 // ─── FAQ ITEM (Accordion with open state) ────────────────────────────────────
 function FaqItem({ item }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const sentences = item.answer.split(/(?<=[.!?])\s+/).filter(Boolean);
   const answerPoints = sentences.length <= 4
@@ -139,22 +139,15 @@ export default function FaqPage() {
                 <span>/</span> Patient Help Centre
               </div>
               <h1 id="faq-h1" className="faq-hero-heading">
-                Clear answers before<br />
-                <span className="faq-heading-accent">your consultation.</span>
+                Have Questions Before Your Visit?
               </h1>
               <p className="faq-hero-desc">
-                Find information about appointments, consultations, reports,
-                surgery, recovery, second opinions and follow-up care.
+                Feeling a little unsure about your treatment, first appointment, reports, surgery, or recovery? You’re not alone. Many patients have the same questions and concerns before meeting their doctor.
               </p>
               <p className="faq-hero-subdesc">
-                For advice specific to your condition, my clinic desk can help you
-                arrange a consultation with me.
+                Take a look through the questions other patients have asked. You may find the answer you’re looking for
               </p>
-              <ul className="faq-hero-highlights" aria-label="FAQ highlights">
-                <li>Appointments and consultation preparation</li>
-                <li>Reports, treatment options and surgery</li>
-                <li>Recovery, follow-up care and second opinions</li>
-              </ul>
+
             </div>
 
             {/* Right — visual */}
@@ -259,104 +252,42 @@ export default function FaqPage() {
           </div>
         </section>
 
-        {/* ── BEFORE YOUR CONSULTATION ──────────────────────────────────────── */}
-        <section className="faq-prep-section" aria-labelledby="faq-prep-heading">
-          <div className="shell">
-            <header className="faq-section-header">
-              <div>
-                <h2 id="faq-prep-heading" className="faq-section-title">A little preparation helps</h2>
-                <p className="faq-section-sub">
-                  Keeping your reports, medication details and questions ready can help make
-                  your consultation more focused and useful.
+
+
+
+
+        {/* ── STILL NEED A CLEARER ANSWER ─────────────────────────────────── */}
+        <section className="mock-online-consult-section" id="still-need-answer" aria-label="Still need a clearer answer?" style={{ marginBottom: '32px' }}>
+          <div className="mock-shell">
+            <div className="mock-consult-card-unified">
+              <div className="mock-consult-content-full">
+                <h2 className="mock-title">Still need a clearer answer?</h2>
+                <p className="mock-consult-lead">
+                  Some questions are best discussed personally. My clinic desk can help you
+                  arrange an orthopaedic consultation with me.
                 </p>
-              </div>
-            </header>
-            <div className="faq-prep-grid">
-              {[
-                {
-                  num: '01',
-                  title: 'Bring previous scans and reports',
-                  desc: 'If you have X-rays, MRI scans, CT scans or previous medical reports related to your condition, keep them ready. Both physical films and digital reports are helpful.',
-                },
-                {
-                  num: '02',
-                  title: 'Keep your medication list available',
-                  desc: 'Bring or note the names and doses of medicines you currently take, including supplements and over-the-counter drugs.',
-                },
-                {
-                  num: '03',
-                  title: 'Write down your main concerns',
-                  desc: 'Note when symptoms started, what makes them better or worse, and the specific questions you would like to discuss during your consultation.',
-                },
-                {
-                  num: '04',
-                  title: 'Arrive a little early',
-                  desc: 'Allow enough time for registration and any clinic formalities so the consultation can begin on schedule.',
-                },
-              ].map((step) => (
-                <div key={step.num} className="faq-prep-card">
-                  <span className="faq-prep-num">{step.num}</span>
-                  <h3 className="faq-prep-title">{step.title}</h3>
-                  <p className="faq-prep-desc">{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* ── SECOND OPINION ──────────────────────────────────────── */}
-        <section className="faq-support-strip">
-          <div className="shell faq-support-grid faq-support-grid--single">
-            <div className="faq-support-block faq-support-block--centered">
-              <h3 className="faq-support-title">Looking for a second opinion?</h3>
-              <p className="faq-support-desc">
-                You can discuss an existing diagnosis, treatment recommendation or surgical plan
-                during a consultation. Bringing previous reports and imaging can help provide
-                useful clinical context.
-              </p>
-              <Link to="/appointment" className="faq-support-link">
-                Request a consultation
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ── STILL NEED HELP CTA ───────────────────────────────────────────── */}
-        <section className="faq-cta-section" aria-labelledby="faq-cta-heading">
-          <div className="shell">
-            <div className="faq-cta-card">
-              <div className="faq-cta-grid">
-                <div className="faq-cta-left">
-                  <h2 id="faq-cta-heading" className="faq-cta-heading">
-                    Still need a clearer answer?
-                  </h2>
-                  <p className="faq-cta-desc">
-                    Some questions are best discussed personally. My clinic desk can help you
-                    arrange an orthopaedic consultation with me.
-                  </p>
-                  <p className="faq-cta-sub">
-                    <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" /></svg>
-                    Monday – Saturday &nbsp;|&nbsp; By Appointment
-                  </p>
-                </div>
-                <div className="faq-cta-right">
-                  <Link to="/appointment" className="faq-cta-primary">
-                    Book an Appointment
-                  </Link>
-                  <Link to="/contact" className="faq-cta-secondary">
-                    Contact the Clinic
+                {/* Action Buttons (2 buttons instead of 3) */}
+                <div className="mock-consult-footer-actions">
+                  <Link to="/appointment" className="mock-btn-primary">
+                    <span>Book an Appointment</span>
+                    <span className="mock-btn-primary-arrow">&rarr;</span>
                   </Link>
                   <a
                     href="https://wa.me/919316753985?text=Hello%2C%20I%20would%20like%20help%20regarding%20an%20orthopaedic%20consultation."
                     target="_blank"
                     rel="noreferrer"
-                    className="faq-cta-whatsapp"
+                    className="mock-btn-whatsapp"
                   >
-                    <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.02c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.14.11-3.66-.93-3.23-1.33-5.32-4.6-5.48-4.82-.16-.22-1.32-1.75-1.32-3.34 0-1.59.83-2.37 1.12-2.7.29-.33.64-.41.85-.41.21 0 .43 0 .61.01.2.01.47-.08.73.55.27.64.91 2.22.99 2.38.08.16.14.36.03.58-.11.22-.16.36-.33.55-.16.2-.35.44-.5.59-.16.16-.33.33-.14.66.19.33.84 1.38 1.8 2.24 1.24 1.1 2.28 1.44 2.61 1.6.33.16.52.14.72-.09.2-.23.83-.97 1.05-1.3.22-.33.44-.28.74-.16.3.11 1.93.91 2.26 1.07.33.16.55.25.63.38.08.14.08.8-.16 1.48z" />
                     </svg>
-                    WhatsApp the Clinic
+                    <span>WhatsApp the Clinic</span>
                   </a>
+                </div>
+
+                <div className="mock-consult-trust-list">
+
                 </div>
               </div>
             </div>

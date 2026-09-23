@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Topbar from './components/Topbar';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -26,7 +26,6 @@ import HomePage from './pages/HomePage';
 // Lazy-load all secondary pages with resilient retry — each gets its own JS chunk
 const AboutPage = lazyWithRetry(() => import('./pages/AboutPage'));
 const TreatmentsPage = lazyWithRetry(() => import('./pages/TreatmentsPage'));
-const PatientGuidesPage = lazyWithRetry(() => import('./pages/PatientGuidesPage'));
 const BrochuresPage = lazyWithRetry(() => import('./pages/BrochuresPage'));
 const GalleryPage = lazyWithRetry(() => import('./pages/GalleryPage'));
 const SurgicalVideosPage = lazyWithRetry(() => import('./pages/SurgicalVideosPage'));
@@ -81,8 +80,6 @@ export default function App() {
       <Suspense fallback={null}>
         <FloatingSocialBar />
       </Suspense>
-
-      <Topbar />
       <Header />
 
       <main>
@@ -92,7 +89,6 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/treatments" element={<TreatmentsPage />} />
-              <Route path="/patient-guides" element={<PatientGuidesPage />} />
               <Route path="/brochures" element={<BrochuresPage />} />
               <Route path="/brochure" element={<Navigate to="/brochures" replace />} />
               <Route path="/gallery" element={<GalleryPage />} />

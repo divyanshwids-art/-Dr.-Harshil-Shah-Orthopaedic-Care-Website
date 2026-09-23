@@ -324,6 +324,10 @@ export default function SurgicalVideosPage() {
 
   const heroVideoRef = useRef(null);
   const modalVideoRef = useRef(null);
+  const filterScrollRef = useRef(null);
+
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const totalHeroVideos = surgicalVideos.length;
 
@@ -331,6 +335,32 @@ export default function SurgicalVideosPage() {
   const filteredVideos = activeCategory === 'all'
     ? surgicalVideos
     : surgicalVideos.filter((v) => v.category === activeCategory);
+
+  // Check filter bar scroll status
+  const checkScrollState = useCallback(() => {
+    if (filterScrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = filterScrollRef.current;
+      setCanScrollLeft(scrollLeft > 4);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 4);
+    }
+  }, []);
+
+  useEffect(() => {
+    checkScrollState();
+    window.addEventListener('resize', checkScrollState);
+    return () => window.removeEventListener('resize', checkScrollState);
+  }, [checkScrollState]);
+
+  const scrollFilters = (direction) => {
+    if (filterScrollRef.current) {
+      const scrollAmount = 240;
+      filterScrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+      setTimeout(checkScrollState, 320);
+    }
+  };
 
   // Next / Prev handlers for hero stage
   const handleNext = useCallback(() => {
@@ -404,164 +434,7 @@ export default function SurgicalVideosPage() {
   const nextIdx = (activeIndex + 1) % totalHeroVideos;
 
   return (
-    <div className="surgical-page">
-      {/* Hero Header */}
-      <section className="surgical-hero-section">
-        <div className="surgical-hero-mesh" aria-hidden="true" />
-        <div className="shell surgical-hero-container">
-          <div className="breadcrumb">
-            <Link to="/">Home</Link>
-            <span>/</span>
-            <Link to="/gallery">Gallery</Link>
-            <span>/</span>
-            <span>Surgical &amp; OT Videos</span>
-          </div>
-
-          <h1 className="surgical-hero-title">
-            Surgical Procedures &amp; <span className="text-gradient-cyan">Clinical Videos</span>
-          </h1>
-          <p className="surgical-hero-desc">
-            Authentic intra-operative video recordings demonstrating the robotic joint replacements, keyhole arthroscopy, and reconstructive techniques I perform in my clinical practice.
-          </p>
-
-          {/* ============================================================
-              3D CINEMA THEATRE STAGE CAROUSEL
-              ============================================================ */}
-          <div className="surgical-cinema-stage-wrap">
-            <div className="surgical-stage-lights" aria-hidden="true" />
-
-            <div className="surgical-3d-stage">
-              {/* Left Preview Card (Previous Video) */}
-              <div
-                className="surgical-stage-card stage-card-left"
-                onClick={handlePrev}
-                title={`Previous: ${surgicalVideos[prevIdx].title}`}
-              >
-                <div className="stage-card-video-box">
-                  <img
-                    src={surgicalVideos[prevIdx].poster}
-                    alt={surgicalVideos[prevIdx].title}
-                    className="stage-video-el stage-poster-img"
-                    loading="eager"
-                  />
-                  <div className="stage-card-glass-overlay">
-                    <span className="stage-arrow-btn">‹</span>
-                    <span className="stage-card-mini-title">{surgicalVideos[prevIdx].title}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Center Active Spotlight Video (Autoplays with Sound Off) */}
-              <div className="surgical-stage-card stage-card-center">
-                <div className="center-card-frame">
-                  <div className="center-video-container" onClick={() => setModalVideo(currentVideo)} style={{ cursor: 'pointer' }}>
-                    <video
-                      ref={heroVideoRef}
-                      key={currentVideo.id}
-                      src={currentVideo.src}
-                      poster={currentVideo.poster}
-                      muted={isHeroMuted}
-                      autoPlay
-                      playsInline
-                      preload="auto"
-                      onEnded={handleHeroVideoEnded}
-                      onTimeUpdate={handleHeroTimeUpdate}
-                      className="center-video-el"
-                    />
-
-                    {/* Bottom Progress Bar */}
-                    <div className="center-progress-track">
-                      <div
-                        className="center-progress-bar"
-                        style={{ width: `${playbackProgress}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Center Card Info Panel */}
-                  <div className="center-info-panel">
-                    <div className="center-info-text">
-                      <div className="center-info-header-row">
-                        <span className="center-tag-chip">{currentVideo.tag}</span>
-                        <span className="center-file-tag">{currentVideo.categoryName}</span>
-                      </div>
-                      <h2 className="center-video-title">{currentVideo.title}</h2>
-                      <p className="center-video-desc">{currentVideo.desc}</p>
-                    </div>
-
-                    <div className="center-action-row">
-                      <button
-                        type="button"
-                        className="center-nav-arrow-btn prev-btn"
-                        onClick={handlePrev}
-                        aria-label="Previous Video"
-                      >
-                        ←
-                      </button>
-
-                      <button
-                        type="button"
-                        className="center-play-main-btn"
-                        onClick={() => setModalVideo(currentVideo)}
-                      >
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                          <polygon points="5 3 19 12 5 21 5 3" />
-                        </svg>
-                        <span>Watch High-Def</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        className="center-nav-arrow-btn next-btn"
-                        onClick={handleNext}
-                        aria-label="Next Video"
-                      >
-                        →
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Preview Card (Next Video) */}
-              <div
-                className="surgical-stage-card stage-card-right"
-                onClick={handleNext}
-                title={`Next: ${surgicalVideos[nextIdx].title}`}
-              >
-                <div className="stage-card-video-box">
-                  <img
-                    src={surgicalVideos[nextIdx].poster}
-                    alt={surgicalVideos[nextIdx].title}
-                    className="stage-video-el stage-poster-img"
-                    loading="eager"
-                  />
-                  <div className="stage-card-glass-overlay">
-                    <span className="stage-card-mini-title">{surgicalVideos[nextIdx].title}</span>
-                    <span className="stage-arrow-btn">›</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Stage Quick Indicator Dots */}
-            <div className="surgical-stage-dots">
-              {surgicalVideos.map((v, idx) => (
-                <button
-                  key={v.id}
-                  type="button"
-                  className={`stage-dot-btn ${activeIndex === idx ? 'dot-active' : ''}`}
-                  onClick={() => {
-                    setActiveIndex(idx);
-                    setPlaybackProgress(0);
-                  }}
-                  aria-label={`Jump to video ${idx + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="surgical-page">      
 
       {/* ============================================================
           CATEGORY FILTER TABS & COMPREHENSIVE VIDEO BENTO GRID
@@ -577,21 +450,52 @@ export default function SurgicalVideosPage() {
               Click on any procedure video below to inspect anatomical milestones, surgical techniques, and keyhole arthroscopy methods.
             </p>
 
-            {/* Filter Tabs */}
-            <div className="surgical-filter-bar" role="tablist">
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  type="button"
-                  className={`surgical-filter-tab ${activeCategory === cat.id ? 'is-active' : ''}`}
-                  onClick={() => setActiveCategory(cat.id)}
-                  role="tab"
-                  aria-selected={activeCategory === cat.id}
-                >
-                  <span className="filter-tab-label">{cat.label}</span>
-                  <span className="filter-tab-count">{cat.count}</span>
-                </button>
-              ))}
+            {/* Filter Tabs Carousel Track */}
+            <div className="surgical-filter-carousel-wrapper">
+              <button
+                type="button"
+                className="surgical-filter-nav-btn prev"
+                onClick={() => scrollFilters('left')}
+                disabled={!canScrollLeft}
+                aria-label="Scroll left filter categories"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+
+              <div
+                className="surgical-filter-bar"
+                ref={filterScrollRef}
+                onScroll={checkScrollState}
+                role="tablist"
+              >
+                {categories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    className={`surgical-filter-tab ${activeCategory === cat.id ? 'is-active' : ''}`}
+                    onClick={() => setActiveCategory(cat.id)}
+                    role="tab"
+                    aria-selected={activeCategory === cat.id}
+                  >
+                    <span className="filter-tab-label">{cat.label}</span>
+                    <span className="filter-tab-count">{cat.count}</span>
+                  </button>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                className="surgical-filter-nav-btn next"
+                onClick={() => scrollFilters('right')}
+                disabled={!canScrollRight}
+                aria-label="Scroll right filter categories"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
             </div>
           </div>
 

@@ -32,16 +32,6 @@ export default function Footer() {
       <div className="shell footer-grid">
         {/* Brand Col */}
         <div className="footer-brand">
-          <Link to="/" className="brand brand-footer" aria-label="Dr. Harshil Shah - Home">
-            <img
-              src="/logo.png"
-              alt="Dr. Harshil Shah - M.S Orthopaedic, FIJR, FIAS"
-              className="brand-logo-img footer-logo-img"
-            />
-          </Link>
-
-
-
           {/* Social Links Row in Footer */}
           <div className="footer-social-row" style={{ display: 'flex', gap: '12px', marginTop: '18px' }}>
             <a
@@ -108,7 +98,7 @@ export default function Footer() {
           <p className="footer-label">Explore</p>
           <Link to="/about">About Dr. Harshil Shah</Link>
           <Link to="/treatments">Treatments</Link>
-          <Link to="/patient-guides">Patient guides</Link>
+
           <Link to="/brochures">Patient brochures</Link>
           <Link to="/gallery">Case gallery</Link>
         </div>
@@ -116,8 +106,7 @@ export default function Footer() {
         {/* Patient Help Col */}
         <div className="footer-nav-col">
           <p className="footer-label">Patient Help</p>
-          <Link to="/appointment">Book an Appointment</Link>
-          <Link to="/contact">Contact clinic</Link>
+          <Link to="/appointment">Contact & Book Appointment</Link>
           <Link to="/faq">Common questions</Link>
         </div>
 

@@ -1,0 +1,137 @@
+/* ==========================================================================
+   APPOINTMENT PAGE OVERRIDES
+   - Page background: off-white (#f7fafb)
+   - All card/box backgrounds: very light teal-blue (#eaf6f6)
+     same as the "Know the journey. Ask better questions." section
+   ========================================================================== */
+
+/* ── Page background: off-white instead of dark navy ── */
+.appt-page-container {
+  background: #f7fafb !important;
+  color: #1e293b !important;
+  padding: 0 !important;
+}
+
+/* ── Hide the dark ambient glow rig — irrelevant on light bg ── */
+.appt-ambient-canvas {
+  display: none !important;
+}
+
+/* ── Shell / layout z-index cleanup ── */
+.appt-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Hero heading & lead: switch from white to dark teal ── */
+.appt-hero-heading {
+  color: #0c3e44 !important;
+}
+
+.appt-hero-accent {
+  color: #146c72 !important;
+}
+
+.appt-hero-lead {
+  color: #4b636e !important;
+}
+
+/* ── LEFT COLUMN BOXES: very light teal-blue (#eaf6f6) ── */
+
+/* Doctor card */
+.appt-doctor-card {
+  background: #eaf6f6 !important;
+  border: 1px solid #c5e8e8 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.appt-doctor-meta strong {
+  color: #0c3e44 !important;
+}
+
+.appt-doctor-meta > span {
+  color: #4b636e !important;
+}
+
+.appt-mini-tag {
+  color: #146c72 !important;
+  background: rgba(20, 108, 114, 0.1) !important;
+  border-color: rgba(20, 108, 114, 0.2) !important;
+}
+
+/* Workflow card */
+.appt-workflow-card {
+  background: #eaf6f6 !important;
+  border: 1px solid #c5e8e8 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.appt-workflow-title {
+  color: #146c72 !important;
+}
+
+/* Timeline connector line */
+.appt-timeline::before {
+  background: #c5e8e8 !important;
+}
+
+/* Timeline markers */
+.appt-timeline-marker {
+  background: #ffffff !important;
+  border-color: #146c72 !important;
+  color: #146c72 !important;
+}
+
+/* Timeline text */
+.appt-timeline-content strong {
+  color: #0c3e44 !important;
+}
+
+.appt-timeline-content p {
+  color: #4b636e !important;
+}
+
+/* Direct call box */
+.appt-direct-call-box {
+  background: #eaf6f6 !important;
+  border: 1px solid #c5e8e8 !important;
+}
+
+.appt-direct-call-box:hover {
+  background: #d6efef !important;
+  border-color: #146c72 !important;
+}
+
+.appt-call-copy small {
+  color: #4b636e !important;
+}
+
+.appt-call-link {
+  color: #0c3e44 !important;
+}
+
+.appt-call-link:hover {
+  color: #146c72 !important;
+}
+
+/* ── RIGHT COLUMN: form card stays white (clean contrast on off-white bg) ── */
+.appt-card-surface {
+  background: #ffffff !important;
+  box-shadow:
+    0 4px 24px rgba(12, 62, 68, 0.07),
+    0 0 0 1px rgba(20, 108, 114, 0.08) !important;
+}
+
+/* ── Receipt / success state: also very light teal ── */
+.appt-receipt-breakdown {
+  background: #eaf6f6 !important;
+  border-color: #c5e8e8 !important;
+}
+
+.appt-receipt-next-note {
+  background: #eaf6f6 !important;
+  border-color: #c5e8e8 !important;
+}
+

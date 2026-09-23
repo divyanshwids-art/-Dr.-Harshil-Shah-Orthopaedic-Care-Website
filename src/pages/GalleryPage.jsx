@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 
 export default function GalleryPage() {
@@ -8,6 +8,9 @@ export default function GalleryPage() {
   const [activeModalImg, setActiveModalImg] = useState(null);
   const [visibleCardIds, setVisibleCardIds] = useState(new Set());
   const cardRefs = useRef({});
+  const filterScrollRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   useEffect(() => {
     if (catParam) {
@@ -24,8 +27,7 @@ export default function GalleryPage() {
     { id: 'surgical-theatre', label: 'Surgical Theatre', desc: 'High-precision robotic surgeries, joint replacements, and arthroscopy' },
     { id: 'academic-training', label: 'Academic & Training', desc: 'Faculty presentations, cadaveric workshops, and clinical masterclasses' },
     { id: 'professional-journey', label: 'Professional Journey', desc: 'Scientific research, clinical papers, and specialist fellowships' },
-    { id: 'patient-care', label: 'Patient Care', desc: 'Post-op mobility restoration, personalized counseling, and rehabilitation' },
-    { id: 'events-honors', label: 'Events & Honors', desc: 'Association milestones, awards, CME conferences, and recognitions' },
+    { id: 'patient-care', label: 'Patient Care', desc: 'Post-op mobility restoration, personalized counseling, and rehabilitation' }
   ];
 
   // Reset and re-trigger observer on filter category change
@@ -34,23 +36,38 @@ export default function GalleryPage() {
     setVisibleCardIds(new Set());
   };
 
+  const updateScrollButtons = useCallback(() => {
+    const el = filterScrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 6);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 6);
+  }, []);
+
+  useEffect(() => {
+    const el = filterScrollRef.current;
+    if (!el) return;
+    updateScrollButtons();
+    el.addEventListener('scroll', updateScrollButtons, { passive: true });
+    window.addEventListener('resize', updateScrollButtons);
+    return () => {
+      el.removeEventListener('scroll', updateScrollButtons);
+      window.removeEventListener('resize', updateScrollButtons);
+    };
+  }, [updateScrollButtons]);
+
+  const scrollFilters = (direction) => {
+    const el = filterScrollRef.current;
+    if (!el) return;
+    const distance = 260;
+    el.scrollBy({
+      left: direction === 'left' ? -distance : distance,
+      behavior: 'smooth'
+    });
+  };
+
   const DOCTOR_IMG_BASE = '/galleri/docter img/';
 
   const galleryItems = [
-
-
-
-
-    {
-      id: 8,
-      src: `${DOCTOR_IMG_BASE}WS_DB-9.JPG.webp`,
-      tag: 'Professional Journey',
-      title: 'Dr. Harshil Shah — M.S. Orthopaedics',
-      subtitle: 'Specialist in joint preservation, robotic surgery & advanced arthroscopy',
-      size: 'column', // 1x2 tall
-      anim: 'bottom-to-top',
-      category: 'professional-journey'
-    },
     {
       id: 9,
       src: `${DOCTOR_IMG_BASE}WhatsApp Image 2026-08-24 at 12.47.57 PM.webp`,
@@ -152,16 +169,6 @@ export default function GalleryPage() {
       category: 'surgical-theatre'
     },
     {
-      id: 19,
-      src: `${DOCTOR_IMG_BASE}WhatsApp Image 2026-08-24 at 12.48.02 PM (2).webp`,
-      tag: 'Professional Journey',
-      title: 'Mentorship & Clinical Collaboration',
-      subtitle: 'Exchanging clinical insights and surgical expertise with senior orthopaedic mentors',
-      size: 'small', // 1x1
-      anim: 'top-to-bottom',
-      category: 'professional-journey'
-    },
-    {
       id: 20,
       src: `${DOCTOR_IMG_BASE}WhatsApp Image 2026-08-24 at 12.48.03 PM.webp`,
       tag: 'Surgical Theatre',
@@ -182,16 +189,6 @@ export default function GalleryPage() {
       category: 'surgical-theatre'
     },
     {
-      id: 22,
-      src: `${DOCTOR_IMG_BASE}WhatsApp Image 2026-08-24 at 12.48.04 PM.webp`,
-      tag: 'Professional Journey',
-      title: 'P.D. Hinduja Hospital Fellowship',
-      subtitle: 'Arthroplasty & joint reconstruction fellowship completion certification',
-      size: 'small', // 1x1
-      anim: 'right-to-left',
-      category: 'professional-journey'
-    },
-    {
       id: 23,
       src: `${DOCTOR_IMG_BASE}WhatsApp Image 2026-08-24 at 12.48.04 PM (1).webp`,
       tag: 'Professional Journey',
@@ -210,16 +207,6 @@ export default function GalleryPage() {
       size: 'small', // 1x1
       anim: 'bottom-to-top',
       category: 'surgical-theatre'
-    },
-    {
-      id: 25,
-      src: `${DOCTOR_IMG_BASE}WhatsApp Image 2026-08-24 at 12.48.05 PM.webp`,
-      tag: 'Events & Honors',
-      title: 'Dr. Harshil Shah — Dedicated Orthopaedic Care',
-      subtitle: 'Committed to empowering pain-free movement across Gujarat',
-      size: 'big', // 2x2
-      anim: 'left-to-right',
-      category: 'events-honors'
     },
     {
       id: 26,
@@ -269,39 +256,11 @@ export default function GalleryPage() {
         <div className="shell gallery-hero-grid">
           <div className="gallery-hero-content">
             <h1 className="gallery-hero-title">
-              Moments from a
-              <br />
-              <span className="hero-accent-text">journey of care.</span>
+              Moments from a journey of care.
             </h1>
             <p className="gallery-hero-subtitle">
               A comprehensive visual journey through my clinical practice, advanced joint procedures, academic forums, and surgical training milestones.
             </p>
-
-            {/* Filter Tabs in Hero */}
-            <div className="gallery-filter-tabs">
-              {categories.map((cat) => {
-                const count = cat.id === 'all'
-                  ? galleryItems.length
-                  : galleryItems.filter((i) => i.category === cat.id).length;
-                return (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    className={`gallery-filter-pill ${activeCategory === cat.id ? 'active' : ''}`}
-                    onClick={() => handleCategoryChange(cat.id)}
-                  >
-                    {cat.label} ({count})
-                  </button>
-                );
-              })}
-              <Link
-                to="/operation-theatre"
-                className="gallery-filter-pill"
-                style={{ background: 'linear-gradient(135deg, #146c72, #0e555a)', color: '#ffffff', borderColor: '#3bb3bc', fontWeight: 800 }}
-              >
-                Surgical &amp; OT Videos (18)
-              </Link>
-            </div>
           </div>
 
           <div className="gallery-hero-visual-panel" aria-hidden="true">
@@ -319,72 +278,73 @@ export default function GalleryPage() {
       <section className="section gallery-categories-section" id="gallery-categories">
         <div className="shell">
           <div className="gallery-categories-header">
-            <div className="gallery-categories-badge">
-              <span className="badge-pulse-dot"></span>
-              <span>Visual Gallery &amp; Albums</span>
-            </div>
+
             <h2 className="gallery-categories-title">
-              Explore by <span>Specialized Categories</span>
+              Visual Gallery &amp; Albums
             </h2>
-            <p className="gallery-categories-desc">
-              Browse authentic photo documentation from surgical theatres, outpatient consultations, patient recovery, and academic workshops.
-            </p>
+
           </div>
 
-          <div className="gallery-categories-tabs-bar" role="tablist">
-            {categories.map((cat) => {
-              const count = cat.id === 'all'
-                ? galleryItems.length
-                : galleryItems.filter((i) => i.category === cat.id).length;
-              const isActive = activeCategory === cat.id;
-
-              return (
-                <button
-                  key={cat.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  className={`gallery-cat-btn ${isActive ? 'is-active' : ''}`}
-                  onClick={() => handleCategoryChange(cat.id)}
-                >
-                  <span className="cat-btn-label">{cat.label}</span>
-                  <span className="cat-btn-count">{count}</span>
-                </button>
-              );
-            })}
-
-            <Link
-              to="/operation-theatre"
-              className="gallery-cat-btn gallery-cat-btn-video"
-              title="Watch high-definition surgical recordings"
+          <div className="faq-topics-selection-wrapper gallery-filter-selection-wrapper">
+            <button
+              type="button"
+              className="faq-topics-nav-btn"
+              onClick={() => scrollFilters('left')}
+              disabled={!canScrollLeft}
+              aria-label="Scroll categories left"
             >
-              <span className="cat-btn-label">Surgical &amp; OT Videos</span>
-              <span className="cat-btn-count video-badge">18</span>
-            </Link>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+
+            <div className="faq-topics-scroll-row" ref={filterScrollRef} role="tablist" aria-label="Browse categories">
+              {categories.map((cat) => {
+                const count = cat.id === 'all'
+                  ? galleryItems.length
+                  : galleryItems.filter((i) => i.category === cat.id).length;
+                const isActive = activeCategory === cat.id;
+
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    className={`faq-topic-tab ${isActive ? 'faq-topic-tab--active' : ''}`}
+                    onClick={() => handleCategoryChange(cat.id)}
+                  >
+                    <span className="faq-topic-tab-name">{cat.label}</span>
+                    <span className="faq-topic-tab-count">{count}</span>
+                  </button>
+                );
+              })}
+
+              <Link
+                to="/operation-theatre"
+                className="faq-topic-tab"
+                title="Watch high-definition surgical recordings"
+                style={{ textDecoration: 'none' }}
+              >
+                <span className="faq-topic-tab-name">Surgical &amp; OT Videos</span>
+                <span className="faq-topic-tab-count" style={{ background: '#e0f2f1', color: '#146c72', fontWeight: 800 }}>18</span>
+              </Link>
+            </div>
+
+            <button
+              type="button"
+              className="faq-topics-nav-btn"
+              onClick={() => scrollFilters('right')}
+              disabled={!canScrollRight}
+              aria-label="Scroll categories right"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
           </div>
 
-          {/* Active Filter Status Bar */}
-          <div className="gallery-active-filter-bar">
-            <div className="active-filter-info">
-              <span className="active-filter-dot"></span>
-              <span>
-                Showing <strong>{filteredItems.length} {filteredItems.length === 1 ? 'photo' : 'photos'}</strong> in{' '}
-                <strong>{categories.find((c) => c.id === activeCategory)?.label || 'All'}</strong>
-              </span>
-              <span className="active-filter-subdesc">
-                — {categories.find((c) => c.id === activeCategory)?.desc}
-              </span>
-            </div>
-            {activeCategory !== 'all' && (
-              <button
-                type="button"
-                className="gallery-reset-filter-btn"
-                onClick={() => handleCategoryChange('all')}
-              >
-                Reset to All
-              </button>
-            )}
-          </div>
+
         </div>
       </section>
 
@@ -399,7 +359,7 @@ export default function GalleryPage() {
                   key={item.id}
                   ref={(el) => (cardRefs.current[item.id] = el)}
                   data-id={item.id}
-                  className={`gallery-bento-card gallery-card-${item.size} anim-${item.anim} ${isInView ? 'is-in-view' : 'is-hidden'}`}
+                  className={`gallery-bento-card gallery-card-uniform anim-${item.anim} ${isInView ? 'is-in-view' : 'is-hidden'}`}
                   style={{ animationDelay: `${(index % 3) * 0.12}s` }}
                   onClick={() => setActiveModalImg(item)}
                   title="Click to zoom image"
@@ -471,55 +431,6 @@ export default function GalleryPage() {
           </div>
         </div>
       )}
-
-      {/* Education Library 3D */}
-      <section className="section gallery-education-section">
-        <div className="shell">
-          <div className="gallery-stacked-heading">
-            <h2>
-              Information designed <em>to be revisited.</em>
-            </h2>
-            <p>
-              Original patient education helps families remember the important parts of preparation, early protection and steady recovery.
-            </p>
-          </div>
-          <div className="education-gallery education-gallery-3d">
-            <Link to="/patient-guides#eras">
-              <img src="/hip-3d.webp" alt="3D hip joint visualization" />
-              <span>
-                <strong>Prepare before surgery</strong>
-                <i>Read guidance</i>
-              </span>
-            </Link>
-            <Link to="/patient-guides#quiet-knee">
-              <img src="/knee-3d.webp" alt="3D knee joint visualization" />
-              <span>
-                <strong>Protect early recovery</strong>
-                <i>Read guidance</i>
-              </span>
-            </Link>
-            <Link to="/patient-guides#quiet-knee">
-              <img src="/shoulder-3d.webp" alt="3D shoulder joint visualization" />
-              <span>
-                <strong>Progress with support</strong>
-                <i>Read guidance</i>
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Note */}
-      <section className="gallery-note">
-        <div className="shell">
-          <div>
-            <p>Looking for information about a condition or treatment?</p>
-          </div>
-          <Link className="button button-light" to="/treatments">
-            Explore treatments
-          </Link>
-        </div>
-      </section>
     </div>
   );
 }

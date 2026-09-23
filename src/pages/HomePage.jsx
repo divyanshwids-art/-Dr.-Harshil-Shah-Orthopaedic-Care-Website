@@ -44,80 +44,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      {/* =========================================================================
-          2. WHY ENTRUST YOUR CARE TO ME? (WITH EXTRACTED LOGOS)
-          ========================================================================= */}
-      <section className="mock-why-section" id="why-choose-me" aria-label="Why Entrust Your Care To Me">
-        <div className="mock-shell">
-          <div className="mock-why-card">
-            {/* Left 1/3 */}
-            <div className="mock-why-left">
-              <h2 className="mock-title mock-why-title">Your Recovery, <span className="mock-text-teal">My Priority</span></h2>
-              <p>
-                I’m here to listen to your concerns, understand your condition, and guide you with honesty.
-              </p>
-            </div>
-
-            {/* Right 2/3 - 4 Columns with exact matching Logos */}
-            <div className="mock-why-items">
-              {/* Item 1: Personalized Care Plans */}
-              <div className="mock-why-item">
-                <div className="mock-why-icon-box">
-                  <img
-                    src="/icons/personalized-care.webp"
-                    alt="Personalized Care Plans"
-                    className="mock-why-icon-img"
-                    loading="lazy"
-                  />
-                </div>
-                <span>Personalized<br />Care Plans</span>
-              </div>
-
-              {/* Item 2: Evidence-Based Treatment */}
-              <div className="mock-why-item">
-                <div className="mock-why-icon-box">
-                  <img
-                    src="/icons/evidence-based.webp"
-                    alt="Evidence-Based Treatment"
-                    className="mock-why-icon-img"
-                    loading="lazy"
-                  />
-                </div>
-                <span>Evidence-Based<br />Treatment</span>
-              </div>
-
-              {/* Item 3: Minimally Invasive Techniques */}
-              <div className="mock-why-item">
-                <div className="mock-why-icon-box">
-                  <img
-                    src="/icons/minimally-invasive.webp"
-                    alt="Minimally Invasive Techniques"
-                    className="mock-why-icon-img"
-                    loading="lazy"
-                  />
-                </div>
-                <span>Minimally Invasive<br />Techniques</span>
-              </div>
-
-              {/* Item 4: Patient-First Approach */}
-              <div className="mock-why-item">
-                <div className="mock-why-icon-box">
-                  <img
-                    src="/icons/patient-first.webp"
-                    alt="Patient-First Approach"
-                    className="mock-why-icon-img"
-                    loading="lazy"
-                  />
-                </div>
-                <span>Patient-First<br />Approach</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
       {/* =========================================================================
           3. CONDITIONS & CARE - CONDITIONS I TREAT (WITH EXACT MATCHING LOGOS)
           ========================================================================= */}
@@ -313,7 +239,7 @@ export default function HomePage() {
       <section className="mock-publications-section" id="publications" aria-label="Research & Publications">
         <div className="mock-shell">
           <div className="mock-publications-inline-wrap">
-            <h2 className="mock-title mock-publications-title">Research &amp; Clinical Publications</h2>
+            <h2 className="mock-title mock-publications-title">Research & Clinical Publications</h2>
             <div className="mock-toi-inline-card">
               <img
                 src="/times-of-india-health.png"
@@ -361,7 +287,6 @@ export default function HomePage() {
                 <p className="mock-award-desc">
                   Awarded for clinical leadership in orthopaedic care, dedication to joint preservation, and helping patients recover safely with modern techniques.
                 </p>
-                <span className="mock-award-year">TOI Healthcare Awards &bull; 2026</span>
               </div>
             </div>
           </div>
@@ -374,10 +299,12 @@ export default function HomePage() {
           ========================================================================= */}
       <section className="mock-daycare-section" id="day-care" aria-label="Day Care Joint Replacement">
         <div className="mock-shell">
+          <h2 className="mock-title" style={{ textAlign: 'center', color: '#000000' }}>Day Care Joint Replacement</h2>
+        <br />
           <div className="mock-daycare-box">
+            
             {/* Left Content */}
             <div className="mock-daycare-left">
-              <h2 className="mock-title">Day Care Joint Replacement</h2>
               <p>
                 With modern surgical techniques and gentle pain management, my goal is to help you start walking within hours of surgery and recover peacefully in the comfort of your own home.
               </p>
@@ -658,9 +585,7 @@ export default function HomePage() {
               <div className="mock-loc-text">
                 <strong>Curis Hospitals</strong>
                 <span>Sindhubhavan Road, Bodakdev, Ahmedabad</span>
-                <span style={{ display: 'block', marginTop: '8px', fontWeight: 700, color: '#146c72', fontSize: '0.86rem' }}>
-                  Mon–Sat: 10:00 AM–1:00 PM &bull; 5:00 PM–7:00 PM
-                </span>
+
                 <span style={{ display: 'block', fontSize: '0.82rem', color: '#526e75', marginTop: '6px', lineHeight: 1.45 }}>
                   Regular consultations, joint examinations, imaging reviews, and follow-ups.
                 </span>

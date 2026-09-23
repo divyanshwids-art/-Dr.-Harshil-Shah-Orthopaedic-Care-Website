@@ -102,13 +102,10 @@ export default function WelcomeModal() {
           {/* Header Area */}
           <div className="welcome-modal-header">
             <div className="welcome-kicker">
-              <span>Welcome to</span>
-              <div className="welcome-kicker-line"></div>
             </div>
             <h2 id="welcome-modal-title" className="welcome-title">
               Dr. Harshil Shah
             </h2>
-            <div className="welcome-subtitle">ORTHOPAEDIC SURGEON</div>
             <p id="welcome-modal-desc" className="welcome-desc">
               Focused orthopaedic care for knee, hip and shoulder conditions with clear guidance from diagnosis through recovery.
             </p>
@@ -215,12 +212,7 @@ export default function WelcomeModal() {
             </div>
           </div>
 
-          {/* Bottom Tagline */}
-          <div className="welcome-tagline-footer">
-            <span className="welcome-tagline-line" />
-            <span className="welcome-tagline-text">Your Mobility. Our Priority.</span>
-            <span className="welcome-tagline-line" />
-          </div>
+
         </div>
       </div>
     </div>

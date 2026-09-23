@@ -48,7 +48,7 @@ const TREATMENT_FAQS = [
 
 export default function TreatmentsPage() {
   const [activeJointTab, setActiveJointTab] = useState('knee');
-  const [openFaqId, setOpenFaqId] = useState('treatment-faq-1');
+  const [openFaqId, setOpenFaqId] = useState(null);
 
   const scrollToSection = (id) => {
     setActiveJointTab(id);
@@ -80,9 +80,7 @@ export default function TreatmentsPage() {
               <span></span> My Treatment Approach
             </div>
             <h1>
-              Personalized care for
-              <br />
-              <em>natural movement.</em>
+              Personalized care for natural movement.
             </h1>
             <p>
               I provide tailored knee, hip, and shoulder treatments designed around your symptoms, everyday routine, and long-term mobility goals.
@@ -490,14 +488,7 @@ export default function TreatmentsPage() {
       </section>
 
       {/* Medical Note */}
-      <section className="medical-note">
-        <div className="shell">
-          <span>Important</span>
-          <p>
-            Treatment depends on a clinical examination and appropriate imaging. Website information cannot replace a personal medical consultation.
-          </p>
-        </div>
-      </section>
+
     </div>
   );
 }

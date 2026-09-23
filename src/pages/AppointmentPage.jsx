@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
+import '../styles/contactPage.css';
+import '../styles/appointmentPage.css';
 
 export default function AppointmentPage() {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -14,6 +17,18 @@ export default function AppointmentPage() {
     reason: '',
     consent: true
   });
+
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = location.hash.replace('#', '');
+      const el = document.getElementById(targetId);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
+  }, [location]);
 
   const [honeypot, setHoneypot] = useState('');
   const [secondOpinionPdf, setSecondOpinionPdf] = useState(null);
@@ -369,27 +384,176 @@ export default function AppointmentPage() {
   };
 
   return (
-    <div className="appt-page-container">
-      {/* Background Lighting Rig */}
-      <div className="appt-ambient-canvas" aria-hidden="true">
-        <div className="appt-glow-beam beam-left" />
-        <div className="appt-glow-beam beam-right" />
-        <div className="appt-grid-texture" />
-      </div>
-
-      <div className="appt-shell">
-        <div className="appt-two-column-layout">
-          {/* LEFT COLUMN: Doctor Authority & Consultation Guide */}
-          <aside className="appt-info-column">
-            <h1 className="appt-hero-heading">
-              Expert joint care,
+    <div className="appt-page-container contact-page-wrapper">
+      {/* 1. CONTACT & APPOINTMENT HERO SECTION */}
+      <section className="contact-hero-redesign" aria-label="Contact &amp; Appointment Header">
+        <div className="contact-hero-shell">
+          {/* Left Side: Editorial Typography & Quick Support Items */}
+          <div className="contact-hero-content">
+            <h1 className="contact-hero-title">Get in Touch &amp; Book an Appointment</h1>
+            <p className="contact-hero-desc">
+              Have questions about treatment, surgery, or recovery?
               <br />
-              <span className="appt-hero-accent">tailored to your recovery.</span>
-            </h1>
-
-            <p className="appt-hero-lead">
-              Book a comprehensive clinical consultation with me. My medical desk coordinates slot confirmation directly with you within 2 hours.
+              I am here to help you with clear guidance, thorough evaluation, and personalized care. Schedule your consultation online below or reach out directly.
             </p>
+
+            <div className="contact-hero-bar" aria-hidden="true" />
+
+            {/* Three Quick Support Items */}
+            <div className="contact-hero-support-items" aria-label="Key support areas">
+              <div className="contact-support-item">
+                <span className="contact-support-label">Appointment assistance</span>
+              </div>
+
+              <div className="contact-support-divider" aria-hidden="true" />
+
+              <div className="contact-support-item">
+                <span className="contact-support-label">Treatment and surgery enquiries</span>
+              </div>
+
+              <div className="contact-support-divider" aria-hidden="true" />
+
+              <div className="contact-support-item">
+                <span className="contact-support-label">Follow-up and recovery guidance</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side: Single Doctor Image Only */}
+          <div className="contact-hero-visual" aria-hidden="true">
+            <div className="contact-hero-doctor-wrap">
+              <img
+                src="/mobile-hero-doctor-scrubs.webp"
+                alt="Dr. Harshil Shah - Consultant Orthopaedic Surgeon"
+                className="contact-hero-doctor-img"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. CLEAR SUPPORT SECTION & 4 CONTACT METHOD CARDS */}
+      <section className="contact-support-section" aria-label="Contact Methods &amp; Guidance">
+        <div className="contact-support-shell">
+          <div className="contact-support-main-layout">
+            {/* Left Column: Heading and Guidance */}
+            <div className="contact-support-header-col">
+              <h2 className="contact-hero-title contact-support-main-heading">
+                Clear Support, From the First Call.
+              </h2>
+              <p className="contact-guidance-desc">
+                For appointment requests, keep your name, contact number and a short description of your concern ready. If you have previous scans or reports, you can upload them below or bring them to your consultation.
+              </p>
+            </div>
+
+            {/* Right Column: 4 Contact Method Cards in 2x2 Aligned Grid */}
+            <div className="contact-cards-grid-col">
+              {/* Card 01: Call */}
+              <a href="tel:+919316753985" className="contact-method-card" title="Call the Clinic">
+                <div className="contact-method-card-head">
+                  <span className="contact-method-badge">01</span>
+                  <div className="contact-method-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="contact-method-card-body">
+                  <div>
+                    <span className="contact-method-kicker">CALL THE CLINIC</span>
+                    <strong className="contact-method-main">+91 93167 53985</strong>
+                  </div>
+                  <p className="contact-method-sub">For appointments and direct enquiries</p>
+                </div>
+              </a>
+
+              {/* Card 02: Clinic Location */}
+              <a href="https://share.google/MBpDzvqtecRuH4gf8" target="_blank" rel="noopener noreferrer" className="contact-method-card" title="Open Clinic in Google Maps">
+                <div className="contact-method-card-head">
+                  <span className="contact-method-badge">02</span>
+                  <div className="contact-method-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="contact-method-card-body">
+                  <div>
+                    <span className="contact-method-kicker">CLINIC LOCATION</span>
+                    <strong className="contact-method-main is-location">Curis Hospitals, Sindhubhavan Road, Bodakdev, Ahmedabad, Gujarat 380054</strong>
+                  </div>
+                  <div>
+                    <span className="contact-method-action-link">Open in Google Maps &rarr;</span>
+                  </div>
+                </div>
+              </a>
+
+              {/* Card 03: Email */}
+              <a href="mailto:harshilshah199706@gmail.com" className="contact-method-card" title="Email Dr. Harshil Shah">
+                <div className="contact-method-card-head">
+                  <span className="contact-method-badge">03</span>
+                  <div className="contact-method-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <polyline points="3 7 12 13 21 7" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="contact-method-card-body">
+                  <div>
+                    <span className="contact-method-kicker">EMAIL</span>
+                    <strong className="contact-method-main is-email">harshilshah199706@gmail.com</strong>
+                  </div>
+                  <p className="contact-method-sub">Share medical queries or scan reports</p>
+                </div>
+              </a>
+
+              {/* Card 04: Online Booking Form Jump */}
+              <a
+                href="#appointment-booking"
+                className="contact-method-card"
+                title="Book an Appointment Online"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('appointment-booking')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                <div className="contact-method-card-head">
+                  <span className="contact-method-badge">04</span>
+                  <div className="contact-method-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                      <path d="m9 16 2 2 4-4" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="contact-method-card-body">
+                  <div>
+                    <span className="contact-method-kicker">ONLINE APPOINTMENT</span>
+                    <strong className="contact-method-main">Book Consultation Below</strong>
+                  </div>
+                  <div>
+                    <p className="contact-method-sub">Choose your preferred date, time and reason</p>
+                    <span className="contact-method-action-link">Fill booking form &darr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. INTERACTIVE APPOINTMENT BOOKING SECTION */}
+      <section className="appt-booking-section" id="appointment-booking" style={{ padding: '60px 0 80px', borderBottom: '1px solid #edf4f4', background: '#f7fafb' }}>
+        <div className="appt-shell">
+          <div className="appt-two-column-layout">
+            {/* LEFT COLUMN: Doctor Authority & Consultation Guide */}
+            <aside className="appt-info-column">
 
             {/* Doctor Credentials Card */}
             <div className="appt-doctor-card">
@@ -456,7 +620,6 @@ export default function AppointmentPage() {
               {/* Form Top Header */}
               <header className="appt-card-header">
                 <div>
-                  <span className="appt-kicker">PATIENT INTAKE</span>
                   <h2 className="appt-card-title">Book an Appointment</h2>
                 </div>
                 
@@ -953,6 +1116,144 @@ export default function AppointmentPage() {
           </main>
         </div>
       </div>
+      </section>
+
+      {/* 4. Patient Preparation / Visiting Section */}
+      <section className="visit-section">
+        <div className="visit-container">
+          <div className="cp-consult-layout">
+            {/* Left Column: Heading and Guidance */}
+            <div className="cp-consult-left">
+              <h2 className="contact-support-main-heading">
+                Prepare for Your Consultation
+              </h2>
+
+              <p className="visit-intro-lead">
+                A few simple preparation steps allow me to provide an accurate clinical assessment and guide you toward a targeted recovery pathway from day one.
+              </p>
+            </div>
+
+            {/* Step 01 */}
+            <div className="visit-step-card">
+              <div className="visit-step-top">
+                <span className="visit-step-num">STEP 01</span>
+                <div className="visit-step-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="visit-step-title">Bring Previous Reports &amp; Scans</h3>
+              <p className="visit-step-desc">
+                Prior X-rays, MRI scans, CT reports, or blood tests help compare progression and avoid repeating unnecessary scans.
+              </p>
+              <div className="visit-step-footer">
+                <span className="visit-step-tag">Physical Films or Digital</span>
+              </div>
+            </div>
+
+            {/* Step 02 */}
+            <div className="visit-step-card">
+              <div className="visit-step-top">
+                <span className="visit-step-num">STEP 02</span>
+                <div className="visit-step-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
+                    <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="visit-step-title">List Ongoing Medications</h3>
+              <p className="visit-step-desc">
+                Note down daily medicines, blood thinners, past surgeries, and any known drug or analgesic allergies.
+              </p>
+              <div className="visit-step-footer">
+                <span className="visit-step-tag">Crucial for Clinical Safety</span>
+              </div>
+            </div>
+
+            {/* Step 03 */}
+            <div className="visit-step-card">
+              <div className="visit-step-top">
+                <span className="visit-step-num">STEP 03</span>
+                <div className="visit-step-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="visit-step-title">Note Your Key Questions</h3>
+              <p className="visit-step-desc">
+                Write down when pain triggers, daily activities affected, and what outcome goals you want to achieve.
+              </p>
+              <div className="visit-step-footer">
+                <span className="visit-step-tag">One-on-One Discussion</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Educational Guide Banner (Executive 3D Visual Section) */}
+      <section className="contact-guide-banner">
+        <div className="shell">
+          <div className="contact-guide-card">
+            <div className="contact-guide-grid">
+              {/* Left: 3D Joint Anatomy Models Orbiting along Circular Track */}
+              <div className="contact-3d-showcase" aria-hidden="true">
+                <div className="contact-3d-ambient-glow" />
+                <div className="contact-3d-orbit orbit-primary" />
+                <div className="contact-3d-orbit orbit-secondary" />
+
+                {/* Revolving Orbit Track */}
+                <div className="contact-orbit-track">
+                  {/* Joint 1: Hip */}
+                  <div className="contact-orbit-slot slot-hip">
+                    <div className="contact-orbit-counter">
+                      <img src="/hip-3d.webp" alt="3D Hip Anatomy" className="contact-3d-img" />
+                      <span className="contact-3d-label">Hip Preservation</span>
+                    </div>
+                  </div>
+
+                  {/* Joint 2: Knee */}
+                  <div className="contact-orbit-slot slot-knee">
+                    <div className="contact-orbit-counter">
+                      <img src="/knee-3d.webp" alt="3D Knee Anatomy" className="contact-3d-img" />
+                      <span className="contact-3d-label">Knee Care</span>
+                    </div>
+                  </div>
+
+                  {/* Joint 3: Shoulder */}
+                  <div className="contact-orbit-slot slot-shoulder">
+                    <div className="contact-orbit-counter">
+                      <img src="/shoulder-3d.webp" alt="3D Shoulder Anatomy" className="contact-3d-img" />
+                      <span className="contact-3d-label">Shoulder Mobility</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: High-Contrast Illuminated Guidance Text */}
+              <div className="contact-guide-content">
+                <h2 className="contact-guide-title">
+                  Know the journey. <span className="contact-guide-accent">Ask better questions.</span>
+                </h2>
+                <p className="contact-guide-lead">
+                  Review my specialized ERAS (Enhanced Recovery After Surgery) pathway before your consultation so you can make confident, informed decisions about your joint recovery.
+                </p>
+                <Link className="contact-guide-cta-btn" to="/patient-guides#eras">
+                  <span>Explore ERAS Guidance</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
