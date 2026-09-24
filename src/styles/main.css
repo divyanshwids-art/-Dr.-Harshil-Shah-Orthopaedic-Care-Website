@@ -36003,6 +36003,10 @@ html body * {
   position: relative;
 }
 
+.mock-hero-mobile-image {
+  display: none;
+}
+
 .mock-hero-left {
   max-width: 580px;
   z-index: 2;
@@ -36936,22 +36940,20 @@ border-color: #146c72;
   padding: 60px 0;
   background: #ffffff;
   border-bottom: 1px solid #eef3f4;
+  overflow: hidden;
 }
 
-.mock-reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
+/* Base Review Card */
 .mock-review-card {
   background: #ffffff;
   border: 1px solid #e2eef0;
-  border-radius: 12px;
-  padding: 22px 18px;
+  border-radius: 14px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 8px rgba(15, 43, 48, 0.02);
+  box-shadow: 0 2px 10px rgba(15, 43, 48, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  user-select: none;
 }
 
 .mock-review-quote {
@@ -36964,14 +36966,15 @@ border-color: #146c72;
 
 .mock-review-text {
   font-size: 0.88rem;
-  color: #526e75;
-  margin-bottom: 14px;
+  line-height: 1.55;
+  color: #475569;
+  margin-bottom: 16px;
   flex-grow: 1;
 }
 
 .mock-review-stars {
   color: #f59e0b;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   letter-spacing: 2px;
   margin-bottom: 14px;
 }
@@ -36980,13 +36983,13 @@ border-color: #146c72;
   display: flex;
   align-items: center;
   gap: 10px;
-  border-top: 1px solid #f1f5f6;
+  border-top: 1px solid #f1f5f9;
   padding-top: 12px;
 }
 
 .mock-review-avatar {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: #eaf6f7;
   color: #146c72;
@@ -36995,12 +36998,181 @@ border-color: #146c72;
   justify-content: center;
   font-size: 0.78rem;
   font-weight: 700;
+  flex-shrink: 0;
 }
 
 .mock-review-name {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 700;
   color: #0f2b30;
+}
+
+/* --- Desktop Single Line Infinite Marquee (Left to Right, Pause on Hover) --- */
+.mock-reviews-marquee-wrapper {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+  padding: 14px 0 20px;
+}
+
+.mock-reviews-marquee-wrapper::before,
+.mock-reviews-marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.mock-reviews-marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.mock-reviews-marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.mock-reviews-marquee-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  animation: reviewsMarqueeScrollLTR 46s linear infinite;
+  will-change: transform;
+}
+
+.mock-reviews-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes reviewsMarqueeScrollLTR {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.mock-reviews-marquee-track .mock-review-card {
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  min-height: 235px;
+  flex-shrink: 0;
+}
+
+.mock-reviews-marquee-track .mock-review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(20, 108, 114, 0.12);
+  border-color: rgba(20, 108, 114, 0.3);
+}
+
+/* --- Mobile Slideshow --- */
+.mock-reviews-mobile-slider {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mock-reviews-marquee-wrapper {
+    display: none !important;
+  }
+
+  .mock-reviews-mobile-slider {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .mock-reviews-mobile-slider .mock-review-card {
+    width: 100%;
+    min-height: 220px;
+    box-shadow: 0 4px 16px rgba(15, 43, 48, 0.06);
+    border-radius: 14px;
+    animation: reviewFadeIn 0.3s ease;
+  }
+
+  @keyframes reviewFadeIn {
+    from {
+      opacity: 0.6;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mock-reviews-slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .mock-slider-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid #146c72;
+    background: #ffffff;
+    color: #146c72;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(20, 108, 114, 0.1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mock-slider-btn:active {
+    background: #146c72;
+    color: #ffffff;
+    transform: scale(0.92);
+  }
+
+  .mock-slider-indicator {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f2b30;
+    letter-spacing: 0.5px;
+    min-width: 55px;
+    text-align: center;
+  }
+
+  .mock-slider-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .mock-slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #cbd5e1;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .mock-slider-dot.active {
+    width: 22px;
+    background: #146c72;
+  }
 }
 
 /* ========================================================================= */
@@ -37429,19 +37601,77 @@ border-color: #146c72;
   margin-bottom: 18px;
 }
 
+.mock-consult-footer-actions .mock-btn-primary,
+.mock-consult-footer-actions .mock-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  min-height: 50px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  box-sizing: border-box;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.mock-consult-footer-actions .mock-btn-primary {
+  background: #0e555a;
+  color: #ffffff;
+  border: 1px solid #0e555a;
+  box-shadow: 0 4px 14px rgba(14, 85, 90, 0.22);
+}
+
+.mock-consult-footer-actions .mock-btn-primary:hover {
+  background: #093f43;
+  border-color: #093f43;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(14, 85, 90, 0.32);
+}
+
+.mock-consult-footer-actions .mock-btn-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  border: 1px solid #25d366;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+}
+
+.mock-consult-footer-actions .mock-btn-whatsapp:hover {
+  background: #1eb956;
+  border-color: #1eb956;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+
+.mock-consult-footer-actions .mock-btn-whatsapp svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: block;
+}
+
 .mock-btn-whatsapp {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
   background: #25d366;
   color: #ffffff;
-  padding: 11px 24px;
-  border-radius: 9999px;
-  font-size: 0.9rem;
+  padding: 13px 26px;
+  min-height: 50px;
+  border-radius: 12px;
+  font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
   transition: all 0.22s ease;
+  box-sizing: border-box;
 }
 
 .mock-btn-whatsapp:hover {
@@ -37449,6 +37679,13 @@ border-color: #146c72;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
   color: #ffffff;
+}
+
+.mock-btn-whatsapp svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: block;
 }
 
 .mock-consult-trust-list {
@@ -37779,30 +38016,34 @@ border-color: #146c72;
 
 @media (max-width: 768px) {
   .mock-hero {
-    background-image: 
-      linear-gradient(180deg, rgba(246, 250, 251, 0.94) 0%, rgba(246, 250, 251, 0.97) 55%, rgba(246, 250, 251, 0.88) 100%),
-      url('/doctor-hero-IMG_2501.png');
-    background-position: center bottom;
-    background-size: cover;
-    padding: 50px 0 60px;
-    min-height: auto;
+    background-image: none !important;
+    background-color: #f6fafb !important;
+    padding: 24px 0 36px !important;
+    min-height: auto !important;
   }
   .mock-hero-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
   }
-  .mock-hero {
-    background-image: 
-      linear-gradient(180deg, rgba(246, 250, 251, 0.95) 0%, rgba(246, 250, 251, 0.9) 100%),
-      url('/doctor-hero-IMG_2501.png');
-    background-position: center right;
-    background-size: cover;
-    padding: 50px 0 50px;
-    min-height: auto;
+  .mock-hero-mobile-image {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+  .mock-hero-mobile-img {
+    width: 100% !important;
+    max-width: 270px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 12px 24px rgba(20, 108, 114, 0.14)) !important;
+    display: block !important;
   }
   .mock-hero-left {
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   .mock-why-card,
   .mock-approach-grid,
@@ -37826,7 +38067,6 @@ border-color: #146c72;
   .mock-video-grid,
   .mock-pubs-grid,
   .mock-awards-grid,
-  .mock-reviews-grid,
   .mock-hospitals-grid,
   .mock-locations-grid,
   .mock-brochures-grid {
@@ -37860,7 +38100,8 @@ border-color: #146c72;
 
   .mock-hero {
     padding: 24px 0 36px !important;
-    background-position: 65% bottom;
+    background-image: none !important;
+    background-color: #f6fafb !important;
   }
 
   .mock-hero-title {
@@ -38052,6 +38293,25 @@ border-color: #146c72;
     width: 100%;
     justify-content: center;
   }
+
+  .mock-consult-footer-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .mock-consult-footer-actions .mock-btn-primary,
+  .mock-consult-footer-actions .mock-btn-whatsapp {
+    width: 100% !important;
+    min-height: 50px !important;
+    padding: 13px 18px !important;
+    font-size: 0.94rem !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
 }
 
 /* ============================================================
@@ -38160,5 +38420,894 @@ header#site-header.is-scrolled {
     line-height: 1.3 !important;
   }
 }
+
+/* ============================================================
+   About Page Mobile Refinements (Phone View)
+   ============================================================ */
+
+/* Base rules for Experience Accordion & Treatment Slider */
+.about-experience-accordion-group {
+  width: 100%;
+  position: relative;
+}
+
+.about-experience-detail-inline {
+  display: none;
+}
+
+.about-treatment-mobile-slider {
+  display: none;
+}
+
+/* 2nd Section: Profile image box shifted to top on tablet/mobile */
+@media (max-width: 900px) {
+  .about-split-layout {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .about-profile-card {
+    order: 1 !important;
+    width: 100% !important;
+  }
+
+  .about-copy-block {
+    order: 2 !important;
+    width: 100% !important;
+  }
+
+  .about-stats-grid {
+    order: 3 !important;
+    width: 100% !important;
+  }
+}
+
+/* Phone-specific rules (<= 768px) */
+@media (max-width: 768px) {
+  /* 1. First Section: Center text inside "DR Harshil Shah" box */
+  .about-page .mock-hero-actions {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .about-page .mock-hero-actions .mock-btn-primary {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .about-page .mock-hero-actions .mock-btn-primary span {
+    text-align: center !important;
+    display: block;
+    width: 100%;
+  }
+
+  /* 2. First Section: Heading in one line / all at once ("ek baar me hi") */
+  .about-page .mock-hero-title {
+    font-size: clamp(16px, 5vw, 24px) !important;
+    line-height: 1.25 !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* 4. Experience Section: Inline content right below clicked option */
+  .about-experience-detail-desktop {
+    display: none !important;
+  }
+
+  .about-experience-detail-inline {
+    display: block !important;
+    min-height: auto;
+    margin: 8px 0 16px 20px;
+    padding: 16px 18px 18px 20px;
+    background: #ffffff;
+    border: 1px solid #d6e8e5;
+    border-left: 4px solid #0d7d82;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(19, 43, 51, 0.06);
+    animation: experience-detail-in 260ms ease both;
+  }
+
+  .about-experience-detail-inline .about-experience-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #0d7d82;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .about-experience-detail-inline .about-experience-detail-meta span + span {
+    color: #718b91;
+  }
+
+  .about-experience-detail-inline h3 {
+    font-size: 1.15rem !important;
+    margin: 0 0 10px !important;
+    line-height: 1.35 !important;
+    color: #0f172a !important;
+    font-weight: 750 !important;
+  }
+
+  .about-experience-detail-inline .about-experience-detail-rule {
+    width: 36px;
+    height: 2px;
+    margin-bottom: 12px;
+    background: #1b9ca2;
+  }
+
+  .about-experience-detail-inline .about-experience-copy p {
+    font-size: 0.88rem !important;
+    line-height: 1.65 !important;
+    color: #526d76 !important;
+    margin: 0 0 8px !important;
+  }
+
+  .about-experience-detail-inline .about-experience-copy p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* 5. Treatment Section: 1 image at a time mobile slideshow */
+  .about-treatment-grid {
+    display: none !important;
+  }
+
+  .about-treatment-mobile-slider {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .about-treatment-slider-stage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-treatment-slider-stage .about-treatment-card {
+    width: 100%;
+    max-width: 440px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(13, 45, 58, 0.16);
+    border: 2px solid transparent;
+    animation: treatmentSlideFade 0.28s ease;
+  }
+
+  @keyframes treatmentSlideFade {
+    from {
+      opacity: 0.65;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .about-treatment-slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 18px;
+  }
+
+  .about-treatment-slider-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1.5px solid #146c72;
+    background: #ffffff;
+    color: #146c72;
+    font-size: 1.35rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(20, 108, 114, 0.12);
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .about-treatment-slider-btn:active {
+    background: #146c72;
+    color: #ffffff;
+    transform: scale(0.92);
+  }
+
+  .about-treatment-slider-indicator {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f2b30;
+    min-width: 50px;
+    text-align: center;
+  }
+
+  .about-treatment-slider-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .about-treatment-slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #cbd5e1;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .about-treatment-slider-dot.active {
+    width: 24px;
+    background: #146c72;
+  }
+}
+
+/* ============================================================
+   Treatments Page: Mobile Hero Banner & FAQ Alignment
+   ============================================================ */
+
+/* 1. FAQ Index Number & Plus Icon Centering and Alignment */
+.treatments-page .treatment-faq-card {
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  margin-bottom: 12px !important;
+  overflow: hidden !important;
+  transition: all 0.2s ease !important;
+}
+
+.treatments-page .treatment-faq-trigger {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  padding: 16px 20px !important;
+  background: transparent !important;
+  border: none !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+}
+
+.treatments-page .treatment-faq-num {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 10px !important;
+  background: #e2f2f1 !important;
+  color: #146c72 !important;
+  font-size: 13.5px !important;
+  font-weight: 750 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: all 0.25s ease !important;
+}
+
+.treatments-page .treatment-faq-card.is-open .treatment-faq-num {
+  background: #146c72 !important;
+  color: #ffffff !important;
+}
+
+.treatments-page .treatment-faq-q {
+  flex: 1 !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+}
+
+.treatments-page .treatment-faq-card.is-open .treatment-faq-q {
+  color: #146c72 !important;
+}
+
+.treatments-page .treatment-faq-icon-wrap {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 10px !important;
+  background: #f0f7fc !important;
+  color: #146c72 !important;
+  border: 1px solid rgba(20, 108, 114, 0.16) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: all 0.25s ease !important;
+}
+
+.treatments-page .treatment-faq-card.is-open .treatment-faq-icon-wrap {
+  background: #146c72 !important;
+  color: #ffffff !important;
+  border-color: #146c72 !important;
+}
+
+.treatments-page .treatment-faq-icon-wrap svg,
+.treatments-page .faq-toggle-svg {
+  display: block !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin: 0 auto !important;
+  stroke: currentColor !important;
+  flex-shrink: 0 !important;
+}
+
+.treatments-page .treatment-faq-body {
+  padding: 0 20px 20px 72px !important;
+}
+
+/* 2. Mobile Treatment Hero: Image Banner on Top, Text Below (No Overlap) */
+@media (max-width: 768px) {
+  .treatments-page .treatment-hero {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    min-height: auto !important;
+    padding: 0 0 32px 0 !important;
+    background-color: #f1f8fc !important;
+    position: relative !important;
+  }
+
+  .treatments-page .treatment-hero-bg-container {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 220px !important;
+    max-height: 240px !important;
+    overflow: hidden !important;
+    margin-bottom: 22px !important;
+    display: block !important;
+    border-bottom: 1px solid rgba(20, 108, 114, 0.12) !important;
+  }
+
+  .treatments-page .treatment-hero-bg-img {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  .treatments-page .treatment-hero-scrim {
+    display: none !important;
+  }
+
+  .treatments-page .treatment-hero-inner {
+    position: relative !important;
+    width: 100% !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .treatments-page .treatment-hero-copy {
+    max-width: 100% !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  .treatments-page .treatment-hero-copy h1 {
+    font-size: clamp(22px, 5.5vw, 28px) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .treatments-page .treatment-hero-copy p {
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* FAQ on mobile */
+  .treatments-page .treatment-faq-trigger {
+    padding: 14px 14px !important;
+    gap: 12px !important;
+  }
+
+  .treatments-page .treatment-faq-num {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    font-size: 13px !important;
+    border-radius: 9px !important;
+  }
+
+  .treatments-page .treatment-faq-icon-wrap {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    border-radius: 9px !important;
+  }
+
+  .treatments-page .treatment-faq-q {
+    font-size: 14.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  .treatments-page .treatment-faq-body {
+    padding: 0 14px 16px 14px !important;
+  }
+}
+
+/* ============================================================
+   FAQ Page: Card Redesign Matching Image 2
+   ============================================================ */
+
+.faq-page .faq-content-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.faq-page .faq-topic-card-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 4px 16px 4px !important;
+  border-bottom: none !important;
+  margin-bottom: 6px !important;
+}
+
+.faq-page .faq-topic-card-title {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+}
+
+.faq-page .faq-topic-card-count {
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+}
+
+.faq-page .faq-group-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.faq-page .faq-item {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+  overflow: hidden !important;
+  transition: all 0.2s ease !important;
+}
+
+.faq-page .faq-item:first-child {
+  border-top: 1px solid #e2e8f0 !important;
+  padding-top: 0 !important;
+}
+
+.faq-page .faq-item:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05) !important;
+}
+
+.faq-page .faq-item-trigger {
+  width: 100% !important;
+  min-height: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  padding: 14px 18px !important;
+  background: transparent !important;
+  border: none !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+}
+
+.faq-page .faq-item-num {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 10px !important;
+  background: #e2f2f1 !important;
+  color: #146c72 !important;
+  font-size: 13.5px !important;
+  font-weight: 750 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: all 0.25s ease !important;
+}
+
+.faq-page .faq-item--open .faq-item-num {
+  background: #146c72 !important;
+  color: #ffffff !important;
+}
+
+.faq-page .faq-item-question {
+  flex: 1 !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 15.5px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: color 0.2s ease !important;
+}
+
+.faq-page .faq-item--open .faq-item-question {
+  color: #146c72 !important;
+}
+
+.faq-page .faq-item-icon-wrap {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 10px !important;
+  background: #f0f7fc !important;
+  color: #146c72 !important;
+  border: 1px solid rgba(20, 108, 114, 0.16) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: all 0.25s ease !important;
+}
+
+.faq-page .faq-item--open .faq-item-icon-wrap {
+  background: #146c72 !important;
+  color: #ffffff !important;
+  border-color: #146c72 !important;
+}
+
+.faq-page .faq-item-icon-wrap svg,
+.faq-page .faq-toggle-svg {
+  display: block !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin: 0 auto !important;
+  stroke: currentColor !important;
+  flex-shrink: 0 !important;
+}
+
+.faq-page .faq-item-answer {
+  padding: 0 20px 18px 70px !important;
+  max-width: 100% !important;
+}
+
+.faq-page .faq-answer-points {
+  display: grid !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  padding-left: 18px !important;
+  color: #475569 !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+}
+
+.faq-page .faq-answer-points li::marker {
+  color: #146c72 !important;
+}
+
+@media (max-width: 768px) {
+  .faq-page .faq-item-trigger {
+    padding: 12px 14px !important;
+    gap: 12px !important;
+  }
+
+  .faq-page .faq-item-num {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    font-size: 13px !important;
+    border-radius: 9px !important;
+  }
+
+  .faq-page .faq-item-icon-wrap {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    border-radius: 9px !important;
+  }
+
+  .faq-page .faq-item-question {
+    font-size: 14.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  .faq-page .faq-item-answer {
+    padding: 0 14px 14px 14px !important;
+  }
+}
+
+/* ==========================================================================
+   APPOINTMENT PAGE: PHONE & MOBILE ALIGNMENTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Hero Section Alignment */
+  .contact-hero-redesign {
+    padding: 10px 0 20px !important;
+  }
+
+  .contact-hero-shell {
+    padding: 0 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+
+  .contact-hero-title {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .contact-hero-desc {
+    font-size: 14.5px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .contact-hero-visual {
+    min-height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .contact-hero-doctor-img {
+    max-height: 320px !important;
+    max-width: 270px !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* 2. Direct Support Channels */
+  .contact-support-section {
+    padding: 28px 0 36px !important;
+  }
+
+  .contact-support-shell {
+    padding: 0 16px !important;
+  }
+
+  .contact-support-main-layout {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .contact-cards-grid-col {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .contact-method-card {
+    padding: 18px 16px !important;
+  }
+
+  /* 3. Booking Section */
+  .appt-booking-section {
+    padding: 28px 0 40px !important;
+  }
+
+  .appt-shell {
+    padding: 0 16px !important;
+  }
+
+  .appt-two-column-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .appt-card-surface {
+    padding: 20px 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .appt-header-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .appt-header-row .appt-card-title {
+    font-size: 1.25rem !important;
+  }
+
+  .appt-grid-row {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .appt-type-segment {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .appt-slots-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .appt-slot-btn {
+    padding: 9px 4px !important;
+    font-size: 11.5px !important;
+  }
+
+  .appt-submit-btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+    font-size: 0.95rem !important;
+  }
+
+  .appt-info-column {
+    gap: 16px !important;
+  }
+
+  .appt-doctor-card,
+  .appt-workflow-card,
+  .appt-direct-call-box {
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  /* 4. Prepare for Consultation */
+  .visit-section {
+    padding: 28px 0 36px !important;
+  }
+
+  .visit-container {
+    padding: 0 16px !important;
+  }
+
+  .cp-consult-layout {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .cp-consult-left {
+    padding-right: 0 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .visit-step-card {
+    padding: 18px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .visit-tip-bar {
+    padding: 16px 14px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  .visit-tip-joint-pills {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  .visit-joint-pill {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  /* 5. "Know the journey. Ask better questions." Box & 3D Images Cut-off Fix */
+  .contact-guide-banner {
+    padding: 20px 0 36px !important;
+  }
+
+  .contact-guide-card {
+    padding: 24px 16px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+
+  .contact-guide-grid {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+
+  .contact-3d-showcase {
+    width: 100% !important;
+    max-width: 290px !important;
+    height: 250px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: scale(0.62) !important;
+    transform-origin: center center !important;
+  }
+
+  .contact-guide-content {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0 !important;
+  }
+
+  .contact-guide-title {
+    font-size: clamp(22px, 5.5vw, 28px) !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
+  }
+
+  .contact-guide-lead {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+  }
+
+  .contact-guide-cta-btn {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-3d-showcase {
+    transform: scale(0.54) !important;
+    height: 220px !important;
+  }
+
+  .appt-slots-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+
+
+
 
 

@@ -372,9 +372,7 @@ export default function TreatmentsPage() {
                 <b>03</b> Guided rehabilitation
               </span>
             </div>
-            <Link className="button button-outline" to="/patient-guides">
-              View Patient Guides
-            </Link>
+
           </div>
         </div>
       </section>
@@ -449,9 +447,16 @@ export default function TreatmentsPage() {
                       </div>
                       <span className="treatment-faq-q">{faq.question}</span>
                       <div className="treatment-faq-icon-wrap" aria-hidden="true">
-                        <span className="faq-toggle-icon">
-                          {isOpen ? '−' : '+'}
-                        </span>
+                        {isOpen ? (
+                          <svg className="faq-toggle-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                          </svg>
+                        ) : (
+                          <svg className="faq-toggle-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                          </svg>
+                        )}
                       </div>
                     </button>
                     {isOpen && (

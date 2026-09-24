@@ -199,16 +199,6 @@ export default function Header() {
                   </div>
                   <span className="dropdown-dl-tag">PDF</span>
                 </a>
-                <div
-                  className="nav-dropdown-link dropdown-disabled"
-                  style={{ opacity: 0.6, cursor: 'default' }}
-                  aria-disabled="true"
-                >
-                  <div>
-                    <strong>Shoulder Arthroscopy Guide (Coming Soon)</strong>
-                  </div>
-                  <span className="dropdown-dl-tag" style={{ background: '#f1f5f9', color: '#94a3b8' }}>PDF</span>
-                </div>
               </div>
             </div>
             <NavLink
@@ -361,9 +351,6 @@ export default function Header() {
                 >
                   Knee Sports Injury Guide <span className="mobile-pdf-pill">PDF</span>
                 </a>
-                <div aria-disabled="true">
-                  Shoulder Arthroscopy Guide (Coming Soon) <span className="mobile-pdf-pill">PDF</span>
-                </div>
               </div>
             )}
           </div>

@@ -2,11 +2,100 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { faqData } from '../data/faqData';
 
+const reviewsData = [
+  {
+    id: 1,
+    name: "Rushabh Shah",
+    sub: "Knee Replacement (TKR) • Google Review",
+    text: "“Best surgeon for any orthopaedic treatment. He is very supportive and gives proper attention to every patient. I consulted him for my mother's right total knee replacement (TKR) surgery. Thanks to his excellent surgical skills, guidance, and post-op care, she recovered smoothly.”",
+  },
+  {
+    id: 2,
+    name: "Nilesh Patel",
+    sub: "Orthopaedic Surgery • Google Review",
+    text: "“Dr. Harshil shah ek behtareen orthopedic surgeon hain. Unhone meri surgery bahut safalta-purvak ki. Unka treatment aur nature dono hi bahut supportive hain.”",
+  },
+  {
+    id: 3,
+    name: "Himanshu K",
+    sub: "Local Guide • Google Review",
+    text: "“Best Orthopedic Surgeon at Lilavati Clinic Ahmedabad. Very knowledgeable and polite doctor. Gives sufficient time to understand problems and provides accurate diagnosis and treatment.”",
+  },
+  {
+    id: 4,
+    name: "Uma Santoki",
+    sub: "Patient Care • Google Review",
+    text: "“Best orthopaedic surgeon. Compassionate care, polite nature, and excellent expertise. Takes time to explain everything clearly and guides through recovery with patience. Thank you for your kind service.”",
+  },
+  {
+    id: 5,
+    name: "MAHENDRA PAREKH",
+    sub: "Google Verified Review",
+    text: "Dr Harshil shah is very nice doctor  to do operations and treatments also",
+  },
+  {
+    id: 6,
+    name: "Manish Agarwal",
+    sub: "Google Verified Review",
+    text: "Best doctor and best treatment Good facility happy",
+  },
+  {
+    id: 7,
+    name: "Parmar Sanjay",
+    sub: "Google Verified Review",
+    text: "Best doctor best treatment thank you sir my life changed",
+  },
+  {
+    id: 8,
+    name: "Bhavya Shah",
+    sub: "Google Verified Review",
+    text: "Best orthopaedic doctor in Ahmedabad",
+  },
+  {
+    id: 9,
+    name: "Nilesh Patel",
+    sub: "Google Verified Review",
+    text: "\"Dr. Harshil Shah is an excellent orthopedic surgeon. He performed my surgery very successfully. Both his treatment and nature are very supportive.",
+  },
+  {
+    id: 10,
+    name: "Vinod Kapadiya",
+    sub: "Google Verified Review",
+    text: "\"Very good work, Rdo. Harshil Shah has made me walk in just one month.. Many congratulations Rdo. Sir.. 🙏 …",
+  },
+];
+
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState(null);
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
 
   const toggleFaq = (idx) => {
     setOpenFaq((prev) => (prev === idx ? null : idx));
+  };
+
+  const prevReview = () => {
+    setCurrentReviewIndex((prev) => (prev === 0 ? reviewsData.length - 1 : prev - 1));
+  };
+
+  const nextReview = () => {
+    setCurrentReviewIndex((prev) => (prev === reviewsData.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    if (diff > 45) {
+      nextReview();
+    } else if (diff < -45) {
+      prevReview();
+    }
+    setTouchStartX(null);
   };
 
   // Top featured FAQs directly from faqData (same as FaqPage)
@@ -19,11 +108,26 @@ export default function HomePage() {
     <div className="mock-home">
 
       {/* =========================================================================
-          1. HERO BANNER (With doctor background image)
+          1. HERO BANNER (With doctor background image on desktop & top image on mobile)
           ========================================================================= */}
       <section className="mock-hero" aria-label="Hero Banner">
         <div className="mock-shell">
           <div className="mock-hero-inner">
+            {/* Mobile Hero Image (Top on Phone) */}
+            <div className="mock-hero-mobile-image">
+              <picture>
+                <source srcSet="/doctor-hero-mobile.webp" type="image/webp" />
+                <img
+                  src="/doctor-hero-mobile.png"
+                  alt="Dr. Harshil Shah - Expert Orthopaedic Surgeon"
+                  className="mock-hero-mobile-img"
+                  width="865"
+                  height="901"
+                  loading="eager"
+                />
+              </picture>
+            </div>
+
             <div className="mock-hero-left">
 
               <h1 className="mock-hero-title">
@@ -113,7 +217,7 @@ export default function HomePage() {
 
             {/* Card 4: Spine Conditions */}
             <Link to="/treatments#spine" className="mock-condition-card">
-              <div className="mock-condition-icon">
+              <div className="mock-condition-icon"> 
                 <img
                   src="/icons/spine-disorders.webp"
                   alt="Spine Conditions"
@@ -381,13 +485,41 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div className="mock-reviews-grid">
-            {/* Review 1 (Knee Replacement - Rushabh Shah) */}
-            <div className="mock-review-card">
+          {/* Desktop Single-Line Infinite Marquee (Auto-moves left to right, pauses on hover) */}
+          <div className="mock-reviews-marquee-wrapper">
+            <div className="mock-reviews-marquee-track">
+              {[...reviewsData, ...reviewsData].map((review, idx) => (
+                <div className="mock-review-card" key={`marquee-${review.id}-${idx}`}>
+                  <span className="mock-review-quote">&ldquo;</span>
+                  <p className="mock-review-text">{review.text}</p>
+                  <div className="mock-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <div className="mock-review-author">
+                    <div className="mock-review-avatar">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <strong className="mock-review-name">{review.name}</strong>
+                      <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d', marginTop: '2px' }}>
+                        {review.sub}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Single Review Slideshow (1 card at a time with forward/backward controls & swipe) */}
+          <div
+            className="mock-reviews-mobile-slider"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className="mock-review-card mock-review-card-active" key={`slide-${currentReviewIndex}`}>
               <span className="mock-review-quote">&ldquo;</span>
-              <p className="mock-review-text">
-                &ldquo;Best surgeon for any orthopaedic treatment. He is very supportive and gives proper attention to every patient. I consulted him for my mother&apos;s right total knee replacement (TKR) surgery. Thanks to his excellent surgical skills, guidance, and post-op care, she recovered smoothly.&rdquo;
-              </p>
+              <p className="mock-review-text">{reviewsData[currentReviewIndex].text}</p>
               <div className="mock-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <div className="mock-review-author">
                 <div className="mock-review-avatar">
@@ -396,70 +528,47 @@ export default function HomePage() {
                   </svg>
                 </div>
                 <div>
-                  <strong className="mock-review-name">Rushabh Shah</strong>
-                  <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d' }}>Knee Replacement (TKR) &bull; Google Review</span>
+                  <strong className="mock-review-name">{reviewsData[currentReviewIndex].name}</strong>
+                  <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d', marginTop: '2px' }}>
+                    {reviewsData[currentReviewIndex].sub}
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Review 2 (Orthopaedic Surgery - Nilesh Patel) */}
-            <div className="mock-review-card">
-              <span className="mock-review-quote">&ldquo;</span>
-              <p className="mock-review-text">
-                &ldquo;Dr. Harshil shah ek behtareen orthopedic surgeon hain. Unhone meri surgery bahut safalta-purvak ki. Unka treatment aur nature dono hi bahut supportive hain.&rdquo;
-              </p>
-              <div className="mock-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <div className="mock-review-author">
-                <div className="mock-review-avatar">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                </div>
-                <div>
-                  <strong className="mock-review-name">Nilesh Patel</strong>
-                  <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d' }}>Orthopaedic Surgery &bull; Google Review</span>
-                </div>
+            {/* Slider Controls */}
+            <div className="mock-reviews-slider-controls">
+              <button
+                type="button"
+                className="mock-slider-btn prev"
+                onClick={prevReview}
+                aria-label="Previous Review"
+              >
+                &#8592;
+              </button>
+              <div className="mock-slider-indicator">
+                <span>{currentReviewIndex + 1}</span> / <span>{reviewsData.length}</span>
               </div>
+              <button
+                type="button"
+                className="mock-slider-btn next"
+                onClick={nextReview}
+                aria-label="Next Review"
+              >
+                &#8594;
+              </button>
             </div>
 
-            {/* Review 3 (Consultation & Care - Himanshu K) */}
-            <div className="mock-review-card">
-              <span className="mock-review-quote">&ldquo;</span>
-              <p className="mock-review-text">
-                &ldquo;Best Orthopedic Surgeon at Lilavati Clinic Ahmedabad. Very knowledgeable and polite doctor. Gives sufficient time to understand problems and provides accurate diagnosis and treatment.&rdquo;
-              </p>
-              <div className="mock-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <div className="mock-review-author">
-                <div className="mock-review-avatar">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                </div>
-                <div>
-                  <strong className="mock-review-name">Himanshu K</strong>
-                  <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d' }}>Local Guide &bull; Google Review</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Review 4 (Patient Care & Recovery - Uma Santoki) */}
-            <div className="mock-review-card">
-              <span className="mock-review-quote">&ldquo;</span>
-              <p className="mock-review-text">
-                &ldquo;Best orthopaedic surgeon. Compassionate care, polite nature, and excellent expertise. Takes time to explain everything clearly and guides through recovery with patience. Thank you for your kind service.&rdquo;
-              </p>
-              <div className="mock-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <div className="mock-review-author">
-                <div className="mock-review-avatar">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                </div>
-                <div>
-                  <strong className="mock-review-name">Uma Santoki</strong>
-                  <span style={{ display: 'block', fontSize: '0.75rem', color: '#68858d' }}>Patient Care &bull; Google Review</span>
-                </div>
-              </div>
+            <div className="mock-slider-dots">
+              {reviewsData.map((_, dotIdx) => (
+                <button
+                  key={`dot-${dotIdx}`}
+                  type="button"
+                  className={`mock-slider-dot ${dotIdx === currentReviewIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentReviewIndex(dotIdx)}
+                  aria-label={`Go to review ${dotIdx + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -477,9 +586,6 @@ export default function HomePage() {
               <p>
                 I believe informed patients make confident decisions. These simple guides explain common orthopaedic problems, treatment choices, and what recovery can look like.
               </p>
-              <Link to="/brochures" className="mock-btn-primary">
-                <span>Explore All Patient Guides &rarr;</span>
-              </Link>
             </div>
 
             <div className="mock-brochures-grid">
@@ -740,7 +846,7 @@ export default function HomePage() {
                   rel="noreferrer"
                   className="mock-btn-whatsapp"
                 >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style={{ flexShrink: 0 }}>
                     <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.02c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.14.11-3.66-.93-3.23-1.33-5.32-4.6-5.48-4.82-.16-.22-1.32-1.75-1.32-3.34 0-1.59.83-2.37 1.12-2.7.29-.33.64-.41.85-.41.21 0 .43 0 .61.01.2.01.47-.08.73.55.27.64.91 2.22.99 2.38.08.16.14.36.03.58-.11.22-.16.36-.33.55-.16.2-.35.44-.5.59-.16.16-.33.33-.14.66.19.33.84 1.38 1.8 2.24 1.24 1.1 2.28 1.44 2.61 1.6.33.16.52.14.72-.09.2-.23.83-.97 1.05-1.3.22-.33.44-.28.74-.16.3.11 1.93.91 2.26 1.07.33.16.55.25.63.38.08.14.08.8-.16 1.48z" />
                   </svg>
                   <span>Chat on WhatsApp (+91 78749 04030)</span>

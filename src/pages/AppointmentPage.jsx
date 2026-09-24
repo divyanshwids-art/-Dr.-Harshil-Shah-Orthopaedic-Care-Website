@@ -1198,62 +1198,6 @@ export default function AppointmentPage() {
           </div>
         </div>
       </section>
-
-      {/* 5. Educational Guide Banner (Executive 3D Visual Section) */}
-      <section className="contact-guide-banner">
-        <div className="shell">
-          <div className="contact-guide-card">
-            <div className="contact-guide-grid">
-              {/* Left: 3D Joint Anatomy Models Orbiting along Circular Track */}
-              <div className="contact-3d-showcase" aria-hidden="true">
-                <div className="contact-3d-ambient-glow" />
-                <div className="contact-3d-orbit orbit-primary" />
-                <div className="contact-3d-orbit orbit-secondary" />
-
-                {/* Revolving Orbit Track */}
-                <div className="contact-orbit-track">
-                  {/* Joint 1: Hip */}
-                  <div className="contact-orbit-slot slot-hip">
-                    <div className="contact-orbit-counter">
-                      <img src="/hip-3d.webp" alt="3D Hip Anatomy" className="contact-3d-img" />
-                      <span className="contact-3d-label">Hip Preservation</span>
-                    </div>
-                  </div>
-
-                  {/* Joint 2: Knee */}
-                  <div className="contact-orbit-slot slot-knee">
-                    <div className="contact-orbit-counter">
-                      <img src="/knee-3d.webp" alt="3D Knee Anatomy" className="contact-3d-img" />
-                      <span className="contact-3d-label">Knee Care</span>
-                    </div>
-                  </div>
-
-                  {/* Joint 3: Shoulder */}
-                  <div className="contact-orbit-slot slot-shoulder">
-                    <div className="contact-orbit-counter">
-                      <img src="/shoulder-3d.webp" alt="3D Shoulder Anatomy" className="contact-3d-img" />
-                      <span className="contact-3d-label">Shoulder Mobility</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right: High-Contrast Illuminated Guidance Text */}
-              <div className="contact-guide-content">
-                <h2 className="contact-guide-title">
-                  Know the journey. <span className="contact-guide-accent">Ask better questions.</span>
-                </h2>
-                <p className="contact-guide-lead">
-                  Review my specialized ERAS (Enhanced Recovery After Surgery) pathway before your consultation so you can make confident, informed decisions about your joint recovery.
-                </p>
-                <Link className="contact-guide-cta-btn" to="/patient-guides#eras">
-                  <span>Explore ERAS Guidance</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

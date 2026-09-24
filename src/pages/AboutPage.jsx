@@ -179,6 +179,94 @@ function CampSlideshow({ photos, onPhotoClick }) {
   );
 }
 
+function TreatmentMobileSlideshow({ items }) {
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+
+  const prevSlide = () => {
+    setCurrentIdx((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIdx((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchEndX(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX === null || touchEndX === null) return;
+    const distance = touchStartX - touchEndX;
+    if (distance > 45) {
+      nextSlide();
+    } else if (distance < -45) {
+      prevSlide();
+    }
+  };
+
+  return (
+    <div
+      className="about-treatment-mobile-slider"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div className="about-treatment-slider-stage">
+        <div className="about-treatment-card about-treatment-slide-active" key={`treatment-slide-${currentIdx}`}>
+          <img
+            src={items[currentIdx].image}
+            alt={items[currentIdx].title}
+            className="about-treatment-card-img"
+          />
+        </div>
+      </div>
+
+      <div className="about-treatment-slider-controls">
+        <button
+          type="button"
+          className="about-treatment-slider-btn prev"
+          onClick={prevSlide}
+          aria-label="Previous treatment"
+        >
+          ‹
+        </button>
+
+        <span className="about-treatment-slider-indicator">
+          {currentIdx + 1} / {items.length}
+        </span>
+
+        <button
+          type="button"
+          className="about-treatment-slider-btn next"
+          onClick={nextSlide}
+          aria-label="Next treatment"
+        >
+          ›
+        </button>
+      </div>
+
+      <div className="about-treatment-slider-dots">
+        {items.map((item, idx) => (
+          <button
+            key={item.title}
+            type="button"
+            className={`about-treatment-slider-dot ${idx === currentIdx ? 'active' : ''}`}
+            onClick={() => setCurrentIdx(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   const [selectedExperience, setSelectedExperience] = useState(0);
   const [activeCampPhoto, setActiveCampPhoto] = useState(null);
@@ -199,7 +287,7 @@ export default function AboutPage() {
               </p>
               <div className="mock-hero-actions">
                 <Link to="" className="mock-btn-primary">
-                  <span>DR Harshil Shah</span>
+                  <span>Dr Harshil Shah</span>
                 </Link>
 
               </div>
@@ -210,6 +298,16 @@ export default function AboutPage() {
 
       <section className="about-content-section">
         <div className="shell about-split-layout">
+          <div className="about-profile-card">
+            <img src="/profile2.webp" alt="Dr. Harshil Shah profile" />
+            <div className="about-profile-body">
+              <h3>Dr. Harshil Shah</h3>
+              <p className="about-role">M.S. (Ortho) · Consultant Orthopaedic Surgeon</p>
+              <ul>
+              </ul>
+            </div>
+          </div>
+
           <div className="about-copy-block">
             <h2>Orthopaedic Care Focused on Your Recovery</h2>
             <p>
@@ -224,16 +322,6 @@ export default function AboutPage() {
               ))}
             </div>
 
-          </div>
-
-          <div className="about-profile-card">
-            <img src="/profile2.webp" alt="Dr. Harshil Shah profile" />
-            <div className="about-profile-body">
-              <h3>Dr. Harshil Shah</h3>
-              <p className="about-role">M.S. (Ortho) · Consultant Orthopaedic Surgeon</p>
-              <ul>
-              </ul>
-            </div>
           </div>
 
           <div className="about-stats-grid" aria-label="Surgical experience">
@@ -254,34 +342,51 @@ export default function AboutPage() {
 
           <div className="about-experience-timeline">
             <nav className="about-experience-nav" aria-label="Experience and training">
-              {experienceItems.map((item, index) => (
-                <button
-                  key={item.title}
-                  type="button"
-                  className={`about-experience-selector${selectedExperience === index ? ' is-active' : ''}`}
-                  onMouseEnter={() => setSelectedExperience(index)}
-                  onFocus={() => setSelectedExperience(index)}
-                  onClick={() => setSelectedExperience(index)}
-                  aria-pressed={selectedExperience === index}
-                >
-                  <span className="about-experience-selector-index">{String(index + 1).padStart(2, '0')}</span>
-                  <span className="about-experience-selector-title">{item.title}</span>
-                  <span className="about-experience-selector-location">{item.location}</span>
-                </button>
-              ))}
+              {experienceItems.map((item, index) => {
+                const isSelected = selectedExperience === index;
+                return (
+                  <div key={item.title} className={`about-experience-accordion-group${isSelected ? ' is-active' : ''}`}>
+                    <button
+                      type="button"
+                      className={`about-experience-selector${isSelected ? ' is-active' : ''}`}
+                      onMouseEnter={() => setSelectedExperience(index)}
+                      onFocus={() => setSelectedExperience(index)}
+                      onClick={() => setSelectedExperience(isSelected ? -1 : index)}
+                      aria-pressed={isSelected}
+                      aria-expanded={isSelected}
+                    >
+                      <span className="about-experience-selector-index">{String(index + 1).padStart(2, '0')}</span>
+                      <span className="about-experience-selector-title">{item.title}</span>
+                      <span className="about-experience-selector-location">{item.location}</span>
+                    </button>
+
+                    {/* Mobile Inline Content: opens directly beneath the clicked option on phones */}
+                    {isSelected && (
+                      <article className="about-experience-detail about-experience-detail-inline">
+                        <div className="about-experience-copy">
+                          {item.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                        </div>
+                      </article>
+                    )}
+                  </div>
+                );
+              })}
             </nav>
 
-            <article className="about-experience-detail" key={activeExperience.title}>
-              <div className="about-experience-detail-meta">
-                <span>{activeExperience.type}</span>
-                <span>{activeExperience.location}</span>
-              </div>
-              <h3>{activeExperience.title}</h3>
-              <div className="about-experience-detail-rule" aria-hidden="true" />
-              <div className="about-experience-copy">
-                {activeExperience.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              </div>
-            </article>
+            {/* Desktop Detail Card: Remains on the right side on desktop screens */}
+            {activeExperience && (
+              <article className="about-experience-detail about-experience-detail-desktop" key={activeExperience.title}>
+                <div className="about-experience-detail-meta">
+                  <span>{activeExperience.type}</span>
+                  <span>{activeExperience.location}</span>
+                </div>
+                <h3>{activeExperience.title}</h3>
+                <div className="about-experience-detail-rule" aria-hidden="true" />
+                <div className="about-experience-copy">
+                  {activeExperience.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                </div>
+              </article>
+            )}
           </div>
         </div>
       </section>
@@ -331,6 +436,9 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
+          {/* Mobile Slideshow: 1 image at a time */}
+          <TreatmentMobileSlideshow items={treatmentItems} />
         </div>
       </section>
 

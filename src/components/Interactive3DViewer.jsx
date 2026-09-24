@@ -1310,23 +1310,6 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
         )}
       </div>
 
-      {/* Bottom Anatomical Hotspots Ribbon */}
-      <div className="viewer-hotspots-ribbon">
-        <span className="ribbon-label">Key Anatomy:</span>
-        <div className="ribbon-items">
-          {currentHotspots.map((spot) => (
-            <button
-              key={spot.id}
-              type="button"
-              className={`ribbon-spot-btn ${activeHotspot?.id === spot.id ? 'spot-active' : ''}`}
-              onClick={() => handleSelectHotspot(spot)}
-            >
-              <span className="spot-num">{spot.num}</span>
-              <span className="spot-text">{spot.name}</span>
-            </button>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
