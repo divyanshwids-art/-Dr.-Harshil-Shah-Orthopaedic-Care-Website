@@ -1138,7 +1138,7 @@ export default function Interactive3DViewer({ initialJoint = 'knee', onSelectTre
             borderRadius: '16px'
           }}>
             <img
-              src={`/${selectedJoint}-3d.webp`}
+              src={`${import.meta.env.BASE_URL}${selectedJoint}-3d.webp`}
               alt={`${selectedJoint} Anatomy`}
               style={{ maxHeight: '240px', objectFit: 'contain', marginBottom: '16px', filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.3))' }}
             />

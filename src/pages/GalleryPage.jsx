@@ -65,7 +65,7 @@ export default function GalleryPage() {
     });
   };
 
-  const DOCTOR_IMG_BASE = '/galleri/docter img/';
+  const DOCTOR_IMG_BASE = `${import.meta.env.BASE_URL}galleri/docter img/`;
 
   const galleryItems = [
     {

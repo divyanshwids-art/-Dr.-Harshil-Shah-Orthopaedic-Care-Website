@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
-const VIDEO_BASE = '/galleri/opreation/';
+const VIDEO_BASE = `${import.meta.env.BASE_URL}galleri/opreation/`;
 
 export const surgicalVideos = [
   {

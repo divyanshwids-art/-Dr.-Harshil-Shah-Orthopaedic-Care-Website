@@ -109,7 +109,7 @@ export default function TreatmentsPage() {
                 color: '#e2e8f0'
               }}>
                 <img
-                  src={`/${activeJointTab === 'more' ? 'knee' : activeJointTab}-3d.webp`}
+                  src={`${import.meta.env.BASE_URL}${activeJointTab === 'more' ? 'knee' : activeJointTab}-3d.webp`}
                   alt="Joint Anatomy"
                   style={{ maxHeight: '220px', objectFit: 'contain', margin: '0 auto 16px' }}
                 />

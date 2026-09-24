@@ -49,7 +49,7 @@ const PATIENT_BROCHURES = [
     id: 'knee-sports-injury',
     number: '03',
     title: 'Knee Sports Injury & Arthroscopy',
-    image: '/sports-injuries-card.jpg',
+    image: '/sports-injuries-card.png',
     subtitle: 'ACL, Meniscus & Ligament Preservation',
     fileUrl: '/galleri/brochure/03_Understanding_Sports_Injuries_Arthroscopy_Guide_Dr_Harshil_Shah.pdf',
     fileName: '03_Understanding_Sports_Injuries_Arthroscopy_Guide_Dr_Harshil_Shah.pdf',
