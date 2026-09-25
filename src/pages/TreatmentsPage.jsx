@@ -218,9 +218,6 @@ export default function TreatmentsPage() {
                 </div>
               </div>
               <div className="treatment-action-group" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-                <Link className="button button-outline" to="/appointment">
-                  Discuss Your Symptoms
-                </Link>
                 <a
                   href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf"
                   target="_blank"
@@ -276,9 +273,7 @@ export default function TreatmentsPage() {
                 </div>
               </div>
               <div className="treatment-action-group" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-                <Link className="button button-outline" to="/appointment">
-                  Discuss Your Symptoms
-                </Link>
+
                 <a
                   href="/galleri/brochure/02_Understanding_Hip_Replacement_Guide_Dr_Harshil_Shah.pdf"
                   target="_blank"
@@ -333,18 +328,7 @@ export default function TreatmentsPage() {
                   <strong>Acromioplasty &amp; subacromial decompression</strong>
                 </div>
               </div>
-              <div className="treatment-action-group" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-                <Link className="button button-outline" to="/appointment">
-                  Discuss Your Symptoms
-                </Link>
-                <span
-                  aria-disabled="true"
-                  className="treatment-brochure-quicklink"
-                  title="Shoulder Arthroscopy Patient Guide (PDF)"
-                >
-                  <span>Shoulder Guide (PDF)</span>
-                </span>
-              </div>
+
             </div>
           </div>
         </section>

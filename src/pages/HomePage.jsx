@@ -327,7 +327,7 @@ export default function HomePage() {
                 </li>
               </ul>
 
-              <Link to="/about#approach" className="mock-btn-primary">
+              <Link to="/treatments" className="mock-btn-primary">
                 <span>Learn More</span>
                 <span className="mock-btn-primary-arrow">&rarr;</span>
               </Link>
@@ -792,35 +792,6 @@ export default function HomePage() {
       </section>
 
 
-      {/* =========================================================================
-          14. ROBOTIC SURGERY (ADVANCED SURGICAL TECHNOLOGY)
-          ========================================================================= */}
-      <section className="mock-robotic-section" id="robotic" aria-label="Robotic Surgery">
-        <div className="mock-shell">
-          <div className="mock-feature-duo">
-            <div className="mock-feature-duo-visual">
-              <img
-                src="/galleri/opreation/thumbnails/IMG_3715.webp"
-                alt="Robotic-Assisted Orthopaedic Procedure"
-                className="mock-feature-duo-img"
-              />
-            </div>
-            <div className="mock-feature-duo-content">
-              <h2 className="mock-title">Robotic-Assisted Precision Surgery</h2>
-              <p>
-                With modern robotic-assisted technology, I can perform joint replacements with sub-millimeter precision. 
-              </p>
-              <div style={{ marginTop: '20px' }}>
-                <Link to="/treatments" className="mock-btn-primary">
-                  <span>Learn More</span>
-                  <span className="mock-btn-primary-arrow">&rarr;</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
 
       {/* =========================================================================
           15. ONLINE CONSULTATION
@@ -849,7 +820,7 @@ export default function HomePage() {
                   <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style={{ flexShrink: 0 }}>
                     <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.02c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.14.11-3.66-.93-3.23-1.33-5.32-4.6-5.48-4.82-.16-.22-1.32-1.75-1.32-3.34 0-1.59.83-2.37 1.12-2.7.29-.33.64-.41.85-.41.21 0 .43 0 .61.01.2.01.47-.08.73.55.27.64.91 2.22.99 2.38.08.16.14.36.03.58-.11.22-.16.36-.33.55-.16.2-.35.44-.5.59-.16.16-.33.33-.14.66.19.33.84 1.38 1.8 2.24 1.24 1.1 2.28 1.44 2.61 1.6.33.16.52.14.72-.09.2-.23.83-.97 1.05-1.3.22-.33.44-.28.74-.16.3.11 1.93.91 2.26 1.07.33.16.55.25.63.38.08.14.08.8-.16 1.48z" />
                   </svg>
-                  <span>Chat on WhatsApp (+91 78749 04030)</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </div>

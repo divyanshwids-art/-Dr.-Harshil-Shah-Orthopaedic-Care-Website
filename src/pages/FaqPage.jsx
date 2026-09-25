@@ -4,6 +4,7 @@ import { faqData, FAQ_CATEGORIES } from '../data/faqData';
 
 // ─── CATEGORIES ───────────────────────────────────────────────────────────────
 const CATEGORY_TABS = [
+  'All Questions',
   'Appointments',
   'First Consultation',
   'Conditions & Treatments',
@@ -13,7 +14,6 @@ const CATEGORY_TABS = [
   'Reports & Scans',
   'Follow-up Care',
   'General',
-  'All Questions',
 ];
 
 // ─── FAQ ITEM (Accordion with open state) ────────────────────────────────────
@@ -63,7 +63,7 @@ function FaqItem({ item, index }) {
 
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 export default function FaqPage() {
-  const [selectedCategory, setSelectedCategory] = useState('Appointments');
+  const [selectedCategory, setSelectedCategory] = useState('All Questions');
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const topicsBarRef = useRef(null);
@@ -162,17 +162,7 @@ export default function FaqPage() {
             </div>
 
             {/* Right — visual */}
-            <div className="faq-hero-right" aria-hidden="true">
-              <div className="faq-hero-visual">
-                <div className="faq-hero-orbit faq-hero-orbit-1" />
-                <div className="faq-hero-orbit faq-hero-orbit-2" />
-                <div className="faq-hero-art-wrap">
-                  <img src="/knee-3d.webp" alt="" className="faq-hero-joint faq-hero-joint-primary" />
-                  <img src="/shoulder-3d.webp" alt="" className="faq-hero-joint faq-hero-joint-secondary" />
-                  <img src="/hip-3d.webp" alt="" className="faq-hero-joint faq-hero-joint-tertiary" />
-                </div>
-              </div>
-            </div>
+
           </div>
         </section>
 
@@ -294,7 +284,7 @@ export default function FaqPage() {
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style={{ flexShrink: 0 }}>
                       <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.02c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.14.11-3.66-.93-3.23-1.33-5.32-4.6-5.48-4.82-.16-.22-1.32-1.75-1.32-3.34 0-1.59.83-2.37 1.12-2.7.29-.33.64-.41.85-.41.21 0 .43 0 .61.01.2.01.47-.08.73.55.27.64.91 2.22.99 2.38.08.16.14.36.03.58-.11.22-.16.36-.33.55-.16.2-.35.44-.5.59-.16.16-.33.33-.14.66.19.33.84 1.38 1.8 2.24 1.24 1.1 2.28 1.44 2.61 1.6.33.16.52.14.72-.09.2-.23.83-.97 1.05-1.3.22-.33.44-.28.74-.16.3.11 1.93.91 2.26 1.07.33.16.55.25.63.38.08.14.08.8-.16 1.48z" />
                     </svg>
-                    <span>WhatsApp the Clinic</span>
+                    <span>Chat on WhatsApp</span>
                   </a>
                 </div>
 

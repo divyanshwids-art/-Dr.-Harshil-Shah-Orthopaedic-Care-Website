@@ -73,8 +73,8 @@ const aboutFocusItems = [
 
 const aboutStats = [
   { label: 'Trauma Surgeries', value: '3000+' },
-  { label: 'Joint Replacements', value: '500+' },
-  { label: 'Arthroscopy Surgeries', value: '250+' }
+  { label: 'Joint Replacements', value: '200+' },
+  { label: 'Arthroscopy Surgeries', value: '5000+' }
 ];
 
 const campItems = [
@@ -285,12 +285,7 @@ export default function AboutPage() {
               <p className="mock-hero-desc">
                 Because recovery isn’t just about reducing pain. It’s about getting back to what you love.
               </p>
-              <div className="mock-hero-actions">
-                <Link to="" className="mock-btn-primary">
-                  <span>Dr Harshil Shah</span>
-                </Link>
 
-              </div>
             </div>
           </div>
         </div>
@@ -376,11 +371,9 @@ export default function AboutPage() {
             {/* Desktop Detail Card: Remains on the right side on desktop screens */}
             {activeExperience && (
               <article className="about-experience-detail about-experience-detail-desktop" key={activeExperience.title}>
-                <div className="about-experience-detail-meta">
+                <div className="about-experience-detail-meta" style={{ marginBottom: '14px' }}>
                   <span>{activeExperience.type}</span>
-                  <span>{activeExperience.location}</span>
                 </div>
-                <h3>{activeExperience.title}</h3>
                 <div className="about-experience-detail-rule" aria-hidden="true" />
                 <div className="about-experience-copy">
                   {activeExperience.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
