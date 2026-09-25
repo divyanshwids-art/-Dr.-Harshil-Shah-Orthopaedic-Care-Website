@@ -36138,29 +36138,48 @@ html body * {
 }
 
 /* ========================================================================= */
-/* 1. HERO BANNER SECTION (Doctor Image as Background)                       */
+/* 1. HERO BANNER SECTION (Doctor Hero Banner with Transparent Left Side)     */
 /* ========================================================================= */
 .mock-hero {
   position: relative;
-  background-color: #f6fafb;
-  background-image: 
-    linear-gradient(90deg, #f6fafb 0%, #f6fafb 38%, rgba(246, 250, 251, 0.94) 52%, rgba(246, 250, 251, 0.45) 70%, rgba(246, 250, 251, 0.1) 88%, rgba(246, 250, 251, 0) 100%),
-    url('/doctor-hero-IMG_2501.png');
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: auto 100%;
+  width: 100%;
   overflow: hidden;
-  padding: 70px 0 75px;
-  border-bottom: 1px solid #e5eef0;
-  min-height: 520px;
+  background: #f6fafb;
+}
+
+.mock-hero-media {
+  width: 100%;
+  line-height: 0;
+  display: block;
+}
+
+.mock-hero-full-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mock-hero-overlay {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mock-hero-overlay .mock-hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
 }
 
 .mock-hero-inner {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   position: relative;
 }
@@ -36170,60 +36189,73 @@ html body * {
 }
 
 .mock-hero-left {
-  max-width: 580px;
-  z-index: 2;
+  max-width: 520px;
+  width: 100%;
+  z-index: 3;
+  pointer-events: auto;
 }
 
-.mock-hero-doc-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(20, 108, 114, 0.2);
-  box-shadow: 0 2px 12px rgba(15, 43, 48, 0.06);
-  margin-bottom: 20px;
+.mock-hero-title,
+.about-hero-title {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(34px, 4.2vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #073c43;
+  margin: 0 0 18px 0;
+  max-width: 520px;
 }
 
-.mock-hero-doc-badge strong {
-  font-size: 0.92rem;
-  color: #0f2b30;
-  font-weight: 700;
-}
-
-.mock-hero-doc-badge span {
-  font-size: 0.8rem;
+.mock-hero-title span,
+.about-hero-title span {
   color: #146c72;
-  font-weight: 600;
+  display: block;
 }
 
-.mock-hero-title {
+.mock-hero-desc,
+.about-hero-desc {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(24px, 2.5vw, 32px);
-  font-weight: 700;
-  color: #0f172a;
-  line-height: 1.25;
-  margin-bottom: 12px;
-  letter-spacing: -0.015em;
-  max-width: 540px;
+  font-size: clamp(16px, 1.5vw, 21px);
+  line-height: 1.38;
+  color: #46666c;
+  margin: 0 0 26px 0;
+  font-weight: 500;
+  max-width: 480px;
 }
 
-.mock-hero-desc {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  font-size: 15.5px;
-  color: #334155;
-  margin-bottom: 24px;
-  line-height: 1.68;
-  font-weight: 450;
-  max-width: 560px;
-}
-
-.mock-hero-actions {
+.mock-hero-actions,
+.about-hero-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+}
+
+.mock-hero-actions .mock-btn-primary,
+.about-hero-actions .mock-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #146c72;
+  color: #ffffff;
+  padding: 14px 34px;
+  border-radius: 999px;
+  font-size: clamp(16px, 1.35vw, 20px);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(20, 108, 114, 0.28);
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mock-hero-actions .mock-btn-primary:hover,
+.about-hero-actions .mock-btn-primary:hover {
+  background: #093f43;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(20, 108, 114, 0.35);
 }
 
 /* ========================================================================= */
@@ -38130,8 +38162,7 @@ border-color: #146c72;
 /* ========================================================================= */
 @media (max-width: 1024px) {
   .mock-hero {
-    background-position: right 15% bottom;
-    padding: 60px 0;
+    padding: 0;
   }
   .mock-conditions-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -38179,34 +38210,128 @@ border-color: #146c72;
 
 @media (max-width: 768px) {
   .mock-hero {
-    background-image: none !important;
-    background-color: #f6fafb !important;
-    padding: 24px 0 36px !important;
-    min-height: auto !important;
-  }
-  .mock-hero-inner {
+    position: relative !important;
+    display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 16px !important;
+    padding: 0 0 36px 0 !important;
+    background: #ffffff !important;
+    min-height: 0 !important;
+    overflow: visible !important;
   }
-  .mock-hero-mobile-image {
+
+  .mock-hero-media {
+    display: block !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    height: clamp(260px, 72vw, 320px) !important;
+    margin: 0 auto 20px auto !important;
+    overflow: hidden !important;
+    position: relative !important;
+    order: 1 !important;
+  }
+
+  .mock-hero-full-image {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 100% 20% !important;
+  }
+
+  .mock-hero-overlay {
+    position: static !important;
+    inset: auto !important;
     display: flex !important;
-    justify-content: center !important;
+    flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
-    margin-bottom: 12px !important;
+    padding: 0 20px !important;
+    order: 2 !important;
+    pointer-events: auto !important;
   }
-  .mock-hero-mobile-img {
+
+  .mock-hero-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
     width: 100% !important;
-    max-width: 270px !important;
-    height: auto !important;
-    object-fit: contain !important;
-    filter: drop-shadow(0 12px 24px rgba(20, 108, 114, 0.14)) !important;
-    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
+
   .mock-hero-left {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
     width: 100% !important;
     max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .mock-hero-title,
+  .about-hero-title {
+    order: 1 !important;
+    text-align: center !important;
+    font-size: clamp(26px, 7.5vw, 34px) !important;
+    font-weight: 800 !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.01em !important;
+    color: #073c43 !important;
+    margin: 0 auto 12px auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  .mock-hero-title span,
+  .about-hero-title span {
+    color: #146c72 !important;
+    display: block !important;
+  }
+
+  .mock-hero-desc,
+  .about-hero-desc {
+    order: 2 !important;
+    text-align: center !important;
+    font-size: clamp(14px, 3.8vw, 16px) !important;
+    line-height: 1.45 !important;
+    color: #46666c !important;
+    margin: 0 auto 20px auto !important;
+    max-width: 360px !important;
+    font-weight: 500 !important;
+  }
+
+  .mock-hero-actions,
+  .about-hero-actions {
+    order: 3 !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .mock-hero-actions .mock-btn-primary,
+  .about-hero-actions .mock-btn-primary {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: auto !important;
+    min-width: 250px !important;
+    max-width: 320px !important;
+    padding: 13px 28px !important;
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    border-radius: 999px !important;
+    text-align: center !important;
+  }
+
+  .mock-hero-actions .mock-btn-primary span,
+  .about-hero-actions .mock-btn-primary span {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
   }
   .mock-why-card,
   .mock-approach-grid,
@@ -38261,32 +38386,6 @@ border-color: #146c72;
     padding: 0 16px;
   }
 
-  .mock-hero {
-    padding: 24px 0 36px !important;
-    background-image: none !important;
-    background-color: #f6fafb !important;
-  }
-
-  .mock-hero-title {
-    font-size: clamp(1.7rem, 8vw, 2.15rem);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-  }
-
-  .mock-hero-desc {
-    font-size: 0.92rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .mock-hero-actions,
-  .mock-hero-actions .mock-btn-primary {
-    width: 100%;
-  }
-
-  .mock-hero-actions .mock-btn-primary {
-    justify-content: space-between;
-  }
 
   .mock-treatments-section,
   .mock-approach-section,
@@ -38538,10 +38637,6 @@ header#site-header.is-scrolled {
     margin-top: 0 !important;
   }
 
-  .mock-hero {
-    padding: 24px 0 32px !important;
-    min-height: auto !important;
-  }
 
   .treatment-hero {
     padding-top: 18px !important;
@@ -38630,32 +38725,7 @@ header#site-header.is-scrolled {
 
 /* Phone-specific rules (<= 768px) */
 @media (max-width: 768px) {
-  /* 1. First Section: Center text inside "DR Harshil Shah" box */
-  .about-page .mock-hero-actions {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-  }
 
-  .about-page .mock-hero-actions .mock-btn-primary {
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  .about-page .mock-hero-actions .mock-btn-primary span {
-    text-align: center !important;
-    display: block;
-    width: 100%;
-  }
-
-  /* 2. First Section: Heading in one line / all at once ("ek baar me hi") */
-  .about-page .mock-hero-title {
-    font-size: clamp(16px, 5vw, 24px) !important;
-    line-height: 1.25 !important;
-    white-space: nowrap !important;
-    letter-spacing: -0.02em !important;
-  }
 
   /* 4. Experience Section: Inline content right below clicked option */
   .about-experience-detail-desktop {

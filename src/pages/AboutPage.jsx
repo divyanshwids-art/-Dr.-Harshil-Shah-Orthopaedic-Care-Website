@@ -276,16 +276,30 @@ export default function AboutPage() {
     <div className="about-page mock-home">
       {/* 1. HERO BANNER (Exact same structure and styling as Home Page) */}
       <section className="mock-hero" aria-label="Hero Banner">
-        <div className="mock-shell">
+        <div className="mock-hero-media">
+          <img
+            src="/a7675ee9-feed-4c23-a637-a0aaf4665117.png"
+            alt="Dr. Harshil Shah - Expert Orthopaedic Surgeon"
+            className="mock-hero-full-image"
+            loading="eager"
+          />
+        </div>
+        <div className="mock-shell mock-hero-overlay">
           <div className="mock-hero-inner">
             <div className="mock-hero-left">
               <h1 className="mock-hero-title">
-                Let’s Get You Moving Again
+                LET’S GET YOU<br />
+                <span>MOVING AGAIN</span>
               </h1>
               <p className="mock-hero-desc">
-                Because recovery isn’t just about reducing pain. It’s about getting back to what you love.
+                Because recovery isn’t just about reducing pain.<br />
+                It’s about getting back to what you love.
               </p>
-
+              <div className="mock-hero-actions">
+                <Link to="/appointment" className="mock-btn-primary">
+                  <span>DR. HARSHIL SHAH</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

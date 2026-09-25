@@ -108,39 +108,31 @@ export default function HomePage() {
     <div className="mock-home">
 
       {/* =========================================================================
-          1. HERO BANNER (With doctor background image on desktop & top image on mobile)
+          1. HERO BANNER (With transparent-left hero image & doctor on right)
           ========================================================================= */}
       <section className="mock-hero" aria-label="Hero Banner">
-        <div className="mock-shell">
+        <div className="mock-hero-media">
+          <img
+            src="/a7675ee9-feed-4c23-a637-a0aaf4665117.png"
+            alt="Dr. Harshil Shah - Expert Orthopaedic Surgeon"
+            className="mock-hero-full-image"
+            loading="eager"
+          />
+        </div>
+        <div className="mock-shell mock-hero-overlay">
           <div className="mock-hero-inner">
-            {/* Mobile Hero Image (Top on Phone) */}
-            <div className="mock-hero-mobile-image">
-              <picture>
-                <source srcSet="/doctor-hero-mobile.webp" type="image/webp" />
-                <img
-                  src="/doctor-hero-mobile.png"
-                  alt="Dr. Harshil Shah - Expert Orthopaedic Surgeon"
-                  className="mock-hero-mobile-img"
-                  width="865"
-                  height="901"
-                  loading="eager"
-                />
-              </picture>
-            </div>
-
             <div className="mock-hero-left">
-
               <h1 className="mock-hero-title">
-                Expert Orthopaedic Care<br />
-                For Your Healthier Tomorrow
+                LET’S GET YOU<br />
+                <span>MOVING AGAIN</span>
               </h1>
               <p className="mock-hero-desc">
-                I am dedicated to helping you overcome joint pain, walk comfortably again, and return to an active, happy life with gentle and personalized orthopaedic care.
+                Because recovery isn’t just about reducing pain.<br />
+                It’s about getting back to what you love.
               </p>
               <div className="mock-hero-actions">
                 <Link to="/appointment" className="mock-btn-primary">
-                  <span>Book an Appointment</span>
-                  <span className="mock-btn-primary-arrow">&rarr;</span>
+                  <span>DR. HARSHIL SHAH</span>
                 </Link>
               </div>
             </div>
