@@ -80,7 +80,7 @@ export default function TreatmentsPage() {
               <span></span> My Treatment Approach
             </div>
             <h1>
-              Personalized care for natural movement.
+              Care Focused on Better Movement and Recovery
             </h1>
             <p>
               I provide tailored knee, hip, and shoulder treatments designed around your symptoms, everyday routine, and long-term mobility goals.

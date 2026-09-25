@@ -346,8 +346,8 @@ export default function AboutPage() {
 
       <section className="about-experience-section">
         <div className="shell">
-          <h2 className="section-title">Experience &amp; Training</h2>
-          <p className="section-subtitle">A journey of learning, achievements, and better outcomes for every patient we care for.</p>
+          <h2 className="section-title">Training & Clinical Experience</h2>
+          <p className="section-subtitle">My training and clinical experience have shaped a practical approach to understanding orthopaedic conditions and planning appropriate care for each patient.</p>
 
           <div className="about-experience-timeline">
             <nav className="about-experience-nav" aria-label="Experience and training">
@@ -402,7 +402,7 @@ export default function AboutPage() {
 
       <section className="about-camp-section" id="camps-work">
         <div className="shell">
-          <h2 className="section-title">Serving the Community Through Awareness</h2>
+          <h2 className="section-title">Community Health & Awareness</h2>
 
           <div className="about-camp-container">
             {campItems.map((camp) => (
@@ -433,7 +433,7 @@ export default function AboutPage() {
 
       <section className="about-treatment-section">
         <div className="shell">
-          <h2 className="section-title">Types of Treatment I Offers</h2>
+          <h2 className="section-title">My Expertise</h2>
           <p className="section-subtitle">Comprehensive orthopaedic care for better movement, strength and quality of life.</p>
 
           <div className="about-treatment-grid">

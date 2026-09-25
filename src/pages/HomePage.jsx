@@ -123,16 +123,14 @@ export default function HomePage() {
           <div className="mock-hero-inner">
             <div className="mock-hero-left">
               <h1 className="mock-hero-title">
-                LET’S GET YOU<br />
-                <span>MOVING AGAIN</span>
+                Joint pain shouldn't keep you<br />
+                <span>from living your life.</span>
               </h1>
               <p className="mock-hero-desc">
-                Because recovery isn’t just about reducing pain.<br />
-                It’s about getting back to what you love.
-              </p>
+Hi, I’m Dr. Harshil Shah. Whether you are dealing with persistent knee pain, a stiff shoulder, or a sports injury, I am here to help you get back to a comfortable, active life with the right care.              </p>
               <div className="mock-hero-actions">
                 <Link to="/appointment" className="mock-btn-primary">
-                  <span>DR. HARSHIL SHAH</span>
+                  <span>Book a Consultation</span>
                 </Link>
               </div>
             </div>
@@ -395,15 +393,14 @@ export default function HomePage() {
           ========================================================================= */}
       <section className="mock-daycare-section" id="day-care" aria-label="Day Care Joint Replacement">
         <div className="mock-shell">
-          <h2 className="mock-title" style={{ textAlign: 'center', color: '#000000' }}>Day Care Joint Replacement</h2>
+          <h2 className="mock-title" style={{ textAlign: 'center', color: '#000000' }}>Same-Day Joint Replacement</h2>
         <br />
           <div className="mock-daycare-box">
             
             {/* Left Content */}
             <div className="mock-daycare-left">
               <p>
-                With modern surgical techniques and gentle pain management, my goal is to help you start walking within hours of surgery and recover peacefully in the comfort of your own home.
-              </p>
+Using modern surgical methods and proper pain control, the goal is to help you stand and start walking soon after surgery so you can return home comfortably.              </p>
               <Link to="/treatments#knee" className="mock-btn-primary">
                 <span>Learn More</span>
                 <span className="mock-btn-primary-arrow">&rarr;</span>
@@ -464,7 +461,7 @@ export default function HomePage() {
         <div className="mock-shell">
           <div className="mock-section-header">
             <div className="mock-section-header-left">
-                <h2 className="mock-title">Google Verified Rating and Reviews</h2>
+                <h2 className="mock-title">Patient Reviews</h2>
               
             </div>
             <a
@@ -574,7 +571,7 @@ export default function HomePage() {
         <div className="mock-shell">
           <div className="mock-brochures-layout">
             <div className="mock-brochures-left">
-              <h2 className="mock-title">Patient Brochures for Better Understanding</h2>
+              <h2 className="mock-title">Brochures for Better Understanding</h2>
               <p>
                 I believe informed patients make confident decisions. These simple guides explain common orthopaedic problems, treatment choices, and what recovery can look like.
               </p>
@@ -657,9 +654,9 @@ export default function HomePage() {
         <div className="mock-shell">
           <div className="mock-section-header">
             <div className="mock-section-header-left">
-              <h2 className="mock-title">Where You Can Find Me</h2>
+              <h2 className="mock-title">Where You Can Consult Me</h2>
               <p className="mock-subtitle">
-                You can meet me in person for a detailed consultation, examination, and review of your X-rays or MRI. I’ll take the time to understand your condition and explain the treatment options suited to you.
+                You can meet me in person for a detailed consultation, examination, and review of your X-rays or MRI. I will understand your condition and explain the treatment options suited to you.
               </p>
             </div>
             <Link to="/appointment" className="mock-btn-outline">
