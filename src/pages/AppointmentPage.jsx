@@ -420,16 +420,7 @@ export default function AppointmentPage() {
           </div>
 
           {/* Right Side: Single Doctor Image Only */}
-          <div className="contact-hero-visual" aria-hidden="true">
-            <div className="contact-hero-doctor-wrap">
-              <img
-                src="/mobile-hero-doctor-scrubs.webp"
-                alt="Dr. Harshil Shah - Consultant Orthopaedic Surgeon"
-                className="contact-hero-doctor-img"
-                loading="eager"
-              />
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -538,8 +529,7 @@ export default function AppointmentPage() {
                     <strong className="contact-method-main">Book Consultation Below</strong>
                   </div>
                   <div>
-                    <p className="contact-method-sub">Choose your preferred date, time and reason</p>
-                    <span className="contact-method-action-link">Fill booking form &darr;</span>
+                    <span className="contact-method-action-link">Fill booking form</span>
                   </div>
                 </div>
               </a>
@@ -564,38 +554,9 @@ export default function AppointmentPage() {
                 <strong>Dr. Harshil Shah</strong>
                 <span>M.S. (Orthopaedics) · Arthroscopy & Joint Replacement Surgeon</span>
                 <div className="appt-badge-row">
-                  <span className="appt-mini-tag">Knee, Hip & Shoulder</span>
-                  <span className="appt-mini-tag">Gold Medalist</span>
+
                 </div>
               </div>
-            </div>
-
-            {/* Structured 3-Step Consultation Workflow */}
-            <div className="appt-workflow-card">
-              <h2 className="appt-workflow-title">What happens after you submit?</h2>
-              <ol className="appt-timeline">
-                <li className="appt-timeline-item">
-                  <div className="appt-timeline-marker">1</div>
-                  <div className="appt-timeline-content">
-                    <strong>Request Received &amp; Triaged</strong>
-                    <p>I review your concern and slot preference.</p>
-                  </div>
-                </li>
-                <li className="appt-timeline-item">
-                  <div className="appt-timeline-marker">2</div>
-                  <div className="appt-timeline-content">
-                    <strong>Direct Confirmation Call</strong>
-                    <p>I confirm your clinic timing and answer your pre-visit questions.</p>
-                  </div>
-                </li>
-                <li className="appt-timeline-item">
-                  <div className="appt-timeline-marker">3</div>
-                  <div className="appt-timeline-content">
-                    <strong>In-Depth Consultation</strong>
-                    <p>I evaluate your condition, review your X-rays/MRI, and guide you on the next steps.</p>
-                  </div>
-                </li>
-              </ol>
             </div>
 
             {/* Urgent Phone Help Box */}
@@ -1137,63 +1098,39 @@ export default function AppointmentPage() {
             <div className="visit-step-card">
               <div className="visit-step-top">
                 <span className="visit-step-num">STEP 01</span>
-                <div className="visit-step-icon-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                  </svg>
-                </div>
+
               </div>
               <h3 className="visit-step-title">Bring Previous Reports &amp; Scans</h3>
               <p className="visit-step-desc">
                 Prior X-rays, MRI scans, CT reports, or blood tests help compare progression and avoid repeating unnecessary scans.
               </p>
-              <div className="visit-step-footer">
-                <span className="visit-step-tag">Physical Films or Digital</span>
-              </div>
+
             </div>
 
             {/* Step 02 */}
             <div className="visit-step-card">
               <div className="visit-step-top">
                 <span className="visit-step-num">STEP 02</span>
-                <div className="visit-step-icon-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
-                    <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
-                  </svg>
-                </div>
+
               </div>
               <h3 className="visit-step-title">List Ongoing Medications</h3>
               <p className="visit-step-desc">
                 Note down daily medicines, blood thinners, past surgeries, and any known drug or analgesic allergies.
               </p>
-              <div className="visit-step-footer">
-                <span className="visit-step-tag">Crucial for Clinical Safety</span>
-              </div>
+
             </div>
 
             {/* Step 03 */}
             <div className="visit-step-card">
               <div className="visit-step-top">
                 <span className="visit-step-num">STEP 03</span>
-                <div className="visit-step-icon-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#146c72" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                    <line x1="12" y1="17" x2="12.01" y2="17" />
-                  </svg>
-                </div>
+
               </div>
               <h3 className="visit-step-title">Note Your Key Questions</h3>
               <p className="visit-step-desc">
                 Write down when pain triggers, daily activities affected, and what outcome goals you want to achieve.
               </p>
-              <div className="visit-step-footer">
-                <span className="visit-step-tag">One-on-One Discussion</span>
-              </div>
+
             </div>
           </div>
         </div>
