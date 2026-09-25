@@ -14,6 +14,7 @@ const CATEGORY_TABS = [
   'Reports & Scans',
   'Follow-up Care',
   'General',
+  'All Questions',
 ];
 
 // ─── FAQ ITEM (Accordion with open state) ────────────────────────────────────
