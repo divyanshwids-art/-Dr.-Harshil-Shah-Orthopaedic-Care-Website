@@ -66,18 +66,12 @@ const expertiseItems = [
   },
   {
     num: '02',
-    title: 'Sports Injuries',
-    link: '/treatments#knee',
-    text: 'Targeted care for ligament, muscle, and joint injuries to help you return to sport safely and confidently.'
-  },
-  {
-    num: '03',
     title: 'Shoulder Care',
     link: '/treatments#shoulder',
     text: 'Arthroscopy, rotator cuff injury, frozen shoulder, recurrent dislocation/instability, reverse shoulder replacement.'
   },
   {
-    num: '04',
+    num: '03',
     title: 'Hip Care',
     link: '/treatments#hip',
     text: 'AVN, sports-related hip pain, FAI (femoroacetabular impingement), muscle-sparing anterior approach, day-care & robotic replacement.'
@@ -220,6 +214,9 @@ export default function AboutPage() {
         <div className="mock-shell mock-hero-overlay">
           <div className="mock-hero-inner">
             <div className="mock-hero-left">
+              <p className="mock-hero-doctor-tag">
+                Dr. Harshil Shah - Expert Orthopaedic Surgeon
+              </p>
               <h1 className="mock-hero-title">
                 LET’S GET YOU<br />
                 <span>MOVING AGAIN</span>
@@ -228,11 +225,7 @@ export default function AboutPage() {
                 Because recovery isn’t just about reducing pain.<br />
                 It’s about getting back to what you love.
               </p>
-              <div className="mock-hero-actions">
-                <Link to="/appointment" className="mock-btn-primary">
-                  <span>DR. HARSHIL SHAH</span>
-                </Link>
-              </div>
+
             </div>
           </div>
         </div>
@@ -371,32 +364,7 @@ export default function AboutPage() {
 
           <div className="about-expertise-container">
             <div className="about-expertise-row">
-              {expertiseItems.slice(0, 2).map((item) => (
-                <div key={item.title} className="about-expertise-card">
-                  <div className="about-expertise-card-header">
-                    <span className="about-expertise-num">{item.num}</span>
-                    <span className="about-expertise-divider-vert" aria-hidden="true"></span>
-                    <h3 className="about-expertise-title">{item.title}</h3>
-                  </div>
-                  <p className="about-expertise-desc">{item.text}</p>
-                  <Link to={item.link} className="about-expertise-link">
-                    <span className="about-expertise-link-text">LEARN MORE</span>
-                    <span className="about-expertise-link-line" aria-hidden="true"></span>
-                    <span className="about-expertise-link-icon" aria-hidden="true">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </span>
-                  </Link>
-                </div>
-              ))}
-            </div>
-
-            <div className="about-expertise-row-separator" aria-hidden="true"></div>
-
-            <div className="about-expertise-row">
-              {expertiseItems.slice(2, 4).map((item) => (
+              {expertiseItems.map((item) => (
                 <div key={item.title} className="about-expertise-card">
                   <div className="about-expertise-card-header">
                     <span className="about-expertise-num">{item.num}</span>

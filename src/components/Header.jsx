@@ -163,6 +163,16 @@ export default function Header() {
               </button>
 
               <div className={`nav-dropdown-menu nav-brochure-menu ${brochureDropdownOpen ? 'is-visible' : ''}`}>
+                <Link
+                  to="/brochures"
+                  className="nav-dropdown-link"
+                  onClick={() => setBrochureDropdownOpen(false)}
+                >
+                  <div>
+                    <strong>All Patient Brochures</strong>
+                  </div>
+                  <span className="dropdown-dl-tag" style={{ background: '#146c72', color: '#ffffff', fontWeight: 800 }}>VIEW</span>
+                </Link>
                 <a
                   href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf"
                   target="_blank"
@@ -328,6 +338,12 @@ export default function Header() {
             </button>
             {mobileBrochureOpen && (
               <div className="mobile-nav-sublinks">
+                <Link
+                  to="/brochures"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  All Patient Brochures <span className="mobile-pdf-pill" style={{ background: '#146c72', color: '#fff' }}>VIEW</span>
+                </Link>
                 <a
                   href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf"
                   target="_blank"

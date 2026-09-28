@@ -363,6 +363,11 @@
     min-height: 48px !important;
     justify-content: center !important;
     font-size: 0.95rem !important;
+    font-size: clamp(12.5px, 3.6vw, 15px) !important;
+    white-space: nowrap !important;
+    padding: 12px 14px !important;
+    display: flex !important;
+    align-items: center !important;
   }
 
   .appt-info-column {

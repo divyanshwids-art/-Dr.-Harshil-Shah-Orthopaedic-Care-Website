@@ -123,16 +123,12 @@ export default function HomePage() {
           <div className="mock-hero-inner">
             <div className="mock-hero-left">
               <h1 className="mock-hero-title">
-                Joint pain shouldn't keep you<br />
-                <span>from living your life.</span>
+                <span className="mock-hero-line-1">Joint pain shouldn't keep you</span>
+                <span className="mock-hero-line-2">from living your life.</span>
               </h1>
               <p className="mock-hero-desc">
 Hi, I’m Dr. Harshil Shah. Whether you are dealing with persistent knee pain, a stiff shoulder, or a sports injury, I am here to help you get back to a comfortable, active life with the right care.              </p>
-              <div className="mock-hero-actions">
-                <Link to="/appointment" className="mock-btn-primary">
-                  <span>Book a Consultation</span>
-                </Link>
-              </div>
+
             </div>
           </div>
         </div>
@@ -146,9 +142,8 @@ Hi, I’m Dr. Harshil Shah. Whether you are dealing with persistent knee pain, a
           <div className="mock-section-header">
             <div className="mock-section-header-left">
               <h2 className="mock-title">Care For Your Condition</h2>
-
             </div>
-            <Link to="/treatments" className="mock-btn-outline">
+            <Link to="/treatments" className="mock-btn-outline mock-conditions-desktop-cta">
               <span>Explore All Treatments &rarr;</span>
             </Link>
           </div>
@@ -160,18 +155,35 @@ Hi, I’m Dr. Harshil Shah. Whether you are dealing with persistent knee pain, a
                 <img
                   src="/icons/knee-pain.webp"
                   alt="Knee Pain & Arthritis"
+                  className="mock-condition-icon-img is-knee-icon"
+                  loading="lazy"
+                />
+              </div>
+              <strong style={{ flexGrow: 0, marginBottom: '8px', fontSize: '1.05rem', color: '#0f2b30', fontWeight: 700, whiteSpace: 'nowrap' }}>Knee Pain &amp; Arthritis</strong>
+              <span style={{ fontSize: '0.86rem', color: '#526e75', lineHeight: 1.5, marginBottom: '14px', flexGrow: 1, display: 'block' }}>
+                Relief and treatment for painful, stiff, or damaged knees.
+              </span>
+              <span className="mock-condition-arrow">Read More &rarr;</span>
+            </Link>
+
+            {/* Card 2: Hip Pain & Joint Care */}
+            <Link to="/treatments#hip" className="mock-condition-card">
+              <div className="mock-condition-icon">
+                <img
+                  src="/icons/hip-pain.webp"
+                  alt="Hip Pain & Joint Care"
                   className="mock-condition-icon-img"
                   loading="lazy"
                 />
               </div>
-              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Knee Pain &amp;<br />Arthritis</strong>
-              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
-                Relief and treatment for painful, stiff, or damaged knees.
+              <strong style={{ flexGrow: 0, marginBottom: '8px', fontSize: '1.05rem', color: '#0f2b30', fontWeight: 700, whiteSpace: 'nowrap' }}>Hip Pain &amp; Joint Care</strong>
+              <span style={{ fontSize: '0.86rem', color: '#526e75', lineHeight: 1.5, marginBottom: '14px', flexGrow: 1, display: 'block' }}>
+                Relief for stiffness, arthritis, avascular necrosis (AVN), and hip wear.
               </span>
-              <span className="mock-condition-arrow">Read More</span>
+              <span className="mock-condition-arrow">Read More &rarr;</span>
             </Link>
 
-            {/* Card 2: Shoulder Pain & Injuries */}
+            {/* Card 3: Shoulder Pain & Injuries */}
             <Link to="/treatments#shoulder" className="mock-condition-card">
               <div className="mock-condition-icon">
                 <img
@@ -181,79 +193,17 @@ Hi, I’m Dr. Harshil Shah. Whether you are dealing with persistent knee pain, a
                   loading="lazy"
                 />
               </div>
-              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Shoulder Pain &amp;<br />Injuries</strong>
-              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
+              <strong style={{ flexGrow: 0, marginBottom: '8px', fontSize: '1.05rem', color: '#0f2b30', fontWeight: 700, whiteSpace: 'nowrap' }}>Shoulder Pain &amp; Injuries</strong>
+              <span style={{ fontSize: '0.86rem', color: '#526e75', lineHeight: 1.5, marginBottom: '14px', flexGrow: 1, display: 'block' }}>
                 Care for shoulder pain, stiffness, and sports-related injuries.
               </span>
-              <span className="mock-condition-arrow">Read More</span>
+              <span className="mock-condition-arrow">Read More &rarr;</span>
             </Link>
+          </div>
 
-            {/* Card 3: Sports Injuries */}
-            <Link to="/treatments#sports" className="mock-condition-card">
-              <div className="mock-condition-icon">
-                <img
-                  src="/icons/sports-injuries.webp"
-                  alt="Sports Injuries"
-                  className="mock-condition-icon-img"
-                  loading="lazy"
-                />
-              </div>
-              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Sports<br />Injuries</strong>
-              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
-                Helping you recover safely and return to the activities you enjoy.
-              </span>
-              <span className="mock-condition-arrow">Read More</span>
-            </Link>
-
-            {/* Card 4: Spine Conditions */}
-            <Link to="/treatments#spine" className="mock-condition-card">
-              <div className="mock-condition-icon"> 
-                <img
-                  src="/icons/spine-disorders.webp"
-                  alt="Spine Conditions"
-                  className="mock-condition-icon-img"
-                  loading="lazy"
-                />
-              </div>
-              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Spine<br />Conditions</strong>
-              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
-                Evaluation and treatment for back, neck, and spine-related problems.
-              </span>
-              <span className="mock-condition-arrow">Read More</span>
-            </Link>
-
-            {/* Card 5: Fractures & Trauma */}
-            <Link to="/treatments#trauma" className="mock-condition-card">
-              <div className="mock-condition-icon">
-                <img
-                  src="/icons/fractures-trauma.webp"
-                  alt="Fractures & Trauma"
-                  className="mock-condition-icon-img"
-                  loading="lazy"
-                />
-              </div>
-              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Fractures &amp;<br />Trauma</strong>
-              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
-                Expert care to help your injury heal properly and restore movement.
-              </span>
-              <span className="mock-condition-arrow">Read More</span>
-            </Link>
-
-            {/* Card 6: Joint Replacement */}
-            <Link to="/treatments#joint-replacement" className="mock-condition-card">
-              <div className="mock-condition-icon">
-                <img
-                  src="/icons/joint-replacement.webp"
-                  alt="Joint Replacement"
-                  className="mock-condition-icon-img"
-                  loading="lazy"
-                />
-              </div>
-              <strong style={{ flexGrow: 0, marginBottom: '6px' }}>Joint<br />Replacement</strong>
-              <span style={{ fontSize: '0.78rem', color: '#526e75', lineHeight: 1.35, marginBottom: '12px', flexGrow: 1, display: 'block' }}>
-                When necessary, advanced joint replacement care focused on restoring mobility.
-              </span>
-              <span className="mock-condition-arrow">Read More</span>
+          <div className="mock-section-bottom-action">
+            <Link to="/treatments" className="mock-btn-outline">
+              <span>Explore All Treatments &rarr;</span>
             </Link>
           </div>
         </div>
@@ -317,10 +267,6 @@ Hi, I’m Dr. Harshil Shah. Whether you are dealing with persistent knee pain, a
                 </li>
               </ul>
 
-              <Link to="/treatments" className="mock-btn-primary">
-                <span>Learn More</span>
-                <span className="mock-btn-primary-arrow">&rarr;</span>
-              </Link>
             </div>
           </div>
         </div>
@@ -401,10 +347,7 @@ Hi, I’m Dr. Harshil Shah. Whether you are dealing with persistent knee pain, a
             <div className="mock-daycare-left">
               <p>
 Using modern surgical methods and proper pain control, the goal is to help you stand and start walking soon after surgery so you can return home comfortably.              </p>
-              <Link to="/treatments#knee" className="mock-btn-primary">
-                <span>Learn More</span>
-                <span className="mock-btn-primary-arrow">&rarr;</span>
-              </Link>
+
             </div>
 
             {/* Right: 3D Joint Model in Circular Ring with Round Badges surrounding it */}
@@ -465,10 +408,10 @@ Using modern surgical methods and proper pain control, the goal is to help you s
               
             </div>
             <a
-              href="https://maps.app.goo.gl/v94sN3JMwJMwKZYi6?g_st=iw"
+              href="https://www.google.com/maps/place/Dr+Harshil+shah+(M.S.+Ortho)/data=!4m7!3m6!1s0x43b531bc6d74ba0f:0xe04cdd81ae66085b!8m2!3d23.0483!4d72.5204!9m1!1b1"
               target="_blank"
               rel="noreferrer"
-              className="mock-btn-outline"
+              className="mock-btn-outline mock-reviews-desktop-cta"
             >
               <span>View on Google</span>
             </a>
@@ -560,6 +503,18 @@ Using modern surgical methods and proper pain control, the goal is to help you s
               ))}
             </div>
           </div>
+
+          {/* Mobile CTA: Appears directly below the reviews slideshow on phone screens */}
+          <div className="mock-reviews-mobile-cta">
+            <a
+              href="https://www.google.com/maps/place/Dr+Harshil+shah+(M.S.+Ortho)/data=!4m7!3m6!1s0x43b531bc6d74ba0f:0xe04cdd81ae66085b!8m2!3d23.0483!4d72.5204!9m1!1b1"
+              target="_blank"
+              rel="noreferrer"
+              className="mock-btn-outline"
+            >
+              <span>View on Google</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -576,9 +531,6 @@ Using modern surgical methods and proper pain control, the goal is to help you s
                 I believe informed patients make confident decisions. These simple guides explain common orthopaedic problems, treatment choices, and what recovery can look like.
               </p>
             </div>
-            <Link to="/brochures" className="mock-btn-outline">
-              <span>View All Brochures &rarr;</span>
-            </Link>
           </div>
 
           <div className="mock-brochures-grid">
@@ -738,14 +690,14 @@ Using modern surgical methods and proper pain control, the goal is to help you s
                 You can meet me in person for a detailed consultation, examination, and review of your X-rays or MRI. I will understand your condition and explain the treatment options suited to you.
               </p>
             </div>
-            <Link to="/appointment" className="mock-btn-outline">
+            <Link to="/appointment" className="mock-btn-outline mock-locations-desktop-cta">
               <span>Book an Appointment &rarr;</span>
             </Link>
           </div>
 
           <div className="mock-locations-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
             {/* Card 1: Curis Hospitals (Main OPD Clinic) */}
-            <div className="mock-location-card is-active">
+            <div className="mock-location-card">
               <div className="mock-loc-top-row">
                 <div className="mock-loc-logo-wrap">
                   <img
@@ -808,6 +760,13 @@ Using modern surgical methods and proper pain control, the goal is to help you s
               </div>
             </div>
           </div>
+
+          {/* Mobile CTA: Appears directly below the 3 cards on phone screens */}
+          <div className="mock-locations-mobile-cta">
+            <Link to="/appointment" className="mock-btn-outline">
+              <span>Book an Appointment &rarr;</span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -824,8 +783,8 @@ Using modern surgical methods and proper pain control, the goal is to help you s
                 Here are simple, clear answers to the questions my patients ask most often before consultation and treatment.
               </p>
             </div>
-            <Link to="/faq" className="mock-btn-outline">
-              <span>View All FAQs</span>
+            <Link to="/faq" className="mock-btn-outline mock-faqs-desktop-cta">
+              <span>View All FAQs &rarr;</span>
             </Link>
           </div>
 
@@ -856,6 +815,12 @@ Using modern surgical methods and proper pain control, the goal is to help you s
               );
             })}
           </div>
+
+          <div className="mock-section-bottom-action">
+            <Link to="/faq" className="mock-btn-outline">
+              <span>View All FAQs &rarr;</span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -864,7 +829,7 @@ Using modern surgical methods and proper pain control, the goal is to help you s
       {/* =========================================================================
           15. ONLINE CONSULTATION
           ========================================================================= */}
-      <section className="mock-online-consult-section" id="online-consultation" aria-label="Online Consultation" style={{ marginBottom: '32px' }}>
+      <section className="mock-online-consult-section" id="online-consultation" aria-label="Online Consultation">
         <div className="mock-shell">
           <div className="mock-consult-card-unified">
             <div className="mock-consult-content-full">
