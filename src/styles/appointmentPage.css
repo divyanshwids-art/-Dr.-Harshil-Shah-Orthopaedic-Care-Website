@@ -247,24 +247,40 @@
 @media (max-width: 768px) {
   /* 1. Hero Section Alignment */
   .contact-hero-redesign {
-    padding: 10px 0 20px !important;
+    padding: 18px 0 16px !important;
+    min-height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .contact-hero-shell {
     padding: 0 16px !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 18px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+    min-height: auto !important;
+  }
+
+  .contact-hero-content {
+    align-items: center !important;
+    text-align: center !important;
   }
 
   .contact-hero-title {
-    font-size: clamp(24px, 6vw, 32px) !important;
+    font-size: clamp(24px, 6vw, 30px) !important;
     line-height: 1.2 !important;
+    text-align: center !important;
+    margin: 0 auto 8px auto !important;
   }
 
   .contact-hero-desc {
     font-size: 14.5px !important;
     line-height: 1.6 !important;
+    text-align: center !important;
     margin-bottom: 16px !important;
   }
 

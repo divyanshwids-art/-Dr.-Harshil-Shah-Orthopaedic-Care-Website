@@ -145,19 +145,14 @@ export default function FaqPage() {
           <div className="shell faq-hero-grid">
             {/* Left */}
             <div className="faq-hero-left">
-              <div className="breadcrumb">
-                <Link to="/">Home</Link>
-                <span>/</span> Patient Help Centre
-              </div>
+
               <h1 id="faq-h1" className="faq-hero-heading">
                 Have Questions Before Your Visit?
               </h1>
               <p className="faq-hero-desc">
                 Feeling a little unsure about your treatment, first appointment, reports, surgery, or recovery? You’re not alone. Many patients have the same questions and concerns before meeting their doctor.
               </p>
-              <p className="faq-hero-subdesc">
-                Take a look through the questions other patients have asked. You may find the answer you’re looking for
-              </p>
+
 
             </div>
 

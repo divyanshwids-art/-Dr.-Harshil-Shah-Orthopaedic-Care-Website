@@ -123,7 +123,7 @@ export default function HomePage() {
           <div className="mock-hero-inner">
             <div className="mock-hero-left">
               <h1 className="mock-hero-title">
-                <span className="mock-hero-line-1">Joint pain shouldn't keep you</span>
+                <span className="mock-hero-line-1" style={{ color: '#000000' }}>Joint pain shouldn't keep you</span>
                 <span className="mock-hero-line-2">from living your life.</span>
               </h1>
               <p className="mock-hero-desc">

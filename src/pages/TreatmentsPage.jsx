@@ -79,8 +79,9 @@ export default function TreatmentsPage() {
             <div className="eyebrow">
               <span></span> My Treatment Approach
             </div>
-            <h1>
-              Care Focused on Better Movement and Recovery
+            <h1 className="treatment-hero-title">
+              <span className="treatment-hero-line-1" style={{ color: '#000000', display: 'block' }}>Care Focused on</span>
+              <span className="treatment-hero-line-2" style={{ color: '#146c72', display: 'block' }}>Better Movement and Recovery</span>
             </h1>
             <p>
               I provide tailored knee, hip, and shoulder treatments designed around your symptoms, everyday routine, and long-term mobility goals.

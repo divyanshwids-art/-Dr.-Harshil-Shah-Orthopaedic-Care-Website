@@ -214,12 +214,10 @@ export default function AboutPage() {
         <div className="mock-shell mock-hero-overlay">
           <div className="mock-hero-inner">
             <div className="mock-hero-left">
-              <p className="mock-hero-doctor-tag">
-                Dr. Harshil Shah - Expert Orthopaedic Surgeon
-              </p>
+
               <h1 className="mock-hero-title">
-                LET’S GET YOU<br />
-                <span>MOVING AGAIN</span>
+                Let’s get you<br />
+                <span>Moving again</span>
               </h1>
               <p className="mock-hero-desc">
                 Because recovery isn’t just about reducing pain.<br />
@@ -244,7 +242,7 @@ export default function AboutPage() {
           </div>
 
           <div className="about-copy-block">
-            <h2>Orthopaedic Care Focused on Your Recovery</h2>
+            <h2>Orthopaedic Care on Your Recovery</h2>
             <p>
               Quality orthopaedic care begins with understanding the cause of your pain and how it affects your everyday life. The approach is centred on accurate diagnosis, clear treatment guidance, and care tailored to each patient’s condition and needs. Whether you are dealing with joint pain, sports injuries, arthritis, or another orthopaedic concern, the goal is to choose the right treatment for you, recommend surgery only when necessary, and support a safe recovery that helps you return to the activities you value.           </p>
 

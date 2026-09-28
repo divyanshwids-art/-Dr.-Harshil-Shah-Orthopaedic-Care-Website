@@ -397,26 +397,9 @@ export default function AppointmentPage() {
               I am here to help you with clear guidance, thorough evaluation, and personalized care. Schedule your consultation online below or reach out directly.
             </p>
 
-            <div className="contact-hero-bar" aria-hidden="true" />
 
             {/* Three Quick Support Items */}
-            <div className="contact-hero-support-items" aria-label="Key support areas">
-              <div className="contact-support-item">
-                <span className="contact-support-label">Appointment assistance</span>
-              </div>
 
-              <div className="contact-support-divider" aria-hidden="true" />
-
-              <div className="contact-support-item">
-                <span className="contact-support-label">Treatment and surgery enquiries</span>
-              </div>
-
-              <div className="contact-support-divider" aria-hidden="true" />
-
-              <div className="contact-support-item">
-                <span className="contact-support-label">Follow-up and recovery guidance</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Side: Single Doctor Image Only */}
@@ -425,18 +408,8 @@ export default function AppointmentPage() {
       </section>
 
       {/* 3. INTERACTIVE APPOINTMENT BOOKING SECTION */}
-      <section className="appt-booking-section" id="appointment-booking" style={{ padding: '60px 0 80px', borderBottom: '1px solid #edf4f4', background: '#f7fafb' }}>
+      <section className="appt-booking-section" id="appointment-booking" style={{ padding: '30px 0 60px', borderBottom: '1px solid #edf4f4', background: '#f7fafb' }}>
         <div className="appt-shell">
-          {/* Top Center: Clear Support Heading & Guidance */}
-          <div style={{ textAlign: 'center', maxWidth: '740px', margin: '0 auto 40px' }}>
-            <h2 style={{ fontSize: 'clamp(1.75rem, 2.6vw, 2.25rem)', fontWeight: 800, color: '#0f2b30', marginBottom: '12px' }}>
-              Clear Support, From the First Call.
-            </h2>
-            <p style={{ fontSize: '0.98rem', color: '#526e75', lineHeight: 1.6, margin: 0 }}>
-              For appointment requests, keep your name, contact number and a short description of your concern ready. If you have previous scans or reports, you can upload them below or bring them to your consultation.
-            </p>
-          </div>
-
           <div className="appt-two-column-layout">
             {/* LEFT COLUMN: Doctor Authority & Consultation Guide */}
             <aside className="appt-info-column">
