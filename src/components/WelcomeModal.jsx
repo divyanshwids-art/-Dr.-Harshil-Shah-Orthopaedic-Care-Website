@@ -91,7 +91,7 @@ export default function WelcomeModal() {
         {/* Doctor Photo */}
         <div className="welcome-modal-visual">
           <img
-            src="/mobile-hero-doctor-scrubs.webp"
+            src="\dist\mobile-hero-doctor-scrubs.webp"
             alt="Dr. Harshil Shah - Orthopaedic Surgeon"
             className="welcome-modal-photo"
             loading="eager"
