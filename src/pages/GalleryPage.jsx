@@ -150,7 +150,7 @@ export default function GalleryPage() {
     },
     {
       id: 17,
-      src: `${DOCTOR_IMG_BASE}WhatsApp Image 2026-08-24 at 12.48.02 PM.webp`,
+      src: `${DOCTOR_IMG_BASE}WhatsApp Image 2026-08-24 at 12.48.02 PM.jpeg`,
       tag: 'Academic & Training',
       title: 'International Faculty Interaction',
       subtitle: 'Exchanging clinical insights with global specialists',
@@ -362,7 +362,6 @@ export default function GalleryPage() {
                   className={`gallery-bento-card gallery-card-uniform anim-${item.anim} ${isInView ? 'is-in-view' : 'is-hidden'}`}
                   style={{ animationDelay: `${(index % 3) * 0.12}s` }}
                   onClick={() => setActiveModalImg(item)}
-                  title="Click to zoom image"
                 >
                   <div className="gallery-card-inner">
                     <img

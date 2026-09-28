@@ -573,6 +573,89 @@ export default function AppointmentPage() {
                 </a>
               </div>
             </div>
+
+            {/* Email Box */}
+            <div className="appt-direct-call-box">
+              <div className="appt-call-icon-wrap">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div className="appt-call-copy" style={{ minWidth: 0 }}>
+                <small>Email consultation & reports</small>
+                <a href="mailto:harshilshah199706@gmail.com" className="appt-call-link appt-email-link" title="Email Dr. Harshil Shah">
+                  harshilshah199706@gmail.com
+                </a>
+              </div>
+            </div>
+
+            {/* Location Box */}
+            <div className="appt-direct-call-box" style={{ alignItems: 'flex-start' }}>
+              <div className="appt-call-icon-wrap" style={{ marginTop: '2px' }}>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div className="appt-call-copy">
+                <small>Clinic location</small>
+                <div className="appt-location-name">
+                  Curis Hospitals
+                </div>
+                <p className="appt-location-address">
+                  Sindhubhavan Road, Bodakdev, Ahmedabad, Gujarat 380054
+                </p>
+                <a
+                  href="https://maps.app.goo.gl/v94sN3JMwJMwKZYi6?g_st=iw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="appt-location-map-btn"
+                  title="Open Curis Hospitals in Google Maps"
+                >
+                  <span>Open in Google Maps</span>
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Location in Map Box */}
+            <div className="appt-map-card">
+              <div className="appt-map-header">
+                <div className="appt-map-header-left">
+                  <span className="appt-map-header-dot"></span>
+                  <span className="appt-map-header-title">Location Map</span>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/v94sN3JMwJMwKZYi6?g_st=iw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="appt-map-directions-link"
+                  title="Get directions to Curis Hospitals"
+                >
+                  <span>Directions</span>
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+              <div className="appt-map-frame-container">
+                <iframe
+                  title="Curis Hospitals Location Map"
+                  src="https://maps.google.com/maps?q=Curis%20Hospitals,%20Sindhubhavan%20Road,%20Bodakdev,%20Ahmedabad,%20Gujarat%20380054&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, display: 'block' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
           </aside>
 
           {/* RIGHT COLUMN: Senior-Level Form Card / Success Receipt */}

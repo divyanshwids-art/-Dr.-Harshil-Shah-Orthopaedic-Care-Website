@@ -116,6 +116,112 @@
   color: #146c72 !important;
 }
 
+/* Left column email & location additions */
+.appt-email-link {
+  font-size: 14.5px !important;
+  word-break: break-all;
+}
+
+.appt-location-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0c3e44;
+  margin-top: 2px;
+}
+
+.appt-location-address {
+  font-size: 12.5px;
+  color: #4b636e;
+  line-height: 1.45;
+  margin: 3px 0 6px;
+}
+
+.appt-location-map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #146c72;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.appt-location-map-btn:hover {
+  color: #0c3e44;
+  gap: 6px;
+}
+
+/* Map Card */
+.appt-map-card {
+  background: #eaf6f6 !important;
+  border: 1px solid #c5e8e8 !important;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.25s ease;
+}
+
+.appt-map-card:hover {
+  border-color: #146c72 !important;
+}
+
+.appt-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.appt-map-header-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.appt-map-header-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #146c72;
+  display: inline-block;
+}
+
+.appt-map-header-title {
+  font-size: 12px;
+  font-weight: 750;
+  color: #0c3e44;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.appt-map-directions-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #146c72;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.appt-map-directions-link:hover {
+  color: #0c3e44;
+  gap: 6px;
+}
+
+.appt-map-frame-container {
+  width: 100%;
+  height: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(20, 108, 114, 0.18);
+  background: #d6efef;
+}
+
 /* ── RIGHT COLUMN: form card stays white (clean contrast on off-white bg) ── */
 .appt-card-surface {
   background: #ffffff !important;
@@ -265,7 +371,8 @@
 
   .appt-doctor-card,
   .appt-workflow-card,
-  .appt-direct-call-box {
+  .appt-direct-call-box,
+  .appt-map-card {
     padding: 16px 14px !important;
     border-radius: 14px !important;
   }

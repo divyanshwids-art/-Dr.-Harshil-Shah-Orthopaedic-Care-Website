@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
 
         {/* Explore Col */}
-        <div className="footer-nav-col">
+        <div className="footer-nav-col footer-explore-col">
           <p className="footer-label">Explore</p>
           <Link to="/about">About Dr. Harshil Shah</Link>
           <Link to="/treatments">Treatments</Link>
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
 
         {/* Patient Help Col */}
-        <div className="footer-nav-col">
+        <div className="footer-nav-col footer-help-col">
           <p className="footer-label">Patient Help</p>
           <Link to="/appointment">Contact & Book Appointment</Link>
           <Link to="/faq">Common questions</Link>

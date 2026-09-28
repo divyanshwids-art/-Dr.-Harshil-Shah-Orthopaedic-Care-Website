@@ -57,11 +57,31 @@ const testimonialItems = [
   { quote: '[details dalna baki he]', label: 'Sports Injury Patient', detail: '[details dalna baki he]' }
 ];
 
-const treatmentItems = [
-  { title: 'Knee Care', image: '/first.png', text: 'Ligament injuries, meniscus tears, arthritis, ACL reconstruction (all graft options + LET), robotic & muscle-sparing day-care replacement' },
-  { title: 'Hip Care', image: '/secound.png', text: 'AVN, sports-related hip pain, FAI (cam/pincer), muscle-sparing anterior approach, day-care & robotic replacement' },
-  { title: 'Shoulder Care', image: '/three.png', text: 'Arthroscopy, rotator cuff injury, frozen shoulder, recurrent dislocation/instability, reverse shoulder replacement' },
-  { title: 'Sports Injuries', image: '/four.png', text: 'Targeted care for ligament, muscle, and joint injuries to help you return to sport safely and confidently.' }
+const expertiseItems = [
+  {
+    num: '01',
+    title: 'Knee Care',
+    link: '/treatments#knee',
+    text: 'Ligament injuries, meniscus tears, arthritis, ACL reconstruction (all graft options + LET), robotic & muscle-sparing day-care replacement.'
+  },
+  {
+    num: '02',
+    title: 'Sports Injuries',
+    link: '/treatments#knee',
+    text: 'Targeted care for ligament, muscle, and joint injuries to help you return to sport safely and confidently.'
+  },
+  {
+    num: '03',
+    title: 'Shoulder Care',
+    link: '/treatments#shoulder',
+    text: 'Arthroscopy, rotator cuff injury, frozen shoulder, recurrent dislocation/instability, reverse shoulder replacement.'
+  },
+  {
+    num: '04',
+    title: 'Hip Care',
+    link: '/treatments#hip',
+    text: 'AVN, sports-related hip pain, FAI (femoroacetabular impingement), muscle-sparing anterior approach, day-care & robotic replacement.'
+  }
 ];
 
 const aboutFocusItems = [
@@ -179,93 +199,6 @@ function CampSlideshow({ photos, onPhotoClick }) {
   );
 }
 
-function TreatmentMobileSlideshow({ items }) {
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const [touchStartX, setTouchStartX] = useState(null);
-  const [touchEndX, setTouchEndX] = useState(null);
-
-  const prevSlide = () => {
-    setCurrentIdx((prev) => (prev === 0 ? items.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentIdx((prev) => (prev === items.length - 1 ? 0 : prev + 1));
-  };
-
-  const handleTouchStart = (e) => {
-    setTouchEndX(null);
-    setTouchStartX(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEndX(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartX === null || touchEndX === null) return;
-    const distance = touchStartX - touchEndX;
-    if (distance > 45) {
-      nextSlide();
-    } else if (distance < -45) {
-      prevSlide();
-    }
-  };
-
-  return (
-    <div
-      className="about-treatment-mobile-slider"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
-      <div className="about-treatment-slider-stage">
-        <div className="about-treatment-card about-treatment-slide-active" key={`treatment-slide-${currentIdx}`}>
-          <img
-            src={items[currentIdx].image}
-            alt={items[currentIdx].title}
-            className="about-treatment-card-img"
-          />
-        </div>
-      </div>
-
-      <div className="about-treatment-slider-controls">
-        <button
-          type="button"
-          className="about-treatment-slider-btn prev"
-          onClick={prevSlide}
-          aria-label="Previous treatment"
-        >
-          ‹
-        </button>
-
-        <span className="about-treatment-slider-indicator">
-          {currentIdx + 1} / {items.length}
-        </span>
-
-        <button
-          type="button"
-          className="about-treatment-slider-btn next"
-          onClick={nextSlide}
-          aria-label="Next treatment"
-        >
-          ›
-        </button>
-      </div>
-
-      <div className="about-treatment-slider-dots">
-        {items.map((item, idx) => (
-          <button
-            key={item.title}
-            type="button"
-            className={`about-treatment-slider-dot ${idx === currentIdx ? 'active' : ''}`}
-            onClick={() => setCurrentIdx(idx)}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function AboutPage() {
   const [selectedExperience, setSelectedExperience] = useState(0);
@@ -278,7 +211,7 @@ export default function AboutPage() {
       <section className="mock-hero" aria-label="Hero Banner">
         <div className="mock-hero-media">
           <img
-            src="/a7675ee9-feed-4c23-a637-a0aaf4665117.png"
+            src="/a7675ee9-feed-4c23-a637-a0aaf4665117.jpeg"
             alt="Dr. Harshil Shah - Expert Orthopaedic Surgeon"
             className="mock-hero-full-image"
             loading="eager"
@@ -358,9 +291,7 @@ export default function AboutPage() {
                     <button
                       type="button"
                       className={`about-experience-selector${isSelected ? ' is-active' : ''}`}
-                      onMouseEnter={() => setSelectedExperience(index)}
-                      onFocus={() => setSelectedExperience(index)}
-                      onClick={() => setSelectedExperience(isSelected ? -1 : index)}
+                      onClick={() => setSelectedExperience(index)}
                       aria-pressed={isSelected}
                       aria-expanded={isSelected}
                     >
@@ -431,21 +362,62 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="about-treatment-section">
+      <section className="about-treatment-section" aria-label="My Expertise">
         <div className="shell">
-          <h2 className="section-title">My Expertise</h2>
-          <p className="section-subtitle">Comprehensive orthopaedic care for better movement, strength and quality of life.</p>
+          <div className="about-expertise-header">
 
-          <div className="about-treatment-grid">
-            {treatmentItems.map((item) => (
-              <div key={item.title} className="about-treatment-card">
-                <img src={item.image} alt={item.title} className="about-treatment-card-img" />
-              </div>
-            ))}
+            <h2 className="section-title">My Expertise</h2>
           </div>
 
-          {/* Mobile Slideshow: 1 image at a time */}
-          <TreatmentMobileSlideshow items={treatmentItems} />
+          <div className="about-expertise-container">
+            <div className="about-expertise-row">
+              {expertiseItems.slice(0, 2).map((item) => (
+                <div key={item.title} className="about-expertise-card">
+                  <div className="about-expertise-card-header">
+                    <span className="about-expertise-num">{item.num}</span>
+                    <span className="about-expertise-divider-vert" aria-hidden="true"></span>
+                    <h3 className="about-expertise-title">{item.title}</h3>
+                  </div>
+                  <p className="about-expertise-desc">{item.text}</p>
+                  <Link to={item.link} className="about-expertise-link">
+                    <span className="about-expertise-link-text">LEARN MORE</span>
+                    <span className="about-expertise-link-line" aria-hidden="true"></span>
+                    <span className="about-expertise-link-icon" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </span>
+                  </Link>
+                </div>
+              ))}
+            </div>
+
+            <div className="about-expertise-row-separator" aria-hidden="true"></div>
+
+            <div className="about-expertise-row">
+              {expertiseItems.slice(2, 4).map((item) => (
+                <div key={item.title} className="about-expertise-card">
+                  <div className="about-expertise-card-header">
+                    <span className="about-expertise-num">{item.num}</span>
+                    <span className="about-expertise-divider-vert" aria-hidden="true"></span>
+                    <h3 className="about-expertise-title">{item.title}</h3>
+                  </div>
+                  <p className="about-expertise-desc">{item.text}</p>
+                  <Link to={item.link} className="about-expertise-link">
+                    <span className="about-expertise-link-text">LEARN MORE</span>
+                    <span className="about-expertise-link-line" aria-hidden="true"></span>
+                    <span className="about-expertise-link-icon" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </span>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

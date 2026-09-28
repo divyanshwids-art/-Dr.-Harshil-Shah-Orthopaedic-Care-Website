@@ -296,18 +296,19 @@ export default function Header() {
             {mobileGalleryOpen && (
               <div className="mobile-nav-sublinks">
                 <Link to="/operation-theatre" onClick={() => setMobileMenuOpen(false)}>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                     <rect x="2" y="4" width="20" height="16" rx="3" />
                     <polygon points="10 8 16 12 10 16 10 8" fill="#146c72" />
                   </svg>
-                  Surgical &amp; OT Videos <span className="mobile-pdf-pill" style={{ background: '#146c72', color: '#fff' }}>VIDEOS</span>
+                  <span>Surgical &amp; OT Videos</span>
+                  <span className="mobile-pdf-pill" style={{ background: '#146c72', color: '#fff' }}>VIDEOS</span>
                 </Link>
                 <Link to="/gallery" onClick={() => setMobileMenuOpen(false)}>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#146c72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                     <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
                     <circle cx="12" cy="13" r="4" />
                   </svg>
-                  All Moments
+                  <span>All Moments</span>
                 </Link>
 
               </div>

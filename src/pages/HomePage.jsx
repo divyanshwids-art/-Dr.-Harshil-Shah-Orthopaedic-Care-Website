@@ -113,7 +113,7 @@ export default function HomePage() {
       <section className="mock-hero" aria-label="Hero Banner">
         <div className="mock-hero-media">
           <img
-            src="/a7675ee9-feed-4c23-a637-a0aaf4665117.png"
+            src="/a7675ee9-feed-4c23-a637-a0aaf4665117.jpeg"
             alt="Dr. Harshil Shah - Expert Orthopaedic Surgeon"
             className="mock-hero-full-image"
             loading="eager"
@@ -569,77 +569,156 @@ Using modern surgical methods and proper pain control, the goal is to help you s
           ========================================================================= */}
       <section className="mock-brochures-section" id="brochures" aria-label="Useful Information">
         <div className="mock-shell">
-          <div className="mock-brochures-layout">
-            <div className="mock-brochures-left">
+          <div className="mock-section-header">
+            <div className="mock-section-header-left">
               <h2 className="mock-title">Brochures for Better Understanding</h2>
-              <p>
+              <p className="mock-subtitle">
                 I believe informed patients make confident decisions. These simple guides explain common orthopaedic problems, treatment choices, and what recovery can look like.
               </p>
             </div>
+            <Link to="/brochures" className="mock-btn-outline">
+              <span>View All Brochures &rarr;</span>
+            </Link>
+          </div>
 
-            <div className="mock-brochures-grid">
-              <div className="mock-guide-card">
-                <img
-                  src="/knee-care-card.jpg"
-                  alt="Knee Replacement Patient Guide"
-                  className="mock-guide-cover-img"
-                  loading="lazy"
-                />
-                <div className="mock-guide-body">
-                  <h3 className="mock-guide-title">Understanding Knee Replacement</h3>
-                  <p className="mock-guide-desc">Joint care, recovery steps, and what to expect after surgery.</p>
-                  <a href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf" download="Understanding_Knee_Replacement_Guide.pdf" className="mock-guide-dl-btn" title="Download Knee Replacement Guide">
-                    <span>Download PDF</span>
-                  </a>
+          <div className="mock-brochures-grid">
+            {/* Card 1: Knee Replacement */}
+            <div className="mock-guide-card">
+              <div className="mock-guide-card-header">
+                <div className="mock-guide-icon-box">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
                 </div>
+                <span className="mock-guide-badge">Knee Care</span>
               </div>
-
-              <div className="mock-guide-card">
-                <img
-                  src="/hip-care-card.jpg"
-                  alt="Hip Replacement Patient Guide"
-                  className="mock-guide-cover-img"
-                  loading="lazy"
-                />
-                <div className="mock-guide-body">
-                  <h3 className="mock-guide-title">Understanding Hip Replacement</h3>
-                  <p className="mock-guide-desc">Simple guidance on treatment, recovery planning, and daily movement.</p>
-                  <a href="/galleri/brochure/02_Understanding_Hip_Replacement_Guide_Dr_Harshil_Shah.pdf" download="Understanding_Hip_Replacement_Guide.pdf" className="mock-guide-dl-btn" title="Download Hip Replacement Guide">
-                    <span>Download PDF</span>
-                  </a>
-                </div>
+              <div className="mock-guide-content">
+                <h3 className="mock-guide-title">Understanding Knee Replacement</h3>
+                <p className="mock-guide-desc">Joint care, recovery steps, and what to expect after surgery.</p>
               </div>
-
-              <div className="mock-guide-card">
-                <img
-                  src="/sports-injuries-card.png"
-                  alt="Sports Injuries & Arthroscopy Patient Guide"
-                  className="mock-guide-cover-img"
-                  loading="lazy"
-                />
-                <div className="mock-guide-body">
-                  <h3 className="mock-guide-title">Sports Injuries &amp; Arthroscopy</h3>
-                  <p className="mock-guide-desc">Understanding keyhole treatment, rehab progress, and return to activity.</p>
-                  <a href="/galleri/brochure/03_Understanding_Sports_Injuries_Arthroscopy_Guide_Dr_Harshil_Shah.pdf" download="Understanding_Sports_Injuries_Arthroscopy_Guide.pdf" className="mock-guide-dl-btn" title="Download Sports Injuries Guide">
-                    <span>Download PDF</span>
-                  </a>
-                </div>
+              <div className="mock-guide-footer">
+                <a
+                  href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf"
+                  download="Understanding_Knee_Replacement_Guide.pdf"
+                  className="mock-guide-dl-btn"
+                  title="Download Knee Replacement Guide"
+                >
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>Download PDF</span>
+                </a>
               </div>
+            </div>
 
-              <div className="mock-guide-card">
-                <img
-                  src="/shoulder-care-new.jpg"
-                  alt="Shoulder Care & Arthroscopy Patient Guide"
-                  className="mock-guide-cover-img"
-                  loading="lazy"
-                />
-                <div className="mock-guide-body">
-                  <h3 className="mock-guide-title">Shoulder Care &amp; Arthroscopy</h3>
-                  <p className="mock-guide-desc">Practical information on pain relief, mobility, and shoulder recovery.</p>
-                  <a href="/galleri/brochure/04_Understand_Your_Knee_Guide_Dr_Harshil_Shah.pdf" download="Understanding_Shoulder_Care_Guide.pdf" className="mock-guide-dl-btn" title="Download Shoulder Care Guide">
-                    <span>Download PDF</span>
-                  </a>
+            {/* Card 2: Hip Replacement */}
+            <div className="mock-guide-card">
+              <div className="mock-guide-card-header">
+                <div className="mock-guide-icon-box">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
                 </div>
+                <span className="mock-guide-badge">Hip Care</span>
+              </div>
+              <div className="mock-guide-content">
+                <h3 className="mock-guide-title">Understanding Hip Replacement</h3>
+                <p className="mock-guide-desc">Simple guidance on treatment, recovery planning, and daily movement.</p>
+              </div>
+              <div className="mock-guide-footer">
+                <a
+                  href="/galleri/brochure/02_Understanding_Hip_Replacement_Guide_Dr_Harshil_Shah.pdf"
+                  download="Understanding_Hip_Replacement_Guide.pdf"
+                  className="mock-guide-dl-btn"
+                  title="Download Hip Replacement Guide"
+                >
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>Download PDF</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 3: Sports Injuries */}
+            <div className="mock-guide-card">
+              <div className="mock-guide-card-header">
+                <div className="mock-guide-icon-box">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
+                </div>
+                <span className="mock-guide-badge">Sports Medicine</span>
+              </div>
+              <div className="mock-guide-content">
+                <h3 className="mock-guide-title">Sports Injuries &amp; Arthroscopy</h3>
+                <p className="mock-guide-desc">Understanding keyhole treatment, rehab progress, and return to activity.</p>
+              </div>
+              <div className="mock-guide-footer">
+                <a
+                  href="/galleri/brochure/03_Understanding_Sports_Injuries_Arthroscopy_Guide_Dr_Harshil_Shah.pdf"
+                  download="Understanding_Sports_Injuries_Arthroscopy_Guide.pdf"
+                  className="mock-guide-dl-btn"
+                  title="Download Sports Injuries Guide"
+                >
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>Download PDF</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 4: Shoulder Care */}
+            <div className="mock-guide-card">
+              <div className="mock-guide-card-header">
+                <div className="mock-guide-icon-box">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
+                </div>
+                <span className="mock-guide-badge">Shoulder Care</span>
+              </div>
+              <div className="mock-guide-content">
+                <h3 className="mock-guide-title">Shoulder Care &amp; Arthroscopy</h3>
+                <p className="mock-guide-desc">Practical information on pain relief, mobility, and shoulder recovery.</p>
+              </div>
+              <div className="mock-guide-footer">
+                <a
+                  href="/galleri/brochure/04_Understand_Your_Knee_Guide_Dr_Harshil_Shah.pdf"
+                  download="Understanding_Shoulder_Care_Guide.pdf"
+                  className="mock-guide-dl-btn"
+                  title="Download Shoulder Care Guide"
+                >
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>Download PDF</span>
+                </a>
               </div>
             </div>
           </div>
