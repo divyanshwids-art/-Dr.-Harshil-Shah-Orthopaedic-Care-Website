@@ -150,29 +150,17 @@ export default function Header() {
               onMouseEnter={() => setBrochureDropdownOpen(true)}
               onMouseLeave={() => setBrochureDropdownOpen(false)}
             >
-              <button
-                type="button"
-                className={`nav-dropdown-trigger nav-brochure-btn ${brochureDropdownOpen ? 'active' : ''} ${location.pathname === '/brochures' ? 'active' : ''}`}
-                onClick={() => setBrochureDropdownOpen((prev) => !prev)}
-                aria-expanded={brochureDropdownOpen}
+              <NavLink
+                to="/brochures"
+                className={({ isActive }) => `nav-dropdown-trigger nav-brochure-btn ${brochureDropdownOpen ? 'active' : ''} ${isActive ? 'active' : ''}`}
               >
                 Brochure
                 <svg className={`nav-arrow-icon ${brochureDropdownOpen ? 'open' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
-              </button>
+              </NavLink>
 
               <div className={`nav-dropdown-menu nav-brochure-menu ${brochureDropdownOpen ? 'is-visible' : ''}`}>
-                <Link
-                  to="/brochures"
-                  className="nav-dropdown-link"
-                  onClick={() => setBrochureDropdownOpen(false)}
-                >
-                  <div>
-                    <strong>All Patient Brochures</strong>
-                  </div>
-                  <span className="dropdown-dl-tag" style={{ background: '#146c72', color: '#ffffff', fontWeight: 800 }}>VIEW</span>
-                </Link>
                 <a
                   href="/galleri/brochure/01_Understanding_Knee_Replacement_Guide_Dr_Harshil_Shah.pdf"
                   target="_blank"

@@ -25118,6 +25118,10 @@ re {
   color: #146c72 !important;
 }
 
+.site-header .desktop-nav .nav-brochure-btn::after {
+  content: none !important;
+}
+
 .site-header .nav-arrow-icon {
   width: 12px;
   height: 12px;
